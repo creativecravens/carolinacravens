@@ -85,7 +85,7 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     position: relative;
-    background-color: var(--navy);
+    background-color: #0a0a0a;
     overflow: hidden;
   }
 
@@ -93,8 +93,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(79,144,205,0.25) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(79,144,205,0.12) 0%, transparent 50%);
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(79,144,205,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(79,144,205,0.08) 0%, transparent 50%);
   }
 
   /* Animated grid lines */
@@ -127,7 +127,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.8rem 4rem;
-    border-bottom: 1px solid rgba(79,144,205,0.3);
+    border-bottom: 1px solid rgba(79,144,205,0.2);
   }
 
   .nav-logo {
@@ -213,14 +213,14 @@
   .hero-name {
     font-size: clamp(3.5rem, 9vw, 7.5rem);
     font-weight: 700;
-    line-height: 0.95;
+    line-height: 1.0;
     color: var(--white);
     letter-spacing: -0.02em;
     margin-bottom: 0.3em;
   }
 
-  .hero-name .line1 { display: block; }
-  .hero-name .line2 { display: block; color: var(--blue); font-style: italic; }
+  .hero-name .line1 { display: inline; }
+  .hero-name .line2 { display: inline; color: var(--blue); font-style: italic; margin-left: 0.15em; }
 
   .char {
     display: inline-block;
@@ -667,7 +667,7 @@
       <span class="line1" id="scrambleLine1">Carolina</span> <span class="line2" id="scrambleLine2">Cravens</span>
     </h1>
     <p class="hero-title">Senior Creative Designer & Brand Strategist — Dallas, TX</p>
-    <p class="hero-statement">Ten-plus years turning brand strategy into polished creative that moves people — across luxury retail, digital marketing, visual merchandising, and beyond. I make brands look like they mean it.</p>
+    <p class="hero-statement">Ten-plus years turning brand strategy into polished creative that moves people across luxury retail, digital marketing, visual merchandising, and beyond. I make brands look like they mean it.</p>
     <div class="hero-cta-row">
       <a href="#contact" class="btn-shimmer btn-shimmer-solid">Let's Work Together</a>
       <a href="https://carolinacravens.com/portfolio" target="_blank" class="btn-shimmer btn-shimmer-outline">View Portfolio →</a>
@@ -693,8 +693,8 @@
       <h2 class="section-heading reveal">The best designer<br>in Dallas, TX.</h2>
       <div class="about-text reveal">
         <p>I'm a bilingual (English & Spanish) creative professional based in <strong>Dallas, TX</strong> with a BFA in Graphic & Web Design and over a decade of experience building brands that people actually remember.</p>
-        <p>My background spans <strong>luxury retail</strong>, consumer marketing, hospitality, and digital experience design — which means I know how to make something feel premium, tell a story that converts, and deliver it fast.</p>
-        <p>I'm not just a designer. I'm the person who bridges creative and business — collaborating with marketing, product, and leadership teams to turn strategy into something you can see.</p>
+        <p>My background spans <strong>luxury retail</strong>, consumer marketing, hospitality, and digital experience design. I know how to make something feel premium, tell a story that converts, and deliver it fast.</p>
+        <p>I'm not just a designer. I'm the person who bridges creative and business, collaborating with marketing, product, and leadership teams to turn strategy into something you can see.</p>
       </div>
     </div>
     <div class="reveal">
