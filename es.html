@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Carolina Cravens — Gerente Senior de Marca y Marketing Digital. Bilingüe, con más de 8 años de experiencia internacional entre Estados Unidos y Costa Rica. Disponible para trabajar en San José, Costa Rica.">
+<meta name="keywords" content="gerente de marca Costa Rica, diseñadora creativa San José, marketing digital Costa Rica, diseñadora gráfica Costa Rica, identidad de marca Costa Rica, Carolina Cravens Costa Rica, diseñadora disponible Costa Rica">
+<meta name="author" content="Carolina Cravens">
+<meta name="robots" content="index, follow">
+<meta name="geo.region" content="CR-SJ">
+<meta name="geo.placename" content="San José, Costa Rica">
+<meta property="og:title" content="Carolina Cravens | Gerente Senior de Marca — San José, Costa Rica">
+<meta property="og:description" content="Bilingüe, más de 8 años de experiencia internacional. +35% interacción, +25% tráfico web, -60% tiempo de producción. Disponible para trabajar en Costa Rica.">
+<meta property="og:url" content="https://creativecravens.com/es">
+<title>Carolina Cravens | Gerente Senior de Marca y Marketing Digital — Costa Rica</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Carolina Cravens",
+  "jobTitle": "Gerente Senior de Marca y Marketing Digital",
+  "url": "https://creativecravens.com/es",
+  "email": "creativecravens@gmail.com",
+  "telephone": "+50688012929",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San José",
+    "addressRegion": "San José",
+    "addressCountry": "CR"
+  },
+  "knowsAbout": ["Estrategia de Marca","Marketing Digital","Diseño Gráfico","Redes Sociales","Diseño UX/UI","Adobe Creative Suite","Inteligencia Artificial"],
+  "sameAs": ["https://linkedin.com/in/carolinacravens","https://carolinacravens.com/portfolio"]
+}
+</script>
+
+<style>
+  :root {
+    --navy: #1F3864;
+    --blue: #4F90CD;
+    --blue-light: #7ab0d9;
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --off-white: #f4f6f9;
+    --mid: #5a6a7a;
+    --rule: #d0dae6;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  .cursor-dot {
+    width: 8px; height: 8px;
+    background: var(--blue);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 99999;
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 99998;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+    transition: width 0.3s, height 0.3s;
+  }
+
+  /* CR FLAG BAR */
+  .cr-bar {
+    height: 6px;
+    background: linear-gradient(90deg,
+      #1F3864 0%, #1F3864 22%,
+      #ffffff 22%, #ffffff 28%,
+      #CE1126 28%, #CE1126 72%,
+      #ffffff 72%, #ffffff 78%,
+      #1F3864 78%, #1F3864 100%
+    );
+    position: relative; z-index: 20;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+    background-color: var(--black);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(79,144,205,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(79,144,205,0.08) 0%, transparent 50%);
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(79,144,205,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,144,205,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+  }
+
+  @keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(60px); }
+  }
+
+  nav {
+    position: relative; z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem 4rem;
+    border-bottom: 1px solid rgba(79,144,205,0.2);
+  }
+
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+
+  .cc-logo {
+    width: 38px; height: 38px;
+    object-fit: contain; flex-shrink: 0;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s;
+  }
+
+  .nav-logo:hover .cc-logo { transform: rotate(10deg) scale(1.1); }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 2px;
+    background: var(--blue);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--blue-light); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .hero-content {
+    position: relative; z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 4rem 2rem;
+    max-width: 1100px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px; height: 2px;
+    background: var(--blue);
+  }
+
+  .hero-name {
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    font-weight: 700;
+    line-height: 1.0;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3em;
+  }
+
+  .name-first {
+    display: inline-block;
+    color: var(--white);
+    clip-path: inset(0 100% 0 0);
+    animation: curtainReveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards 0.2s;
+  }
+
+  .name-last {
+    display: inline-block;
+    color: var(--blue);
+    font-style: italic;
+    clip-path: inset(0 100% 0 0);
+    animation: curtainReveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards 0.55s;
+  }
+
+  @keyframes curtainReveal {
+    0%   { clip-path: inset(0 100% 0 0); }
+    100% { clip-path: inset(0 0% 0 0); }
+  }
+
+  .hero-title {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.6s;
+  }
+
+  .hero-statement {
+    max-width: 560px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.8s;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1s;
+  }
+
+  /* SHIMMER BUTTONS */
+  .btn-shimmer {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: none;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .btn-solid { background: var(--blue); color: var(--white); }
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(79,144,205,0.6); }
+  .btn-whatsapp { background: #25D366; color: var(--white); }
+  .btn-dark { background: var(--navy); color: var(--white); }
+  .btn-dark-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+
+  .btn-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+  }
+
+  .btn-shimmer:hover::before { left: 150%; }
+  .btn-shimmer:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(79,144,205,0.4); }
+  .btn-solid:hover { background: var(--blue-light); }
+  .btn-whatsapp:hover { background: #128C7E; }
+  .btn-dark:hover { background: var(--blue); }
+  .btn-dark-outline:hover { background: var(--navy); color: var(--white); }
+
+  .hero-footer {
+    position: relative; z-index: 10;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(79,144,205,0.2);
+  }
+
+  .hero-stats { display: flex; gap: 3rem; }
+  .stat { opacity: 0; animation: fadeUp 0.8s ease forwards 1.2s; }
+  .stat-number { font-size: 2rem; font-weight: 700; color: var(--blue); line-height: 1; }
+  .stat-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.3rem; }
+
+  .available-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.4s;
+  }
+
+  .available-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #6fcf97;
+    box-shadow: 0 0 10px rgba(111,207,151,0.6);
+    animation: pulse-dot 2s ease infinite;
+  }
+
+  /* RESULTS STRIP */
+  .results-strip {
+    background: var(--navy);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+  }
+
+  .result-item { text-align: center; }
+  .result-number { font-size: 2.5rem; font-weight: 700; color: var(--blue-light); line-height: 1; }
+  .result-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 0.4rem; }
+
+  /* SECTIONS */
+  .section { background-color: #ffffff; padding: 8rem 4rem; max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after { content: ''; flex: 1; height: 2px; background: var(--rule); max-width: 60px; }
+
+  .section-heading { font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 2rem; color: var(--navy); }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-text p { font-size: 1rem; line-height: 1.85; color: var(--mid); margin-bottom: 1.5rem; }
+  .about-text p strong { color: var(--navy); font-weight: 700; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 2px solid var(--rule); margin-top: 1rem; }
+  .skill-item { padding: 1.2rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); transition: background 0.3s; cursor: none; }
+  .skill-item:hover { background: var(--off-white); }
+  .skill-item:nth-child(3n) { border-right: none; }
+  .skill-name { font-size: 0.75rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
+  .skill-detail { font-size: 0.65rem; color: var(--mid); }
+
+  /* SERVICES */
+  .services-section { background-color: var(--navy); padding: 8rem 4rem; }
+  .services-inner { max-width: 1200px; margin: 0 auto; }
+  .services-inner .section-heading { color: var(--white); }
+  .services-inner .section-label { color: var(--blue-light); }
+  .services-inner .section-label::after { background: rgba(79,144,205,0.3); }
+
+  .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(79,144,205,0.2); margin-top: 3rem; border: 2px solid rgba(79,144,205,0.2); }
+
+  .service-card { background-color: var(--navy); padding: 3rem; position: relative; transition: background 0.3s, transform 0.3s; cursor: none; }
+  .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--blue); transition: width 0.4s; }
+  .service-card:hover::after { width: 100%; }
+  .service-card:hover { background-color: rgba(79,144,205,0.1); transform: translateY(-4px); }
+
+  .service-number { font-size: 3rem; font-weight: 700; color: rgba(79,144,205,0.2); line-height: 1; margin-bottom: 1rem; }
+  .service-title { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 0.8rem; }
+  .service-desc { font-size: 0.85rem; line-height: 1.8; color: rgba(255,255,255,0.55); }
+
+  /* EXPERIENCE */
+  .exp-section { padding: 6rem 4rem; max-width: 1200px; margin: 0 auto; background: #ffffff; }
+  .exp-list { margin-top: 3rem; border-top: 2px solid var(--rule); }
+
+  .exp-item { display: grid; grid-template-columns: 200px 1fr auto; gap: 2rem; align-items: start; padding: 2.5rem 0; border-bottom: 1px solid var(--rule); transition: padding-left 0.3s; background: #ffffff; cursor: none; }
+  .exp-item:hover { padding-left: 1.5rem; background: linear-gradient(90deg, rgba(79,144,205,0.05) 0%, #ffffff 100%); }
+  .exp-period { font-size: 0.65rem; letter-spacing: 0.1em; color: #8a9aaa; padding-top: 0.3rem; text-transform: uppercase; }
+  .exp-role { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+  .exp-company { font-size: 0.75rem; color: var(--blue); letter-spacing: 0.08em; text-transform: uppercase; }
+  .exp-bullets { margin-top: 0.6rem; padding-left: 1rem; }
+  .exp-bullets li { font-size: 0.85rem; color: var(--mid); line-height: 1.7; margin-bottom: 0.3rem; }
+
+  .exp-tag { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 0.8rem; border: 2px solid var(--blue); color: var(--blue); background: #ffffff; font-weight: 700; white-space: nowrap; transition: background 0.3s, color 0.3s; }
+  .exp-item:hover .exp-tag { background: var(--blue); color: var(--white); }
+
+  /* CONTACT */
+  .contact-section { background-color: var(--off-white); padding: 8rem 4rem; text-align: center; }
+  .contact-inner { max-width: 700px; margin: 0 auto; }
+  .contact-heading { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: var(--navy); }
+  .contact-heading span { color: var(--blue); }
+  .contact-subtext { font-size: 1rem; line-height: 1.8; color: var(--mid); margin-bottom: 3rem; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+
+  .contact-details-row { display: flex; justify-content: center; gap: 3rem; padding-top: 2rem; border-top: 2px solid var(--rule); flex-wrap: wrap; }
+  .contact-detail { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-align: center; }
+  .contact-detail strong { font-size: 0.9rem; font-weight: 700; color: var(--navy); letter-spacing: 0; text-transform: none; }
+
+  /* FOOTER */
+  footer { background-color: var(--black); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-left { display: flex; align-items: center; gap: 0.8rem; }
+  .footer-logo-img { width: 28px; height: 28px; object-fit: contain; filter: brightness(0) invert(0.3); }
+  .footer-logo { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+  .footer-copy { font-size: 0.6rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.3); } }
+
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    body { cursor: auto; }
+    .cursor-dot, .cursor-ring { display: none; }
+    nav { padding: 1.5rem; }
+    nav .nav-links { display: none; }
+    .hero-content { padding: 3rem 1.5rem 2rem; }
+    .hero-footer { padding: 1.5rem; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+    .hero-stats { gap: 2rem; }
+    .section, .exp-section { padding: 5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-section { padding: 5rem 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .contact-section { padding: 5rem 1.5rem; }
+    .contact-details-row { flex-direction: column; gap: 1.5rem; }
+    .results-strip { gap: 2rem; padding: 2rem 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cr-bar"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="logo.png" class="cc-logo" alt="Carolina Cravens Logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre-mi">Sobre Mí</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="https://carolinacravens.com/portfolio" target="_blank">Portafolio</a></li>
+      <li><a href="#contacto">Contáctame</a></li>
+      <li><a href="index.html" style="color:#4F90CD;border:1px solid rgba(79,144,205,0.5);padding:0.3rem 0.8rem;font-weight:700;">🇺🇸 EN</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">San José, Costa Rica · Disponible para trabajar</div>
+    <h1 class="hero-name">
+      <span class="name-first">Carolina</span><span class="name-last"> Cravens</span>
+    </h1>
+    <p class="hero-title">Gerente Senior de Marca y Marketing Digital — Bilingüe</p>
+    <p class="hero-statement">Más de 8 años de experiencia internacional entre Estados Unidos y Costa Rica. Especialista en transformación digital, inteligencia artificial y desarrollo de marcas de alto impacto. Lista para sumar al equipo correcto en Costa Rica.</p>
+    <div class="hero-cta-row">
+      <a href="https://wa.me/50688012929" target="_blank" class="btn-shimmer btn-whatsapp">💬 WhatsApp</a>
+      <a href="#contacto" class="btn-shimmer btn-solid">Contáctame</a>
+      <a href="https://carolinacravens.com/cv" target="_blank" class="btn-shimmer btn-outline">Ver CV →</a>
+    </div>
+  </div>
+
+  <div class="hero-footer">
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-number">8+</div><div class="stat-label">Años de Experiencia</div></div>
+      <div class="stat"><div class="stat-number">35%</div><div class="stat-label">Más Interacción</div></div>
+      <div class="stat"><div class="stat-number">60%</div><div class="stat-label">Menos Tiempo Producción</div></div>
+    </div>
+    <div class="available-badge"><span class="available-dot"></span>Disponible Inmediatamente · CR / Remoto</div>
+  </div>
+</section>
+
+<!-- RESULTS STRIP -->
+<div class="results-strip reveal">
+  <div class="result-item">
+    <div class="result-number">+35%</div>
+    <div class="result-label">Interacción con Audiencia</div>
+  </div>
+  <div class="result-item">
+    <div class="result-number">+25%</div>
+    <div class="result-label">Tráfico Web</div>
+  </div>
+  <div class="result-item">
+    <div class="result-number">-60%</div>
+    <div class="result-label">Tiempo de Producción</div>
+  </div>
+  <div class="result-item">
+    <div class="result-number">2</div>
+    <div class="result-label">Países, Una Visión</div>
+  </div>
+</div>
+
+<!-- SOBRE MÍ -->
+<section class="section" id="sobre-mi">
+  <div class="section-label">Quién Soy</div>
+  <div class="about-grid">
+    <div>
+      <h2 class="section-heading reveal">Tica con experiencia<br>internacional de alto nivel.</h2>
+      <div class="about-text reveal">
+        <p>Soy Carolina Cravens, una profesional costarricense bilingüe con más de <strong>8 años de experiencia internacional</strong> entre Estados Unidos y Costa Rica. Viví y trabajé en Dallas, Texas durante la última década, desarrollando marcas de lujo y liderando transformaciones digitales.</p>
+        <p>Hoy estoy lista para <strong>regresar a Costa Rica</strong> y aportar todo ese conocimiento internacional al mercado local. Mi enfoque combina creatividad estratégica, dominio de herramientas de inteligencia artificial y resultados medibles para empresas que quieren crecer.</p>
+        <p>Si su empresa necesita una Gerente de Marca que hable el idioma del negocio costarricense y traiga perspectiva internacional, <strong>hablemos hoy.</strong></p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-label" style="margin-bottom:1.5rem;">Competencias Clave</div>
+      <div class="skills-grid">
+        <div class="skill-item"><div class="skill-name">Estrategia de Marca</div><div class="skill-detail">Identidad · Posicionamiento</div></div>
+        <div class="skill-item"><div class="skill-name">Marketing Digital</div><div class="skill-detail">SEO · SEM · Redes Sociales</div></div>
+        <div class="skill-item"><div class="skill-name">Diseño Gráfico</div><div class="skill-detail">Adobe Suite · Figma · Canva</div></div>
+        <div class="skill-item"><div class="skill-name">eCommerce</div><div class="skill-detail">Campañas · Visuales · UX</div></div>
+        <div class="skill-item"><div class="skill-name">Inteligencia Artificial</div><div class="skill-detail">Firefly · Midjourney · ChatGPT</div></div>
+        <div class="skill-item"><div class="skill-name">Análisis de Datos</div><div class="skill-detail">Google Analytics · Meta Ads</div></div>
+        <div class="skill-item"><div class="skill-name">Gestión de Proyectos</div><div class="skill-detail">Wrike · Monday · HubSpot</div></div>
+        <div class="skill-item"><div class="skill-name">Diseño UX/UI</div><div class="skill-detail">WordPress · HTML · CSS</div></div>
+        <div class="skill-item"><div class="skill-name">Bilingüe</div><div class="skill-detail">Español (Nativo) · Inglés (Nativo)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="services-section" id="servicios">
+  <div class="services-inner">
+    <div class="section-label">Lo Que Ofrezco</div>
+    <h2 class="section-heading reveal">Resultados reales<br>para marcas costarricenses.</h2>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-number">01</div>
+        <div class="service-title">Gerencia de Marca</div>
+        <p class="service-desc">Desarrollo y gestión de identidad de marca completa. Guías visuales, sistemas de diseño y estrategia de comunicación alineada con los objetivos del negocio.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-number">02</div>
+        <div class="service-title">Marketing Digital Estratégico</div>
+        <p class="service-desc">Campañas en redes sociales, email marketing, SEO/SEM y publicidad digital diseñadas para aumentar tráfico, interacción y conversiones reales.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-number">03</div>
+        <div class="service-title">Transformación Digital con IA</div>
+        <p class="service-desc">Implementación de herramientas de inteligencia artificial para reducir tiempos de producción hasta un 60% y acelerar la entrega de contenido de calidad.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-number">04</div>
+        <div class="service-title">Diseño Creativo Multicanal</div>
+        <p class="service-desc">Diseño gráfico, UI/UX y producción visual para campañas digitales, sitios web, materiales de ventas y experiencias de marca consistentes en todos los canales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section class="exp-section" id="experiencia">
+  <div class="section-label">Experiencia Profesional</div>
+  <h2 class="section-heading reveal">Resultados comprobados<br>en dos países.</h2>
+  <div class="exp-list">
+
+    <div class="exp-item reveal">
+      <div class="exp-period">2024 – Presente</div>
+      <div>
+        <div class="exp-role">Gerente de Marca</div>
+        <div class="exp-company">APTS Centro Colón · San José, Costa Rica (Remoto)</div>
+        <ul class="exp-bullets">
+          <li>Liderazgo de la transformación digital e implementación de herramientas de IA en operaciones de Costa Rica.</li>
+          <li>Desarrollo de identidad de marca bilingüe y campañas orientadas al mercado centroamericano e internacional.</li>
+        </ul>
+      </div>
+      <div class="exp-tag">Consultoría</div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-period">2025</div>
+      <div>
+        <div class="exp-role">Gerente de Programa</div>
+        <div class="exp-company">Lane Gang Capital · Dallas, TX</div>
+        <ul class="exp-bullets">
+          <li>Aumento del +35% en interacción con audiencia y +25% en tráfico web mediante campañas digitales estratégicas.</li>
+          <li>Coordinación de equipos multifuncionales y programas de marketing multicanal.</li>
+        </ul>
+      </div>
+      <div class="exp-tag">Contrato</div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-period">2022 – 2025</div>
+      <div>
+        <div class="exp-role">Especialista en Marketing Creativo</div>
+        <div class="exp-company">Pacific Northern, Inc. · Dallas, TX</div>
+        <ul class="exp-bullets">
+          <li>Ejecución de campañas integradas de eCommerce, marketing de contenidos e identidad de marca.</li>
+          <li>Reducción del tiempo de producción creativa en un 60% mediante flujos de trabajo asistidos por IA.</li>
+        </ul>
+      </div>
+      <div class="exp-tag">Tiempo Completo</div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-period">2021 – 2023</div>
+      <div>
+        <div class="exp-role">Diseñadora UX / UI</div>
+        <div class="exp-company">DuoWeb Design Studio · Remoto</div>
+        <ul class="exp-bullets">
+          <li>Diseño de interfaces web y móviles para clientes en Estados Unidos y Centroamérica.</li>
+        </ul>
+      </div>
+      <div class="exp-tag">Tiempo Completo</div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-period">2019 – Presente</div>
+      <div>
+        <div class="exp-role">Diseñadora Gráfica y Web Independiente</div>
+        <div class="exp-company">Cuenta Propia · Remoto</div>
+        <ul class="exp-bullets">
+          <li>Identidad de marca, sitios web y materiales de marketing para empresas en Costa Rica y Estados Unidos.</li>
+        </ul>
+      </div>
+      <div class="exp-tag">Continuo</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact-section" id="contacto">
+  <div class="contact-inner">
+    <div style="text-align:center;margin-bottom:1.5rem;">
+      <span style="display:inline-flex;align-items:center;gap:1rem;font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:#4F90CD;">
+        <span style="display:block;width:40px;height:2px;background:#4F90CD;"></span>
+        Contrátame
+        <span style="display:block;width:40px;height:2px;background:#4F90CD;"></span>
+      </span>
+    </div>
+    <h2 class="contact-heading reveal">¿Su empresa necesita<br><span>una gerente de marca?</span></h2>
+    <p class="contact-subtext reveal">Estoy lista para regresar a Costa Rica y aportar mi experiencia internacional a su equipo. Escríbame por WhatsApp, LinkedIn o correo electrónico y conversamos.</p>
+    <div class="contact-links reveal">
+      <a href="https://wa.me/50688012929" target="_blank" class="btn-shimmer btn-whatsapp">💬 WhatsApp +506 8801-2929</a>
+      <a href="mailto:creativecravens@gmail.com" class="btn-shimmer btn-dark">Correo Electrónico</a>
+      <a href="https://linkedin.com/in/carolinacravens" target="_blank" class="btn-shimmer btn-dark-outline">LinkedIn →</a>
+    </div>
+    <div class="contact-details-row reveal">
+      <div class="contact-detail"><span>Ubicación Actual</span><strong>Dallas, TX (EE.UU.)</strong></div>
+      <div class="contact-detail"><span>Disponible en CR</span><strong>San José, Costa Rica</strong></div>
+      <div class="contact-detail"><span>WhatsApp CR</span><strong>+506 8801-2929</strong></div>
+      <div class="contact-detail"><span>Modalidad</span><strong>Presencial · Remoto · Híbrido</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <img src="logo.png" class="footer-logo-img" alt="CC Logo">
+    <span class="footer-logo">Carolina Cravens</span>
+  </div>
+  <div class="footer-copy">© 2026 · San José, Costa Rica · Gerente Senior de Marca</div>
+</footer>
+
+<script>
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+if (!isMobile) {
+  var dot = document.getElementById('cursorDot');
+  var ring = document.getElementById('cursorRing');
+  var mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX; mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, .skill-item, .service-card, .exp-item').forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      ring.style.width = '60px'; ring.style.height = '60px';
+      ring.style.borderColor = '#7ab0d9'; ring.style.opacity = '1';
+      dot.style.transform = 'translate(-50%, -50%) scale(2)';
+      dot.style.background = '#7ab0d9';
+    });
+    el.addEventListener('mouseleave', function() {
+      ring.style.width = '36px'; ring.style.height = '36px';
+      ring.style.borderColor = '#4F90CD'; ring.style.opacity = '0.6';
+      dot.style.transform = 'translate(-50%, -50%) scale(1)';
+      dot.style.background = '#4F90CD';
+    });
+  });
+}
+
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>
