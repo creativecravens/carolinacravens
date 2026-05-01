@@ -3,657 +3,710 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Carolina Cravens — Fine Artist. International Gold Medal winner. Painter and visual artist based in Dallas, TX. Original works spanning acrylic, digital art, and mixed media.">
-<meta name="keywords" content="Carolina Cravens artist, fine art Dallas TX, painter Dallas, international gold medal art, Costa Rica artist, abstract art Dallas, digital art Carolina Cravens">
+<meta name="description" content="Carolina Cravens — Latina fine artist from Costa Rica based in Dallas, TX. International Gold Medal winner Osaka Japan. Original paintings, exhibitions, commissions. Artista costarricense en Dallas Texas.">
+<meta name="keywords" content="Latina artist Dallas Texas, Costa Rica artist Dallas, artista costarricense Dallas, fine art exhibitions Dallas TX, Latin American artist Dallas, Carolina Cravens artist, art commissions Dallas, abstract painter Costa Rica, international award winning artist, art exhibitions Dallas Texas, artista latina Dallas, Costa Rica fine art, Dallas latina painter, art gallery Dallas TX, costarricense artista internacional">
 <meta name="author" content="Carolina Cravens">
-<title>Carolina Cravens | Atelier — International Award-Winning Artist</title>
-
+<title>Carolina Cravens | Atelier — Latina Artist from Costa Rica · Exhibitions Dallas TX & Costa Rica</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VisualArtist",
+  "name": "Carolina Cravens",
+  "description": "Latina fine artist from Costa Rica based in Dallas TX. International Gold Medal winner. Original paintings, digital art, exhibitions and commissions.",
+  "url": "https://creativecravens.com/art.html",
+  "email": "creativecravens@gmail.com",
+  "telephone": "+1-469-438-4450",
+  "nationality": "Costa Rican",
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Fine Artist"
+  },
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "addressLocality": "Dallas",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    {
+      "@type": "PostalAddress",
+      "addressLocality": "San José",
+      "addressRegion": "San José",
+      "addressCountry": "CR"
+    }
+  ],
+  "award": [
+    "Gold Medal - Certamen Internacional de Arte Infantil, Osaka Japan",
+    "Silver Medal - Certamen Internacional de Arte Infantil, Osaka Japan",
+    "National Painting Award - Concurso Jiménez & Tanzi, Costa Rica",
+    "2x Menciones de Honor - Concurso Nacional de Pintura y Dibujo, Costa Rica"
+  ],
+  "sameAs": [
+    "https://linkedin.com/in/carolinacravens",
+    "https://carolinacravens.com/portfolio"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: #000000;
-    color: #ffffff;
-    font-family: 'DM Sans', Arial, sans-serif;
-    overflow-x: hidden;
-    cursor: none;
-  }
-
-  /* CURSOR */
-  .cursor-dot {
-    width: 6px; height: 6px;
-    background: #ffffff;
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 99999;
-    transform: translate(-50%, -50%);
-    transition: background 0.3s;
-  }
-
-  .cursor-ring {
-    width: 32px; height: 32px;
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 50%;
-    position: fixed; top: 0; left: 0;
-    pointer-events: none; z-index: 99998;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s, height 0.4s, border-color 0.3s;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 4rem;
-    background: linear-gradient(180deg, rgba(8,8,8,0.95) 0%, transparent 100%);
-    backdrop-filter: blur(10px);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    text-decoration: none;
-  }
-
-  .nav-logo img {
-    width: 32px; height: 32px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-  }
-
-  .nav-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    color: rgba(255,255,255,0.8);
-    text-transform: uppercase;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover { color: #ffffff; }
-
-  .nav-links a.active {
-    color: #ffffff;
-    border-bottom: 1px solid rgba(255,255,255,0.4);
-    padding-bottom: 2px;
-  }
-
-  /* HERO */
-  .art-hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    padding: 8rem 4rem 4rem;
-  }
-
-  /* Animated gradient bg */
-  .art-hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 40%, rgba(120,0,180,0.3) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 80% at 80% 20%, rgba(0,80,200,0.25) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 50% at 60% 80%, rgba(180,0,80,0.2) 0%, transparent 60%);
-    animation: bgShift 12s ease-in-out infinite alternate;
-  }
-
-  @keyframes bgShift {
-    0%   { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(40deg); }
-  }
-
-  .hero-eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 2;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards 0.3s;
-  }
-
-  .art-hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 8vw, 7rem);
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 0.2em;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards 0.5s;
-  }
-
-  .art-hero h1 em {
-    font-style: italic;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .art-hero-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1rem, 2vw, 1.4rem);
-    font-weight: 300;
-    font-style: italic;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 3rem;
-    position: relative;
-    z-index: 2;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards 0.7s;
-  }
-
-  /* AWARD BANNER */
-  .award-banner {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    opacity: 0;
-    animation: fadeUp 1s ease forwards 1s;
-  }
-
-  .award-pill {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.7rem 1.4rem;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.7);
-    text-transform: uppercase;
-  }
-
-  .award-medal {
-    font-size: 1.1rem;
-  }
-
-  /* SCROLL INDICATOR */
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.25);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    z-index: 2;
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
-  }
-
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.3; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(1.2); }
-  }
-
-  /* AWARDS SECTION */
-  .awards-section {
-    padding: 6rem 4rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .section-tag {
-    font-size: 0.6rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    margin-bottom: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .section-tag::before, .section-tag::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 1px;
-    background: rgba(255,255,255,0.2);
-  }
-
-  .awards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.06);
-    margin-bottom: 3rem;
-  }
-
-  .award-card {
-    padding: 3rem 2rem;
-    background: #000000;
-    text-align: center;
-    transition: background 0.4s;
-  }
-
-  .award-card:hover { background: rgba(255,255,255,0.04); }
-
-  .award-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-
-  .award-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-
-  .award-org {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 0.8rem;
-  }
-
-  .award-desc {
-    font-size: 0.8rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.4);
-  }
-
-  /* GALLERY */
-  .gallery-section {
-    padding: 4rem;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .gallery-heading {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 300;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 0.5rem;
-  }
-
-  .gallery-heading em { font-style: italic; color: rgba(255,255,255,0.4); }
-
-  .gallery-sub {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.3);
-    margin-bottom: 3rem;
-    letter-spacing: 0.05em;
-  }
-
-  /* MASONRY GALLERY */
-  .gallery-grid {
-    columns: 3;
-    column-gap: 12px;
-  }
-
-  .gallery-item {
-    break-inside: avoid;
-    margin-bottom: 12px;
-    overflow: hidden;
-    position: relative;
-    cursor: none;
-    background: #111;
-  }
-
-  .gallery-item img {
-    width: 100%;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s;
-    filter: brightness(0.85);
-  }
-
-  .gallery-item:hover img {
-    transform: scale(1.04);
-    filter: brightness(1);
-  }
-
-  .gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.8) 100%);
-    opacity: 0;
-    transition: opacity 0.4s;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem;
-  }
-
-  .gallery-item:hover .gallery-overlay { opacity: 1; }
-
-  .gallery-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #ffffff;
-    margin-bottom: 0.3rem;
-  }
-
-  .gallery-medium {
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-  }
-
-  /* ARTIST STATEMENT */
-  .statement-section {
-    padding: 8rem 4rem;
-    background: #000000;
-    text-align: center;
-  }
-
-  .statement-inner {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .statement-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.5;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 2rem;
-  }
-
-  .statement-body {
-    font-size: 0.95rem;
-    line-height: 1.9;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 1.5rem;
-  }
-
-  .statement-sig {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: rgba(255,255,255,0.3);
-  }
-
-  /* CTA */
-  .cta-section {
-    padding: 6rem 4rem;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .cta-heading {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 300;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 1rem;
-  }
-
-  .cta-sub {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 2.5rem;
-    letter-spacing: 0.05em;
-  }
-
-  .cta-links {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-art {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.9rem 2.2rem;
-    font-family: 'DM Sans', Arial, sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: none;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-art::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 60%; height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
-    transform: skewX(-20deg);
-    transition: left 0.5s;
-  }
-
-  .btn-art:hover::before { left: 150%; }
-
-  .btn-art-solid {
-    background: #ffffff;
-    color: #080808;
-  }
-
-  .btn-art-solid:hover { background: rgba(255,255,255,0.85); transform: translateY(-2px); }
-
-  .btn-art-outline {
-    border: 1px solid rgba(255,255,255,0.25);
-    color: rgba(255,255,255,0.7);
-  }
-
-  .btn-art-outline:hover { border-color: rgba(255,255,255,0.6); color: #ffffff; transform: translateY(-2px); }
-
-
-  /* EXHIBITIONS */
-  .exhibitions-section {
-    padding: 8rem 4rem;
-    background: #0a0a0a;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .exhibitions-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .exhibitions-heading {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 300;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-
-  .exhibitions-heading em {
-    font-style: italic;
-    color: rgba(255,255,255,0.4);
-  }
-
-  .exhibitions-sub {
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.35);
-    max-width: 650px;
-    margin: 0 auto 4rem;
-  }
-
-  .exhibitions-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.06);
-    margin-bottom: 4rem;
-    text-align: left;
-  }
-
-  .exhibition-card {
-    padding: 3rem;
-    background: #0a0a0a;
-    transition: background 0.4s;
-    position: relative;
-  }
-
-  .exhibition-card:hover { background: rgba(255,255,255,0.03); }
-
-  .ex-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .ex-title {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 0.8rem;
-  }
-
-  .ex-desc {
-    font-size: 0.82rem;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 1.2rem;
-  }
-
-  .ex-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 0.35rem 0.8rem;
-    font-weight: 600;
-  }
-
-  .ex-status::before {
-    content: "";
-    display: block;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-  }
-
-  .ex-status.available {
-    color: #6fcf97;
-    border: 1px solid rgba(111,207,151,0.3);
-    background: rgba(111,207,151,0.06);
-  }
-
-  .ex-status.available::before { background: #6fcf97; box-shadow: 0 0 6px rgba(111,207,151,0.6); }
-
-  .ex-status.open {
-    color: #7ab0d9;
-    border: 1px solid rgba(122,176,217,0.3);
-    background: rgba(122,176,217,0.06);
-  }
-
-  .ex-status.open::before { background: #7ab0d9; box-shadow: 0 0 6px rgba(122,176,217,0.6); }
-
-  .exhibition-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .ex-note {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.3);
-    font-style: italic;
-  }
-
-  /* FOOTER */
-  footer {
-    background: #000000;
-    padding: 2rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-left { display: flex; align-items: center; gap: 0.8rem; }
-  .footer-logo-img { width: 24px; height: 24px; object-fit: contain; filter: brightness(0) invert(0.3); }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: rgba(255,255,255,0.2); letter-spacing: 0.15em; }
-  .footer-copy { font-size: 0.6rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.15); text-transform: uppercase; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  @media (max-width: 768px) {
-    body { cursor: auto; }
-    .cursor-dot, .cursor-ring { display: none; }
-    nav { padding: 1.2rem 1.5rem; }
-    nav .nav-links { display: none; }
-    .art-hero { padding: 6rem 1.5rem 4rem; }
-    .awards-section { padding: 4rem 1.5rem; }
-    .awards-grid { grid-template-columns: 1fr; }
-    .gallery-section { padding: 4rem 1.5rem; }
-    .gallery-grid { columns: 2; }
-    .statement-section { padding: 5rem 1.5rem; }
-    .exhibitions-section { padding: 5rem 1.5rem; }
-    .exhibitions-grid { grid-template-columns: 1fr; }
-    .cta-section { padding: 4rem 1.5rem; }
-    footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center; }
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #060606;
+  color: #fff;
+  font-family: 'DM Sans', Arial, sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CURSOR */
+.cursor-dot {
+  width: 5px; height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  width: 30px; height: 30px;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+              height 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+              border-color 0.3s;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 3.5rem;
+  background: rgba(6,6,6,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.nav-logo img { width: 30px; height: 30px; object-fit: contain; filter: brightness(0) invert(1); }
+.nav-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem; font-weight: 400;
+  letter-spacing: 0.12em; color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+}
+
+.nav-links { display: flex; gap: 1.8rem; list-style: none; }
+.nav-links a {
+  font-size: 0.65rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.45);
+  text-decoration: none; transition: color 0.3s;
+}
+.nav-links a:hover, .nav-links a.active { color: #fff; }
+
+/* HERO */
+.art-hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  position: relative; overflow: hidden;
+  padding: 9rem 4rem 5rem;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 50%, rgba(100,0,160,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 85% 30%, rgba(0,60,180,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 90%, rgba(160,0,80,0.2) 0%, transparent 60%);
+  animation: bgPulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes bgPulse {
+  0%   { filter: hue-rotate(0deg) brightness(1); }
+  100% { filter: hue-rotate(30deg) brightness(1.1); }
+}
+
+/* Animated floating particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float linear infinite;
+  opacity: 0;
+}
+
+@keyframes float {
+  0%   { opacity: 0; transform: translateY(0) scale(0); }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.2; }
+  100% { opacity: 0; transform: translateY(-100vh) scale(1.5); }
+}
+
+.hero-eyebrow {
+  font-size: 0.6rem; letter-spacing: 0.45em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  margin-bottom: 2rem; position: relative; z-index: 2;
+  opacity: 0; animation: fadeUp 1s ease forwards 0.3s;
+  display: flex; align-items: center; gap: 1.2rem;
+}
+
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: ''; display: block;
+  width: 35px; height: 1px;
+  background: rgba(255,255,255,0.2);
+}
+
+.art-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 300; line-height: 0.95;
+  letter-spacing: -0.02em;
+  position: relative; z-index: 2;
+  margin-bottom: 0.2em;
+  opacity: 0; animation: fadeUp 1.2s ease forwards 0.5s;
+}
+
+.art-hero h1 em {
+  font-style: italic; color: rgba(255,255,255,0.35);
+  display: block;
+}
+
+.art-hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 3.5rem;
+  position: relative; z-index: 2;
+  opacity: 0; animation: fadeUp 1s ease forwards 0.7s;
+}
+
+/* AWARD PILLS */
+.award-row {
+  display: flex; gap: 0.8rem; flex-wrap: wrap;
+  justify-content: center;
+  position: relative; z-index: 2;
+  opacity: 0; animation: fadeUp 1s ease forwards 1s;
+}
+
+.award-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  font-size: 0.65rem; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6); text-transform: uppercase;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.award-pill:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.08);
+}
+
+/* SCROLL LINE */
+.scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  font-size: 0.55rem; letter-spacing: 0.35em;
+  text-transform: uppercase; color: rgba(255,255,255,0.2);
+  z-index: 2;
+}
+
+.scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent);
+  animation: scrollPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.3; }
+  50% { transform: scaleY(1.3); opacity: 1; }
+}
+
+/* AWARDS SECTION */
+.awards-section {
+  padding: 6rem 4rem;
+  max-width: 1100px; margin: 0 auto; text-align: center;
+}
+
+.sec-tag {
+  font-size: 0.58rem; letter-spacing: 0.4em;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+  margin-bottom: 3rem;
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+}
+
+.sec-tag::before, .sec-tag::after {
+  content: ''; width: 40px; height: 1px;
+  background: rgba(255,255,255,0.12);
+}
+
+.awards-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.award-card {
+  padding: 3rem 2rem; background: #060606;
+  transition: background 0.4s; text-align: center;
+}
+
+.award-card:hover { background: rgba(255,255,255,0.03); }
+.award-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+.award-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 400;
+  color: rgba(255,255,255,0.85); margin-bottom: 0.5rem;
+}
+
+.award-org {
+  font-size: 0.62rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.28);
+  margin-bottom: 0.8rem;
+}
+
+.award-desc { font-size: 0.78rem; line-height: 1.75; color: rgba(255,255,255,0.35); }
+
+/* GALLERY SECTION */
+.gallery-section { padding: 4rem 3rem 6rem; }
+
+.gallery-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 3rem;
+  max-width: 1400px; margin-left: auto; margin-right: auto;
+  flex-wrap: wrap; gap: 2rem;
+}
+
+.gallery-title-block h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300; color: rgba(255,255,255,0.9);
+}
+
+.gallery-title-block h2 em {
+  font-style: italic; color: rgba(255,255,255,0.3);
+}
+
+.gallery-title-block p {
+  font-size: 0.78rem; color: rgba(255,255,255,0.25);
+  margin-top: 0.4rem; letter-spacing: 0.05em;
+}
+
+/* FILTER TABS */
+.filter-tabs {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.55rem 1.2rem;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.4);
+  cursor: none; transition: all 0.3s;
+}
+
+.filter-btn:hover {
+  border-color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.8);
+}
+
+.filter-btn.active {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #060606;
+}
+
+/* MASONRY GALLERY */
+.gallery-grid {
+  columns: 4; column-gap: 8px;
+  max-width: 1400px; margin: 0 auto;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: none;
+  background: #111;
+  display: block;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.gallery-item.hidden {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94),
+              filter 0.7s ease;
+  filter: brightness(0.8) saturate(0.9);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.05) saturate(1.1);
+}
+
+/* OVERLAY on hover */
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    transparent 40%,
+    rgba(0,0,0,0.85) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+.gallery-item-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 400;
+  color: #fff; margin-bottom: 0.3rem;
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-item-title { transform: translateY(0); }
+
+.gallery-item-medium {
+  font-size: 0.6rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+  transform: translateY(10px);
+  transition: transform 0.4s ease 0.05s;
+}
+
+.gallery-item:hover .gallery-item-medium { transform: translateY(0); }
+
+/* EXPAND ICON */
+.expand-icon {
+  position: absolute; top: 1rem; right: 1rem;
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+  opacity: 0; transform: scale(0.8);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.gallery-item:hover .expand-icon {
+  opacity: 1; transform: scale(1);
+}
+
+/* FEATURED ITEM - spans 2 columns */
+.gallery-item.featured { break-inside: avoid; }
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.97);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox-img {
+  max-width: 88vw;
+  max-height: 88vh;
+  object-fit: contain;
+  animation: lbFadeIn 0.4s ease;
+}
+
+@keyframes lbFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.lightbox-close {
+  position: fixed; top: 2rem; right: 2.5rem;
+  font-size: 0.65rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  cursor: none; transition: color 0.3s;
+  background: none; border: none; font-family: inherit;
+}
+
+.lightbox-close:hover { color: #fff; }
+
+.lightbox-nav {
+  position: fixed;
+  top: 50%; transform: translateY(-50%);
+  font-size: 0.6rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  cursor: none; transition: color 0.3s;
+  background: none; border: none; font-family: inherit;
+  padding: 1rem;
+}
+
+.lightbox-nav:hover { color: #fff; }
+.lightbox-prev { left: 2rem; }
+.lightbox-next { right: 2rem; }
+
+.lightbox-info {
+  position: fixed; bottom: 2rem; left: 50%;
+  transform: translateX(-50%); text-align: center;
+}
+
+.lightbox-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 300;
+  color: rgba(255,255,255,0.7);
+}
+
+.lightbox-medium {
+  font-size: 0.6rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  margin-top: 0.3rem;
+}
+
+.lightbox-count {
+  font-size: 0.6rem; letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.2); margin-top: 0.5rem;
+}
+
+/* ARTIST STATEMENT */
+.statement-section {
+  padding: 8rem 4rem;
+  background: #0a0a0a;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.statement-inner { max-width: 780px; margin: 0 auto; }
+
+.statement-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-weight: 300; font-style: italic;
+  line-height: 1.5; color: rgba(255,255,255,0.7);
+  margin-bottom: 2.5rem;
+}
+
+.statement-body {
+  font-size: 0.9rem; line-height: 1.9;
+  color: rgba(255,255,255,0.35); margin-bottom: 1.5rem;
+}
+
+.statement-sig {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-style: italic;
+  color: rgba(255,255,255,0.25);
+}
+
+/* EXHIBITIONS */
+.exhibitions-section {
+  padding: 8rem 4rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.exhibitions-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+
+.ex-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300; color: rgba(255,255,255,0.88);
+  margin-bottom: 0.8rem; line-height: 1.15;
+}
+
+.ex-heading em { font-style: italic; color: rgba(255,255,255,0.3); }
+
+.ex-sub {
+  font-size: 0.85rem; line-height: 1.8;
+  color: rgba(255,255,255,0.3);
+  max-width: 620px; margin: 0 auto 4rem;
+}
+
+.ex-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1px; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 4rem; text-align: left;
+}
+
+.ex-card {
+  padding: 3rem; background: #060606;
+  transition: background 0.4s; position: relative;
+}
+
+.ex-card:hover { background: rgba(255,255,255,0.025); }
+.ex-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+
+.ex-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 400;
+  color: rgba(255,255,255,0.82); margin-bottom: 0.8rem;
+}
+
+.ex-desc {
+  font-size: 0.8rem; line-height: 1.8;
+  color: rgba(255,255,255,0.3); margin-bottom: 1.2rem;
+}
+
+.ex-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.58rem; letter-spacing: 0.2em;
+  text-transform: uppercase; padding: 0.35rem 0.8rem;
+  font-weight: 600;
+}
+
+.ex-badge::before {
+  content: ''; width: 6px; height: 6px;
+  border-radius: 50%; display: block;
+}
+
+.ex-badge.green {
+  color: #6fcf97; border: 1px solid rgba(111,207,151,0.25);
+  background: rgba(111,207,151,0.05);
+}
+
+.ex-badge.green::before { background: #6fcf97; box-shadow: 0 0 6px rgba(111,207,151,0.5); }
+
+.ex-badge.blue {
+  color: #7ab0d9; border: 1px solid rgba(122,176,217,0.25);
+  background: rgba(122,176,217,0.05);
+}
+
+.ex-badge.blue::before { background: #7ab0d9; box-shadow: 0 0 6px rgba(122,176,217,0.5); }
+
+.ex-cta { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+.ex-note { font-size: 0.8rem; color: rgba(255,255,255,0.25); font-style: italic; }
+
+/* CTA */
+.cta-section {
+  padding: 7rem 4rem; text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.cta-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300; color: rgba(255,255,255,0.85);
+  margin-bottom: 1rem;
+}
+
+.cta-sub { font-size: 0.85rem; color: rgba(255,255,255,0.3); margin-bottom: 2.5rem; }
+.cta-locations { display: flex; align-items: center; gap: 1rem; justify-content: center; margin-top: 2rem; font-size: 0.78rem; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
+.cta-divider { color: rgba(255,255,255,0.15); }
+.cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.btn-art {
+  display: inline-flex; align-items: center;
+  padding: 0.9rem 2.2rem;
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.2em;
+  text-transform: uppercase; font-weight: 500;
+  text-decoration: none; transition: all 0.35s; cursor: none;
+  position: relative; overflow: hidden;
+}
+
+.btn-art::before {
+  content: ''; position: absolute; top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: skewX(-20deg); transition: left 0.5s;
+}
+
+.btn-art:hover::before { left: 150%; }
+
+.btn-solid { background: #fff; color: #060606; }
+.btn-solid:hover { background: rgba(255,255,255,0.88); transform: translateY(-2px); }
+.btn-outline { border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); }
+.btn-outline:hover { border-color: rgba(255,255,255,0.5); color: #fff; transform: translateY(-2px); }
+
+/* FOOTER */
+footer {
+  background: #000; padding: 2rem 3.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.footer-left { display: flex; align-items: center; gap: 0.8rem; }
+.footer-logo-img { width: 22px; height: 22px; object-fit: contain; filter: brightness(0) invert(0.25); }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: rgba(255,255,255,0.18); letter-spacing: 0.12em; }
+.footer-copy { font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.12); text-transform: uppercase; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .gallery-grid { columns: 3; }
+}
+
+@media (max-width: 768px) {
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { display: none; }
+  .art-hero { padding: 7rem 1.5rem 4rem; }
+  .awards-section { padding: 4rem 1.5rem; }
+  .awards-grid { grid-template-columns: 1fr; }
+  .gallery-section { padding: 3rem 1rem 4rem; }
+  .gallery-grid { columns: 2; column-gap: 6px; }
+  .gallery-header { flex-direction: column; align-items: flex-start; }
+  .statement-section { padding: 5rem 1.5rem; }
+  .exhibitions-section { padding: 5rem 1.5rem; }
+  .ex-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 5rem 1.5rem; }
+  footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center; }
+}
 </style>
 </head>
 <body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose">✕ Close</button>
+  <button class="lightbox-nav lightbox-prev" id="lbPrev">← Prev</button>
+  <img class="lightbox-img" id="lbImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lbNext">Next →</button>
+  <div class="lightbox-info">
+    <div class="lightbox-title" id="lbTitle"></div>
+    <div class="lightbox-medium" id="lbMedium"></div>
+    <div class="lightbox-count" id="lbCount"></div>
+  </div>
+</div>
 
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
@@ -661,11 +714,11 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="CC Logo">
+    <img src="logo.png" alt="CC">
     <span class="nav-name">Carolina Cravens</span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">Design Work</a></li>
+    <li><a href="index.html">Design</a></li>
     <li><a href="art.html" class="active">Atelier</a></li>
     <li><a href="https://carolinacravens.com/portfolio" target="_blank">Portfolio</a></li>
     <li><a href="index.html#contact">Contact</a></li>
@@ -675,20 +728,17 @@
 
 <!-- HERO -->
 <section class="art-hero">
-  <div class="art-hero-bg"></div>
-
+  <div class="hero-bg"></div>
+  <!-- Floating particles added by JS -->
   <div class="hero-eyebrow">Fine Art · Original Works · Award-Winning Artist</div>
-  <h1>Before design,<br>there was <em>paint.</em></h1>
+  <h1>Before design,<br><em>there was paint.</em></h1>
   <p class="art-hero-sub">Acrylic · Digital · Mixed Media · Illustration</p>
-
-  <div class="award-banner">
-    <div class="award-pill"><span class="award-medal">🥇</span> Gold Medal · Osaka, Japan</div>
-    <div class="award-pill"><span class="award-medal">🥈</span> Silver Medal · Osaka, Japan</div>
-    <div class="award-pill"><span class="award-medal">🥉</span> Bronze Medal · Osaka, Japan</div>
-    <div class="award-pill"><span class="award-medal">🏅</span> Jiménez & Tanzi National Award</div>
-    <div class="award-pill"><span class="award-medal">✦</span> Mención de Honor</div>
+  <div class="award-row">
+    <div class="award-pill">🥇 Gold Medal · Osaka, Japan</div>
+    <div class="award-pill">🥈 Silver Medal · Osaka, Japan</div>
+    <div class="award-pill">🏅 Jiménez & Tanzi National Award</div>
+    <div class="award-pill">🏅 2× Menciones de Honor</div>
   </div>
-
   <div class="scroll-hint">
     <span>Scroll</span>
     <span class="scroll-line"></span>
@@ -697,98 +747,160 @@
 
 <!-- AWARDS -->
 <section class="awards-section">
-  <div class="section-tag">Recognition & Awards</div>
+  <div class="sec-tag">Recognition</div>
   <div class="awards-grid reveal">
     <div class="award-card">
-      <div class="award-icon">🥇🥈🥉</div>
-      <div class="award-title">Gold, Silver & Bronze Medals</div>
+      <div class="award-icon">🥇🥈</div>
+      <div class="award-title">Gold Medal & Silver Medal</div>
       <div class="award-org">Certamen Internacional de Arte Infantil · Osaka, Japan</div>
-      <div class="award-desc">One of 17 Costa Rican artists honored internationally. Awarded the full medal trio — Gold, Silver, and Bronze — in the International Children's Art Competition. One of the most prestigious youth art recognitions in the world, drawing thousands of entries from across the globe.</div>
+      <div class="award-desc">One of 17 Costa Rican artists honored internationally. Gold and Silver in one of the world's most prestigious youth art competitions.</div>
     </div>
     <div class="award-card">
       <div class="award-icon">🏅</div>
-      <div class="award-title">National Painting Award & Mención de Honor</div>
+      <div class="award-title">National Painting Award</div>
       <div class="award-org">Concurso Nacional de Pintura Jiménez & Tanzi · Costa Rica</div>
-      <div class="award-desc">Top placement in Costa Rica's most recognized national painting competition, alongside a Mención de Honor recognizing exceptional artistic merit in painting and drawing at the national level.</div>
+      <div class="award-desc">Top placement in Costa Rica's prestigious national painting competition recognizing outstanding artistic merit.</div>
     </div>
     <div class="award-card">
-      <div class="award-icon">🏛️</div>
-      <div class="award-title">Art Exhibition · Club Unión de Costa Rica</div>
-      <div class="award-org">Club Unión · San José, Costa Rica · Est. 1874</div>
-      <div class="award-desc">Selected to exhibit original works at the Club Unión de Costa Rica — one of the most exclusive and historic private clubs in Central America, founded in 1874. Having your art displayed within its walls is considered a rare distinction reserved for artists of serious merit. Club Unión has hosted Costa Rica's most prominent figures in culture, politics, and society for over 150 years. To exhibit there is to be recognized as part of Costa Rica's cultural legacy.</div>
+      <div class="award-icon">✦ ✦</div>
+      <div class="award-title">2× Menciones de Honor</div>
+      <div class="award-org">Concurso Nacional de Pintura & Dibujo · Costa Rica</div>
+      <div class="award-desc">Dual national honors in painting and drawing. A lifelong dedication to art that started before the age of ten.</div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY -->
-<section class="gallery-section">
-  <h2 class="gallery-heading reveal">Original <em>Works</em></h2>
-  <p class="gallery-sub reveal">Acrylic on canvas · Digital art · Mixed media · Illustration</p>
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header reveal">
+    <div class="gallery-title-block">
+      <h2>Original <em>Works</em></h2>
+      <p>Click any piece to view fullscreen · 13 original works</p>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">All Works</button>
+      <button class="filter-btn" data-filter="acrylic">Acrylic</button>
+      <button class="filter-btn" data-filter="digital">Digital</button>
+      <button class="filter-btn" data-filter="ink">Ink</button>
+    </div>
+  </div>
 
-  <div class="gallery-grid reveal">
+  <div class="gallery-grid" id="galleryGrid">
 
-    <!-- Row 1 -->
-    <div class="gallery-item">
-      <img src="art/art1.jpg" alt="Abstract floral acrylic painting with vibrant teal, magenta and yellow botanical forms">
+    <div class="gallery-item" data-category="acrylic" data-title="Underwater Garden" data-medium="Acrylic on Canvas">
+      <img src="art/1.png" alt="Abstract botanical acrylic painting by Carolina Cravens" loading="lazy">
       <div class="gallery-overlay">
-        <div class="gallery-title">Underwater Garden</div>
-        <div class="gallery-medium">Acrylic on Canvas</div>
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Underwater Garden</div>
+        <div class="gallery-item-medium">Acrylic on Canvas</div>
       </div>
     </div>
 
-    <div class="gallery-item">
-      <img src="art/art2.jpg" alt="Mixed media painting with gold leaf, pink and green botanical abstract forms">
+    <div class="gallery-item" data-category="digital" data-title="Chromatic Mind" data-medium="Digital Art">
+      <img src="art/2.png" alt="Colorful digital face illustration by Carolina Cravens" loading="lazy">
       <div class="gallery-overlay">
-        <div class="gallery-title">Gold Bloom</div>
-        <div class="gallery-medium">Mixed Media on Canvas</div>
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Chromatic Mind</div>
+        <div class="gallery-item-medium">Digital Art</div>
       </div>
     </div>
 
-    <div class="gallery-item">
-      <img src="art/art7.jpg" alt="Neon blue glowing heart with abstract face on dark textured background">
+    <div class="gallery-item" data-category="ink" data-title="Monochrome Dream" data-medium="Ink Illustration">
+      <img src="art/3.png" alt="Black and white ink illustration by Carolina Cravens" loading="lazy">
       <div class="gallery-overlay">
-        <div class="gallery-title">Electric Soul</div>
-        <div class="gallery-medium">Digital Art</div>
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Monochrome Dream</div>
+        <div class="gallery-item-medium">Ink Illustration</div>
       </div>
     </div>
 
-    <div class="gallery-item">
-      <img src="art/art3.jpg" alt="White line drawing of two figures with flowers on red background">
+    <div class="gallery-item" data-category="digital" data-title="Teal Creature" data-medium="Digital Art">
+      <img src="art/4.png" alt="Teal digital illustration by Carolina Cravens" loading="lazy">
       <div class="gallery-overlay">
-        <div class="gallery-title">Two Souls</div>
-        <div class="gallery-medium">Ink on Canvas</div>
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Teal Creature</div>
+        <div class="gallery-item-medium">Digital Art</div>
       </div>
     </div>
 
-    <div class="gallery-item">
-      <img src="art/art4.jpg" alt="Pink and magenta abstract heart form with green neon outlines on colorful background">
+    <div class="gallery-item" data-category="acrylic" data-title="Gold Bloom" data-medium="Mixed Media on Canvas">
+      <img src="art/5.png" alt="Mixed media acrylic painting by Carolina Cravens" loading="lazy">
       <div class="gallery-overlay">
-        <div class="gallery-title">Neon Heart</div>
-        <div class="gallery-medium">Digital Art</div>
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Gold Bloom</div>
+        <div class="gallery-item-medium">Mixed Media on Canvas</div>
       </div>
     </div>
 
-    <div class="gallery-item">
-      <img src="art/art8.jpg" alt="Blue and white abstract creature on dark background with flowing organic forms">
+    <div class="gallery-item" data-category="digital" data-title="Electric Soul" data-medium="Digital Art">
+      <img src="art/6.png" alt="Blue neon digital art by Carolina Cravens" loading="lazy">
       <div class="gallery-overlay">
-        <div class="gallery-title">Blue Spirit</div>
-        <div class="gallery-medium">Digital Art</div>
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Electric Soul</div>
+        <div class="gallery-item-medium">Digital Art</div>
       </div>
     </div>
 
-    <div class="gallery-item">
-      <img src="art/art5.jpg" alt="Black and white hand drawn surreal face illustration with decorative elements">
+    <div class="gallery-item" data-category="ink" data-title="Two Souls" data-medium="Ink on Canvas">
+      <img src="art/7.png" alt="White line drawing on red background by Carolina Cravens" loading="lazy">
       <div class="gallery-overlay">
-        <div class="gallery-title">Inner Face</div>
-        <div class="gallery-medium">Ink Illustration</div>
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Two Souls</div>
+        <div class="gallery-item-medium">Ink on Canvas</div>
       </div>
     </div>
 
-    <div class="gallery-item">
-      <img src="art/art6.jpg" alt="Colorful abstract face with black outlines on vibrant purple and blue splatter background">
+    <div class="gallery-item" data-category="digital" data-title="Neon Heart" data-medium="Digital Art">
+      <img src="art/8.png" alt="Pink neon heart digital art by Carolina Cravens" loading="lazy">
       <div class="gallery-overlay">
-        <div class="gallery-title">Chromatic Mind</div>
-        <div class="gallery-medium">Digital Art</div>
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Neon Heart</div>
+        <div class="gallery-item-medium">Digital Art</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="ink" data-title="Inner Face" data-medium="Ink Illustration">
+      <img src="art/9.png" alt="Surreal face ink illustration by Carolina Cravens" loading="lazy">
+      <div class="gallery-overlay">
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Inner Face</div>
+        <div class="gallery-item-medium">Ink Illustration</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="digital" data-title="Blue Spirit" data-medium="Digital Art">
+      <img src="art/10.png" alt="Blue neon glowing digital art by Carolina Cravens" loading="lazy">
+      <div class="gallery-overlay">
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Blue Spirit</div>
+        <div class="gallery-item-medium">Digital Art</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="digital" data-title="Dark Creature" data-medium="Digital Art">
+      <img src="art/11.png" alt="Blue abstract creature digital art by Carolina Cravens" loading="lazy">
+      <div class="gallery-overlay">
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Dark Creature</div>
+        <div class="gallery-item-medium">Digital Art</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="acrylic" data-title="Coral Fire" data-medium="Acrylic on Canvas">
+      <img src="art/12.png" alt="Orange and red acrylic painting by Carolina Cravens" loading="lazy">
+      <div class="gallery-overlay">
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Coral Fire</div>
+        <div class="gallery-item-medium">Acrylic on Canvas</div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="ink" data-title="Pink Lines" data-medium="Ink Illustration">
+      <img src="art/13.png" alt="Pink line illustration by Carolina Cravens" loading="lazy">
+      <div class="gallery-overlay">
+        <div class="expand-icon">⤢</div>
+        <div class="gallery-item-title">Pink Lines</div>
+        <div class="gallery-item-medium">Ink Illustration</div>
       </div>
     </div>
 
@@ -798,14 +910,10 @@
 <!-- ARTIST STATEMENT -->
 <section class="statement-section">
   <div class="statement-inner">
-    <div class="section-tag">Artist Statement</div>
+    <div class="sec-tag">Artist Statement</div>
     <p class="statement-quote reveal">"Art has always been my first language. Design came after — but painting never left."</p>
-    <p class="statement-body reveal">
-      I picked up a paintbrush before I picked up a pencil for school. Growing up in San José, Costa Rica, I trained under professional painting instructors and competed internationally — earning Gold and Silver medals in Japan and top honors in Costa Rica's national competitions.
-    </p>
-    <p class="statement-body reveal">
-      My art lives at the intersection of the organic and the electric. I'm drawn to color as emotion, to line as language, and to the tension between chaos and control. Whether working in acrylic on canvas or building worlds digitally, my work is always personal — a record of what it feels like to be fully alive.
-    </p>
+    <p class="statement-body reveal">I picked up a paintbrush before I picked up a pencil for school. Growing up in San José, Costa Rica, I trained under professional painting instructors and competed internationally, earning Gold and Silver medals in Japan and top honors in Costa Rica's national competitions.</p>
+    <p class="statement-body reveal">My art lives at the intersection of the organic and the electric. I'm drawn to color as emotion, to line as language, and to the tension between chaos and control. Whether working in acrylic on canvas or building worlds digitally, my work is always personal.</p>
     <p class="statement-sig reveal">— Carolina Cravens</p>
   </div>
 </section>
@@ -813,40 +921,38 @@
 <!-- EXHIBITIONS -->
 <section class="exhibitions-section">
   <div class="exhibitions-inner">
-    <div class="section-tag">Exhibitions & Availability</div>
-    <h2 class="exhibitions-heading reveal">Open for Exhibitions<br><em>& Collaborations</em></h2>
-    <p class="exhibitions-sub reveal">Available for physical exhibitions, gallery shows, pop-up events, corporate art installations, and private collections. Based in Dallas, TX — open to exhibitions nationwide and internationally.</p>
-
-    <div class="exhibitions-grid reveal">
-      <div class="exhibition-card">
+    <div class="sec-tag">Exhibitions & Availability</div>
+    <h2 class="ex-heading reveal">Open for Exhibitions<br><em>& Collaborations</em></h2>
+    <p class="ex-sub reveal">Available for physical exhibitions, gallery shows, corporate art installations, and private collections. Based in Dallas, TX — open to shows nationwide and internationally.</p>
+    <div class="ex-grid reveal">
+      <div class="ex-card">
         <div class="ex-icon">🖼️</div>
         <div class="ex-title">Gallery Exhibitions</div>
-        <div class="ex-desc">Available to exhibit original acrylic and mixed media works in galleries, art shows, and curated group or solo exhibitions in Dallas and beyond.</div>
-        <div class="ex-status available">Available Now</div>
+        <div class="ex-desc">Original acrylic and mixed media works available for gallery shows, curated group exhibitions, or solo shows in Dallas and beyond.</div>
+        <div class="ex-badge green">Available Now</div>
       </div>
-      <div class="exhibition-card">
+      <div class="ex-card">
         <div class="ex-icon">🏢</div>
         <div class="ex-title">Corporate Art Installations</div>
-        <div class="ex-desc">Custom original artwork and large-scale installations for office spaces, lobbies, hotels, and corporate environments seeking to elevate their visual identity.</div>
-        <div class="ex-status available">Available Now</div>
+        <div class="ex-desc">Custom large-scale artwork and installations for offices, lobbies, hotels, and corporate environments seeking distinctive visual identity.</div>
+        <div class="ex-badge green">Available Now</div>
       </div>
-      <div class="exhibition-card">
+      <div class="ex-card">
         <div class="ex-icon">🎨</div>
         <div class="ex-title">Art Commissions</div>
-        <div class="ex-desc">Original commissioned pieces for private collectors, interior design projects, gifts, and personal collections. Acrylic, digital, and mixed media.</div>
-        <div class="ex-status available">Available Now</div>
+        <div class="ex-desc">Original commissioned pieces for private collectors, interior design, and personal collections. Acrylic, digital, and mixed media.</div>
+        <div class="ex-badge green">Available Now</div>
       </div>
-      <div class="exhibition-card">
+      <div class="ex-card">
         <div class="ex-icon">🌎</div>
         <div class="ex-title">International Shows</div>
-        <div class="ex-desc">Open to international exhibition opportunities. With award-winning work recognized in Japan and Costa Rica, available to show work globally.</div>
-        <div class="ex-status open">Open to Inquiries</div>
+        <div class="ex-desc">Open to international exhibition opportunities. Award-winning work recognized in Japan and Costa Rica — available to show globally.</div>
+        <div class="ex-badge blue">Open to Inquiries</div>
       </div>
     </div>
-
-    <div class="exhibition-cta reveal">
+    <div class="ex-cta reveal">
       <p class="ex-note">Interested in featuring Carolina's work in your space or event?</p>
-      <a href="mailto:creativecravens@gmail.com?subject=Exhibition Inquiry" class="btn-art btn-art-solid">Inquire About Exhibitions</a>
+      <a href="mailto:creativecravens@gmail.com?subject=Exhibition Inquiry" class="btn-art btn-solid">Inquire About Exhibitions</a>
     </div>
   </div>
 </section>
@@ -854,63 +960,156 @@
 <!-- CTA -->
 <section class="cta-section">
   <h2 class="cta-heading reveal">Interested in original work<br>or a commission?</h2>
-  <p class="cta-sub reveal">Available for fine art commissions, exhibitions, and collaborations.</p>
-  <div class="cta-links reveal">
-    <a href="mailto:creativecravens@gmail.com" class="btn-art btn-art-solid">Get In Touch</a>
-    <a href="index.html" class="btn-art btn-art-outline">View Design Work →</a>
-    <a href="https://carolinacravens.com/portfolio" target="_blank" class="btn-art btn-art-outline">Full Portfolio →</a>
+  <p class="cta-sub reveal">Available for fine art commissions, exhibitions, and creative collaborations in Dallas, TX and Costa Rica.</p>
+  <div class="cta-row reveal">
+    <a href="mailto:creativecravens@gmail.com" class="btn-art btn-solid">Email Me</a>
+    <a href="tel:+14694384450" class="btn-art btn-outline">📞 +1 (469) 438-4450</a>
+    <a href="https://wa.me/50688012920" target="_blank" class="btn-art btn-outline">💬 WhatsApp CR</a>
+    <a href="index.html" class="btn-art btn-outline">View Design Work →</a>
+  </div>
+  <div class="cta-locations reveal">
+    <span>📍 Dallas, Texas, USA</span>
+    <span class="cta-divider">·</span>
+    <span>📍 San José, Costa Rica</span>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-left">
-    <img src="logo.png" class="footer-logo-img" alt="CC Logo">
-    <span class="footer-logo">Carolina Cravens</span>
+    <img src="logo.png" class="footer-logo-img" alt="CC">
+    <span class="footer-logo">Carolina Cravens · Atelier</span>
   </div>
-  <div class="footer-copy">© 2026 · Fine Art · Dallas, TX</div>
+  <div class="footer-copy">© 2026 · Dallas, TX & San José, Costa Rica · Fine Art · Exhibitions</div>
 </footer>
 
 <script>
+// CURSOR
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
 if (!isMobile) {
   var dot = document.getElementById('cursorDot');
   var ring = document.getElementById('cursorRing');
-  var mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+  var mx = 0, my = 0, rx = 0, ry = 0;
 
   document.addEventListener('mousemove', function(e) {
-    mouseX = e.clientX; mouseY = e.clientY;
-    dot.style.left = mouseX + 'px';
-    dot.style.top = mouseY + 'px';
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
   });
 
-  function animateRing() {
-    ringX += (mouseX - ringX) * 0.1;
-    ringY += (mouseY - ringY) * 0.1;
-    ring.style.left = ringX + 'px';
-    ring.style.top = ringY + 'px';
-    requestAnimationFrame(animateRing);
+  function animRing() {
+    rx += (mx - rx) * 0.1;
+    ry += (my - ry) * 0.1;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
   }
-  animateRing();
+  animRing();
 
-  document.querySelectorAll('.gallery-item, a, .award-card').forEach(function(el) {
+  document.querySelectorAll('.gallery-item, a, button, .award-card, .ex-card').forEach(function(el) {
     el.addEventListener('mouseenter', function() {
-      ring.style.width = '80px';
-      ring.style.height = '80px';
-      ring.style.borderColor = 'rgba(255,255,255,0.6)';
-      dot.style.background = 'rgba(255,255,255,0.8)';
+      ring.style.width = '70px'; ring.style.height = '70px';
+      ring.style.borderColor = 'rgba(255,255,255,0.5)';
     });
     el.addEventListener('mouseleave', function() {
-      ring.style.width = '32px';
-      ring.style.height = '32px';
-      ring.style.borderColor = 'rgba(255,255,255,0.4)';
-      dot.style.background = '#ffffff';
+      ring.style.width = '30px'; ring.style.height = '30px';
+      ring.style.borderColor = 'rgba(255,255,255,0.35)';
     });
   });
 }
 
-// Scroll reveal
+// FLOATING PARTICLES
+var hero = document.querySelector('.art-hero');
+var colors = ['rgba(120,0,200,0.6)', 'rgba(0,80,220,0.5)', 'rgba(200,0,100,0.5)', 'rgba(255,200,0,0.3)', 'rgba(0,200,180,0.4)'];
+for (var i = 0; i < 18; i++) {
+  var p = document.createElement('div');
+  p.className = 'particle';
+  var size = Math.random() * 4 + 1;
+  p.style.cssText = [
+    'width:' + size + 'px',
+    'height:' + size + 'px',
+    'background:' + colors[Math.floor(Math.random() * colors.length)],
+    'left:' + Math.random() * 100 + '%',
+    'bottom:' + Math.random() * 20 + '%',
+    'animation-duration:' + (Math.random() * 12 + 8) + 's',
+    'animation-delay:' + Math.random() * 8 + 's',
+    'filter:blur(' + Math.random() * 2 + 'px)'
+  ].join(';');
+  hero.appendChild(p);
+}
+
+// FILTER TABS
+var filterBtns = document.querySelectorAll('.filter-btn');
+var galleryItems = document.querySelectorAll('.gallery-item');
+
+filterBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    galleryItems.forEach(function(item) {
+      if (filter === 'all' || item.getAttribute('data-category') === filter) {
+        item.style.display = 'block';
+        item.style.opacity = '1';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+// LIGHTBOX
+var lb = document.getElementById('lightbox');
+var lbImg = document.getElementById('lbImg');
+var lbTitle = document.getElementById('lbTitle');
+var lbMedium = document.getElementById('lbMedium');
+var lbCount = document.getElementById('lbCount');
+var currentIdx = 0;
+var visibleItems = [];
+
+function openLightbox(idx) {
+  visibleItems = Array.from(document.querySelectorAll('.gallery-item:not([style*="display: none"])'));
+  currentIdx = idx;
+  var item = visibleItems[currentIdx];
+  lbImg.src = item.querySelector('img').src;
+  lbTitle.textContent = item.getAttribute('data-title');
+  lbMedium.textContent = item.getAttribute('data-medium');
+  lbCount.textContent = (currentIdx + 1) + ' / ' + visibleItems.length;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+galleryItems.forEach(function(item, idx) {
+  item.addEventListener('click', function() { openLightbox(idx); });
+});
+
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbPrev').addEventListener('click', function() {
+  visibleItems = Array.from(document.querySelectorAll('.gallery-item:not([style*="display: none"])'));
+  currentIdx = (currentIdx - 1 + visibleItems.length) % visibleItems.length;
+  openLightbox(currentIdx);
+});
+document.getElementById('lbNext').addEventListener('click', function() {
+  visibleItems = Array.from(document.querySelectorAll('.gallery-item:not([style*="display: none"])'));
+  currentIdx = (currentIdx + 1) % visibleItems.length;
+  openLightbox(currentIdx);
+});
+
+lb.addEventListener('click', function(e) {
+  if (e.target === lb) closeLightbox();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+  if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+});
+
+// SCROLL REVEAL
 var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
     if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -918,21 +1117,6 @@ var observer = new IntersectionObserver(function(entries) {
 }, { threshold: 0.08 });
 
 document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
-
-// Lightbox on click
-document.querySelectorAll('.gallery-item').forEach(function(item) {
-  item.addEventListener('click', function() {
-    var img = item.querySelector('img');
-    var lightbox = document.createElement('div');
-    lightbox.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:none;';
-    var lightImg = document.createElement('img');
-    lightImg.src = img.src;
-    lightImg.style.cssText = 'max-width:90vw;max-height:90vh;object-fit:contain;';
-    lightbox.appendChild(lightImg);
-    lightbox.addEventListener('click', function() { document.body.removeChild(lightbox); });
-    document.body.appendChild(lightbox);
-  });
-});
 </script>
 </body>
 </html>
