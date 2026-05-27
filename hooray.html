@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carolina Cravens for Hooray Health | Senior Graphic Designer</title>
+<title>Carolina Cravens for Hooray Health | Senior Digital Designer</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -515,6 +515,226 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
 .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.9s ease, transform 0.9s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+
+/* ── BRAND CAROUSEL ── */
+.brand-carousel {
+  margin-top: 3rem;
+  position: relative;
+}
+
+.carousel-track {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.carousel-slide {
+  display: none;
+  animation: slideFadeIn 0.5s ease;
+}
+
+.carousel-slide.active { display: block; }
+
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideFadeOut {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-30px); }
+}
+
+.slide-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+  background: var(--white);
+  overflow: hidden;
+}
+
+.slide-img-wrap {
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+  max-height: 500px;
+}
+
+.slide-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.slide-img-wrap:hover img { transform: scale(1.04); }
+
+.slide-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(45,27,94,0.8) 100%);
+  display: flex; align-items: flex-end; justify-content: flex-start;
+  padding: 1.5rem;
+  opacity: 0; transition: opacity 0.3s;
+}
+
+.slide-img-wrap:hover .slide-img-overlay { opacity: 1; }
+
+.slide-zoom-hint {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--white);
+  background: rgba(107,63,160,0.8);
+  padding: 0.4rem 0.8rem;
+}
+
+.slide-content {
+  padding: 3rem;
+  display: flex; flex-direction: column; justify-content: center;
+  background: var(--off);
+}
+
+.slide-num {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: rgba(107,63,160,0.4);
+  margin-bottom: 0.8rem;
+}
+
+.slide-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--purple);
+  font-weight: 600; margin-bottom: 0.8rem;
+}
+
+.slide-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--plum); line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+.slide-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem; line-height: 1.85;
+  color: var(--mid); margin-bottom: 1.5rem;
+}
+
+.slide-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.stag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 600;
+  padding: 0.3rem 0.7rem; border-radius: 2px;
+}
+
+.stag.purple { background: rgba(107,63,160,0.1); color: var(--purple); }
+.stag.green  { background: rgba(118,193,92,0.12); color: #4a9a28; }
+.stag.amber  { background: rgba(252,179,63,0.12); color: #c47a00; }
+
+/* CAROUSEL CONTROLS */
+.carousel-controls {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1.5rem; margin-top: 1.5rem;
+}
+
+.carousel-btn {
+  width: 44px; height: 44px;
+  border: 1.5px solid var(--rule);
+  background: var(--white);
+  color: var(--plum);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: none; transition: all 0.3s;
+}
+
+.carousel-btn:hover {
+  border-color: var(--purple);
+  background: var(--purple);
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+.carousel-dots { display: flex; gap: 0.6rem; }
+
+.carousel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(107,63,160,0.2);
+  border: none; cursor: none;
+  transition: all 0.3s;
+}
+
+.carousel-dot.active {
+  background: var(--purple);
+  width: 24px; border-radius: 4px;
+}
+
+/* PROGRESS BAR */
+.carousel-progress {
+  height: 2px; background: rgba(107,63,160,0.1);
+  margin-top: 1rem; border-radius: 1px; overflow: hidden;
+}
+
+.carousel-progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--purple), var(--green));
+  border-radius: 1px;
+  transition: width 0.1s linear;
+  width: 0%;
+}
+
+/* LIGHTBOX */
+.brand-lightbox {
+  position: fixed; inset: 0; z-index: 9999;
+  display: none; align-items: center; justify-content: center;
+}
+
+.brand-lightbox.open { display: flex; }
+
+.lightbox-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(10,5,30,0.97);
+  cursor: none;
+}
+
+.lightbox-content {
+  position: relative; z-index: 2;
+  max-width: 90vw; max-height: 90vh;
+}
+
+.lightbox-content img {
+  max-width: 88vw; max-height: 88vh;
+  object-fit: contain; display: block;
+  animation: lbIn 0.3s ease;
+}
+
+@keyframes lbIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.lightbox-close {
+  position: absolute; top: -2.5rem; right: 0;
+  background: none; border: none;
+  color: rgba(255,255,255,0.5);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem; letter-spacing: 0.15em;
+  cursor: none; transition: color 0.3s;
+}
+
+.lightbox-close:hover { color: var(--white); }
+
+@media (max-width: 768px) {
+  .slide-inner { grid-template-columns: 1fr; }
+  .slide-img-wrap { max-height: 250px; }
+  .slide-content { padding: 2rem 1.5rem; }
+  .slide-title { font-size: 1.3rem; }
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   body { cursor: auto; }
@@ -547,7 +767,7 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
     <img src="logo.png" alt="CC Logo">
     <span class="nav-name">Carolina Cravens</span>
   </a>
-  <div class="nav-badge">Candidate · Senior Graphic Designer</div>
+  <div class="nav-badge">Candidate, Senior Digital Designer</div>
   <ul class="nav-links">
     <li><a href="#why-me">Why Me</a></li>
     <li><a href="#brand">Brand Work</a></li>
@@ -567,12 +787,12 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
   <div class="hero-content">
     <div class="hero-eyebrow">Prepared exclusively for Hooray Health · May 2026</div>
     <h1>The designer who makes<br>healthcare <span class="accent">feel human.</span></h1>
-    <p class="hero-sub">Senior Graphic Designer · 8+ Years · Dallas, TX · Available Now</p>
+    <p class="hero-sub">Senior Digital Designer, 8+ Years, Dallas TX, Available Now</p>
     <p class="hero-statement">
       Hooray Health believes coverage should fit your life, not the other way around. I'm a Senior Creative Designer who has spent 8+ years making complex ideas feel clear, warm, and real. <strong>I don't just design for brands. I design for the humans behind them.</strong> That's what your members deserve, and exactly what I deliver.
     </p>
     <div class="hero-cta">
-      <a href="mailto:creativecravens@gmail.com?subject=Hooray Health - Senior Graphic Designer" class="btn btn-amber">Contact Me Today</a>
+      <a href="mailto:creativecravens@gmail.com?subject=Hooray Health - Senior Digital Designer" class="btn btn-amber">Contact Me Today</a>
       <a href="https://linkedin.com/in/carolinacravens" target="_blank" class="btn btn-outline-white">LinkedIn Profile</a>
       <a href="https://carolinacravens.com/portfolio" target="_blank" class="btn btn-outline-white">Full Portfolio</a>
     </div>
@@ -607,27 +827,96 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
     <p class="brand-intro reveal">
       One of the first things I do when joining a new company or project is <strong>study and document the brand</strong>. I created these brand guidelines as a personal reference tool while preparing for this opportunity with Hooray Health. This is how I work: before I design a single asset, I make sure I deeply understand the visual language, color system, typography, and design principles of the organization I'm creating for.
       <br><br>
-      At every role I've held, I have <strong>built or refined brand guidelines</strong> that ensure visual consistency across every touchpoint — from member-facing materials and benefit explainers to marketing campaigns and digital assets. For Hooray Health, a company whose brand promise is to feel warm, honest, and unmistakably human, that consistency is everything.
+      At every role I've held, I have <strong>built or refined brand guidelines</strong> that ensure visual consistency across every touchpoint from member-facing materials and benefit explainers to marketing campaigns and digital assets. For Hooray Health, a company whose brand promise is to feel warm, honest, and unmistakably human, that consistency is everything.
     </p>
-    <div class="brand-images-grid reveal">
-      <div class="brand-img-card">
-        <img src="brand-guide-1.png" alt="Hooray Health Brand Guidelines - Colors and Typography">
-        <div class="brand-img-caption">
-          <div class="brand-img-title">Brand Guidelines · Colors & Typography</div>
-          <div class="brand-img-desc">Documented Hooray Health's complete color system (Hooray Purple, Deep Plum, Soft Lavender, Spark Amber, Fresh Green) and typography pairing (Manrope for display, DM Sans for body) as a working reference for consistent design execution.</div>
+    <!-- INTERACTIVE CAROUSEL -->
+    <div class="brand-carousel reveal">
+
+      <!-- Slides -->
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="carousel-slide active" data-index="0">
+          <div class="slide-inner">
+            <div class="slide-img-wrap">
+              <img src="brand-guide-1.png" alt="Hooray Health Brand Guidelines - Colors and Typography">
+              <div class="slide-img-overlay">
+                <span class="slide-zoom-hint">Click to zoom</span>
+              </div>
+            </div>
+            <div class="slide-content">
+              <div class="slide-num">01 / 02</div>
+              <div class="slide-tag">Brand Foundation</div>
+              <h3 class="slide-title">Brand Guidelines<br>Colors & Typography</h3>
+              <p class="slide-desc">Documented Hooray Health's complete color system including Hooray Purple, Deep Plum, Soft Lavender, Spark Amber, and Fresh Green alongside the typography pairing of Manrope for display and DM Sans for body copy. This is how I work: before designing a single asset, I document the brand system so every touchpoint stays consistent.</p>
+              <div class="slide-tags">
+                <span class="stag purple">Color System</span>
+                <span class="stag green">Typography</span>
+                <span class="stag amber">Brand Motifs</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="carousel-slide" data-index="1">
+          <div class="slide-inner">
+            <div class="slide-img-wrap">
+              <img src="brand-guide-2.jpg" alt="Hooray Health Brand System Applications">
+              <div class="slide-img-overlay">
+                <span class="slide-zoom-hint">Click to zoom</span>
+              </div>
+            </div>
+            <div class="slide-content">
+              <div class="slide-num">02 / 02</div>
+              <div class="slide-tag">Brand Application</div>
+              <h3 class="slide-title">Brand System<br>Color Ratios & Use</h3>
+              <p class="slide-desc">Analyzed Hooray Health's brand hierarchy: 50% Purple does the heavy lifting, 25% Plum supports it, 15% Lavender whispers on dark surfaces, 7% Green for wellness, 3% Amber as punctuation. Mapped applications across member dashboard, benefit explainers, welcome letters, and marketing landing pages.</p>
+              <div class="slide-tags">
+                <span class="stag purple">Color Ratios</span>
+                <span class="stag green">Brand in Use</span>
+                <span class="stag amber">Applications</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="brand-img-card">
-        <img src="brand-guide-2.jpg" alt="Hooray Health Brand System - Color ratios and brand in use">
-        <div class="brand-img-caption">
-          <div class="brand-img-title">Brand System · Color Ratios & Applications</div>
-          <div class="brand-img-desc">Analyzed Hooray Health's brand hierarchy: 50% Purple, 25% Plum, 15% Lavender, 7% Green, 3% Amber. Mapped brand applications across member dashboard, provider search, benefit explainers, welcome letters, and marketing landing pages.</div>
+
+      <!-- Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" data-dot="0"></button>
+          <button class="carousel-dot" data-dot="1"></button>
         </div>
+        <button class="carousel-btn next" id="carouselNext" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="carousel-progress">
+        <div class="carousel-progress-fill" id="carouselProgress"></div>
+      </div>
+
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="brand-lightbox" id="brandLightbox">
+      <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightboxClose">✕</button>
+        <img id="lightboxImg" src="" alt="">
       </div>
     </div>
     <div style="margin-top:2rem;padding:1.5rem 2rem;background:rgba(107,63,160,0.06);border-left:3px solid var(--purple);" class="reveal">
       <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--plum);line-height:1.8;font-style:italic;">
-        "Purple does the heavy lifting; deep plum supports it. Amber is a punctuation mark, never a sentence. Lavender is a whisper, used for hierarchy on dark surfaces." — This is the level of brand thinking I bring to every project, every day.
+        "Purple does the heavy lifting; deep plum supports it. Amber is a punctuation mark, never a sentence. Lavender is a whisper, used for hierarchy on dark surfaces." This is the level of brand thinking I bring to every project, every day.
       </p>
     </div>
   </div>
@@ -654,7 +943,7 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
       <div class="why-card amber-top reveal">
         <div class="why-icon">🌐</div>
         <div class="why-title">Full-Stack: Print + Digital + Web</div>
-        <div class="why-text">Web pages, newsletters, presentations, signage, social, email, DAM systems — I've done all of it. Bilingual English/Spanish so your materials reach every community Hooray Health serves.</div>
+        <div class="why-text">Web pages, newsletters, presentations, signage, social, email, DAM systems I've done all of it. Bilingual English/Spanish so your materials reach every community Hooray Health serves.</div>
         <div class="why-metric">Bilingual EN/ES · Print · Digital · Figma · HTML</div>
       </div>
       <div class="why-card reveal">
@@ -666,7 +955,7 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
       <div class="why-card green-top reveal">
         <div class="why-icon">🤖</div>
         <div class="why-title">AI-Powered Productivity</div>
-        <div class="why-text">Adobe Firefly, Canva AI, Midjourney, and ChatGPT are everyday tools for me. I actively look for workflow improvements and SOP enhancements — exactly what your role description calls for.</div>
+        <div class="why-text">Adobe Firefly, Canva AI, Midjourney, and ChatGPT are everyday tools for me. I actively look for workflow improvements and SOP enhancements exactly what your role description calls for.</div>
         <div class="why-metric">AI Tools · Workflow Automation · SOP Design</div>
       </div>
       <div class="why-card amber-top reveal">
@@ -685,7 +974,7 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
     <div class="sec-eyebrow">Portfolio · Selected Work</div>
     <h2 class="sec-heading reveal">Work that proves<br><span class="accent">every capability</span> you need.</h2>
     <p style="font-family:'DM Sans',sans-serif;font-size:0.95rem;color:var(--mid);max-width:700px;line-height:1.8;margin-bottom:1rem;" class="reveal">
-      Each project below directly demonstrates skills required for the Senior Graphic Designer role at Hooray Health. From luxury brand campaigns to brand identity systems, digital design, and AI-forward creative work.
+      Each project below directly demonstrates skills required for the Senior Digital Designer role at Hooray Health. From luxury brand campaigns to brand identity systems, digital design, and AI-forward creative work.
     </p>
 
     <div class="portfolio-grid reveal">
@@ -695,9 +984,9 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
         <div class="portfolio-num">01</div>
         <div class="portfolio-info">
           <div class="portfolio-tag">Enterprise Brand Design · Luxury Retail · 3 Years</div>
-          <div class="portfolio-title">Pacific Northern — Creative Marketing Specialist</div>
+          <div class="portfolio-title">Pacific Northern Creative Marketing Specialist</div>
           <div class="portfolio-desc">
-            Three years as Creative Marketing Specialist for global luxury brands including LVMH, L'Oreal, Signet Jewelers, and IWC North America. Luxury requires a level of precision and confidentiality — many projects are under NDA due to competitive sensitivity. This portfolio showcases the range of my capabilities: campaign visuals, product photography, eCommerce assets, executive presentations, and brand materials for clients who demand the highest standard. It highlights my full suite of digital design skills across print, web, and motion.
+            Three years as Creative Marketing Specialist for global luxury brands including LVMH, L'Oreal, Signet Jewelers, and IWC North America. Luxury requires a level of precision and confidentiality many projects are under NDA due to competitive sensitivity. This portfolio showcases the range of my capabilities: campaign visuals, product photography, eCommerce assets, executive presentations, and brand materials for clients who demand the highest standard. It highlights my full suite of digital design skills across print, web, and motion.
           </div>
         </div>
         <a href="https://carolinacravens.com/pacific-northern-inc" target="_blank" class="btn btn-purple" style="white-space:nowrap;align-self:center;">View Work →</a>
@@ -708,9 +997,9 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
         <div class="portfolio-num">02</div>
         <div class="portfolio-info">
           <div class="portfolio-tag">Brand Identity · Web Design · App Design · Digital</div>
-          <div class="portfolio-title">Brand Identity & Digital Design — Growth Case Study</div>
+          <div class="portfolio-title">Brand Identity & Digital Design Growth Case Study</div>
           <div class="portfolio-desc">
-            A complete brand identity system from logo creation through web design, app design, and digital marketing assets. This project demonstrates my ability to build a cohesive brand from the ground up and design across every digital touchpoint. It shows my logo creation, brand development, UI design, and how strategic visual design directly contributes to business growth — skills directly listed in your preferred qualifications.
+            A complete brand identity system from logo creation through web design, app design, and digital marketing assets. This project demonstrates my ability to build a cohesive brand from the ground up and design across every digital touchpoint. It shows my logo creation, brand development, UI design, and how strategic visual design directly contributes to business growth skills directly listed in your preferred qualifications.
           </div>
         </div>
         <a href="https://carolinacravens.com/lash-logo-id" target="_blank" class="btn btn-green" style="white-space:nowrap;align-self:center;">View Work →</a>
@@ -721,7 +1010,7 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
         <div class="portfolio-num">03</div>
         <div class="portfolio-info">
           <div class="portfolio-tag">Presentation Design · Strategic Creative · Executive Level</div>
-          <div class="portfolio-title">Alloy — Executive Presentation Capabilities</div>
+          <div class="portfolio-title">Alloy Executive Presentation Capabilities</div>
           <div class="portfolio-desc">
             This project showcases my presentation design capabilities at an executive and strategic level. For Hooray Health, I would be designing materials that communicate benefits clearly to members, brokers, and leadership. My ability to translate complex information into compelling, beautiful presentations is a core skill that this work demonstrates directly.
           </div>
@@ -734,9 +1023,9 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
         <div class="portfolio-num">04</div>
         <div class="portfolio-info">
           <div class="portfolio-tag">AI Design · Emerging Technology · Design Innovation</div>
-          <div class="portfolio-title">AI Design Work — Keeping Up with the Future</div>
+          <div class="portfolio-title">AI Design Work Keeping Up with the Future</div>
           <div class="portfolio-desc">
-            This work demonstrates my passion for design advancement and my commitment to staying at the forefront of the industry. I actively use AI tools as creative instruments — not shortcuts. For Hooray Health, a company that values innovative solutions, my fluency in AI design tools means faster turnaround, more creative exploration, and continuous improvement in how we produce assets and manage workflows.
+            This work demonstrates my passion for design advancement and my commitment to staying at the forefront of the industry. I actively use AI tools as creative instruments not shortcuts. For Hooray Health, a company that values innovative solutions, my fluency in AI design tools means faster turnaround, more creative exploration, and continuous improvement in how we produce assets and manage workflows.
           </div>
         </div>
         <a href="https://carolinacravens.com/ai-design" target="_blank" class="btn btn-purple" style="white-space:nowrap;align-self:center;">View Work →</a>
@@ -747,7 +1036,7 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
         <div class="portfolio-num">05</div>
         <div class="portfolio-info">
           <div class="portfolio-tag">Advertising · Promotional Design · Marketing Campaigns</div>
-          <div class="portfolio-title">Lemonshark Poke — Advertising & Promotional Capabilities</div>
+          <div class="portfolio-title">Lemonshark Poke Advertising & Promotional Capabilities</div>
           <div class="portfolio-desc">
             This project demonstrates my advertising and promotional design capabilities. From in-store signage and menus to digital ads and social campaigns, this work shows how I create promotional materials that drive real business results. For Hooray Health, these same skills translate directly to member marketing materials, plan promotion, and the kind of healthcare advertising that actually connects with people.
           </div>
@@ -813,11 +1102,11 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
         <div class="sec-eyebrow">Career History</div>
         <h2 class="sec-heading reveal">8+ Years of<br><span class="accent">Creative Excellence.</span></h2>
         <div class="timeline">
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2024 — Present</div><div class="tl-role">Brand Manager</div><div class="tl-co">APTS Centro Colon · Remote</div><div class="tl-win">60% production reduction via AI tools</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2024 Present</div><div class="tl-role">Brand Manager</div><div class="tl-co">APTS Centro Colon · Remote</div><div class="tl-win">60% production reduction via AI tools</div></div>
           <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2025</div><div class="tl-role">Program Manager</div><div class="tl-co">Lane Gang Capital Group · Dallas, TX</div><div class="tl-win">+35% engagement · +25% web traffic</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022 — 2025</div><div class="tl-role">Creative Marketing Specialist</div><div class="tl-co">Pacific Northern Inc. · Dallas, TX</div><div class="tl-win">LVMH · L'Oreal · Signet · IWC North America</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2021 — 2023</div><div class="tl-role">UX / UI Designer</div><div class="tl-co">DuoWeb Design Studio · Remote</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2019 — Present</div><div class="tl-role">Freelance Graphic Designer</div><div class="tl-co">Self-Employed · US & Costa Rica</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022 2025</div><div class="tl-role">Creative Marketing Specialist</div><div class="tl-co">Pacific Northern Inc. · Dallas, TX</div><div class="tl-win">LVMH · L'Oreal · Signet · IWC North America</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2021 2023</div><div class="tl-role">UX / UI Designer</div><div class="tl-co">DuoWeb Design Studio · Remote</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2019 Present</div><div class="tl-role">Freelance Graphic Designer</div><div class="tl-co">Self-Employed · US & Costa Rica</div></div>
         </div>
       </div>
       <div>
@@ -839,7 +1128,7 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
   <h2 class="cta-heading reveal">Let's make Hooray Health<br>look as <span class="accent">human as it feels.</span></h2>
   <p class="cta-sub reveal">Ready to bring 8+ years of creative excellence, bilingual reach, and genuine mission alignment to your team. Let's connect this week.</p>
   <div class="cta-row reveal">
-    <a href="mailto:creativecravens@gmail.com?subject=Hooray Health - Senior Graphic Designer" class="btn btn-amber">Email Me Now</a>
+    <a href="mailto:creativecravens@gmail.com?subject=Hooray Health - Senior Digital Designer" class="btn btn-amber">Email Me Now</a>
     <a href="https://linkedin.com/in/carolinacravens" target="_blank" class="btn btn-outline-white">LinkedIn →</a>
     <a href="https://carolinacravens.com/portfolio" target="_blank" class="btn btn-outline-white">Full Portfolio →</a>
   </div>
@@ -856,7 +1145,7 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
     <img src="logo.png" alt="CC">
     <span class="footer-logo">Carolina Cravens · Prepared for Hooray Health</span>
   </div>
-  <div class="footer-copy">© 2026 · Senior Graphic Designer Candidate · Dallas, TX</div>
+  <div class="footer-copy">© 2026, Senior Digital Designer Candidate, Dallas TX</div>
 </footer>
 
 <script>
@@ -916,6 +1205,106 @@ var barObs = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.2 });
 document.querySelectorAll('.skill-bars-grid > div').forEach(function(el) { barObs.observe(el); });
+
+
+// CAROUSEL
+var slides = document.querySelectorAll('.carousel-slide');
+var dots = document.querySelectorAll('.carousel-dot');
+var progressFill = document.getElementById('carouselProgress');
+var currentSlide = 0;
+var autoTimer;
+var autoInterval = 5000;
+var progressTimer;
+var progressStart;
+
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  resetProgress();
+}
+
+function resetProgress() {
+  if (progressFill) {
+    progressFill.style.transition = 'none';
+    progressFill.style.width = '0%';
+    setTimeout(function() {
+      progressFill.style.transition = 'width ' + autoInterval + 'ms linear';
+      progressFill.style.width = '100%';
+    }, 50);
+  }
+}
+
+function startAuto() {
+  autoTimer = setInterval(function() {
+    goToSlide(currentSlide + 1);
+  }, autoInterval);
+  resetProgress();
+}
+
+function stopAuto() {
+  clearInterval(autoTimer);
+  if (progressFill) {
+    progressFill.style.transition = 'none';
+    progressFill.style.width = '0%';
+  }
+}
+
+var prevBtn = document.getElementById('carouselPrev');
+var nextBtn = document.getElementById('carouselNext');
+
+if (prevBtn) prevBtn.addEventListener('click', function() { stopAuto(); goToSlide(currentSlide - 1); startAuto(); });
+if (nextBtn) nextBtn.addEventListener('click', function() { stopAuto(); goToSlide(currentSlide + 1); startAuto(); });
+
+dots.forEach(function(dot) {
+  dot.addEventListener('click', function() {
+    stopAuto(); goToSlide(parseInt(dot.getAttribute('data-dot'))); startAuto();
+  });
+});
+
+// Touch swipe
+var touchStartX = 0;
+var track = document.getElementById('carouselTrack');
+if (track) {
+  track.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; });
+  track.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { stopAuto(); goToSlide(diff > 0 ? currentSlide+1 : currentSlide-1); startAuto(); }
+  });
+}
+
+startAuto();
+
+// LIGHTBOX for carousel images
+document.querySelectorAll('.slide-img-wrap').forEach(function(wrap) {
+  wrap.addEventListener('click', function() {
+    var img = wrap.querySelector('img');
+    var lb = document.getElementById('brandLightbox');
+    var lbImg = document.getElementById('lightboxImg');
+    lbImg.src = img.src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+var lbClose = document.getElementById('lightboxClose');
+var lbBackdrop = document.getElementById('lightboxBackdrop');
+if (lbClose) lbClose.addEventListener('click', function() { closeLightbox(); });
+if (lbBackdrop) lbBackdrop.addEventListener('click', function() { closeLightbox(); });
+
+function closeLightbox() {
+  var lb = document.getElementById('brandLightbox');
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') { stopAuto(); goToSlide(currentSlide-1); startAuto(); }
+  if (e.key === 'ArrowRight') { stopAuto(); goToSlide(currentSlide+1); startAuto(); }
+});
 
 // TIMELINE
 var tlObs = new IntersectionObserver(function(entries) {
