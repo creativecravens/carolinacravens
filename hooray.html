@@ -779,6 +779,52 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
   .slide-title { font-size: 1.3rem; }
 }
 
+
+/* VIDEO */
+.video-wrap {
+  margin-top: 2.5rem;
+  border: 1px solid rgba(182,162,217,0.15);
+  overflow: hidden;
+}
+
+.video-wrap video {
+  width: 100%;
+  display: block;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.video-caption {
+  background: rgba(255,255,255,0.04);
+  border-top: 2px solid var(--amber);
+  padding: 2rem 2.5rem;
+}
+
+.video-caption-inner {
+  max-width: 800px;
+}
+
+.video-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6rem; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--amber);
+  font-weight: 600; margin-bottom: 0.8rem;
+}
+
+.video-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem; line-height: 1.85;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1.5rem;
+}
+
+.video-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 768px) {
+  .video-caption { padding: 1.5rem; }
+  .video-wrap video { max-height: 260px; }
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   body { cursor: auto; }
@@ -958,12 +1004,7 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
         <img id="lightboxImg" src="" alt="">
       </div>
     </div>
-    <div style="margin-top:2rem;padding:1.5rem 2rem;background:rgba(107,63,160,0.06);border-left:3px solid var(--purple);" class="reveal">
-      <p style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--plum);line-height:1.8;font-style:italic;">
-        "Purple does the heavy lifting; deep plum supports it. Amber is a punctuation mark, never a sentence. Lavender is a whisper, used for hierarchy on dark surfaces." This is the level of brand thinking I bring to every project, every day.
-      </p>
-    </div>
-  </div>
+      </div>
 </section>
 
 <!-- WHY ME -->
@@ -1112,29 +1153,30 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
   </div>
 </section>
 
-<!-- TIMELINE + APART -->
-<section class="timeline-section">
+<!-- VIDEO SECTION -->
+<section style="background:var(--plum);padding:6rem 5rem;">
   <div class="section-inner">
-    <div class="timeline-grid">
-      <div>
-        <div class="sec-eyebrow">Career History</div>
-        <h2 class="sec-heading reveal">8+ Years.<br><span class="accent">Consistent results.</span></h2>
-        <div class="timeline">
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2024 Present</div><div class="tl-role">Brand Manager</div><div class="tl-co">APTS Centro Colon · Remote</div><div class="tl-win">60% production reduction via AI tools</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2025</div><div class="tl-role">Program Manager</div><div class="tl-co">Lane Gang Capital Group · Dallas, TX</div><div class="tl-win">+35% engagement · +25% web traffic</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022 2025</div><div class="tl-role">Creative Marketing Specialist</div><div class="tl-co">Pacific Northern Inc. · Dallas, TX</div><div class="tl-win">LVMH, L'Oreal, Signet Jewelers, IWC North America</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2021 2023</div><div class="tl-role">UX / UI Designer</div><div class="tl-co">DuoWeb Design Studio · Remote</div></div>
-          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2019 Present</div><div class="tl-role">Freelance Graphic Designer</div><div class="tl-co">Self-Employed · US & Costa Rica</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="sec-eyebrow">What Sets Me Apart</div>
-        <h2 class="sec-heading reveal">Why this role<br><span class="accent">fits my work.</span></h2>
-        <div class="apart-cards reveal">
-          <div class="apart-card"><div class="apart-label">Senior Expertise</div><div class="apart-text">8+ years at the enterprise level, including luxury brands with zero tolerance for off-brand execution. That discipline transfers directly to healthcare communications.</div></div>
-          <div class="apart-card green"><div class="apart-label green">Audience-First Design</div><div class="apart-text">Every design decision starts with the audience. For Hooray Health, that means materials that are clear, accessible, and human without being generic.</div></div>
-          <div class="apart-card amber"><div class="apart-label amber">AI Fluent</div><div class="apart-text">I use AI tools to produce 60% faster without compromising the work. More output, tighter timelines, same standard of quality.</div></div>
-          <div class="apart-card"><div class="apart-label">Mission Aligned</div><div class="apart-text">As a designer who understands what it means to communicate clearly with real people, I understand exactly why Hooray Health's mission matters. This is personal.</div></div>
+    <div class="sec-eyebrow" style="color:var(--lavender);">Motion & Animation</div>
+    <h2 class="sec-heading reveal" style="color:var(--white);">Design in motion.<br><span style="color:var(--amber);">Brand brought to life.</span></h2>
+
+    <div class="video-wrap reveal">
+      <video
+        src="hooray-brand-motion.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        controls
+        style="width:100%;display:block;border:1px solid rgba(182,162,217,0.15);">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-caption">
+        <div class="video-caption-inner">
+          <div class="video-tag">Motion Design Capability</div>
+          <p class="video-desc">Animation and motion design are part of my creative toolkit. This work demonstrates my ability to extend a brand identity into dynamic, engaging content — from animated brand assets and transitions to motion graphics for digital campaigns. For Hooray Health, that means member-facing materials and marketing content that move as well as they stand still.</p>
+          <div class="video-links">
+            <a href="https://carolinacravens.com/ai-design" target="_blank" class="btn btn-amber" style="font-size:0.68rem;">View More Motion Work</a>
+          </div>
         </div>
       </div>
     </div>
