@@ -70,7 +70,6 @@ nav {
   align-items: center;
   padding: 1.2rem 3.5rem;
   background: var(--plum);
-  border-bottom: 1px solid rgba(182,162,217,0.2);
 }
 
 .nav-left { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
@@ -152,7 +151,7 @@ nav {
   opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
 }
 
-.hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--amber); }
+.hero-eyebrow::before { content: none; }
 
 .hero h1 {
   font-family: 'Manrope', sans-serif;
@@ -228,7 +227,6 @@ nav {
   position: relative; z-index: 2;
   display: flex; gap: 3rem; flex-wrap: wrap;
   padding-top: 3rem; margin-top: 1rem;
-  border-top: 1px solid rgba(182,162,217,0.2);
   opacity: 0; animation: fadeUp 0.8s ease forwards 1.2s;
 }
 
@@ -257,7 +255,7 @@ nav {
   display: flex; align-items: center; gap: 1rem;
 }
 
-.sec-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 50px; }
+.sec-eyebrow::after { content: none; }
 
 .sec-heading {
   font-family: 'Manrope', sans-serif;
@@ -466,7 +464,7 @@ nav {
 /* MATCH SECTION */
 .match-section { background: var(--plum); padding: 6rem 5rem; }
 .match-section .sec-eyebrow { color: var(--lavender); }
-.match-section .sec-eyebrow::after { background: rgba(182,162,217,0.2); }
+.match-section .sec-eyebrow::after { content: none; }
 .match-section .sec-heading { color: var(--white); }
 
 .match-grid {
@@ -542,7 +540,7 @@ nav {
 .cta-heading .accent { color: var(--green); }
 .cta-sub { font-family: 'DM Sans', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.5); margin-bottom: 3rem; }
 .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
-.cta-details { display: flex; justify-content: center; gap: 3rem; padding-top: 2rem; border-top: 1px solid rgba(182,162,217,0.15); flex-wrap: wrap; }
+.cta-details { display: flex; justify-content: center; gap: 3rem; padding-top: 2rem; flex-wrap: wrap; }
 .cta-detail { text-align: center; }
 .cta-detail-label { font-family: 'DM Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
 .cta-detail-value { font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--white); margin-top: 0.2rem; }
@@ -1173,7 +1171,7 @@ footer { background: var(--ink); padding: 2rem 3.5rem; display: flex; justify-co
       <div class="video-caption">
         <div class="video-caption-inner">
           <div class="video-tag">Motion Design Capability</div>
-          <p class="video-desc">Animation and motion design are part of my creative toolkit. This work demonstrates my ability to extend a brand identity into dynamic, engaging content — from animated brand assets and transitions to motion graphics for digital campaigns. For Hooray Health, that means member-facing materials and marketing content that move as well as they stand still.</p>
+          <p class="video-desc">Animation and motion design are part of my creative toolkit. This work demonstrates my ability to extend a brand identity into dynamic, engaging content. That includes animated brand assets, transitions, and motion graphics for digital campaigns. For Hooray Health, it means member-facing materials and marketing content that move as well as they stand still.</p>
           <div class="video-links">
             <a href="https://carolinacravens.com/ai-design" target="_blank" class="btn btn-amber" style="font-size:0.68rem;">View More Motion Work</a>
           </div>
