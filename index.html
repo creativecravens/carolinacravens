@@ -645,6 +645,61 @@ border-left: 3px solid var(--blue);
 padding-left: 1.5rem;
 max-width: 560px;
 }
+/* FEATURED PROJECT */
+.feature-project {
+background: var(--off-white);
+padding: 7rem 4rem;
+}
+.feature-project-grid {
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1.1fr;
+gap: 5rem;
+align-items: center;
+}
+.feature-tilt-wrap { position: relative; }
+.feature-tilt-card {
+position: relative;
+border-radius: 6px;
+overflow: hidden;
+box-shadow: 0 30px 60px rgba(31,56,100,0.18);
+transform-style: preserve-3d;
+transition: transform 0.15s ease-out;
+will-change: transform;
+}
+.feature-tilt-img {
+width: 100%;
+display: block;
+}
+.feature-tilt-glare {
+position: absolute; inset: 0;
+background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.35), transparent 60%);
+opacity: 0;
+transition: opacity 0.3s;
+pointer-events: none;
+}
+.feature-tilt-card:hover .feature-tilt-glare { opacity: 1; }
+.feature-tilt-badge {
+position: absolute;
+bottom: -16px; left: 24px;
+background: var(--navy);
+color: var(--white);
+font-size: 0.62rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+font-weight: 700;
+padding: 0.6rem 1.2rem;
+border-radius: 3px;
+box-shadow: 0 10px 20px rgba(31,56,100,0.25);
+}
+.feature-project-para {
+font-size: 0.98rem;
+line-height: 1.85;
+color: var(--mid);
+margin: 1.5rem 0 2.5rem;
+max-width: 560px;
+}
 /* PORTFOLIO SPOTLIGHT */
 .portfolio-spotlight {
 background: linear-gradient(180deg, #ffffff 0%, var(--off-white) 100%);
@@ -748,6 +803,8 @@ nav .nav-links { display: none; }
 .dna-flip-grid { grid-template-columns: repeat(2, 1fr); }
 .dna-power-head { gap: 1rem; }
 .dna-power-title { font-size: 0.9rem; }
+.feature-project { padding: 4rem 1.5rem; }
+.feature-project-grid { grid-template-columns: 1fr; gap: 3rem; }
 footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center; }
 }
 </style>
@@ -1025,6 +1082,11 @@ footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center;
 <h2 class="section-heading reveal">Where I've delivered.</h2>
 <div class="exp-list">
 <div class="exp-item reveal">
+<div class="exp-period">Jul 2026 Present</div>
+<div><div class="exp-role">Digital Marketing Designer</div><div class="exp-company">Legacy Housing Corporation (Nasdaq: LEGH) · Fort Worth, TX</div></div>
+<div class="exp-tag">Current</div>
+</div>
+<div class="exp-item reveal">
 <div class="exp-period">2024 Present</div>
 <div><div class="exp-role">Brand Manager</div><div class="exp-company">Apts Centro Colón · Remote</div></div>
 <div class="exp-tag">Consulting</div>
@@ -1053,6 +1115,23 @@ footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center;
 <div class="exp-period">2019 Present</div>
 <div><div class="exp-role">Freelance Graphic & Web Designer</div><div class="exp-company">Self-Employed · Remote</div></div>
 <div class="exp-tag">Ongoing</div>
+</div>
+</div>
+</section>
+<!-- FEATURED PROJECT -->
+<section class="feature-project">
+<div class="feature-project-grid">
+<div class="feature-tilt-wrap reveal">
+<div class="feature-tilt-card" id="tiltCard">
+<img src="legacy-housing-project.jpg" alt="Legacy Housing Corporation digital marketing design work" class="feature-tilt-img">
+<div class="feature-tilt-glare" id="tiltGlare"></div>
+</div>
+<div class="feature-tilt-badge">Current Role</div>
+</div>
+<div class="feature-project-text reveal">
+<div class="section-label">Corporate Digital Design</div>
+<h2 class="section-heading">Legacy Housing<br>Corporation.</h2>
+<p class="feature-project-para">I'm the digital designer for Legacy Housing (Nasdaq: LEGH), a publicly traded manufactured housing company. I built their product catalog, including a custom 65-icon vector library and a glassmorphism design direction I pitched and got approved. I shoot original photography on-site at the manufacturing facility, design print collateral that ships straight to press, and produce ongoing ad placements for digital and print magazines. I also serve as the design and web point of contact between sales, engineering, and leadership.</p>
 </div>
 </div>
 </section>
@@ -1190,6 +1269,26 @@ num.textContent = current;
 });
 }, { threshold: 0.3 });
 scoreObserver.observe(scoresSection);
+}
+
+/* FEATURED PROJECT TILT EFFECT */
+var tiltCard = document.getElementById('tiltCard');
+if (tiltCard && !isMobile) {
+tiltCard.addEventListener('mousemove', function(e) {
+var rect = tiltCard.getBoundingClientRect();
+var x = e.clientX - rect.left;
+var y = e.clientY - rect.top;
+var centerX = rect.width / 2;
+var centerY = rect.height / 2;
+var rotateX = ((y - centerY) / centerY) * -8;
+var rotateY = ((x - centerX) / centerX) * 8;
+tiltCard.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.02,1.02,1.02)';
+var glare = document.getElementById('tiltGlare');
+if (glare) { glare.style.background = 'radial-gradient(circle at ' + (x/rect.width*100) + '% ' + (y/rect.height*100) + '%, rgba(255,255,255,0.35), transparent 60%)'; }
+});
+tiltCard.addEventListener('mouseleave', function() {
+tiltCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+});
 }
 </script>
 </body>
