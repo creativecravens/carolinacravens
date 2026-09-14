@@ -95,22 +95,53 @@ background:
 radial-gradient(ellipse 60% 50% at 80% 20%, rgba(79,144,205,0.15) 0%, transparent 60%),
 radial-gradient(ellipse 40% 60% at 10% 80%, rgba(79,144,205,0.08) 0%, transparent 50%);
 }
-.hero-grid {
-position: absolute; inset: 0;
-background-image:
-linear-gradient(rgba(79,144,205,0.06) 1px, transparent 1px),
-linear-gradient(90deg, rgba(79,144,205,0.06) 1px, transparent 1px);
-background-size: 60px 60px;
-animation: gridMove 20s linear infinite;
-}
-@keyframes gridMove {
-0% { transform: translateY(0); }
-100% { transform: translateY(60px); }
-}
 .hero-line-top {
 position: absolute; top: 0; left: 0; right: 0;
 height: 4px;
 background: linear-gradient(90deg, transparent, var(--blue), transparent);
+}
+.hero-orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(90px);
+pointer-events: none;
+z-index: 0;
+will-change: transform;
+}
+.hero-orb-1 {
+width: 520px; height: 520px;
+top: -140px; left: -120px;
+background: radial-gradient(circle, rgba(79,144,205,0.28) 0%, rgba(79,144,205,0) 70%);
+animation: orbFloat1 20s ease-in-out infinite;
+}
+.hero-orb-2 {
+width: 460px; height: 460px;
+bottom: -160px; right: -100px;
+background: radial-gradient(circle, rgba(79,144,205,0.20) 0%, rgba(79,144,205,0) 70%);
+animation: orbFloat2 26s ease-in-out infinite;
+}
+.hero-orb-3 {
+width: 360px; height: 360px;
+top: 30%; left: 55%;
+background: radial-gradient(circle, rgba(122,176,217,0.16) 0%, rgba(122,176,217,0) 70%);
+animation: orbFloat3 32s ease-in-out infinite;
+}
+@keyframes orbFloat1 {
+0%, 100% { transform: translate(0, 0) scale(1); }
+33% { transform: translate(90px, 60px) scale(1.12); }
+66% { transform: translate(40px, 120px) scale(0.95); }
+}
+@keyframes orbFloat2 {
+0%, 100% { transform: translate(0, 0) scale(1); }
+33% { transform: translate(-80px, -50px) scale(1.08); }
+66% { transform: translate(-30px, -110px) scale(0.94); }
+}
+@keyframes orbFloat3 {
+0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+50% { transform: translate(-140px, 80px) scale(1.25); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+.hero-orb { animation: none; }
 }
 nav {
 position: relative; z-index: 10;
@@ -148,6 +179,19 @@ transition: width 0.3s;
 }
 .nav-links a:hover { color: var(--blue-light); }
 .nav-links a:hover::after { width: 100%; }
+.nav-portfolio-btn {
+background: var(--blue) !important;
+color: var(--white) !important;
+padding: 0.5rem 1.2rem;
+border-radius: 3px;
+font-weight: 700;
+transition: background 0.3s, transform 0.3s !important;
+}
+.nav-portfolio-btn::after { display: none; }
+.nav-portfolio-btn:hover {
+background: var(--blue-light) !important;
+transform: translateY(-2px);
+}
 .hero-content {
 position: relative; z-index: 10;
 display: flex;
@@ -261,6 +305,12 @@ transition: left 0.6s ease;
 .btn-shimmer-outline:hover { border-color: var(--blue); background: rgba(79,144,205,0.1); }
 .btn-shimmer-dark:hover { background: var(--blue); }
 .btn-shimmer-dark-outline:hover { background: var(--navy); color: var(--white); }
+.btn-pulse { animation: btnPulse 2.6s ease-in-out infinite; }
+.btn-pulse:hover { animation: none; }
+@keyframes btnPulse {
+0%, 100% { box-shadow: 0 0 0 0 rgba(79,144,205,0.5); }
+50% { box-shadow: 0 0 0 10px rgba(79,144,205,0); }
+}
 .hero-footer {
 position: relative; z-index: 10;
 padding: 2rem 4rem;
@@ -487,6 +537,149 @@ white-space: nowrap;
 transition: background 0.3s, color 0.3s;
 }
 .exp-item:hover .exp-tag { background: var(--blue); color: var(--white); }
+/* LEADERSHIP DNA */
+.dna-section {
+background: #ffffff;
+padding: 8rem 4rem;
+max-width: 1200px;
+margin: 0 auto;
+}
+.dna-intro {
+font-size: 1rem;
+line-height: 1.8;
+color: var(--mid);
+max-width: 640px;
+margin-bottom: 3rem;
+}
+/* Flip cards */
+.dna-flip-grid {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+gap: 1.2rem;
+margin-bottom: 4rem;
+}
+.dna-flip-card {
+height: 190px;
+perspective: 1000px;
+cursor: none;
+outline: none;
+}
+.dna-flip-inner {
+position: relative;
+width: 100%; height: 100%;
+transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+transform-style: preserve-3d;
+}
+.dna-flip-card:hover .dna-flip-inner,
+.dna-flip-card:focus .dna-flip-inner,
+.dna-flip-card.flipped .dna-flip-inner {
+transform: rotateY(180deg);
+}
+.dna-flip-front, .dna-flip-back {
+position: absolute; inset: 0;
+backface-visibility: hidden;
+border: 1px solid var(--rule);
+border-radius: 4px;
+padding: 1.4rem 1rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+.dna-flip-front { background: var(--off-white); }
+.dna-icon { width: 32px; height: 32px; color: var(--navy); margin-bottom: 0.9rem; }
+.dna-fw-name { font-size: 0.72rem; font-weight: 700; color: var(--navy); letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+.dna-fw-flip-hint { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); }
+.dna-flip-back {
+background: var(--navy);
+color: var(--white);
+transform: rotateY(180deg);
+}
+.dna-fw-result { font-size: 1.3rem; font-weight: 700; color: var(--blue-light); margin-bottom: 0.6rem; }
+.dna-fw-meaning { font-size: 0.68rem; line-height: 1.5; color: rgba(255,255,255,0.7); }
+/* Expandable powers */
+.dna-powers { margin-bottom: 4rem; border-top: 2px solid var(--rule); }
+.dna-power { border-bottom: 1px solid var(--rule); cursor: none; }
+.dna-power-head {
+display: flex; align-items: center; gap: 1.5rem;
+padding: 1.5rem 0;
+}
+.dna-power-num { font-size: 1.3rem; font-weight: 700; color: rgba(31,56,100,0.2); }
+.dna-power-title { flex: 1; font-size: 1rem; font-weight: 700; color: var(--navy); }
+.dna-power-arrow { font-size: 1.3rem; font-weight: 700; color: var(--blue); transition: transform 0.3s; }
+.dna-power.active .dna-power-arrow { transform: rotate(45deg); }
+.dna-power-body {
+max-height: 0; overflow: hidden;
+transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.dna-power-body p {
+padding-bottom: 1.5rem;
+font-size: 0.88rem;
+line-height: 1.7;
+color: var(--mid);
+max-width: 640px;
+}
+.dna-power.active .dna-power-body { max-height: 120px; }
+/* Animated score bars */
+.dna-scores { margin-bottom: 3rem; }
+.dna-score-row { margin-bottom: 1.4rem; }
+.dna-score-label {
+display: flex; justify-content: space-between;
+font-size: 0.8rem; color: var(--navy); font-weight: 700;
+margin-bottom: 0.5rem;
+}
+.dna-score-num::after { content: '%'; }
+.dna-score-track { height: 8px; background: var(--off-white); border-radius: 999px; overflow: hidden; border: 1px solid var(--rule); }
+.dna-score-fill {
+height: 100%; width: 0%;
+border-radius: 999px;
+background: linear-gradient(90deg, var(--navy), var(--blue));
+transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
+}
+.dna-closer {
+font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+font-style: italic;
+color: var(--navy);
+border-left: 3px solid var(--blue);
+padding-left: 1.5rem;
+max-width: 560px;
+}
+/* PORTFOLIO SPOTLIGHT */
+.portfolio-spotlight {
+background: linear-gradient(180deg, #ffffff 0%, var(--off-white) 100%);
+padding: 6rem 4rem;
+text-align: center;
+border-top: 1px solid var(--rule);
+border-bottom: 1px solid var(--rule);
+}
+.portfolio-spotlight-inner { max-width: 700px; margin: 0 auto; }
+.spotlight-heading {
+font-size: clamp(1.8rem, 4vw, 3rem);
+font-weight: 700;
+line-height: 1.15;
+color: var(--navy);
+margin-bottom: 1.2rem;
+}
+.spotlight-text {
+font-size: 1rem;
+line-height: 1.8;
+color: var(--mid);
+margin-bottom: 2.2rem;
+}
+.btn-large { padding: 1.2rem 3rem; font-size: 0.8rem; }
+/* INSTAGRAM */
+.instagram-section {
+background: var(--navy);
+padding: 6rem 4rem;
+text-align: center;
+}
+.instagram-inner { max-width: 700px; margin: 0 auto; }
+.ig-icon { display: flex; justify-content: center; margin-bottom: 1.5rem; }
+.instagram-section .section-label { color: var(--blue-light); }
+.instagram-section .spotlight-heading { color: var(--white); }
+.instagram-section .spotlight-text { color: rgba(255,255,255,0.6); }
+.instagram-section .spotlight-text strong { color: var(--blue-light); }
 /* CONTACT */
 .contact-section { background-color: var(--off-white); padding: 8rem 4rem; text-align: center; }
 .contact-inner { max-width: 700px; margin: 0 auto; }
@@ -548,6 +741,13 @@ nav .nav-links { display: none; }
 .contact-section { padding: 5rem 1.5rem; }
 .contact-details-row { flex-direction: column; gap: 1.5rem; }
 .industries-strip { padding: 1.5rem; gap: 0.5rem; }
+.portfolio-spotlight { padding: 4rem 1.5rem; }
+.instagram-section { padding: 4rem 1.5rem; }
+.btn-large { padding: 1rem 2rem; }
+.dna-section { padding: 5rem 1.5rem; }
+.dna-flip-grid { grid-template-columns: repeat(2, 1fr); }
+.dna-power-head { gap: 1rem; }
+.dna-power-title { font-size: 0.9rem; }
 footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center; }
 }
 </style>
@@ -558,7 +758,9 @@ footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center;
 <!-- HERO -->
 <section class="hero">
 <div class="hero-bg"></div>
-<div class="hero-grid"></div>
+<div class="hero-orb hero-orb-1"></div>
+<div class="hero-orb hero-orb-2"></div>
+<div class="hero-orb hero-orb-3"></div>
 <div class="hero-line-top"></div>
 <nav>
 <a href="#" class="nav-logo">
@@ -568,11 +770,10 @@ footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center;
 <li><a href="#about">About</a></li>
 <li><a href="#services">Services</a></li>
 <li><a href="#experience">Experience</a></li>
-<li><a href="https://carolinacravens.com/portfolio" target="_blank">Portfolio</a></li>
+<li><a href="https://carolinacravens.com/portfolio" target="_blank" class="nav-portfolio-btn">View Portfolio</a></li>
 <li><a href="#contact">Contact</a></li>
 <li><a href="art.html">Atelier</a></li>
 <li><a href="es.html" style="color:#4F90CD;border:1px solid rgba(79,144,205,0.5);padding:0.3rem 0.8rem;font-weight:700;">ES</a></li>
-<li><a href="hooray.html" style="color:#ffffff;background:#6B3FA0;padding:0.3rem 1rem;font-weight:700;border-radius:20px;letter-spacing:0.1em;">Hooray Health</a></li>
 </ul>
 </nav>
 <div class="hero-content">
@@ -583,8 +784,8 @@ footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center;
 <p class="hero-title">Corporate Marketing Specialist & Graphic Designer, Dallas, TX</p>
 <p class="hero-statement">Brand strategy meets creative execution. I build visual identities and marketing systems that make ambitious organizations from luxury retail to financial services look like they mean it.</p>
 <div class="hero-cta-row">
-<a href="#contact" class="btn-shimmer btn-shimmer-solid">Let's Work Together</a>
-<a href="https://carolinacravens.com/portfolio" target="_blank" class="btn-shimmer btn-shimmer-outline">View Portfolio →</a>
+<a href="#contact" class="btn-shimmer btn-shimmer-outline">Let's Work Together</a>
+<a href="https://carolinacravens.com/portfolio" target="_blank" class="btn-shimmer btn-shimmer-solid btn-pulse">See My Full Portfolio →</a>
 </div>
 </div>
 <div class="hero-footer">
@@ -654,6 +855,141 @@ footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center;
 </div>
 </div>
 </section>
+<!-- LEADERSHIP DNA -->
+<section class="dna-section" id="leadership-dna">
+<div class="section-label">Working Style</div>
+<h2 class="section-heading reveal">The DNA behind<br>the design.</h2>
+<p class="dna-intro reveal">Five frameworks, one throughline: I lead with logic and empathy at the same time. Tap a card to flip it.</p>
+
+<!-- FLIP CARDS -->
+<div class="dna-flip-grid reveal">
+<div class="dna-flip-card" tabindex="0">
+<div class="dna-flip-inner">
+<div class="dna-flip-front">
+<svg class="dna-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3a3 3 0 0 0-3 3v.2A3 3 0 0 0 4 9v1a3 3 0 0 0 1 2.2A3 3 0 0 0 4 14v1a3 3 0 0 0 3 3v.5A2.5 2.5 0 0 0 9.5 21H10a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H9Z"/><path d="M15 3a3 3 0 0 1 3 3v.2A3 3 0 0 1 20 9v1a3 3 0 0 1-1 2.2 3 3 0 0 1 1 2.3v1a3 3 0 0 1-3 3v.5A2.5 2.5 0 0 1 14.5 21H14a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h1Z"/></svg>
+<div class="dna-fw-name">MBTI</div>
+<div class="dna-fw-flip-hint">Tap to reveal</div>
+</div>
+<div class="dna-flip-back">
+<div class="dna-fw-result">ENTJ</div>
+<div class="dna-fw-meaning">Natural-born leader, big-picture thinker</div>
+</div>
+</div>
+</div>
+<div class="dna-flip-card" tabindex="0">
+<div class="dna-flip-inner">
+<div class="dna-flip-front">
+<svg class="dna-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3"/><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9.5 9.8 7.5 14.6M14.5 9.8l2 4.8M9 17h6"/></svg>
+<div class="dna-fw-name">DiSC</div>
+<div class="dna-fw-flip-hint">Tap to reveal</div>
+</div>
+<div class="dna-flip-back">
+<div class="dna-fw-result">Ic</div>
+<div class="dna-fw-meaning">Social, driven, quality-focused</div>
+</div>
+</div>
+</div>
+<div class="dna-flip-card" tabindex="0">
+<div class="dna-flip-inner">
+<div class="dna-flip-front">
+<svg class="dna-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-1.7 1.8-2.6 3.7-2.6 6 0 3.6 2.9 5 2.6 9 -0.3-4 -2.6-4.9-2.6-9C9.4 6.7 10.3 4.8 12 3Z"/><path d="M12 3c1.7 1.8 2.6 3.7 2.6 6 0 3.6-2.9 5-2.6 9"/></svg>
+<div class="dna-fw-name">Big Five</div>
+<div class="dna-fw-flip-hint">Tap to reveal</div>
+</div>
+<div class="dna-flip-back">
+<div class="dna-fw-result">O80 · A85</div>
+<div class="dna-fw-meaning">Creative and deeply empathetic</div>
+</div>
+</div>
+</div>
+<div class="dna-flip-card" tabindex="0">
+<div class="dna-flip-inner">
+<div class="dna-flip-front">
+<svg class="dna-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4 4 8l8 4 8-4-8-4Z"/><path d="M4 12l8 4 8-4M4 16l8 4 8-4"/></svg>
+<div class="dna-fw-name">Holland Code</div>
+<div class="dna-fw-flip-hint">Tap to reveal</div>
+</div>
+<div class="dna-flip-back">
+<div class="dna-fw-result">SAI</div>
+<div class="dna-fw-meaning">People-first, artistic, analytical</div>
+</div>
+</div>
+</div>
+<div class="dna-flip-card" tabindex="0">
+<div class="dna-flip-inner">
+<div class="dna-flip-front">
+<svg class="dna-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 12 15.5 8"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg>
+<div class="dna-fw-name">Enneagram</div>
+<div class="dna-fw-flip-hint">Tap to reveal</div>
+</div>
+<div class="dna-flip-back">
+<div class="dna-fw-result">2w3</div>
+<div class="dna-fw-meaning">Helper with a drive to achieve</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- EXPANDABLE SUPERPOWERS -->
+<div class="dna-powers reveal">
+<div class="dna-power active" data-power="0">
+<div class="dna-power-head">
+<span class="dna-power-num">01</span>
+<span class="dna-power-title">Visionary Empathetic Leadership</span>
+<span class="dna-power-arrow">+</span>
+</div>
+<div class="dna-power-body">
+<p>I set high standards and make people feel genuinely valued while I do it.</p>
+</div>
+</div>
+<div class="dna-power" data-power="1">
+<div class="dna-power-head">
+<span class="dna-power-num">02</span>
+<span class="dna-power-title">Creative Analytical Strategy</span>
+<span class="dna-power-arrow">+</span>
+</div>
+<div class="dna-power-body">
+<p>I turn abstract ideas into real, data-backed results.</p>
+</div>
+</div>
+<div class="dna-power" data-power="2">
+<div class="dna-power-head">
+<span class="dna-power-num">03</span>
+<span class="dna-power-title">Inclusive Problem Solving</span>
+<span class="dna-power-arrow">+</span>
+</div>
+<div class="dna-power-body">
+<p>I bring everyone to the table, and the solutions are better for it.</p>
+</div>
+</div>
+</div>
+
+<!-- ANIMATED SCORE BARS -->
+<div class="dna-scores reveal">
+<div class="dna-score-row">
+<div class="dna-score-label"><span>Agreeableness</span><span class="dna-score-num" data-target="85">0</span></div>
+<div class="dna-score-track"><div class="dna-score-fill" data-width="85"></div></div>
+</div>
+<div class="dna-score-row">
+<div class="dna-score-label"><span>Helpfulness (Enneagram core desire)</span><span class="dna-score-num" data-target="90">0</span></div>
+<div class="dna-score-track"><div class="dna-score-fill" data-width="90"></div></div>
+</div>
+<div class="dna-score-row">
+<div class="dna-score-label"><span>Openness / Creativity</span><span class="dna-score-num" data-target="80">0</span></div>
+<div class="dna-score-track"><div class="dna-score-fill" data-width="80"></div></div>
+</div>
+</div>
+<p class="dna-closer reveal">I don't just fill a role. I elevate the team around me.</p>
+</section>
+<!-- PORTFOLIO SPOTLIGHT -->
+<section class="portfolio-spotlight">
+<div class="portfolio-spotlight-inner reveal">
+<div class="section-label" style="justify-content:center;">See The Work</div>
+<h2 class="spotlight-heading">The portfolio says more<br>than any resume can.</h2>
+<p class="spotlight-text">Brand systems, campaigns, and executive materials built for luxury retail, fintech, and enterprise clients. Take a look.</p>
+<a href="https://carolinacravens.com/portfolio" target="_blank" class="btn-shimmer btn-shimmer-solid btn-pulse btn-large">View Full Portfolio →</a>
+</div>
+</section>
 <!-- SERVICES -->
 <section class="services-section" id="services">
 <div class="services-inner">
@@ -718,6 +1054,29 @@ footer { flex-direction: column; gap: 1rem; padding: 1.5rem; text-align: center;
 <div><div class="exp-role">Freelance Graphic & Web Designer</div><div class="exp-company">Self-Employed · Remote</div></div>
 <div class="exp-tag">Ongoing</div>
 </div>
+</div>
+</section>
+<!-- INSTAGRAM -->
+<section class="instagram-section">
+<div class="instagram-inner reveal">
+<div class="ig-icon" aria-hidden="true">
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+<rect x="1.5" y="1.5" width="27" height="27" rx="8" stroke="url(#igGrad)" stroke-width="2.4"/>
+<circle cx="15" cy="15" r="6.5" stroke="url(#igGrad)" stroke-width="2.4"/>
+<circle cx="22.5" cy="7.5" r="1.6" fill="url(#igGrad)"/>
+<defs>
+<linearGradient id="igGrad" x1="0" y1="30" x2="30" y2="0" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4F90CD"/>
+<stop offset="0.5" stop-color="#7ab0d9"/>
+<stop offset="1" stop-color="#1F3864"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+<div class="section-label" style="justify-content:center;">Follow Along</div>
+<h2 class="spotlight-heading">Fresh work, drops first<br>on Instagram.</h2>
+<p class="spotlight-text">Behind the scenes, new brand work, and process shots. Follow <strong>@creativecravens</strong> to see it as it happens.</p>
+<a href="https://www.instagram.com/creativecravens" target="_blank" class="btn-shimmer btn-shimmer-dark btn-large">Follow on Instagram →</a>
 </div>
 </section>
 <!-- CONTACT -->
@@ -792,6 +1151,46 @@ if (entry.isIntersecting) entry.target.classList.add('visible');
 });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+/* DNA SECTION INTERACTIONS */
+document.querySelectorAll('.dna-flip-card').forEach(function(card) {
+card.addEventListener('click', function() {
+card.classList.toggle('flipped');
+});
+});
+document.querySelectorAll('.dna-power-head').forEach(function(head) {
+head.addEventListener('click', function() {
+var power = head.parentElement;
+var wasActive = power.classList.contains('active');
+document.querySelectorAll('.dna-power').forEach(function(p) { p.classList.remove('active'); });
+if (!wasActive) power.classList.add('active');
+});
+});
+var scoresAnimated = false;
+var scoresSection = document.querySelector('.dna-scores');
+if (scoresSection) {
+var scoreObserver = new IntersectionObserver(function(entries) {
+entries.forEach(function(entry) {
+if (entry.isIntersecting && !scoresAnimated) {
+scoresAnimated = true;
+document.querySelectorAll('.dna-score-fill').forEach(function(fill) {
+fill.style.width = fill.getAttribute('data-width') + '%';
+});
+document.querySelectorAll('.dna-score-num').forEach(function(num) {
+var target = parseInt(num.getAttribute('data-target'), 10);
+var current = 0;
+var step = Math.max(1, Math.round(target / 40));
+var timer = setInterval(function() {
+current += step;
+if (current >= target) { current = target; clearInterval(timer); }
+num.textContent = current;
+}, 25);
+});
+}
+});
+}, { threshold: 0.3 });
+scoreObserver.observe(scoresSection);
+}
 </script>
 </body>
 </html>
