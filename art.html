@@ -6,11 +6,11 @@
 <meta name="description" content="Carolina Cravens, Latina fine artist from Costa Rica based in Dallas, TX. International Gold Medal winner Osaka Japan. Original paintings, exhibitions, commissions.">
 <meta name="keywords" content="Latina artist Dallas Texas, Costa Rica artist Dallas, artista costarricense Dallas, fine art exhibitions Dallas TX, Latin American artist Dallas, Carolina Cravens artist, art commissions Dallas, abstract painter Costa Rica, international award winning artist">
 <meta name="author" content="Carolina Cravens">
-<meta property="og:title" content="Carolina Cravens | Atelier — Fine Art & Exhibitions">
+<meta property="og:title" content="Carolina Cravens | Atelier · Fine Art & Exhibitions">
 <meta property="og:description" content="Award-winning Latina artist. Gold Medal, Osaka Japan. Original works, commissions, exhibitions. Dallas, TX.">
 <meta property="og:url" content="https://creativecravens.com/art.html">
 <meta property="og:type" content="website">
-<title>Carolina Cravens | Atelier — Fine Art & Exhibitions</title>
+<title>Carolina Cravens | Atelier · Fine Art & Exhibitions</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -174,6 +174,18 @@ nav {
 .nav-links a:hover { color: var(--gold-lt); }
 .nav-links a:hover::after { width: 100%; }
 .nav-links a.active { color: var(--gold); }
+.nav-portfolio-btn {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+  padding: 0.45rem 1.1rem;
+  font-weight: 600;
+  transition: background .3s, transform .3s !important;
+}
+.nav-portfolio-btn::after { display: none; }
+.nav-portfolio-btn:hover {
+  background: var(--gold-lt) !important;
+  transform: translateY(-2px);
+}
 
 /* ── HERO ── */
 .hero {
@@ -190,6 +202,38 @@ nav {
   background:
     radial-gradient(ellipse 70% 60% at 60% 30%, rgba(184,150,90,.07) 0%, transparent 65%),
     radial-gradient(ellipse 40% 50% at 10% 80%, rgba(184,150,90,.04) 0%, transparent 55%);
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+.hero-orb-a {
+  width: 480px; height: 480px;
+  top: -120px; right: -80px;
+  background: radial-gradient(circle, rgba(184,150,90,.16) 0%, rgba(184,150,90,0) 70%);
+  animation: goldDrift1 24s ease-in-out infinite;
+}
+.hero-orb-b {
+  width: 400px; height: 400px;
+  bottom: -140px; left: -100px;
+  background: radial-gradient(circle, rgba(212,176,122,.12) 0%, rgba(212,176,122,0) 70%);
+  animation: goldDrift2 30s ease-in-out infinite;
+}
+@keyframes goldDrift1 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-90px, 70px) scale(1.15); }
+}
+@keyframes goldDrift2 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(70px, -60px) scale(1.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb { animation: none; }
 }
 
 /* Animated paint stroke SVG bg */
@@ -249,7 +293,7 @@ nav {
   animation: fadeUp .8s ease forwards .8s;
 }
 
-/* Award chips — no emoji, SVG medals */
+/* Award chips, no emoji, SVG medals */
 .award-row {
   display: flex; gap: .8rem; flex-wrap: wrap;
   opacity: 0;
@@ -420,6 +464,7 @@ nav {
   gap: 2px;
   background: rgba(184,150,90,.08);
   border: 1px solid rgba(184,150,90,.08);
+  perspective: 1000px;
 }
 .art-item {
   position: relative;
@@ -427,6 +472,9 @@ nav {
   aspect-ratio: 1;
   cursor: none;
   background: #111;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
 }
 .art-item:nth-child(4n+1) { aspect-ratio: 4/5; }
 .art-item:nth-child(7n+1) { aspect-ratio: 3/4; }
@@ -803,7 +851,7 @@ footer {
   <ul class="nav-links">
     <li><a href="index.html">Design</a></li>
     <li><a href="art.html" class="active">Atelier</a></li>
-    <li><a href="https://carolinacravens.com/portfolio" target="_blank">Portfolio</a></li>
+    <li><a href="https://carolinacravens.com/portfolio" target="_blank" class="nav-portfolio-btn">Portfolio</a></li>
     <li><a href="index.html#contact">Contact</a></li>
     <li><a href="es.html" style="color:var(--gold);border:1px solid rgba(184,150,90,.4);padding:.3rem .8rem;font-weight:500;">ES</a></li>
   </ul>
@@ -812,6 +860,8 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-canvas"></div>
+  <div class="hero-orb hero-orb-a"></div>
+  <div class="hero-orb hero-orb-b"></div>
 
   <!-- Decorative paint-stroke SVGs -->
   <svg class="hero-strokes" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
@@ -894,7 +944,7 @@ footer {
         </svg>
         <div class="recog-title">Solo Art Exhibition</div>
         <div class="recog-sub">Club Unión · San José, Costa Rica · Est. 1923</div>
-        <p class="recog-desc">Original works exhibited for an entire week at Club Unión — Costa Rica's most prestigious private club, founded in 1923, historically the gathering place of the country's political leaders and cultural elite.</p>
+        <p class="recog-desc">Original works exhibited for an entire week at Club Unión, Costa Rica's most prestigious private club, founded in 1923, historically the gathering place of the country's political leaders and cultural elite.</p>
       </div>
 
     </div>
@@ -1073,13 +1123,13 @@ footer {
       <div class="statement-quote">
         Art has always been my first language. Design came after, but painting never left.
       </div>
-      <div class="statement-sig">— Carolina Cravens</div>
+      <div class="statement-sig">Carolina Cravens</div>
     </div>
     <div class="statement-body reveal">
       <div class="sec-label" style="margin-bottom:2rem;">Artist Statement</div>
       <p>I picked up a paintbrush before I picked up a pencil for school. Growing up in San José, Costa Rica, I trained under professional painting instructors and competed internationally, earning <strong>Gold and Silver medals in Japan</strong> and top honors in Costa Rica's national competitions.</p>
       <p>My art lives at the intersection of the organic and the electric. I'm drawn to <strong>color as emotion</strong>, to line as language, and to the tension between chaos and control. Whether working in acrylic on canvas or building worlds digitally, my work is always personal.</p>
-      <p>The same eye for composition, hierarchy, and emotional resonance that informs my paintings is the same sensibility I bring to every brand and design system I build. <strong>Art and design are not separate practices</strong> — they are one continuous conversation.</p>
+      <p>The same eye for composition, hierarchy, and emotional resonance that informs my paintings is the same sensibility I bring to every brand and design system I build. <strong>Art and design are not separate practices.</strong> They are one continuous conversation.</p>
     </div>
   </div>
 </section>
@@ -1089,7 +1139,7 @@ footer {
   <div class="exh-inner">
     <div class="sec-label reveal">Exhibitions &amp; Availability</div>
     <h2 class="exh-heading reveal">Open for exhibitions<br><em>&amp; collaborations</em></h2>
-    <p class="exh-sub reveal">Available for physical exhibitions, gallery shows, corporate art installations, and private collections. Based in Dallas, TX — open to shows nationwide and internationally.</p>
+    <p class="exh-sub reveal">Available for physical exhibitions, gallery shows, corporate art installations, and private collections. Based in Dallas, TX, open to shows nationwide and internationally.</p>
 
     <div class="exh-grid">
 
@@ -1234,6 +1284,25 @@ var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+// ── ARTWORK TILT (canvas catching the light)
+if (!isMobile) {
+  document.querySelectorAll('.art-item').forEach(function(item) {
+    item.addEventListener('mousemove', function(e) {
+      var rect = item.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var cx = rect.width / 2;
+      var cy = rect.height / 2;
+      var rotateX = ((y - cy) / cy) * -7;
+      var rotateY = ((x - cx) / cx) * 7;
+      item.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+    });
+    item.addEventListener('mouseleave', function() {
+      item.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+  });
+}
 
 // ── GALLERY FILTER
 var allItems = Array.from(document.querySelectorAll('.art-item'));
