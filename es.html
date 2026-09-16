@@ -107,18 +107,50 @@
       radial-gradient(ellipse 40% 60% at 10% 80%, rgba(79,144,205,0.08) 0%, transparent 50%);
   }
 
-  .hero-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(79,144,205,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(79,144,205,0.05) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: gridMove 20s linear infinite;
-  }
+  .hero-grid { display: none; }
 
-  @keyframes gridMove {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(60px); }
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform;
+  }
+  .hero-orb-1 {
+    width: 520px; height: 520px;
+    top: -140px; left: -120px;
+    background: radial-gradient(circle, rgba(79,144,205,0.28) 0%, rgba(79,144,205,0) 70%);
+    animation: orbFloat1 20s ease-in-out infinite;
+  }
+  .hero-orb-2 {
+    width: 460px; height: 460px;
+    bottom: -160px; right: -100px;
+    background: radial-gradient(circle, rgba(79,144,205,0.20) 0%, rgba(79,144,205,0) 70%);
+    animation: orbFloat2 26s ease-in-out infinite;
+  }
+  .hero-orb-3 {
+    width: 360px; height: 360px;
+    top: 30%; left: 55%;
+    background: radial-gradient(circle, rgba(122,176,217,0.16) 0%, rgba(122,176,217,0) 70%);
+    animation: orbFloat3 32s ease-in-out infinite;
+  }
+  @keyframes orbFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(90px, 60px) scale(1.12); }
+    66% { transform: translate(40px, 120px) scale(0.95); }
+  }
+  @keyframes orbFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-80px, -50px) scale(1.08); }
+    66% { transform: translate(-30px, -110px) scale(0.94); }
+  }
+  @keyframes orbFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+    50% { transform: translate(-140px, 80px) scale(1.25); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-orb { animation: none; }
   }
 
   nav {
@@ -161,6 +193,19 @@
   }
   .nav-links a:hover { color: var(--blue-light); }
   .nav-links a:hover::after { width: 100%; }
+  .nav-portfolio-btn {
+    background: var(--blue) !important;
+    color: var(--white) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 3px;
+    font-weight: 700;
+    transition: background 0.3s, transform 0.3s !important;
+  }
+  .nav-portfolio-btn::after { display: none; }
+  .nav-portfolio-btn:hover {
+    background: var(--blue-light) !important;
+    transform: translateY(-2px);
+  }
 
   .hero-content {
     position: relative; z-index: 10;
@@ -288,6 +333,12 @@
   .btn-whatsapp:hover { background: #128C7E; }
   .btn-dark:hover { background: var(--blue); }
   .btn-dark-outline:hover { background: var(--navy); color: var(--white); }
+  .btn-pulse { animation: btnPulse 2.6s ease-in-out infinite; }
+  .btn-pulse:hover { animation: none; }
+  @keyframes btnPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+    50% { box-shadow: 0 0 0 10px rgba(37,211,102,0); }
+  }
 
   .hero-footer {
     position: relative; z-index: 10;
@@ -454,6 +505,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
   <div class="hero-grid"></div>
 
   <nav>
@@ -464,9 +518,8 @@
       <li><a href="#sobre-mi">Sobre Mí</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#experiencia">Experiencia</a></li>
-      <li><a href="https://carolinacravens.com/portfolio" target="_blank">Portafolio</a></li>
+      <li><a href="https://carolinacravens.com/portfolio" target="_blank" class="nav-portfolio-btn">Portafolio</a></li>
       <li><a href="#contacto">Contáctame</a></li>
-      <li><a href="art.html" style="color:rgba(255,255,255,0.6);">Atelier</a></li>
       <li><a href="art.html">Atelier</a></li><li><a href="index.html" style="color:#4F90CD;border:1px solid rgba(79,144,205,0.5);padding:0.3rem 0.8rem;font-weight:700;">🇺🇸 EN</a></li>
     </ul>
   </nav>
@@ -479,7 +532,7 @@
     <p class="hero-title">Gerente Senior de Marca y Marketing Digital, Bilingüe</p>
     <p class="hero-statement">Más de 8 años de experiencia internacional entre Estados Unidos y Costa Rica. Especialista en transformación digital, inteligencia artificial y desarrollo de marcas de alto impacto. Lista para sumar al equipo correcto en Costa Rica.</p>
     <div class="hero-cta-row">
-      <a href="https://wa.me/50688012920" target="_blank" class="btn-shimmer btn-whatsapp">💬 WhatsApp</a>
+      <a href="https://wa.me/50688012920" target="_blank" class="btn-shimmer btn-whatsapp btn-pulse">💬 WhatsApp</a>
       <a href="#contacto" class="btn-shimmer btn-solid">Contáctame</a>
       <a href="https://carolinacravens.com/cv" target="_blank" class="btn-shimmer btn-outline">Ver CV →</a>
     </div>
@@ -498,19 +551,19 @@
 <!-- RESULTS STRIP -->
 <div class="results-strip reveal">
   <div class="result-item">
-    <div class="result-number">+35%</div>
+    <div class="result-number" data-count-to="35" data-prefix="+" data-suffix="%">0%</div>
     <div class="result-label">Interacción con Audiencia</div>
   </div>
   <div class="result-item">
-    <div class="result-number">+25%</div>
+    <div class="result-number" data-count-to="25" data-prefix="+" data-suffix="%">0%</div>
     <div class="result-label">Tráfico Web</div>
   </div>
   <div class="result-item">
-    <div class="result-number">-60%</div>
+    <div class="result-number" data-count-to="60" data-prefix="-" data-suffix="%">0%</div>
     <div class="result-label">Tiempo de Producción</div>
   </div>
   <div class="result-item">
-    <div class="result-number">2</div>
+    <div class="result-number" data-count-to="2" data-prefix="" data-suffix="">0</div>
     <div class="result-label">Países, Una Visión</div>
   </div>
 </div>
@@ -655,6 +708,32 @@ var observer = new IntersectionObserver(function(entries) {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+/* ANIMATED COUNT-UP FOR RESULTS STRIP */
+var countAnimated = false;
+var stripEl = document.querySelector('.results-strip');
+if (stripEl) {
+  var stripObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !countAnimated) {
+        countAnimated = true;
+        document.querySelectorAll('.result-number').forEach(function(numEl) {
+          var target = parseInt(numEl.getAttribute('data-count-to'), 10);
+          var prefix = numEl.getAttribute('data-prefix') || '';
+          var suffix = numEl.getAttribute('data-suffix') || '';
+          var current = 0;
+          var step = Math.max(1, Math.round(target / 40));
+          var timer = setInterval(function() {
+            current += step;
+            if (current >= target) { current = target; clearInterval(timer); }
+            numEl.textContent = prefix + current + suffix;
+          }, 30);
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+  stripObserver.observe(stripEl);
+}
 </script>
 </body>
 </html>
