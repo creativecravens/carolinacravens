@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carolina Cravens | Web Design & Development, Dallas, TX</title>
+<meta name="description" content="Web design and development services by Carolina Cravens. Wix, Squarespace, and fully custom-coded websites for small businesses and local brands.">
+<style>
+:root {
+  --navy: #1F3864;
+  --blue: #4F90CD;
+  --blue-light: #7ab0d9;
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --off-white: #f4f6f9;
+  --mid: #5a6a7a;
+  --rule: #d0dae6;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--white); font-family: Arial, Helvetica, sans-serif; color: var(--black); cursor: none; }
+.cursor-dot {
+width: 8px; height: 8px;
+background: var(--blue);
+border-radius: 50%;
+position: fixed; top: 0; left: 0;
+pointer-events: none; z-index: 99999;
+transform: translate(-50%, -50%);
+transition: background 0.2s, transform 0.1s;
+}
+.cursor-ring {
+width: 36px; height: 36px;
+border: 2px solid var(--blue);
+border-radius: 50%;
+position: fixed; top: 0; left: 0;
+pointer-events: none; z-index: 99998;
+transform: translate(-50%, -50%);
+transition: width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s;
+opacity: 0.6;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--navy); text-decoration: underline; }
+h1, h2, h3 { font-weight: 700; }
+.wrap { width: 100%; box-sizing: border-box; }
+.inner { max-width: 1000px; margin: 0 auto; }
+
+/* NAV */
+.wds-nav {
+  padding: 24px 56px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--rule);
+  background: var(--white);
+}
+.wds-logo { font-weight: 700; font-size: 20px; color: var(--navy); }
+.wds-nav-links { display: flex; gap: 32px; align-items: center; }
+.wds-nav-links a { color: var(--navy); font-size: 15px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.wds-nav-links a:hover { color: var(--blue); text-decoration: none; }
+
+/* HERO */
+.wds-hero { padding: 96px 56px 80px; text-align: left; background: var(--black); }
+.wds-eyebrow { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 20px; font-weight: 700; }
+.wds-hero h1 { font-size: 56px; line-height: 1.1; margin-bottom: 24px; color: var(--white); }
+.wds-hero p { font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.65); max-width: 640px; margin: 0 0 36px; }
+.wds-hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.wds-btn-solid { background: var(--blue); color: var(--white) !important; padding: 14px 28px; border-radius: 3px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none !important; transition: background 0.25s; }
+.wds-btn-solid:hover { background: var(--blue-light); }
+.wds-btn-outline { border: 2px solid rgba(79,144,205,0.6); color: var(--white) !important; padding: 12px 26px; border-radius: 3px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none !important; transition: background 0.25s, border-color 0.25s; }
+.wds-btn-outline:hover { background: rgba(79,144,205,0.1); border-color: var(--blue); }
+
+/* SERVICES */
+.wds-services { padding: 72px 56px; background: var(--white); border-bottom: 1px solid var(--rule); }
+.wds-services h2 { font-size: 34px; margin-bottom: 12px; color: var(--navy); }
+.wds-services > .inner > p { font-size: 17px; color: var(--mid); margin-bottom: 44px; max-width: 620px; }
+.wds-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; }
+.wds-grid2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
+.wds-card { background: var(--off-white); border: 1px solid var(--rule); border-left: 3px solid var(--blue); border-radius: 4px; padding: 28px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.wds-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(31,56,100,0.12); }
+.wds-card h3 { font-size: 20px; margin-bottom: 8px; color: var(--navy); }
+.wds-price { font-size: 24px; font-weight: 700; color: var(--blue); margin-bottom: 16px; }
+.wds-card p { font-size: 15px; line-height: 1.55; color: var(--mid); margin: 0; }
+
+/* WORK */
+.wds-work { padding: 72px 56px 24px; background: var(--white); }
+.wds-work h2 { font-size: 34px; margin-bottom: 8px; color: var(--navy); }
+.wds-work > .inner > p { font-size: 17px; color: var(--mid); margin-bottom: 40px; }
+
+/* BROWSER PREVIEW FRAMES */
+.wds-preview-wrap { perspective: 1200px; }
+.wds-preview-frame {
+position: relative;
+border-radius: 10px;
+overflow: hidden;
+background: #1a1f2b;
+box-shadow: 0 24px 48px rgba(10,10,10,0.2);
+transform-style: preserve-3d;
+transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+will-change: transform;
+}
+.wds-preview-frame:hover { box-shadow: 0 32px 64px rgba(31,56,100,0.28); }
+.wds-preview-chrome {
+display: flex; align-items: center; gap: 0.4rem;
+padding: 10px 12px;
+background: #262c3b;
+}
+.wds-preview-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.wds-preview-url {
+margin-left: 10px;
+font-size: 0.62rem;
+color: rgba(255,255,255,0.45);
+background: rgba(255,255,255,0.06);
+padding: 3px 10px;
+border-radius: 4px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.wds-preview-screen {
+position: relative;
+width: 100%;
+padding-top: 62%;
+display: flex; align-items: center; justify-content: center;
+}
+.wds-preview-screen span {
+position: absolute; inset: 0;
+display: flex; align-items: center; justify-content: center;
+font-size: 2.2rem; font-weight: 700; color: rgba(255,255,255,0.9);
+letter-spacing: 0.05em;
+text-align: center;
+padding: 0 10%;
+}
+.wds-preview-overlay {
+position: absolute; inset: 0;
+display: flex; align-items: center; justify-content: center;
+background: rgba(10,15,30,0.0);
+opacity: 0;
+transition: opacity 0.35s ease, background 0.35s ease;
+text-decoration: none !important;
+}
+.wds-preview-frame:hover .wds-preview-overlay { opacity: 1; background: rgba(10,15,30,0.5); }
+.wds-preview-overlay-btn {
+background: var(--blue);
+color: var(--white) !important;
+font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+padding: 10px 20px; border-radius: 3px;
+transform: translateY(10px);
+transition: transform 0.35s ease;
+}
+.wds-preview-frame:hover .wds-preview-overlay-btn { transform: translateY(0); }
+.wds-preview-caption { padding: 1rem 0.1rem 0; }
+.wds-preview-title { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.wds-preview-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.5; }
+.wds-preview-note { font-size: 0.7rem; color: var(--mid); font-style: italic; opacity: 0.8; margin-top: 4px; }
+.wds-preview-screen.small span { font-size: 1.3rem; }
+.wds-preview-viewport {
+position: relative;
+width: 100%;
+padding-top: 62%;
+overflow: hidden;
+background: #0a0a0a;
+}
+.wds-preview-iframe {
+position: absolute;
+top: 0; left: 0;
+width: 400%;
+height: 400%;
+border: none;
+transform: scale(0.25);
+transform-origin: top left;
+pointer-events: none;
+}
+
+/* BRAND PAGES */
+.wds-brand { padding: 24px 56px 72px; background: var(--white); }
+.wds-brand h2 { font-size: 28px; margin-bottom: 8px; color: var(--navy); }
+.wds-brand > .inner > p { font-size: 16px; color: var(--mid); margin-bottom: 32px; }
+
+/* PROCESS */
+.wds-process { padding: 64px 56px; background: var(--navy); }
+.wds-process h2 { font-size: 30px; color: var(--white); margin-bottom: 40px; }
+.wds-process-row { display: flex; gap: 32px; flex-wrap: wrap; }
+.wds-step { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 8px; }
+.wds-step-num { font-size: 22px; font-weight: 700; color: var(--blue-light); }
+.wds-step h3 { font-size: 18px; color: var(--white); }
+.wds-step p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.6); margin: 0; }
+
+/* CONTACT */
+.wds-contact { padding: 88px 56px; background: var(--off-white); }
+.wds-contact h2 { font-size: 36px; margin-bottom: 16px; color: var(--navy); }
+.wds-contact > .inner > p { font-size: 17px; color: var(--mid); margin-bottom: 36px; max-width: 560px; }
+.wds-contact-row { display: flex; gap: 64px; flex-wrap: wrap; }
+.wds-contact-item { display: flex; flex-direction: column; gap: 10px; }
+.wds-contact-label { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mid); }
+.wds-contact-value { font-size: 16px; color: var(--navy); font-weight: 700; }
+a.wds-contact-value { color: var(--blue); }
+
+/* FOOTER */
+.wds-footer { padding: 24px 56px; background: var(--black); display: flex; justify-content: space-between; align-items: center; }
+.wds-footer span { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+@media (max-width: 860px) {
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+  .wds-nav, .wds-hero, .wds-services, .wds-work, .wds-brand, .wds-process, .wds-contact, .wds-footer { padding-left: 24px; padding-right: 24px; }
+  .wds-nav-links { display: none; }
+  .wds-hero h1 { font-size: 38px; }
+  .wds-hero p { font-size: 17px; }
+  .wds-process-row { flex-direction: column; }
+  .wds-grid3 { grid-template-columns: 1fr; }
+  .wds-grid2 { grid-template-columns: 1fr; }
+  .wds-contact-row { gap: 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="wds-nav wrap">
+  <a href="index.html" class="wds-logo">Carolina Cravens</a>
+  <div class="wds-nav-links">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<div class="wds-hero wrap">
+  <div class="wds-eyebrow">Web Design &amp; Development · Dallas, TX</div>
+  <h1>Websites that make your business look like it means business.</h1>
+  <p>I design and build sites for small businesses and local brands, from fast Wix and Squarespace builds to fully custom-coded platforms.</p>
+  <div class="wds-hero-ctas">
+    <a href="#work" class="wds-btn-solid">See the Work</a>
+    <a href="#contact" class="wds-btn-outline">Start a Project →</a>
+  </div>
+</div>
+
+<div class="wds-services wrap" id="services">
+  <div class="inner">
+    <h2>Services &amp; pricing</h2>
+    <p>Every project includes a mobile-first design, a working site you can hand off to your team, and a fixed price agreed up front.</p>
+    <div class="wds-grid3">
+      <div class="wds-card">
+        <h3>Wix / Squarespace build</h3>
+        <div class="wds-price">$1,000 – $2,000</div>
+        <p>A clean, mobile-ready site on a platform you can update yourself. Live in 1 to 2 weeks.</p>
+      </div>
+      <div class="wds-card">
+        <h3>Custom-coded site</h3>
+        <div class="wds-price">$3,000 – $5,000</div>
+        <p>Hand-coded from scratch for speed, SEO, and a design that isn't boxed in by a template.</p>
+      </div>
+      <div class="wds-card">
+        <h3>Custom + advanced features</h3>
+        <div class="wds-price">$6,000 – $9,000</div>
+        <p>Booking systems, online stores, or a custom CMS, fully coded and built to scale.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wds-work wrap" id="work">
+  <div class="inner">
+    <h2>Full websites</h2>
+    <p>Complete, standalone sites designed and built end-to-end.</p>
+    <div class="wds-grid3">
+      <div class="wds-preview-wrap">
+        <div class="wds-preview-frame">
+          <div class="wds-preview-chrome">
+            <span class="wds-preview-dot" style="background:#ff5f57;"></span>
+            <span class="wds-preview-dot" style="background:#febc2e;"></span>
+            <span class="wds-preview-dot" style="background:#28c840;"></span>
+            <span class="wds-preview-url">live link pending</span>
+          </div>
+          <div class="wds-preview-screen" style="background:linear-gradient(135deg,#1F3864,#0a0a0a);">
+            <span>Pacific Northern</span>
+          </div>
+          <div class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Live Link On Request</span>
+          </div>
+        </div>
+        <div class="wds-preview-caption">
+          <div class="wds-preview-title">Pacific Northern</div>
+          <div class="wds-preview-desc">Brand and marketing site built for a corporate client with global luxury retail relationships.</div>
+          <div class="wds-preview-note">NDA client work</div>
+        </div>
+      </div>
+      <div class="wds-preview-wrap">
+        <div class="wds-preview-frame">
+          <div class="wds-preview-chrome">
+            <span class="wds-preview-dot" style="background:#ff5f57;"></span>
+            <span class="wds-preview-dot" style="background:#febc2e;"></span>
+            <span class="wds-preview-dot" style="background:#28c840;"></span>
+            <span class="wds-preview-url">live link pending</span>
+          </div>
+          <div class="wds-preview-screen" style="background:linear-gradient(135deg,#4F90CD,#1F3864);">
+            <span>Apts. Centro Colón</span>
+          </div>
+          <div class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Live Link On Request</span>
+          </div>
+        </div>
+        <div class="wds-preview-caption">
+          <div class="wds-preview-title">Apts. Centro Colón</div>
+          <div class="wds-preview-desc">Property rental brand site for an apartment complex in San José, Costa Rica.</div>
+        </div>
+      </div>
+      <div class="wds-preview-wrap">
+        <div class="wds-preview-frame">
+          <div class="wds-preview-chrome">
+            <span class="wds-preview-dot" style="background:#ff5f57;"></span>
+            <span class="wds-preview-dot" style="background:#febc2e;"></span>
+            <span class="wds-preview-dot" style="background:#28c840;"></span>
+            <span class="wds-preview-url">creativecravens.github.io/Agi-Truck-Parking</span>
+          </div>
+          <div class="wds-preview-viewport">
+            <iframe src="https://creativecravens.github.io/Agi-Truck-Parking/" class="wds-preview-iframe" tabindex="-1" title="AGI Truck Parking website preview"></iframe>
+          </div>
+          <a href="https://creativecravens.github.io/Agi-Truck-Parking/" target="_blank" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Page →</span>
+          </a>
+        </div>
+        <div class="wds-preview-caption">
+          <div class="wds-preview-title">AGI Truck Parking</div>
+          <div class="wds-preview-desc">Secure semi-truck parking site for Dallas, TX.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wds-brand wrap">
+  <div class="inner">
+    <h2>Brand &amp; link pages</h2>
+    <p>Branded landing and link-in-bio pages for businesses that needed a fast, polished presence.</p>
+    <div class="wds-grid3">
+      <div class="wds-preview-wrap">
+        <div class="wds-preview-frame">
+          <div class="wds-preview-chrome">
+            <span class="wds-preview-dot" style="background:#ff5f57;"></span>
+            <span class="wds-preview-dot" style="background:#febc2e;"></span>
+            <span class="wds-preview-dot" style="background:#28c840;"></span>
+            <span class="wds-preview-url">linktr.ee/airbnbfamily</span>
+          </div>
+          <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#4F90CD,#1F3864);">
+            <span>Airbnb Family</span>
+          </div>
+          <a href="https://linktr.ee/airbnbfamily" target="_blank" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          </a>
+        </div>
+        <div class="wds-preview-caption">
+          <div class="wds-preview-desc">Link-in-bio page for a family-run vacation rental business.</div>
+        </div>
+      </div>
+      <div class="wds-preview-wrap">
+        <div class="wds-preview-frame">
+          <div class="wds-preview-chrome">
+            <span class="wds-preview-dot" style="background:#ff5f57;"></span>
+            <span class="wds-preview-dot" style="background:#febc2e;"></span>
+            <span class="wds-preview-dot" style="background:#28c840;"></span>
+            <span class="wds-preview-url">linktr.ee/divinelashes_cr</span>
+          </div>
+          <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#1F3864,#0a0a0a);">
+            <span>Divine Lashes CR</span>
+          </div>
+          <a href="https://linktr.ee/divinelashes_cr" target="_blank" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          </a>
+        </div>
+        <div class="wds-preview-caption">
+          <div class="wds-preview-desc">Link-in-bio page for a lash studio in Costa Rica.</div>
+        </div>
+      </div>
+      <div class="wds-preview-wrap">
+        <div class="wds-preview-frame">
+          <div class="wds-preview-chrome">
+            <span class="wds-preview-dot" style="background:#ff5f57;"></span>
+            <span class="wds-preview-dot" style="background:#febc2e;"></span>
+            <span class="wds-preview-dot" style="background:#28c840;"></span>
+            <span class="wds-preview-url">linktr.ee/craftychiropractic</span>
+          </div>
+          <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#7ab0d9,#1F3864);">
+            <span>Crafty Chiropractic</span>
+          </div>
+          <a href="https://linktr.ee/craftychiropractic" target="_blank" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          </a>
+        </div>
+        <div class="wds-preview-caption">
+          <div class="wds-preview-desc">Link-in-bio page for a chiropractic practice.</div>
+        </div>
+      </div>
+      <div class="wds-preview-wrap">
+        <div class="wds-preview-frame">
+          <div class="wds-preview-chrome">
+            <span class="wds-preview-dot" style="background:#ff5f57;"></span>
+            <span class="wds-preview-dot" style="background:#febc2e;"></span>
+            <span class="wds-preview-dot" style="background:#28c840;"></span>
+            <span class="wds-preview-url">linktr.ee/TMFlavor</span>
+          </div>
+          <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#0a0a0a,#4F90CD);">
+            <span>TM Flavor</span>
+          </div>
+          <a href="https://linktr.ee/TMFlavor" target="_blank" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          </a>
+        </div>
+        <div class="wds-preview-caption">
+          <div class="wds-preview-desc">Link-in-bio page for a food and flavor brand.</div>
+        </div>
+      </div>
+      <div class="wds-preview-wrap">
+        <div class="wds-preview-frame">
+          <div class="wds-preview-chrome">
+            <span class="wds-preview-dot" style="background:#ff5f57;"></span>
+            <span class="wds-preview-dot" style="background:#febc2e;"></span>
+            <span class="wds-preview-dot" style="background:#28c840;"></span>
+            <span class="wds-preview-url">linktr.ee/jenedudesigns</span>
+          </div>
+          <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#1F3864,#7ab0d9);">
+            <span>Jene Du Designs</span>
+          </div>
+          <a href="https://linktr.ee/jenedudesigns" target="_blank" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          </a>
+        </div>
+        <div class="wds-preview-caption">
+          <div class="wds-preview-desc">Link-in-bio page for an independent design brand.</div>
+        </div>
+      </div>
+      <div class="wds-preview-wrap">
+        <div class="wds-preview-frame">
+          <div class="wds-preview-chrome">
+            <span class="wds-preview-dot" style="background:#ff5f57;"></span>
+            <span class="wds-preview-dot" style="background:#febc2e;"></span>
+            <span class="wds-preview-dot" style="background:#28c840;"></span>
+            <span class="wds-preview-url">linktr.ee/MayrasBeautySalon</span>
+          </div>
+          <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#4F90CD,#0a0a0a);">
+            <span>Mayra's Beauty Salon</span>
+          </div>
+          <a href="https://linktr.ee/MayrasBeautySalon" target="_blank" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          </a>
+        </div>
+        <div class="wds-preview-caption">
+          <div class="wds-preview-desc">Link-in-bio page for a beauty salon.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wds-process wrap">
+  <div class="inner">
+    <h2>How we'll work together</h2>
+    <div class="wds-process-row">
+      <div class="wds-step">
+        <div class="wds-step-num">01</div>
+        <h3>Discovery call</h3>
+        <p>We talk through your business, goals, and what the site needs to do.</p>
+      </div>
+      <div class="wds-step">
+        <div class="wds-step-num">02</div>
+        <h3>Design &amp; build</h3>
+        <p>You see drafts early. Most projects take 1 to 3 weeks depending on scope.</p>
+      </div>
+      <div class="wds-step">
+        <div class="wds-step-num">03</div>
+        <h3>Launch &amp; support</h3>
+        <p>Your site goes live with a walkthrough, plus 30 days of support.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wds-contact wrap" id="contact">
+  <div class="inner">
+    <h2>Let's build your site.</h2>
+    <p>Tell me about your business and what you need. I'll send back a fixed quote within 48 hours.</p>
+    <div class="wds-contact-row">
+      <div class="wds-contact-item">
+        <div class="wds-contact-label">Email</div>
+        <a href="mailto:creativecravens@gmail.com" class="wds-contact-value">creativecravens@gmail.com</a>
+      </div>
+      <div class="wds-contact-item">
+        <div class="wds-contact-label">Phone</div>
+        <div class="wds-contact-value">(469) 438-4450</div>
+      </div>
+      <div class="wds-contact-item">
+        <div class="wds-contact-label">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/carolinacravens/" target="_blank" class="wds-contact-value">linkedin.com/in/carolinacravens</a>
+      </div>
+      <div class="wds-contact-item">
+        <div class="wds-contact-label">Portfolio</div>
+        <a href="index.html" class="wds-contact-value">creativecravens.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wds-footer wrap">
+  <span>© 2026 Carolina Cravens</span>
+  <span>Dallas, TX</span>
+</div>
+
+<script>
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+if (!isMobile) {
+var dot = document.getElementById('cursorDot');
+var ring = document.getElementById('cursorRing');
+var mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+document.addEventListener('mousemove', function(e) {
+mouseX = e.clientX; mouseY = e.clientY;
+dot.style.left = mouseX + 'px';
+dot.style.top = mouseY + 'px';
+});
+function animateRing() {
+ringX += (mouseX - ringX) * 0.12;
+ringY += (mouseY - ringY) * 0.12;
+ring.style.left = ringX + 'px';
+ring.style.top = ringY + 'px';
+requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a, button, .wds-card, .wds-preview-frame').forEach(function(el) {
+el.addEventListener('mouseenter', function() {
+ring.style.width = '60px'; ring.style.height = '60px';
+ring.style.borderColor = '#7ab0d9'; ring.style.opacity = '1';
+dot.style.transform = 'translate(-50%, -50%) scale(2)';
+dot.style.background = '#7ab0d9';
+});
+el.addEventListener('mouseleave', function() {
+ring.style.width = '36px'; ring.style.height = '36px';
+ring.style.borderColor = '#4F90CD'; ring.style.opacity = '0.6';
+dot.style.transform = 'translate(-50%, -50%) scale(1)';
+dot.style.background = '#4F90CD';
+});
+});
+}
+
+/* PREVIEW FRAME TILT EFFECT */
+function attachWdsTilt(el) {
+if (!el || isMobile) return;
+el.addEventListener('mousemove', function(e) {
+var rect = el.getBoundingClientRect();
+var x = e.clientX - rect.left;
+var y = e.clientY - rect.top;
+var centerX = rect.width / 2;
+var centerY = rect.height / 2;
+var rotateX = ((y - centerY) / centerY) * -6;
+var rotateY = ((x - centerX) / centerX) * 6;
+el.style.transform = 'perspective(1200px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale3d(1.03,1.03,1.03)';
+});
+el.addEventListener('mouseleave', function() {
+el.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+});
+}
+document.querySelectorAll('.wds-preview-frame').forEach(attachWdsTilt);
+</script>
+</body>
+</html>
