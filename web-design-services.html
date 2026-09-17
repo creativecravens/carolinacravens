@@ -51,7 +51,32 @@ h1, h2, h3 { font-weight: 700; }
   border-bottom: 1px solid var(--rule);
   background: var(--white);
 }
-.wds-logo { font-weight: 700; font-size: 20px; color: var(--navy); }
+.wds-logo { font-weight: 700; font-size: 20px; color: var(--navy); display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.wds-logo:hover { text-decoration: none; }
+.wds-logo-img { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; transition: transform .3s ease; }
+.wds-logo:hover .wds-logo-img { transform: rotate(10deg) scale(1.1); }
+.nav-toggle {
+display: none;
+flex-direction: column;
+justify-content: center;
+gap: 5px;
+width: 42px; height: 42px;
+background: transparent;
+border: 1px solid rgba(31,56,100,0.3);
+border-radius: 4px;
+cursor: none;
+padding: 0 9px;
+}
+.nav-toggle span {
+display: block;
+height: 2px;
+width: 100%;
+background: var(--navy);
+transition: transform .3s ease, opacity .2s ease;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 .wds-nav-links { display: flex; gap: 32px; align-items: center; }
 .wds-nav-links a { color: var(--navy); font-size: 15px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
 .wds-nav-links a:hover { color: var(--blue); text-decoration: none; }
@@ -205,12 +230,30 @@ a.wds-contact-value { color: var(--blue); }
 /* FOOTER */
 .wds-footer { padding: 24px 56px; background: var(--black); display: flex; justify-content: space-between; align-items: center; }
 .wds-footer span { font-size: 13px; color: rgba(255,255,255,0.35); }
+.wds-footer-brand { display: flex; align-items: center; gap: 10px; }
+.wds-footer-logo { width: 26px; height: 26px; object-fit: contain; filter: brightness(0) invert(0.4); }
 
 @media (max-width: 860px) {
   body { cursor: auto; }
   .cursor-dot, .cursor-ring { display: none; }
   .wds-nav, .wds-hero, .wds-services, .wds-work, .wds-brand, .wds-process, .wds-contact, .wds-footer { padding-left: 24px; padding-right: 24px; }
-  .wds-nav-links { display: none; }
+  .wds-nav { flex-wrap: wrap; position: relative; }
+  .nav-toggle { display: flex; }
+  .wds-nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+  }
+  .wds-nav-links.open { display: flex; }
+  .wds-nav-links a {
+    display: block;
+    padding: .9rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
   .wds-hero h1 { font-size: 38px; }
   .wds-hero p { font-size: 17px; }
   .wds-process-row { flex-direction: column; }
@@ -226,12 +269,18 @@ a.wds-contact-value { color: var(--blue); }
 <div class="cursor-ring" id="cursorRing"></div>
 
 <div class="wds-nav wrap">
-  <a href="index.html" class="wds-logo">Carolina Cravens</a>
+  <a href="index.html" class="wds-logo">
+    <img src="logo.png" class="wds-logo-img" alt="Carolina Cravens Logo">
+    <span>Carolina Cravens</span>
+  </a>
   <div class="wds-nav-links">
     <a href="#work">Work</a>
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </div>
 
 <div class="wds-hero wrap">
@@ -530,12 +579,32 @@ a.wds-contact-value { color: var(--blue); }
 </div>
 
 <div class="wds-footer wrap">
-  <span>© 2026 Carolina Cravens</span>
+  <span class="wds-footer-brand"><img src="logo.png" class="wds-footer-logo" alt="CC Logo">© 2026 Carolina Cravens</span>
   <span>Dallas-Fort Worth, TX · USA &amp; Costa Rica</span>
 </div>
 
 <script>
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+/* MOBILE NAV TOGGLE */
+var navToggle = document.getElementById('navToggle');
+var wdsNavLinks = document.querySelector('.wds-nav-links');
+if (navToggle && wdsNavLinks) {
+navToggle.addEventListener('click', function() {
+var isOpen = wdsNavLinks.classList.toggle('open');
+navToggle.classList.toggle('open', isOpen);
+navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+});
+wdsNavLinks.querySelectorAll('a').forEach(function(link) {
+link.addEventListener('click', function() {
+wdsNavLinks.classList.remove('open');
+navToggle.classList.remove('open');
+navToggle.setAttribute('aria-expanded', 'false');
+navToggle.setAttribute('aria-label', 'Open menu');
+});
+});
+}
 if (!isMobile) {
 var dot = document.getElementById('cursorDot');
 var ring = document.getElementById('cursorRing');
