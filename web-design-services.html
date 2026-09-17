@@ -152,16 +152,28 @@ text-overflow: ellipsis;
 position: relative;
 width: 100%;
 padding-top: 62%;
-display: flex; align-items: center; justify-content: center;
+overflow: hidden;
 }
-.wds-preview-screen span {
+.wds-preview-fallback {
 position: absolute; inset: 0;
 display: flex; align-items: center; justify-content: center;
-font-size: 2.2rem; font-weight: 700; color: rgba(255,255,255,0.9);
-letter-spacing: 0.05em;
+font-size: 1.6rem; font-weight: 700; color: rgba(255,255,255,0.92);
+letter-spacing: 0.04em;
 text-align: center;
-padding: 0 10%;
+padding: 0 12%;
+line-height: 1.25;
 }
+.wds-preview-shot {
+position: absolute;
+top: 0; left: 0;
+width: 100%;
+height: auto;
+display: block;
+transform: translateY(0);
+transition: transform 3.2s cubic-bezier(0.22,0.61,0.36,1);
+}
+.wds-preview-frame:hover .wds-preview-shot { transform: translateY(-42%); }
+.wds-preview-screen.small .wds-preview-fallback { font-size: 1.1rem; }
 .wds-preview-overlay {
 position: absolute; inset: 0;
 display: flex; align-items: center; justify-content: center;
@@ -169,6 +181,7 @@ background: rgba(10,15,30,0.0);
 opacity: 0;
 transition: opacity 0.35s ease, background 0.35s ease;
 text-decoration: none !important;
+z-index: 3;
 }
 .wds-preview-frame:hover .wds-preview-overlay { opacity: 1; background: rgba(10,15,30,0.5); }
 .wds-preview-overlay-btn {
@@ -184,23 +197,20 @@ transition: transform 0.35s ease;
 .wds-preview-title { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
 .wds-preview-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.5; }
 .wds-preview-note { font-size: 0.7rem; color: var(--mid); font-style: italic; opacity: 0.8; margin-top: 4px; }
-.wds-preview-screen.small span { font-size: 1.3rem; }
-.wds-preview-viewport {
-position: relative;
-width: 100%;
-padding-top: 62%;
-overflow: hidden;
-background: #0a0a0a;
+.wds-preview-live {
+display: inline-flex; align-items: center; gap: 6px;
+font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+color: var(--mid); margin-top: 6px; font-weight: 700;
 }
-.wds-preview-iframe {
-position: absolute;
-top: 0; left: 0;
-width: 400%;
-height: 400%;
-border: none;
-transform: scale(0.25);
-transform-origin: top left;
-pointer-events: none;
+.wds-preview-live::before {
+content: ''; width: 7px; height: 7px; border-radius: 50%;
+background: #6fcf97; box-shadow: 0 0 8px rgba(111,207,151,0.7);
+animation: livePulse 2s ease infinite;
+}
+@keyframes livePulse { 0%,100% { opacity:1; transform:scale(1);} 50% { opacity:.6; transform:scale(1.25);} }
+@media (prefers-reduced-motion: reduce) {
+.wds-preview-shot { transition: none; }
+.wds-preview-live::before { animation: none; }
 }
 
 /* BRAND PAGES */
@@ -331,16 +341,18 @@ a.wds-contact-value { color: var(--blue); }
             <span class="wds-preview-dot" style="background:#28c840;"></span>
             <span class="wds-preview-url">pacificnorthern.com</span>
           </div>
-          <div class="wds-preview-viewport">
-            <iframe src="https://www.pacificnorthern.com/" class="wds-preview-iframe" tabindex="-1" title="Pacific Northern website preview"></iframe>
+          <div class="wds-preview-screen" style="background:linear-gradient(135deg,#1F3864,#0a0a0a);">
+            <span class="wds-preview-fallback">Pacific Northern</span>
+            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://www.pacificnorthern.com/" class="wds-preview-shot" loading="lazy" alt="Pacific Northern website preview" onerror="this.style.display='none';">
           </div>
-          <a href="https://www.pacificnorthern.com/" target="_blank" class="wds-preview-overlay">
-            <span class="wds-preview-overlay-btn">Visit Live Page →</span>
+          <a href="https://www.pacificnorthern.com/" target="_blank" rel="noopener" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
           </a>
         </div>
         <div class="wds-preview-caption">
           <div class="wds-preview-title">Pacific Northern</div>
           <div class="wds-preview-desc">Brand and marketing site built for a corporate client with global luxury retail relationships.</div>
+          <div class="wds-preview-live">Live site</div>
         </div>
       </div>
       <div class="wds-preview-wrap">
@@ -352,15 +364,17 @@ a.wds-contact-value { color: var(--blue); }
             <span class="wds-preview-url">linktr.ee/Apts.CentroColon</span>
           </div>
           <div class="wds-preview-screen" style="background:linear-gradient(135deg,#4F90CD,#1F3864);">
-            <span>Apts. Centro Colón</span>
+            <span class="wds-preview-fallback">Apts. Centro Col&oacute;n</span>
+            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/Apts.CentroColon" class="wds-preview-shot" loading="lazy" alt="Apts. Centro Col&oacute;n website preview" onerror="this.style.display='none';">
           </div>
-          <a href="https://linktr.ee/Apts.CentroColon" target="_blank" class="wds-preview-overlay">
-            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          <a href="https://linktr.ee/Apts.CentroColon" target="_blank" rel="noopener" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
           </a>
         </div>
         <div class="wds-preview-caption">
-          <div class="wds-preview-title">Apts. Centro Colón</div>
-          <div class="wds-preview-desc">Property rental brand site for an apartment complex in San José, Costa Rica.</div>
+          <div class="wds-preview-title">Apts. Centro Col&oacute;n</div>
+          <div class="wds-preview-desc">Property rental brand site for an apartment complex in San Jos&eacute;, Costa Rica.</div>
+          <div class="wds-preview-live">Live site</div>
         </div>
       </div>
       <div class="wds-preview-wrap">
@@ -371,16 +385,18 @@ a.wds-contact-value { color: var(--blue); }
             <span class="wds-preview-dot" style="background:#28c840;"></span>
             <span class="wds-preview-url">creativecravens.github.io/Agi-Truck-Parking</span>
           </div>
-          <div class="wds-preview-viewport">
-            <iframe src="https://creativecravens.github.io/Agi-Truck-Parking/" class="wds-preview-iframe" tabindex="-1" title="AGI Truck Parking website preview"></iframe>
+          <div class="wds-preview-screen" style="background:linear-gradient(135deg,#0a0a0a,#4F90CD);">
+            <span class="wds-preview-fallback">AGI Truck Parking</span>
+            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://creativecravens.github.io/Agi-Truck-Parking/" class="wds-preview-shot" loading="lazy" alt="AGI Truck Parking website preview" onerror="this.style.display='none';">
           </div>
-          <a href="https://creativecravens.github.io/Agi-Truck-Parking/" target="_blank" class="wds-preview-overlay">
-            <span class="wds-preview-overlay-btn">Visit Live Page →</span>
+          <a href="https://creativecravens.github.io/Agi-Truck-Parking/" target="_blank" rel="noopener" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
           </a>
         </div>
         <div class="wds-preview-caption">
           <div class="wds-preview-title">AGI Truck Parking</div>
           <div class="wds-preview-desc">Secure semi-truck parking site for Dallas, TX.</div>
+          <div class="wds-preview-live">Live site</div>
         </div>
       </div>
       <div class="wds-preview-wrap">
@@ -391,16 +407,18 @@ a.wds-contact-value { color: var(--blue); }
             <span class="wds-preview-dot" style="background:#28c840;"></span>
             <span class="wds-preview-url">mayrasbeautysalonacademy.squarespace.com</span>
           </div>
-          <div class="wds-preview-viewport">
-            <iframe src="https://mayrasbeautysalonacademy.squarespace.com/" class="wds-preview-iframe" tabindex="-1" title="Mayra's Beauty Salon Academy website preview"></iframe>
+          <div class="wds-preview-screen" style="background:linear-gradient(135deg,#1F3864,#7ab0d9);">
+            <span class="wds-preview-fallback">Mayra's Beauty Salon Academy</span>
+            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://mayrasbeautysalonacademy.squarespace.com/" class="wds-preview-shot" loading="lazy" alt="Mayra's Beauty Salon Academy website preview" onerror="this.style.display='none';">
           </div>
-          <a href="https://mayrasbeautysalonacademy.squarespace.com/" target="_blank" class="wds-preview-overlay">
-            <span class="wds-preview-overlay-btn">Visit Live Page →</span>
+          <a href="https://mayrasbeautysalonacademy.squarespace.com/" target="_blank" rel="noopener" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
           </a>
         </div>
         <div class="wds-preview-caption">
           <div class="wds-preview-title">Mayra's Beauty Salon Academy</div>
           <div class="wds-preview-desc">Squarespace site built for a beauty education academy.</div>
+          <div class="wds-preview-live">Live site</div>
         </div>
       </div>
     </div>
@@ -421,14 +439,17 @@ a.wds-contact-value { color: var(--blue); }
             <span class="wds-preview-url">linktr.ee/airbnbfamily</span>
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#4F90CD,#1F3864);">
-            <span>Airbnb Family</span>
+            <span class="wds-preview-fallback">Airbnb Family</span>
+            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/airbnbfamily" class="wds-preview-shot" loading="lazy" alt="Airbnb Family website preview" onerror="this.style.display='none';">
           </div>
-          <a href="https://linktr.ee/airbnbfamily" target="_blank" class="wds-preview-overlay">
-            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          <a href="https://linktr.ee/airbnbfamily" target="_blank" rel="noopener" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
           </a>
         </div>
         <div class="wds-preview-caption">
+          <div class="wds-preview-title">Airbnb Family</div>
           <div class="wds-preview-desc">Link-in-bio page for a family-run vacation rental business.</div>
+          <div class="wds-preview-live">Live site</div>
         </div>
       </div>
       <div class="wds-preview-wrap">
@@ -440,14 +461,17 @@ a.wds-contact-value { color: var(--blue); }
             <span class="wds-preview-url">linktr.ee/divinelashes_cr</span>
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#1F3864,#0a0a0a);">
-            <span>Divine Lashes CR</span>
+            <span class="wds-preview-fallback">Divine Lashes CR</span>
+            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/divinelashes_cr" class="wds-preview-shot" loading="lazy" alt="Divine Lashes CR website preview" onerror="this.style.display='none';">
           </div>
-          <a href="https://linktr.ee/divinelashes_cr" target="_blank" class="wds-preview-overlay">
-            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          <a href="https://linktr.ee/divinelashes_cr" target="_blank" rel="noopener" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
           </a>
         </div>
         <div class="wds-preview-caption">
+          <div class="wds-preview-title">Divine Lashes CR</div>
           <div class="wds-preview-desc">Link-in-bio page for a lash studio in Costa Rica.</div>
+          <div class="wds-preview-live">Live site</div>
         </div>
       </div>
       <div class="wds-preview-wrap">
@@ -459,14 +483,17 @@ a.wds-contact-value { color: var(--blue); }
             <span class="wds-preview-url">linktr.ee/craftychiropractic</span>
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#7ab0d9,#1F3864);">
-            <span>Crafty Chiropractic</span>
+            <span class="wds-preview-fallback">Crafty Chiropractic</span>
+            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/craftychiropractic" class="wds-preview-shot" loading="lazy" alt="Crafty Chiropractic website preview" onerror="this.style.display='none';">
           </div>
-          <a href="https://linktr.ee/craftychiropractic" target="_blank" class="wds-preview-overlay">
-            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          <a href="https://linktr.ee/craftychiropractic" target="_blank" rel="noopener" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
           </a>
         </div>
         <div class="wds-preview-caption">
+          <div class="wds-preview-title">Crafty Chiropractic</div>
           <div class="wds-preview-desc">Link-in-bio page for a chiropractic practice.</div>
+          <div class="wds-preview-live">Live site</div>
         </div>
       </div>
       <div class="wds-preview-wrap">
@@ -478,14 +505,17 @@ a.wds-contact-value { color: var(--blue); }
             <span class="wds-preview-url">linktr.ee/TMFlavor</span>
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#0a0a0a,#4F90CD);">
-            <span>TM Flavor</span>
+            <span class="wds-preview-fallback">TM Flavor</span>
+            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/TMFlavor" class="wds-preview-shot" loading="lazy" alt="TM Flavor website preview" onerror="this.style.display='none';">
           </div>
-          <a href="https://linktr.ee/TMFlavor" target="_blank" class="wds-preview-overlay">
-            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          <a href="https://linktr.ee/TMFlavor" target="_blank" rel="noopener" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
           </a>
         </div>
         <div class="wds-preview-caption">
+          <div class="wds-preview-title">TM Flavor</div>
           <div class="wds-preview-desc">Link-in-bio page for a food and flavor brand.</div>
+          <div class="wds-preview-live">Live site</div>
         </div>
       </div>
       <div class="wds-preview-wrap">
@@ -497,14 +527,17 @@ a.wds-contact-value { color: var(--blue); }
             <span class="wds-preview-url">linktr.ee/jenedudesigns</span>
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#1F3864,#7ab0d9);">
-            <span>Jene Du Designs</span>
+            <span class="wds-preview-fallback">Jene Du Designs</span>
+            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/jenedudesigns" class="wds-preview-shot" loading="lazy" alt="Jene Du Designs website preview" onerror="this.style.display='none';">
           </div>
-          <a href="https://linktr.ee/jenedudesigns" target="_blank" class="wds-preview-overlay">
-            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          <a href="https://linktr.ee/jenedudesigns" target="_blank" rel="noopener" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
           </a>
         </div>
         <div class="wds-preview-caption">
+          <div class="wds-preview-title">Jene Du Designs</div>
           <div class="wds-preview-desc">Link-in-bio page for an independent design brand.</div>
+          <div class="wds-preview-live">Live site</div>
         </div>
       </div>
       <div class="wds-preview-wrap">
@@ -516,14 +549,17 @@ a.wds-contact-value { color: var(--blue); }
             <span class="wds-preview-url">linktr.ee/MayrasBeautySalon</span>
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#4F90CD,#0a0a0a);">
-            <span>Mayra's Beauty Salon</span>
+            <span class="wds-preview-fallback">Mayra's Beauty Salon</span>
+            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/MayrasBeautySalon" class="wds-preview-shot" loading="lazy" alt="Mayra's Beauty Salon website preview" onerror="this.style.display='none';">
           </div>
-          <a href="https://linktr.ee/MayrasBeautySalon" target="_blank" class="wds-preview-overlay">
-            <span class="wds-preview-overlay-btn">Visit Page →</span>
+          <a href="https://linktr.ee/MayrasBeautySalon" target="_blank" rel="noopener" class="wds-preview-overlay">
+            <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
           </a>
         </div>
         <div class="wds-preview-caption">
+          <div class="wds-preview-title">Mayra's Beauty Salon</div>
           <div class="wds-preview-desc">Link-in-bio page for a beauty salon.</div>
+          <div class="wds-preview-live">Live site</div>
         </div>
       </div>
     </div>
