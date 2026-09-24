@@ -78,7 +78,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap"></noscript>
 <style>
   :root {
     --navy: #1F3864;
@@ -599,6 +601,14 @@
     overflow: hidden;
     z-index: 1;
   }
+  /* decorative drift pauses whenever its section is off-screen, and thins out
+     on phones, where 20 constantly-animating emoji were burning battery */
+  .deco-layer.deco-paused .deco-float,
+  .deco-layer.deco-paused .deco-flag,
+  .deco-layer.deco-paused .deco-rainbow { animation-play-state: paused !important; }
+  @media (max-width: 768px){
+    .deco-float.d3, .deco-float.d4 { display: none; }
+  }
   .deco-float {
     font-family: 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
     position: absolute;
@@ -863,6 +873,14 @@ footer{flex-wrap:wrap;gap:1rem;}
 #google_translate_element .goog-te-gadget{font-size:0!important;line-height:1!important;color:transparent!important;font-family:inherit!important;}
 #google_translate_element .goog-te-gadget>span{display:none!important;}
 #google_translate_element .goog-logo-link,#google_translate_element img{display:none!important;}
+.cc-lang-btn{font-family:inherit;font-size:.72rem;letter-spacing:inherit;
+  text-transform:none;padding:.35rem .6rem;border-radius:4px;
+  background:rgba(255,255,255,.05);color:rgba(255,255,255,.8);
+  border:1px solid rgba(255,255,255,.25);cursor:pointer;
+  transition:border-color .25s ease,background .25s ease;}
+.cc-lang-btn:hover,.cc-lang-btn:focus{border-color:rgba(255,255,255,.55);
+  background:rgba(255,255,255,.1);outline:none;}
+.cc-lang-btn[disabled]{opacity:.6;cursor:default;}
 #google_translate_element .goog-te-combo{
   font-family:inherit;font-size:.72rem;padding:.35rem .6rem;border-radius:4px;
   background:rgba(255,255,255,.05);color:rgba(255,255,255,.8);
@@ -894,7 +912,7 @@ body{top:0!important;}
 <header class="site-header">
   <nav>
     <a href="index.html" class="nav-logo">
-      <img src="logo.png" class="cc-logo" alt="Carolina Cravens Logo">
+      <img decoding="async" src="logo.png" class="cc-logo" alt="Carolina Cravens Logo">
     </a>
     <ul class="nav-links">
       <li><a href="#tienda">Tienda 🛍️</a></li>
@@ -944,7 +962,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#e94f8a,#6b2d5c);">
           <span class="shop-thumb-name">Jinx</span>
-          <img src="arcane-jinx.jpg" alt="Figura Pop Mart Arcane Jinx" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-jinx.jpg" alt="Figura Pop Mart Arcane Jinx" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Jinx</div>
@@ -955,7 +973,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#c0392b,#5b1f1f);">
           <span class="shop-thumb-name">Vi</span>
-          <img src="arcane-vi.jpg" alt="Figura Pop Mart Arcane Vi" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-vi.jpg" alt="Figura Pop Mart Arcane Vi" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Vi</div>
@@ -966,7 +984,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#2ecc71,#14532d);">
           <span class="shop-thumb-name">Ekko</span>
-          <img src="arcane-ekko.jpg" alt="Figura Pop Mart Arcane Ekko" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-ekko.jpg" alt="Figura Pop Mart Arcane Ekko" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Ekko</div>
@@ -977,7 +995,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#3498db,#17365d);">
           <span class="shop-thumb-name">Caitlyn</span>
-          <img src="arcane-caitlyn.jpg" alt="Figura Pop Mart Arcane Caitlyn" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-caitlyn.jpg" alt="Figura Pop Mart Arcane Caitlyn" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Caitlyn</div>
@@ -988,7 +1006,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#f1c40f,#7a5c10);">
           <span class="shop-thumb-name">Jayce</span>
-          <img src="arcane-jayce.jpg" alt="Figura Pop Mart Arcane Jayce" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-jayce.jpg" alt="Figura Pop Mart Arcane Jayce" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Jayce</div>
@@ -999,7 +1017,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#9b59b6,#3d1f52);">
           <span class="shop-thumb-name">Viktor</span>
-          <img src="arcane-viktor.jpg" alt="Figura Pop Mart Arcane Viktor" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-viktor.jpg" alt="Figura Pop Mart Arcane Viktor" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Viktor</div>
@@ -1010,7 +1028,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#e6b422,#6b4e0f);">
           <span class="shop-thumb-name">Mel</span>
-          <img src="arcane-mel.jpg" alt="Figura Pop Mart Arcane Mel" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-mel.jpg" alt="Figura Pop Mart Arcane Mel" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Mel</div>
@@ -1021,7 +1039,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#7f8c8d,#2c3e50);">
           <span class="shop-thumb-name">Warwick</span>
-          <img src="arcane-warwick.jpg" alt="Figura Pop Mart Arcane Warwick" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-warwick.jpg" alt="Figura Pop Mart Arcane Warwick" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Warwick</div>
@@ -1032,7 +1050,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#e67e22,#7a3f0c);">
           <span class="shop-thumb-name">Heimerdinger</span>
-          <img src="arcane-heimerdinger.jpg" alt="Figura Pop Mart Arcane Heimerdinger" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-heimerdinger.jpg" alt="Figura Pop Mart Arcane Heimerdinger" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Heimerdinger</div>
@@ -1043,7 +1061,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#5dade2,#1b4f72);">
           <span class="shop-thumb-name">Powder (Secreta)</span>
-          <img src="arcane-powder.jpg" alt="Figura Pop Mart Arcane Powder (Secreta)" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-powder.jpg" alt="Figura Pop Mart Arcane Powder (Secreta)" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Powder (Secreta) <span class="shop-badge">1/72</span></div>
@@ -1054,7 +1072,7 @@ body{top:0!important;}
       <div class="shop-card reveal">
         <div class="shop-thumb" style="background:linear-gradient(140deg,#95a5a6,#2c3e50);">
           <span class="shop-thumb-name">Jinx Estatua (Secreta)</span>
-          <img src="arcane-jinx-estatua.jpg" alt="Figura Pop Mart Arcane Jinx Estatua (Secreta)" loading="lazy" onerror="this.style.display='none';">
+          <img decoding="async" src="arcane-jinx-estatua.jpg" alt="Figura Pop Mart Arcane Jinx Estatua (Secreta)" loading="lazy" onerror="this.style.display='none';">
         </div>
         <div class="shop-body">
           <div class="shop-name">Jinx Estatua (Secreta) <span class="shop-badge">1/72</span></div>
@@ -1074,7 +1092,7 @@ body{top:0!important;}
         <a href="https://wa.me/50688012920?text=Hola%20Carolina,%20me%20interesa%20el%20vaso%20Venti%20%22Venti%20Edición%20Exclusiva%2001%22%20de%20la%20colecci%C3%B3n%20exclusiva.%20%C2%BFSigue%20disponible%3F" target="_blank" rel="noopener" class="cup-card">
           <div class="cup-thumb" style="background:linear-gradient(150deg,#00704A,#0b3d2c);">
             <span class="cup-thumb-name">Venti Original Edición Exclusiva 01</span>
-            <img src="starbucks-venti-1.jpg" alt="Venti Original Edición Exclusiva 01" loading="lazy" onerror="this.style.display='none';">
+            <img decoding="async" src="starbucks-venti-1.jpg" alt="Venti Original Edición Exclusiva 01" loading="lazy" onerror="this.style.display='none';">
           </div>
           <div class="cup-body">
             <div class="cup-name">Venti Original Edición Exclusiva 01</div>
@@ -1084,7 +1102,7 @@ body{top:0!important;}
         <a href="https://wa.me/50688012920?text=Hola%20Carolina,%20me%20interesa%20el%20vaso%20Venti%20%22Venti%20Edición%20Exclusiva%2002%22%20de%20la%20colecci%C3%B3n%20exclusiva.%20%C2%BFSigue%20disponible%3F" target="_blank" rel="noopener" class="cup-card">
           <div class="cup-thumb" style="background:linear-gradient(150deg,#1e3932,#0a1f1a);">
             <span class="cup-thumb-name">Venti Original Edición Exclusiva 02</span>
-            <img src="starbucks-venti-2.jpg" alt="Venti Original Edición Exclusiva 02" loading="lazy" onerror="this.style.display='none';">
+            <img decoding="async" src="starbucks-venti-2.jpg" alt="Venti Original Edición Exclusiva 02" loading="lazy" onerror="this.style.display='none';">
           </div>
           <div class="cup-body">
             <div class="cup-name">Venti Original Edición Exclusiva 02</div>
@@ -1094,7 +1112,7 @@ body{top:0!important;}
         <a href="https://wa.me/50688012920?text=Hola%20Carolina,%20me%20interesa%20el%20vaso%20Venti%20%22Venti%20Edición%20Exclusiva%2003%22%20de%20la%20colecci%C3%B3n%20exclusiva.%20%C2%BFSigue%20disponible%3F" target="_blank" rel="noopener" class="cup-card">
           <div class="cup-thumb" style="background:linear-gradient(150deg,#d4af37,#6b5518);">
             <span class="cup-thumb-name">Venti Original Edición Exclusiva 03</span>
-            <img src="starbucks-venti-3.jpg" alt="Venti Original Edición Exclusiva 03" loading="lazy" onerror="this.style.display='none';">
+            <img decoding="async" src="starbucks-venti-3.jpg" alt="Venti Original Edición Exclusiva 03" loading="lazy" onerror="this.style.display='none';">
           </div>
           <div class="cup-body">
             <div class="cup-name">Venti Original Edición Exclusiva 03</div>
@@ -1104,7 +1122,7 @@ body{top:0!important;}
         <a href="https://wa.me/50688012920?text=Hola%20Carolina,%20me%20interesa%20el%20vaso%20Venti%20%22Venti%20Edición%20Exclusiva%2004%22%20de%20la%20colecci%C3%B3n%20exclusiva.%20%C2%BFSigue%20disponible%3F" target="_blank" rel="noopener" class="cup-card">
           <div class="cup-thumb" style="background:linear-gradient(150deg,#a8324a,#4a1523);">
             <span class="cup-thumb-name">Venti Original Edición Exclusiva 04</span>
-            <img src="starbucks-venti-4.jpg" alt="Venti Original Edición Exclusiva 04" loading="lazy" onerror="this.style.display='none';">
+            <img decoding="async" src="starbucks-venti-4.jpg" alt="Venti Original Edición Exclusiva 04" loading="lazy" onerror="this.style.display='none';">
           </div>
           <div class="cup-body">
             <div class="cup-name">Venti Original Edición Exclusiva 04</div>
@@ -1114,7 +1132,7 @@ body{top:0!important;}
         <a href="https://wa.me/50688012920?text=Hola%20Carolina,%20me%20interesa%20el%20vaso%20Venti%20%22Venti%20Edición%20Exclusiva%2001%22%20de%20la%20colecci%C3%B3n%20exclusiva.%20%C2%BFSigue%20disponible%3F" target="_blank" rel="noopener" class="cup-card">
           <div class="cup-thumb" style="background:linear-gradient(150deg,#00704A,#0b3d2c);">
             <span class="cup-thumb-name">Venti Original Edición Exclusiva 01</span>
-            <img src="starbucks-venti-1.jpg" alt="Venti Original Edición Exclusiva 01" loading="lazy" onerror="this.style.display='none';">
+            <img decoding="async" src="starbucks-venti-1.jpg" alt="Venti Original Edición Exclusiva 01" loading="lazy" onerror="this.style.display='none';">
           </div>
           <div class="cup-body">
             <div class="cup-name">Venti Original Edición Exclusiva 01</div>
@@ -1124,7 +1142,7 @@ body{top:0!important;}
         <a href="https://wa.me/50688012920?text=Hola%20Carolina,%20me%20interesa%20el%20vaso%20Venti%20%22Venti%20Edición%20Exclusiva%2002%22%20de%20la%20colecci%C3%B3n%20exclusiva.%20%C2%BFSigue%20disponible%3F" target="_blank" rel="noopener" class="cup-card">
           <div class="cup-thumb" style="background:linear-gradient(150deg,#1e3932,#0a1f1a);">
             <span class="cup-thumb-name">Venti Original Edición Exclusiva 02</span>
-            <img src="starbucks-venti-2.jpg" alt="Venti Original Edición Exclusiva 02" loading="lazy" onerror="this.style.display='none';">
+            <img decoding="async" src="starbucks-venti-2.jpg" alt="Venti Original Edición Exclusiva 02" loading="lazy" onerror="this.style.display='none';">
           </div>
           <div class="cup-body">
             <div class="cup-name">Venti Original Edición Exclusiva 02</div>
@@ -1134,7 +1152,7 @@ body{top:0!important;}
         <a href="https://wa.me/50688012920?text=Hola%20Carolina,%20me%20interesa%20el%20vaso%20Venti%20%22Venti%20Edición%20Exclusiva%2003%22%20de%20la%20colecci%C3%B3n%20exclusiva.%20%C2%BFSigue%20disponible%3F" target="_blank" rel="noopener" class="cup-card">
           <div class="cup-thumb" style="background:linear-gradient(150deg,#d4af37,#6b5518);">
             <span class="cup-thumb-name">Venti Original Edición Exclusiva 03</span>
-            <img src="starbucks-venti-3.jpg" alt="Venti Original Edición Exclusiva 03" loading="lazy" onerror="this.style.display='none';">
+            <img decoding="async" src="starbucks-venti-3.jpg" alt="Venti Original Edición Exclusiva 03" loading="lazy" onerror="this.style.display='none';">
           </div>
           <div class="cup-body">
             <div class="cup-name">Venti Original Edición Exclusiva 03</div>
@@ -1144,7 +1162,7 @@ body{top:0!important;}
         <a href="https://wa.me/50688012920?text=Hola%20Carolina,%20me%20interesa%20el%20vaso%20Venti%20%22Venti%20Edición%20Exclusiva%2004%22%20de%20la%20colecci%C3%B3n%20exclusiva.%20%C2%BFSigue%20disponible%3F" target="_blank" rel="noopener" class="cup-card">
           <div class="cup-thumb" style="background:linear-gradient(150deg,#a8324a,#4a1523);">
             <span class="cup-thumb-name">Venti Original Edición Exclusiva 04</span>
-            <img src="starbucks-venti-4.jpg" alt="Venti Original Edición Exclusiva 04" loading="lazy" onerror="this.style.display='none';">
+            <img decoding="async" src="starbucks-venti-4.jpg" alt="Venti Original Edición Exclusiva 04" loading="lazy" onerror="this.style.display='none';">
           </div>
           <div class="cup-body">
             <div class="cup-name">Venti Original Edición Exclusiva 04</div>
@@ -1339,11 +1357,11 @@ body{top:0!important;}
 <!-- FOOTER -->
 <footer>
   <div class="footer-left">
-    <img src="logo.png" class="footer-logo-img" alt="CC Logo">
+    <img decoding="async" src="logo.png" class="footer-logo-img" alt="CC Logo">
     <span class="footer-logo">Carolina Cravens</span>
   </div>
   <div class="footer-copy">© 2026 · San José, Costa Rica · Gerente Senior de Marca</div>
-  <div class="cc-lang"><span class="cc-lang-label">Idioma</span><div id="google_translate_element"></div></div>
+  <div class="cc-lang"><span class="cc-lang-label">Idioma</span><div id="google_translate_element"><button type="button" id="ccLangBtn" class="cc-lang-btn">Seleccionar idioma</button></div></div>
 </footer>
 
 <script>
@@ -1416,13 +1434,45 @@ document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el)
 </script>
 
 <script>
-function googleTranslateElementInit(){
-  new google.translate.TranslateElement(
-    {pageLanguage:'es',autoDisplay:false,
-     layout:google.translate.TranslateElement.InlineLayout.SIMPLE},
-    'google_translate_element');
-}
+/* Language switcher: Google's ~150KB script is fetched only when the visitor
+   actually reaches for the control, so it costs nothing on a normal page load. */
+(function(){
+  var btn = document.getElementById('ccLangBtn'), started = false;
+  window.googleTranslateElementInit = function(){
+    new google.translate.TranslateElement(
+      {pageLanguage:'es',autoDisplay:false,
+       layout:google.translate.TranslateElement.InlineLayout.SIMPLE},
+      'google_translate_element');
+  };
+  function start(){
+    if (started) return; started = true;
+    if (btn) { btn.textContent = 'Cargando…'; btn.disabled = true; }
+    var s = document.createElement('script');
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(s);
+  }
+  if (btn){
+    btn.addEventListener('click', start);
+    btn.addEventListener('focus', start);
+    btn.addEventListener('pointerenter', start);
+  }
+  /* if Google already set a translation cookie, restore it without waiting */
+  if (document.cookie.indexOf('googtrans=') > -1) start();
+})();
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+<script>
+/* Pause decorative animation while its section is scrolled out of view. */
+(function(){
+  var layers = document.querySelectorAll('.deco-layer');
+  if (!layers.length) return;
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      e.target.classList.toggle('deco-paused', !e.isIntersecting);
+    });
+  }, { rootMargin: '100px' });
+  layers.forEach(function(l){ l.classList.add('deco-paused'); io.observe(l); });
+})();
+</script>
 </body>
 </html>
