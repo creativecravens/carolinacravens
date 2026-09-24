@@ -361,6 +361,14 @@ a.wds-contact-value { color: var(--blue); }
 #google_translate_element .goog-te-gadget{font-size:0!important;line-height:1!important;color:transparent!important;font-family:inherit!important;}
 #google_translate_element .goog-te-gadget>span{display:none!important;}
 #google_translate_element .goog-logo-link,#google_translate_element img{display:none!important;}
+.cc-lang-btn{font-family:inherit;font-size:.72rem;letter-spacing:inherit;
+  text-transform:none;padding:.35rem .6rem;border-radius:4px;
+  background:rgba(255,255,255,.05);color:rgba(255,255,255,.8);
+  border:1px solid rgba(255,255,255,.25);cursor:pointer;
+  transition:border-color .25s ease,background .25s ease;}
+.cc-lang-btn:hover,.cc-lang-btn:focus{border-color:rgba(255,255,255,.55);
+  background:rgba(255,255,255,.1);outline:none;}
+.cc-lang-btn[disabled]{opacity:.6;cursor:default;}
 #google_translate_element .goog-te-combo{
   font-family:inherit;font-size:.72rem;padding:.35rem .6rem;border-radius:4px;
   background:rgba(255,255,255,.05);color:rgba(255,255,255,.8);
@@ -382,6 +390,8 @@ body{top:0!important;}
 }
 </style>
 <style>.wds-footer{flex-wrap:wrap;gap:12px;}</style>
+<link rel="preconnect" href="https://image.thum.io" crossorigin>
+<link rel="dns-prefetch" href="https://image.thum.io">
 </head>
 <body>
 
@@ -390,7 +400,7 @@ body{top:0!important;}
 
 <div class="wds-nav wrap">
   <a href="index.html" class="wds-logo">
-    <img src="logo.png" class="wds-logo-img" alt="Carolina Cravens Logo">
+    <img decoding="async" src="logo.png" class="wds-logo-img" alt="Carolina Cravens Logo">
     <span>Carolina Cravens</span>
   </a>
   <div class="wds-nav-links">
@@ -459,7 +469,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen" style="background:linear-gradient(135deg,#0a0a0a,#1F3864,#4F90CD);">
             <span class="wds-preview-fallback">AI-Powered Design · Real-Time 3D</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://creativecravens.com/ai.html" class="wds-preview-shot" loading="lazy" alt="AI-Powered Design 3D page preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://creativecravens.com/ai.html" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="AI-Powered Design 3D page preview" onerror="this.style.display='none';">
           </div>
           <span class="wds-preview-badge">3D · WebGL</span>
           <a href="ai.html" class="wds-preview-overlay">
@@ -482,7 +492,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen" style="background:linear-gradient(135deg,#1F3864,#0a0a0a);">
             <span class="wds-preview-fallback">Pacific Northern</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://www.pacificnorthern.com/" class="wds-preview-shot" loading="lazy" alt="Pacific Northern website preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://www.pacificnorthern.com/" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="Pacific Northern website preview" onerror="this.style.display='none';">
           </div>
           <a href="https://www.pacificnorthern.com/" target="_blank" rel="noopener" class="wds-preview-overlay">
             <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
@@ -504,7 +514,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen" style="background:linear-gradient(135deg,#4F90CD,#1F3864);">
             <span class="wds-preview-fallback">Apts. Centro Col&oacute;n</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/Apts.CentroColon" class="wds-preview-shot" loading="lazy" alt="Apts. Centro Col&oacute;n website preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://linktr.ee/Apts.CentroColon" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="Apts. Centro Col&oacute;n website preview" onerror="this.style.display='none';">
           </div>
           <a href="https://linktr.ee/Apts.CentroColon" target="_blank" rel="noopener" class="wds-preview-overlay">
             <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
@@ -526,7 +536,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen" style="background:linear-gradient(135deg,#0a0a0a,#4F90CD);">
             <span class="wds-preview-fallback">AGI Truck Parking</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://creativecravens.github.io/Agi-Truck-Parking/" class="wds-preview-shot" loading="lazy" alt="AGI Truck Parking website preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://creativecravens.github.io/Agi-Truck-Parking/" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="AGI Truck Parking website preview" onerror="this.style.display='none';">
           </div>
           <a href="https://creativecravens.github.io/Agi-Truck-Parking/" target="_blank" rel="noopener" class="wds-preview-overlay">
             <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
@@ -548,7 +558,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen" style="background:linear-gradient(135deg,#1F3864,#7ab0d9);">
             <span class="wds-preview-fallback">Mayra's Beauty Salon Academy</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://mayrasbeautysalonacademy.squarespace.com/" class="wds-preview-shot" loading="lazy" alt="Mayra's Beauty Salon Academy website preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://mayrasbeautysalonacademy.squarespace.com/" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="Mayra's Beauty Salon Academy website preview" onerror="this.style.display='none';">
           </div>
           <a href="https://mayrasbeautysalonacademy.squarespace.com/" target="_blank" rel="noopener" class="wds-preview-overlay">
             <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
@@ -579,7 +589,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#4F90CD,#1F3864);">
             <span class="wds-preview-fallback">Airbnb Family</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/airbnbfamily" class="wds-preview-shot" loading="lazy" alt="Airbnb Family website preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://linktr.ee/airbnbfamily" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="Airbnb Family website preview" onerror="this.style.display='none';">
           </div>
           <a href="https://linktr.ee/airbnbfamily" target="_blank" rel="noopener" class="wds-preview-overlay">
             <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
@@ -601,7 +611,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#1F3864,#0a0a0a);">
             <span class="wds-preview-fallback">Divine Lashes CR</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/divinelashes_cr" class="wds-preview-shot" loading="lazy" alt="Divine Lashes CR website preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://linktr.ee/divinelashes_cr" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="Divine Lashes CR website preview" onerror="this.style.display='none';">
           </div>
           <a href="https://linktr.ee/divinelashes_cr" target="_blank" rel="noopener" class="wds-preview-overlay">
             <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
@@ -623,7 +633,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#7ab0d9,#1F3864);">
             <span class="wds-preview-fallback">Crafty Chiropractic</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/craftychiropractic" class="wds-preview-shot" loading="lazy" alt="Crafty Chiropractic website preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://linktr.ee/craftychiropractic" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="Crafty Chiropractic website preview" onerror="this.style.display='none';">
           </div>
           <a href="https://linktr.ee/craftychiropractic" target="_blank" rel="noopener" class="wds-preview-overlay">
             <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
@@ -645,7 +655,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#0a0a0a,#4F90CD);">
             <span class="wds-preview-fallback">TM Flavor</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/TMFlavor" class="wds-preview-shot" loading="lazy" alt="TM Flavor website preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://linktr.ee/TMFlavor" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="TM Flavor website preview" onerror="this.style.display='none';">
           </div>
           <a href="https://linktr.ee/TMFlavor" target="_blank" rel="noopener" class="wds-preview-overlay">
             <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
@@ -667,7 +677,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#1F3864,#7ab0d9);">
             <span class="wds-preview-fallback">Jene Du Designs</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/jenedudesigns" class="wds-preview-shot" loading="lazy" alt="Jene Du Designs website preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://linktr.ee/jenedudesigns" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="Jene Du Designs website preview" onerror="this.style.display='none';">
           </div>
           <a href="https://linktr.ee/jenedudesigns" target="_blank" rel="noopener" class="wds-preview-overlay">
             <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
@@ -689,7 +699,7 @@ body{top:0!important;}
           </div>
           <div class="wds-preview-screen small" style="background:linear-gradient(135deg,#4F90CD,#0a0a0a);">
             <span class="wds-preview-fallback">Mayra's Beauty Salon</span>
-            <img src="https://image.thum.io/get/width/1000/crop/1400/noanimate/https://linktr.ee/MayrasBeautySalon" class="wds-preview-shot" loading="lazy" alt="Mayra's Beauty Salon website preview" onerror="this.style.display='none';">
+            <img src="https://image.thum.io/get/width/640/crop/900/noanimate/https://linktr.ee/MayrasBeautySalon" class="wds-preview-shot" loading="lazy" decoding="async" fetchpriority="low" alt="Mayra's Beauty Salon website preview" onerror="this.style.display='none';">
           </div>
           <a href="https://linktr.ee/MayrasBeautySalon" target="_blank" rel="noopener" class="wds-preview-overlay">
             <span class="wds-preview-overlay-btn">Visit Live Site &rarr;</span>
@@ -758,9 +768,9 @@ body{top:0!important;}
 </div>
 
 <div class="wds-footer wrap">
-  <span class="wds-footer-brand"><img src="logo.png" class="wds-footer-logo" alt="CC Logo">© 2026 Carolina Cravens</span>
+  <span class="wds-footer-brand"><img decoding="async" src="logo.png" class="wds-footer-logo" alt="CC Logo">© 2026 Carolina Cravens</span>
   <span>Dallas-Fort Worth, TX · USA &amp; Costa Rica</span>
-  <div class="cc-lang"><span class="cc-lang-label">Language</span><div id="google_translate_element"></div></div>
+  <div class="cc-lang"><span class="cc-lang-label">Language</span><div id="google_translate_element"><button type="button" id="ccLangBtn" class="cc-lang-btn">Select Language</button></div></div>
 </div>
 
 <script>
@@ -839,13 +849,31 @@ document.querySelectorAll('.wds-preview-frame').forEach(attachWdsTilt);
 </script>
 
 <script>
-function googleTranslateElementInit(){
-  new google.translate.TranslateElement(
-    {pageLanguage:'en',autoDisplay:false,
-     layout:google.translate.TranslateElement.InlineLayout.SIMPLE},
-    'google_translate_element');
-}
+/* Language switcher: Google's ~150KB script is fetched only when the visitor
+   actually reaches for the control, so it costs nothing on a normal page load. */
+(function(){
+  var btn = document.getElementById('ccLangBtn'), started = false;
+  window.googleTranslateElementInit = function(){
+    new google.translate.TranslateElement(
+      {pageLanguage:'en',autoDisplay:false,
+       layout:google.translate.TranslateElement.InlineLayout.SIMPLE},
+      'google_translate_element');
+  };
+  function start(){
+    if (started) return; started = true;
+    if (btn) { btn.textContent = 'Loading…'; btn.disabled = true; }
+    var s = document.createElement('script');
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(s);
+  }
+  if (btn){
+    btn.addEventListener('click', start);
+    btn.addEventListener('focus', start);
+    btn.addEventListener('pointerenter', start);
+  }
+  /* if Google already set a translation cookie, restore it without waiting */
+  if (document.cookie.indexOf('googtrans=') > -1) start();
+})();
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
