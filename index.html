@@ -994,6 +994,14 @@ footer{flex-wrap:wrap;gap:1rem;}
 #google_translate_element .goog-te-gadget{font-size:0!important;line-height:1!important;color:transparent!important;font-family:inherit!important;}
 #google_translate_element .goog-te-gadget>span{display:none!important;}
 #google_translate_element .goog-logo-link,#google_translate_element img{display:none!important;}
+.cc-lang-btn{font-family:inherit;font-size:.72rem;letter-spacing:inherit;
+  text-transform:none;padding:.35rem .6rem;border-radius:4px;
+  background:rgba(255,255,255,.05);color:rgba(255,255,255,.8);
+  border:1px solid rgba(255,255,255,.25);cursor:pointer;
+  transition:border-color .25s ease,background .25s ease;}
+.cc-lang-btn:hover,.cc-lang-btn:focus{border-color:rgba(255,255,255,.55);
+  background:rgba(255,255,255,.1);outline:none;}
+.cc-lang-btn[disabled]{opacity:.6;cursor:default;}
 #google_translate_element .goog-te-combo{
   font-family:inherit;font-size:.72rem;padding:.35rem .6rem;border-radius:4px;
   background:rgba(255,255,255,.05);color:rgba(255,255,255,.8);
@@ -1027,7 +1035,7 @@ body{top:0!important;}
 <div class="hero-line-top"></div>
 <nav>
 <a href="index.html" class="nav-logo">
-<img src="logo.png" class="cc-logo" alt="Carolina Cravens Logo">
+<img decoding="async" src="logo.png" class="cc-logo" alt="Carolina Cravens Logo">
 </a>
 <ul class="nav-links">
 <li><a href="#about">About</a></li>
@@ -1422,7 +1430,7 @@ body{top:0!important;}
 <div class="feature-project-grid">
 <div class="feature-tilt-wrap reveal">
 <div class="feature-tilt-card" id="tiltCard">
-<img src="legacy-housing-project.jpg" alt="Legacy Housing Corporation digital marketing design work" class="feature-tilt-img">
+<img decoding="async" src="legacy-housing-project.jpg" alt="Legacy Housing Corporation digital marketing design work" class="feature-tilt-img">
 <div class="feature-tilt-glare" id="tiltGlare"></div>
 </div>
 <div class="feature-tilt-badge">Current Role</div>
@@ -1487,11 +1495,11 @@ Hire Me
 <!-- FOOTER -->
 <footer>
 <div class="footer-left">
-<img src="logo.png" class="footer-logo-img" alt="CC Logo">
+<img decoding="async" src="logo.png" class="footer-logo-img" alt="CC Logo">
 <span class="footer-logo">Carolina Cravens</span>
 </div>
 <div class="footer-copy">© 2026 · Dallas-Fort Worth, TX · Corporate Marketing Specialist &amp; Graphic Designer</div>
-<div class="cc-lang"><span class="cc-lang-label">Language</span><div id="google_translate_element"></div></div>
+<div class="cc-lang"><span class="cc-lang-label">Language</span><div id="google_translate_element"><button type="button" id="ccLangBtn" class="cc-lang-btn">Select Language</button></div></div>
 </footer>
 <script>
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -1638,13 +1646,31 @@ attachTilt(document.getElementById('tiltFrameAi'));
 </script>
 
 <script>
-function googleTranslateElementInit(){
-  new google.translate.TranslateElement(
-    {pageLanguage:'en',autoDisplay:false,
-     layout:google.translate.TranslateElement.InlineLayout.SIMPLE},
-    'google_translate_element');
-}
+/* Language switcher: Google's ~150KB script is fetched only when the visitor
+   actually reaches for the control, so it costs nothing on a normal page load. */
+(function(){
+  var btn = document.getElementById('ccLangBtn'), started = false;
+  window.googleTranslateElementInit = function(){
+    new google.translate.TranslateElement(
+      {pageLanguage:'en',autoDisplay:false,
+       layout:google.translate.TranslateElement.InlineLayout.SIMPLE},
+      'google_translate_element');
+  };
+  function start(){
+    if (started) return; started = true;
+    if (btn) { btn.textContent = 'Loading…'; btn.disabled = true; }
+    var s = document.createElement('script');
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(s);
+  }
+  if (btn){
+    btn.addEventListener('click', start);
+    btn.addEventListener('focus', start);
+    btn.addEventListener('pointerenter', start);
+  }
+  /* if Google already set a translation cookie, restore it without waiting */
+  if (document.cookie.indexOf('googtrans=') > -1) start();
+})();
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 </body>
 </html>
