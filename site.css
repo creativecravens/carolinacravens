@@ -106,7 +106,7 @@ radial-gradient(45% 50% at 0% 100%, rgba(31,56,100,.55), transparent 60%); }
 
 /* Portrait stage: you, popping out of a navy frame with the AI video moving behind */
 .stage-wrap { position: relative; width: 100%; max-width: 480px; justify-self: end; margin-top: 3rem; opacity: 0; animation: fadeUp 1.1s var(--ease) forwards .25s; }
-.stage { position: relative; aspect-ratio: 25 / 29; transform-style: preserve-3d; transition: transform .25s ease-out; }
+.stage { position: relative; aspect-ratio: 11 / 10; transform-style: preserve-3d; transition: transform .25s ease-out; }
 .stage-bg { position: absolute; inset: 0; border-radius: 34px; overflow: hidden; background: linear-gradient(165deg, #2A4A80 0%, var(--navy) 45%, var(--navy-deep) 100%); box-shadow: 0 40px 90px -30px rgba(79,144,205,.55), inset 0 0 0 1px rgba(122,176,217,.18); }
 .stage-bg img, .stage-bg video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .34; filter: saturate(.55) contrast(1.05); }
 .stage-bg video { opacity: 0; transition: opacity 1.2s ease; }

@@ -33,7 +33,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="intertight-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" type="image/webp" href="carolina-cravens-portrait-960.webp" imagesrcset="carolina-cravens-portrait-520.webp 520w, carolina-cravens-portrait-960.webp 960w" imagesizes="(max-width: 900px) 80vw, 460px">
+<link rel="preload" as="image" type="image/webp" href="carolina-cravens-es-960.webp" imagesrcset="carolina-cravens-es-520.webp 520w, carolina-cravens-es-960.webp 960w" imagesizes="(max-width: 900px) 80vw, 480px">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
 {
@@ -50,7 +50,7 @@
 "name": "Carolina Cravens",
 "jobTitle": "Diseñadora Digital",
 "url": "https://creativecravens.com/",
-"image": "https://creativecravens.com/carolina-cravens-portrait-960.webp",
+"image": "https://creativecravens.com/carolina-cravens-es-960.webp",
 "email": "mailto:creativecravens@gmail.com",
 "telephone": "+506-8801-2920",
 "nationality": {"@type": "Country", "name": "Costa Rica"},
@@ -62,6 +62,17 @@
 "knowsAbout": ["Diseño Digital", "Diseño de Marca", "Diseño Web", "Landing Pages", "Diseño UX/UI", "Sistemas de Diseño", "Mercadeo Digital", "Diseño con Inteligencia Artificial", "Video con IA", "Adobe Creative Cloud", "HTML", "CSS", "WebGL"],
 "sameAs": ["https://linkedin.com/in/carolinacravens", "https://www.instagram.com/creativecravens", "https://carolinacravens.com/cv"]
 }
+},
+{
+"@type": "VideoObject",
+"name": "Hola, soy Carolina Cravens: diseñadora digital en Costa Rica",
+"description": "Video de presentación de Carolina Cravens, diseñadora digital costarricense: tiendas en línea por WhatsApp, diseño web y producción con IA.",
+"thumbnailUrl": "https://creativecravens.com/es-vid-poster.webp",
+"contentUrl": "https://creativecravens.com/es-vid.mp4",
+"uploadDate": "2026-10-16",
+"duration": "PT9S",
+"inLanguage": "es-CR",
+"creator": {"@id": "https://creativecravens.com/#carolina"}
 },
 {
 "@type": "Product",
@@ -122,6 +133,23 @@
 .shop-filter button span { font-weight: 600; opacity: .6; margin-left: .2rem; }
 .shop-note { font-size: .82rem; color: var(--slate); margin-top: 1.4rem; line-height: 1.6; }
 
+
+.hero-vid { justify-self: end; width: min(100%, 360px); opacity: 0; animation: fadeUp 1.1s var(--ease) forwards .25s; }
+.hero-vid .phone { width: 100%; box-shadow: 0 50px 100px -40px rgba(79,144,205,.75), 0 0 0 2px transparent; }
+.hero-vid .phone::before { content: ""; position: absolute; inset: -3px; border-radius: 43px; background: var(--rainbow); z-index: -1; opacity: .9; }
+.vid-sound { position: absolute; z-index: 3; left: 14px; bottom: 14px; font-family: var(--display); font-weight: 700; font-size: .74rem; padding: .5rem .85rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.35); background: rgba(10,10,10,.6); color: #fff; cursor: pointer; display: none; }
+.playing .vid-sound { display: block; }
+.vid-sound[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); }
+@media (max-width: 900px) { .hero-vid { justify-self: center; width: min(100%, 320px); margin-top: 1rem; } }
+
+.stage-es { aspect-ratio: 100 / 91; }
+button.badge { border: 0; padding: 0; cursor: pointer; font: inherit; }
+button.btn-ghost { background: transparent; color: var(--white); cursor: pointer; }
+.vid-modal { margin: auto; border: 0; padding: 0; background: transparent; overflow: visible; max-width: none; max-height: none; }
+.vid-modal::backdrop { background: rgba(10,10,10,.85); }
+.vid-modal .phone { width: min(86vw, 360px, calc(84vh * 9 / 16)); }
+.vid-modal .phone::before { content: ""; position: absolute; inset: -3px; border-radius: 43px; background: var(--rainbow); z-index: -1; }
+.vm-close { position: absolute; z-index: 5; top: -16px; right: -16px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--white); color: var(--ink); font-size: 1.1rem; font-weight: 700; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.4); }
 /* Rainbow accents (pure CSS, no downloads) */
 :root { --rainbow: linear-gradient(90deg, #FF4D6D, #FF9F1C, #FFD60A, #2EC4B6, #4F90CD, #9B5DE5); }
 .rainbow-text { background: var(--rainbow); -webkit-background-clip: text; background-clip: text; color: transparent !important; padding-right: .06em; }
@@ -168,11 +196,8 @@
 <a href="es.html" class="nav-logo" aria-label="Carolina Cravens, inicio"><svg class="logo-svg" width="19" height="38" aria-hidden="true" focusable="false"><use href="#cc-logo"/></svg><span>Carolina Cravens</span></a>
 <ul class="nav-links" id="navLinks">
 <li><a href="#servicios">Servicios</a></li>
-<li><a href="#trabajo">Trabajo</a></li>
-<li><a href="#video-ia">Video IA</a></li>
-<li><a href="#sobre-mi">Sobre mí</a></li>
-<li><a href="#experiencia">Experiencia</a></li>
 <li><a href="#tienda" class="nav-shop rainbow-text">Tienda</a></li>
+<li><a href="#contacto">Contacto</a></li>
 <li><a href="index.html" hreflang="en" lang="en">English</a></li>
 <li><a href="https://carolinacravens.com/cv" target="_blank" rel="noopener" class="nav-pill">Portafolio ↗</a></li>
 </ul>
@@ -185,32 +210,25 @@
 <div>
 <p class="status fade-in"><i></i>Abierta a nuevas oportunidades · San José · Dallas-Fort Worth</p>
 <h1 class="hero-name" id="hero-name"><span class="line"><span>Carolina</span></span><span class="line"><span><em class="serif rainbow-text">Cravens.</em></span></span></h1>
-<p class="hero-role fade-in d1">Diseñadora Digital<span class="sep">/</span>9+ años<span class="sep">/</span>Marca, web y producción con IA</p>
-<p class="hero-lede fade-in d2"><strong>La IA hace que las opciones sean baratas. El criterio decide cuál sale al mercado.</strong> Ayudo a las empresas a producir más diseño, más rápido y sin bajar el estándar, para marcas de lujo globales, una empresa que cotiza en Nasdaq y pymes en Costa Rica y Texas.</p>
-<div class="hero-ctas fade-in d3">
+<div class="hero-ctas fade-in d2">
 <a href="https://carolinacravens.com/cv" target="_blank" rel="noopener" class="btn btn-primary magnetic">Ver portafolio <span class="arr">↗</span></a>
 <a href="https://wa.me/50688012920?text=Hola%20Carolina,%20vi%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" rel="noopener" class="btn btn-wa magnetic"><svg width="18" height="18" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>WhatsApp</a>
-</div>
-<div class="hero-stats fade-in d4">
-<div><b data-count="9" data-suffix="+">9+</b><span>Años</span></div>
-<div><b data-count="60" data-suffix="%">60%</b><span>Más rápido con IA</span></div>
-<div><b data-count="13">13</b><span>Sitios en vivo</span></div>
+<button type="button" class="btn btn-ghost magnetic" data-open-vid>▶ Mire mi video</button>
 </div>
 </div>
 <div class="stage-wrap">
-<div class="stage" id="stage">
+<div class="stage stage-es" id="stage">
 <div class="stage-bg">
 <img src="hero-video-poster.webp" alt="" width="720" height="1280" decoding="async">
-<video id="heroVideo" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-src="hero-video-720.mp4"></video>
 </div>
-<img class="portrait" src="carolina-cravens-portrait-960.webp" srcset="carolina-cravens-portrait-520.webp 520w, carolina-cravens-portrait-960.webp 960w" sizes="(max-width: 900px) 80vw, 460px" width="960" height="1246" alt="Carolina Cravens, diseñadora digital, con saco azul marino y camisa celeste" fetchpriority="high" decoding="async">
+<img class="portrait" src="carolina-cravens-es-960.webp" srcset="carolina-cravens-es-520.webp 520w, carolina-cravens-es-960.webp 960w" sizes="(max-width: 900px) 80vw, 480px" width="960" height="974" alt="Carolina Cravens, diseñadora digital costarricense, sonriendo" fetchpriority="high" decoding="async">
 <span class="chip chip-1">Nasdaq: LEGH <small>Puesto actual</small></span>
 <span class="chip chip-2">LVMH · L'Oréal</span>
 <span class="chip chip-3">Con IA <small>Claude · Firefly · Higgsfield</small></span>
-<a href="#video-ia" class="badge" aria-label="Ver mi video con IA">
-<svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#circ" textLength="236">MIRE EL VIDEO CON IA · HECHO POR MÍ · </textPath></text></svg>
+<button type="button" class="badge" data-open-vid aria-label="Ver mi video de presentación">
+<svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#circ" textLength="236">MIRE MI VIDEO · HOLA, SOY CAROLINA · </textPath></text></svg>
 <span class="play"></span>
-</a>
+</button>
 </div>
 </div>
 </div>
@@ -224,127 +242,17 @@
 </div>
 </div>
 
-<section class="sec results" id="resultados">
-<div class="wrap">
-<div class="sec-head">
-<div><p class="kicker reveal">Resultados</p><h2 class="h2 reveal d-1">Impacto medible, <em class="serif">no solo archivos bonitos.</em></h2></div>
-<p class="lead reveal d-2">Contratar una diseñadora es una inversión. Esto es lo que esa inversión les ha dado a las empresas con las que he trabajado.</p>
-</div>
-<div class="bento">
-<div class="tile tile-hero reveal">
-<div><div class="num"><span data-count="60">60</span><em class="serif">%</em></div><div class="what">Producción más rápida</div><p class="where">Flujos de trabajo con IA y un proceso de aprobación claro en Lane Gang Capital Group y Apts Centro Colón.</p></div>
-<div class="bars" aria-hidden="true"><i style="height:100%"></i><i style="height:82%"></i><i style="height:66%"></i><i style="height:52%"></i><i style="height:40%"></i></div>
-</div>
-<div class="tile reveal d-1"><div class="num">+<span data-count="35">35</span>%</div><div><div class="what">Interacción del público</div><p class="where">Contenido basado en datos para OAK'D BBQ.</p></div></div>
-<div class="tile tile-blue reveal d-2"><div class="num">+<span data-count="25">25</span>%</div><div><div class="what">Tráfico al restaurante</div><p class="where">Mejor diseño promocional y campañas para OAK'D BBQ.</p></div></div>
-<div class="tile reveal d-1"><div class="num"><span data-count="30">30</span>%</div><div><div class="what">Menos rondas de cambios</div><p class="where">Manual de marca claro para TriVan Roofing.</p></div></div>
-<div class="tile reveal d-2"><div class="num"><span data-count="45">45</span>%</div><div><div class="what">Materiales más rápidos</div><p class="where">Producción con IA para TriVan Roofing.</p></div></div>
-<div class="tile tile-wide tile-ink reveal"><div class="num"><span data-count="65">65</span></div><div><div class="what">Íconos vectoriales propios</div><p class="where">Un solo lenguaje visual en el catálogo impreso y digital de Legacy Housing.</p></div></div>
-<div class="tile tile-wide reveal d-1"><div class="num"><span data-count="13">13</span></div><div><div class="what">Sitios y páginas en vivo</div><p class="where">Desde Squarespace hasta sitios programados a mano con 3D en tiempo real.</p></div></div>
-</div>
-</div>
-</section>
-
-<section class="sec" id="trabajo">
-<div class="wrap case-grid">
-<div class="case-media reveal">
-<picture>
-<source srcset="legacy-housing-project.webp" type="image/webp">
-<img src="legacy-housing-project.jpg" alt="Catálogo digital y diseños móviles de Legacy Housing por Carolina Cravens" width="1600" height="900" loading="lazy" decoding="async">
-</picture>
-<span class="case-tag">Puesto actual</span>
-</div>
-<div>
-<p class="kicker reveal"><b>01</b> Caso de estudio</p>
-<h2 class="h2 reveal d-1">Legacy Housing <em class="serif">Corporation.</em></h2>
-<p class="lead reveal d-2" style="margin-top:1.4rem;">Diseñadora Digital en una empresa de vivienda que cotiza en Nasdaq. Soy el punto de contacto de diseño y web para ventas, ingeniería y gerencia: menos intermediarios y decisiones más rápidas.</p>
-<ul class="case-list reveal d-2">
-<li><b>01</b><span><strong>Lanzamiento de préstamos privados.</strong> Landing page y solicitud de crédito en dos pasos, para escritorio y celular, con notas para desarrollo y textos revisados por el área legal.</span></li>
-<li><b>02</b><span><strong>Rediseño del catálogo.</strong> Propuse y logré aprobar una nueva dirección visual para cuatro líneas de casas, y la llevé sola durante la licencia de mi jefa.</span></li>
-<li><b>03</b><span><strong>Librería de 65 íconos.</strong> Un lenguaje visual consistente en impreso y digital.</span></li>
-<li><b>04</b><span><strong>Fotografía propia + IA.</strong> Fotos originales en planta y producción con Firefly, Midjourney y Higgsfield AI, sin proveedores externos.</span></li>
-</ul>
-<a href="https://legacyhousing.com/" target="_blank" rel="noopener" class="btn btn-line magnetic reveal">Ver Legacy Housing <span class="arr">↗</span></a>
-</div>
-</div>
-</section>
-
-<section class="sec showcase grain on-dark" id="video-ia">
-<div class="wrap show-grid">
-<div class="phone reveal" id="phone">
-<div class="phone-screen">
-<img src="hero-video-poster.webp" alt="Cuadro del video con IA de Carolina Cravens: una versión gigante de ella caminando entre rascacielos de Nueva York" width="720" height="1280" loading="lazy" decoding="async">
-<video id="showVideo" muted loop playsinline preload="none" data-src="hero-video-720.mp4" aria-label="Video con IA creado y protagonizado por Carolina Cravens, 10 segundos"></video>
-<span class="vid-label"><i></i>Video IA · 0:10</span>
-<button class="vid-btn" id="vidPlay" type="button" aria-label="Reproducir el video"></button>
-<button class="vid-toggle" id="vidToggle" type="button" aria-label="Pausar el video">❚❚</button>
-</div>
-</div>
-<div class="show-copy">
-<p class="kicker reveal">Video con IA · Hecho por mí</p>
-<h2 class="h2 reveal d-1">Le apuesto a la IA. <em class="serif">Y me divierto con ella.</em></h2>
-<p class="lead reveal d-2">Sí, esa soy yo, caminando por Nueva York a la altura de los rascacielos. Hice este video de 10 segundos yo misma, porque la mejor forma de dominar una herramienta nueva es jugar con ella. El oficio está en mantener a la misma persona, el mismo vestuario y los mismos colores de marca en cada toma. Eso es diseño, y es lo que llevo a cada proyecto con IA.</p>
-<div class="show-points reveal d-2">
-<div><b>Concepto</b><span>Mi idea, historia y lista de tomas</span></div>
-<div><b>Dirección</b><span>Prompts que mantienen al personaje en cada toma</span></div>
-<div><b>De marca</b><span>Vestuario azul marino y celeste, igual a mi paleta</span></div>
-<div><b>28 → 1,2 MB</b><span>Optimizado para la web, 96% más liviano</span></div>
-</div>
-<p class="show-credit reveal">Creado por Carolina Cravens y protagonizado por Carolina Cravens. Hecho con Higgsfield AI.</p>
-</div>
-</div>
-</section>
-
-<section class="sec" id="sobre-mi">
-<div class="wrap about-grid">
-<div>
-<p class="kicker reveal">Quién soy</p>
-<h2 class="quote reveal d-1">Criterio que no se automatiza. <em class="serif">Velocidad que se mide.</em></h2>
-<div class="toolkit reveal d-2">
-<h3>Herramientas</h3>
-<div class="chips">
-<span class="ai">Claude</span><span class="ai">Adobe Firefly</span><span class="ai">Midjourney</span><span class="ai">Higgsfield AI</span>
-<span>Photoshop</span><span>Illustrator</span><span>InDesign</span><span>Adobe XD</span>
-<span>HTML</span><span>CSS</span><span>WebGL</span>
-<span>WordPress</span><span>Squarespace</span><span>Wix</span>
-<span>Jira</span><span>Wrike</span><span>Monday</span><span>Asana</span>
-</div>
-</div>
-</div>
-<div>
-<div class="about-copy reveal d-1">
-<p>Soy costarricense, crecí en San José y empecé a pintar antes de aprender a escribir. Gané medallas internacionales de arte infantil en Osaka, Japón, y premios nacionales en Costa Rica. Ese ojo entrenado es lo que hoy pongo al servicio de las marcas.</p>
-<p>Tengo más de <strong>9 años diseñando para marcas que trabajan al más alto nivel</strong>, incluyendo campañas y exhibiciones para <a href="https://carolinacravens.com/pacific-northern-inc" target="_blank" rel="noopener"><strong>LVMH, L'Oréal, Dior Beauty, Signet Jewelers e IWC North America</strong></a>. Hoy diseño productos digitales en Legacy Housing, y como independiente he creado marcas y sitios para pymes en Costa Rica y Texas.</p>
-<p>Uso inteligencia artificial todos los días, pero no para reemplazar el criterio. <strong>Saber cuál opción es la correcta para la marca, el cliente y el negocio sigue siendo trabajo humano, y es el mío.</strong></p>
-</div>
-<div class="values">
-<div class="reveal"><b>01</b><h3>Criterio formado en el lujo</h3><p>Tres años produciendo para casas de lujo globales, donde se revisa cada detalle.</p></div>
-<div class="reveal d-1"><b>02</b><h3>Rápida con IA, revisada a mano</h3><p>Hasta 60% más rápido, con cada pieza revisada y terminada por mí.</p></div>
-<div class="reveal"><b>03</b><h3>Lista para corporativo</h3><p>Revisiones legales, aprobaciones y estándares de marca en una empresa pública.</p></div>
-<div class="reveal d-1"><b>04</b><h3>Bilingüe nativa</h3><p>Diseño y textos en español e inglés para Costa Rica, Latinoamérica y EE. UU.</p></div>
-</div>
-</div>
-</div>
-</section>
 
 
 
-<section class="sec" id="experiencia">
-<div class="wrap">
-<div class="sec-head">
-<div><p class="kicker reveal">Trayectoria</p><h2 class="h2 reveal d-1">Rigor corporativo. <em class="serif">Agilidad independiente.</em></h2></div>
-<p class="lead reveal d-2">Nueve años entre una empresa pública, una agencia de retail de lujo, un estudio que cofundé y pymes en Costa Rica y Texas.</p>
-</div>
-<ol class="exp">
-<li class="reveal"><span class="when">Jul 2026 – Actual</span><div><h3>Diseñadora Digital / Especialista en Mercadeo Digital</h3><div class="co">Legacy Housing Corporation (Nasdaq: LEGH) · Texas</div><p>Landing page y solicitud de crédito para un nuevo programa de préstamos, rediseño del catálogo y una librería de 65 íconos.</p></div><span class="tag now">Actual</span></li>
-<li class="reveal"><span class="when">Nov 2024 – Actual</span><div><h3>Gerente de Marca y Diseñadora Digital</h3><div class="co">Apts Centro Colón · San José, Costa Rica</div><p>Responsable de la marca y de toda la presencia digital: renovación de marca, diseño web y producción con IA que redujo el tiempo de producción en un 60%.</p></div><span class="tag">Consultoría</span></li>
-<li class="reveal"><span class="when">Abr – Dic 2025</span><div><h3>Program Manager</h3><div class="co">Lane Gang Capital Group · Dallas, TX</div><p>Diseño, contenido, publicidad y analítica para OAK'D BBQ: +35% de interacción, +25% de tráfico y +30% de efectividad en campañas.</p></div><span class="tag">Contrato</span></li>
-<li class="reveal"><span class="when">2022 – 2025</span><div><h3>Especialista en Mercadeo Creativo y Diseñadora Digital</h3><div class="co">Pacific Northern, Inc. · Dallas, TX</div><p>Campañas, material de exhibición y presentaciones para LVMH, L'Oréal, Dior Beauty, Signet e IWC. Diseñé el stand de LVMH en Virgin Hotels Nueva York.</p></div><span class="tag">Tiempo completo</span></li>
-<li class="reveal"><span class="when">2021 – 2023</span><div><h3>Cofundadora y Diseñadora UX/UI</h3><div class="co">DuoWeb Design Studio · Remoto</div></div><span class="tag">Cofundadora</span></li>
-<li class="reveal"><span class="when">2019 – Actual</span><div><h3>Diseñadora Gráfica y Web Independiente</h3><div class="co">Costa Rica y Estados Unidos</div><p>Marcas y sitios para TUS Mascotas, Divine Lashes CR, TM Flavor, Mayra's Beauty Salon Academy y más.</p></div><span class="tag">Independiente</span></li>
-</ol>
-</div>
-</section>
+
+
+
+
+
+
+
+
 
 <hr class="rainbow-rule" aria-hidden="true">
 <section class="sec services grain on-dark" id="servicios">
@@ -469,6 +377,33 @@
 <div class="cc-lang"><span>Idioma</span><div id="google_translate_element"><button type="button" id="ccLangBtn" class="cc-lang-btn">Elegir</button></div></div>
 </div>
 </footer>
+
+<dialog class="vid-modal" id="vidModal" aria-label="Video de presentación de Carolina Cravens">
+<button class="vm-close" id="vmClose" type="button" aria-label="Cerrar el video">✕</button>
+<div class="phone"><div class="phone-screen">
+<img src="es-vid-poster.webp" alt="" width="600" height="1080" loading="lazy" decoding="async">
+<video id="esVideo" playsinline controls preload="none" data-src="es-vid.mp4" aria-label="Video de presentación de Carolina Cravens, 9 segundos"></video>
+</div></div>
+</dialog>
+<script>
+(function () {
+var d = document.getElementById('vidModal'), v = document.getElementById('esVideo');
+if (!d || !v) return;
+function open(e) {
+if (e) e.preventDefault();
+if (!v.getAttribute('src')) v.src = v.getAttribute('data-src');
+v.classList.add('on');
+if (d.showModal) d.showModal(); else d.setAttribute('open', '');
+v.muted = false;
+var p = v.play(); if (p && p.catch) p.catch(function () {});
+}
+function close() { v.pause(); if (d.close) d.close(); else d.removeAttribute('open'); }
+document.querySelectorAll('[data-open-vid]').forEach(function (b) { b.addEventListener('click', open); });
+document.getElementById('vmClose').addEventListener('click', close);
+d.addEventListener('click', function (e) { if (e.target === d) close(); });
+d.addEventListener('close', function () { v.pause(); });
+})();
+</script>
 <script src="site.js" defer></script>
 </body>
 </html>

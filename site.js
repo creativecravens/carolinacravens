@@ -148,6 +148,18 @@ $$('.product').forEach(function (p) { p.hidden = !(f === 'all' || p.getAttribute
 });
 }
 
+/* VIDEO SOUND (es.html intro video): off by default, one tap to turn on */
+var snd = $('#vidSound');
+if (snd && show) {
+var setSound = function (on) {
+show.muted = !on;
+snd.setAttribute('aria-pressed', on ? 'true' : 'false');
+snd.textContent = on ? (es ? 'Silenciar' : 'Mute') : (es ? 'Activar sonido' : 'Sound on');
+};
+snd.addEventListener('click', function () { setSound(show.muted); if (show.paused) playShow(); });
+if (playBtn && show.hasAttribute('data-tap-sound')) playBtn.addEventListener('click', function () { setSound(true); });
+}
+
 /* PRODUCT PHOTOS: flip between front and side (hover on desktop, button everywhere) */
 $$('.p-flip').forEach(function (b) {
 b.addEventListener('click', function () {
