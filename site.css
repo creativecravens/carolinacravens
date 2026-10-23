@@ -306,6 +306,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.45); border-top: 1px s
 .foot nav { display: flex; flex-wrap: wrap; gap: 1.2rem; }
 .foot nav a { text-decoration: none; }
 .foot nav a:hover { color: var(--white); }
+.foot .foot-note { flex-basis: 100%; margin-top: .4rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.08); font-size: .72rem; line-height: 1.6; color: rgba(255,255,255,.38); }
 
 /* RESPONSIVE */
 @media (max-width: 1100px) {
