@@ -52,8 +52,9 @@
 @media (max-width: 680px) { .cap-grid { grid-template-columns: 1fr; } }
 .cap { background: var(--white); border: 1px solid var(--rule); border-radius: 20px; padding: clamp(1.5rem, 2.8vw, 2rem); min-width: 0; position: relative; }
 .cap .n { position: absolute; top: 1.3rem; right: 1.5rem; font-family: var(--display); font-weight: 800; font-size: .8rem; color: var(--sky); letter-spacing: .04em; }
-.cap h3 { font-family: var(--display); font-weight: 800; font-size: 1.12rem; letter-spacing: -.025em; color: var(--navy); padding-bottom: .85rem; border-bottom: 2px solid var(--blue); padding-right: 2.4rem; }
-.cap ul { list-style: none; margin-top: 1.15rem; }
+.cap h3 { position: relative; font-family: var(--display); font-weight: 800; font-size: 1.12rem; letter-spacing: -.025em; color: var(--navy); padding-left: .85rem; padding-right: 2.4rem; }
+.cap h3::before { content: ""; position: absolute; left: 0; top: .12em; bottom: .12em; width: 4px; border-radius: 2px; background: var(--blue); }
+.cap ul { list-style: none; margin-top: 1.3rem; }
 .cap li { position: relative; padding-left: 1rem; margin-bottom: .62rem; font-size: .93rem; line-height: 1.5; color: var(--slate); }
 .cap li::before { content: ""; position: absolute; left: 0; top: .58rem; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
 .cap li b { font-weight: 700; color: var(--navy); }
@@ -62,11 +63,10 @@
 @media (max-width: 1050px) { .plat-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 680px) { .plat-grid { grid-template-columns: 1fr; } }
 .plat { background: var(--white); border: 1px solid var(--rule); border-radius: 20px; padding: clamp(1.4rem, 2.6vw, 1.8rem); min-width: 0; }
-.plat h3 { font-family: var(--display); font-weight: 800; font-size: 1.02rem; letter-spacing: -.02em; color: var(--navy); padding-bottom: .8rem; border-bottom: 2px solid var(--sky); }
-.plat-logos { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.2rem; }
-.plat-logos figure { display: flex; flex-direction: column; align-items: center; gap: .45rem; width: 88px; min-width: 0; }
-.plat-logos img { height: 30px; width: auto; max-width: 84px; object-fit: contain; display: block; }
-.plat-logos figcaption { font-family: var(--display); font-weight: 600; font-size: .68rem; line-height: 1.25; text-align: center; color: var(--slate); }
+.plat h3 { position: relative; font-family: var(--display); font-weight: 800; font-size: 1.02rem; letter-spacing: -.02em; color: var(--navy); padding-left: .85rem; }
+.plat h3::before { content: ""; position: absolute; left: 0; top: .12em; bottom: .12em; width: 4px; border-radius: 2px; background: var(--blue); }
+.plat-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.3rem; }
+.plat-chips span { font-family: var(--display); font-weight: 600; font-size: .84rem; line-height: 1; color: var(--navy); background: var(--paper); border: 1px solid var(--rule); border-radius: 999px; padding: .52rem .88rem; white-space: nowrap; }
 .info-note { margin-top: 2rem; font-size: .84rem; line-height: 1.65; color: var(--slate); max-width: 64ch; }
 .info-note b { font-family: var(--display); font-weight: 700; color: var(--navy); }
 .print-sec { background: var(--paper); }
@@ -460,49 +460,15 @@
 <div class="info-part reveal" id="platforms"><b>Part 02</b><span>The systems I work in</span><i></i></div>
 <p class="lead reveal" style="margin-bottom:1.6rem">Design is one half of the job. The other half is working inside the tools a business already runs on.</p>
 <div class="plat-grid">
-<div class="plat reveal"><h3>Design &amp; build</h3><div class="plat-logos">
-<figure><img src="logos/logo-figma.webp" alt="Figma" loading="lazy" decoding="async" height="30"><figcaption>Figma</figcaption></figure>
-<figure><img src="logos/logo-creative-cloud.webp" alt="Creative Cloud" loading="lazy" decoding="async" height="30"><figcaption>Creative Cloud</figcaption></figure>
-<figure><img src="logos/logo-wordpress.webp" alt="WordPress" loading="lazy" decoding="async" height="30"><figcaption>WordPress</figcaption></figure>
-<figure><img src="logos/logo-squarespace.webp" alt="Squarespace" loading="lazy" decoding="async" height="30"><figcaption>Squarespace</figcaption></figure>
-<figure><img src="logos/logo-wix.webp" alt="Wix" loading="lazy" decoding="async" height="30"><figcaption>Wix</figcaption></figure>
-<figure><img src="logos/logo-github.webp" alt="GitHub" loading="lazy" decoding="async" height="30"><figcaption>GitHub</figcaption></figure>
-<figure><img src="logos/logo-netlify.webp" alt="Netlify" loading="lazy" decoding="async" height="30"><figcaption>Netlify</figcaption></figure>
-</div></div>
-<div class="plat reveal"><h3>AI production</h3><div class="plat-logos">
-<figure><img src="logos/logo-claude.webp" alt="Claude" loading="lazy" decoding="async" height="30"><figcaption>Claude</figcaption></figure>
-<figure><img src="logos/logo-adobe-firefly.webp" alt="Adobe Firefly" loading="lazy" decoding="async" height="30"><figcaption>Adobe Firefly</figcaption></figure>
-<figure><img src="logos/logo-midjourney.webp" alt="Midjourney" loading="lazy" decoding="async" height="30"><figcaption>Midjourney</figcaption></figure>
-</div></div>
-<div class="plat reveal"><h3>Project delivery</h3><div class="plat-logos">
-<figure><img src="logos/logo-jira.webp" alt="Jira" loading="lazy" decoding="async" height="30"><figcaption>Jira</figcaption></figure>
-<figure><img src="logos/logo-asana.webp" alt="Asana" loading="lazy" decoding="async" height="30"><figcaption>Asana</figcaption></figure>
-<figure><img src="logos/logo-wrike.webp" alt="Wrike" loading="lazy" decoding="async" height="30"><figcaption>Wrike</figcaption></figure>
-<figure><img src="logos/logo-monday.webp" alt="monday.com" loading="lazy" decoding="async" height="30"><figcaption>monday.com</figcaption></figure>
-</div></div>
-<div class="plat reveal"><h3>Business operations</h3><div class="plat-logos">
-<figure><img src="logos/logo-acumatica.webp" alt="Acumatica" loading="lazy" decoding="async" height="30"><figcaption>Acumatica</figcaption></figure>
-<figure><img src="logos/logo-autodesk-vault.webp" alt="Autodesk Vault" loading="lazy" decoding="async" height="30"><figcaption>Autodesk Vault</figcaption></figure>
-<figure><img src="logos/logo-leap.webp" alt="Leap" loading="lazy" decoding="async" height="30"><figcaption>Leap</figcaption></figure>
-<figure><img src="logos/logo-netchex.webp" alt="Netchex" loading="lazy" decoding="async" height="30"><figcaption>Netchex</figcaption></figure>
-<figure><img src="logos/logo-adp.webp" alt="ADP" loading="lazy" decoding="async" height="30"><figcaption>ADP</figcaption></figure>
-</div></div>
-<div class="plat reveal"><h3>Productivity &amp; security</h3><div class="plat-logos">
-<figure><img src="logos/logo-microsoft-365.webp" alt="Microsoft 365" loading="lazy" decoding="async" height="30"><figcaption>Microsoft 365</figcaption></figure>
-<figure><img src="logos/logo-google-workspace.webp" alt="Google Workspace" loading="lazy" decoding="async" height="30"><figcaption>Google Workspace</figcaption></figure>
-<figure><img src="logos/logo-google-analytics.webp" alt="Google Analytics" loading="lazy" decoding="async" height="30"><figcaption>Google Analytics</figcaption></figure>
-<figure><img src="logos/logo-cisco-secure.webp" alt="Cisco Secure" loading="lazy" decoding="async" height="30"><figcaption>Cisco Secure</figcaption></figure>
-</div></div>
-<div class="plat reveal"><h3>Marketing &amp; print</h3><div class="plat-logos">
-<figure><img src="logos/logo-exclaimer-cloud.webp" alt="Exclaimer Cloud" loading="lazy" decoding="async" height="30"><figcaption>Exclaimer Cloud</figcaption></figure>
-<figure><img src="logos/logo-constant-contact.webp" alt="Constant Contact" loading="lazy" decoding="async" height="30"><figcaption>Constant Contact</figcaption></figure>
-<figure><img src="logos/logo-meta-for-business.webp" alt="Meta for Business" loading="lazy" decoding="async" height="30"><figcaption>Meta for Business</figcaption></figure>
-<figure><img src="logos/logo-moo.webp" alt="MOO" loading="lazy" decoding="async" height="30"><figcaption>MOO</figcaption></figure>
-<figure><img src="logos/logo-airbnb-for-business.webp" alt="Airbnb for Business" loading="lazy" decoding="async" height="30"><figcaption>Airbnb for Business</figcaption></figure>
-</div></div>
+<div class="plat reveal"><h3>Design &amp; build</h3><div class="plat-chips"><span>Figma</span><span>Adobe Creative Cloud</span><span>WordPress</span><span>Squarespace</span><span>Wix</span><span>GitHub</span><span>Netlify</span></div></div>
+<div class="plat reveal"><h3>AI production</h3><div class="plat-chips"><span>Claude</span><span>Adobe Firefly</span><span>Midjourney</span><span>Higgsfield AI</span></div></div>
+<div class="plat reveal"><h3>Project delivery</h3><div class="plat-chips"><span>Jira</span><span>Asana</span><span>Wrike</span><span>Monday.com</span></div></div>
+<div class="plat reveal"><h3>Business operations</h3><div class="plat-chips"><span>Acumatica</span><span>Autodesk Vault</span><span>Leap</span><span>Netchex</span><span>ADP</span></div></div>
+<div class="plat reveal"><h3>Productivity &amp; security</h3><div class="plat-chips"><span>Microsoft 365</span><span>Google Workspace</span><span>Google Analytics</span><span>Cisco Secure</span></div></div>
+<div class="plat reveal"><h3>Marketing &amp; print</h3><div class="plat-chips"><span>Exclaimer</span><span>Constant Contact</span><span>Meta for Business</span><span>MOO</span><span>Airbnb for Business</span></div></div>
 </div>
 
-<p class="info-note reveal"><b>Dallas-Fort Worth based. Comfortable on-site, hybrid or remote.</b><br>Platform names and logos are the property of their respective owners and appear here to describe tools used.</p>
+<p class="info-note reveal"><b>Dallas-Fort Worth based. Comfortable on-site, hybrid or remote.</b><br>Platform names are the property of their respective owners and appear here to describe tools used.</p>
 </div>
 </section>
 
