@@ -58,8 +58,64 @@
 }
 </script>
 <style>
-/* Page-only: direction ledger and the discipline grid */
-.ad-hero { background: var(--ink); color: var(--white); overflow: hidden; padding-top: clamp(7rem, 14vw, 10rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+/* Page-only: direction ledger, portrait grading demo and the discipline grid */
+.ad-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.ad-copy { min-width: 0; }
+
+.pt-wrap { perspective: 1400px; min-width: 0; max-width: 380px; margin-left: auto; }
+.pt { position: relative; border-radius: 26px; overflow: hidden; transform-style: preserve-3d; transition: transform .5s var(--ease); background: #0b0f16; box-shadow: 0 40px 70px -30px rgba(0,0,0,.75); }
+.pt img { width: 100%; height: auto; display: block; filter: none; transition: filter .55s var(--ease); }
+.pt .tone { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .55s var(--ease); mix-blend-mode: color; background: linear-gradient(150deg, #1F3864 0%, #4F90CD 52%, #7AB0D9 100%); }
+.pt .sheen { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 45% at var(--px, 50%) var(--py, 35%), rgba(255,255,255,.16), transparent 70%); opacity: 0; transition: opacity .4s ease; }
+.pt-wrap:hover .sheen { opacity: 1; }
+.pt .frame { position: absolute; inset: 0; pointer-events: none; border-radius: 26px; border: 1px solid rgba(122,176,217,.35); }
+
+/* treatments, driven by one data attribute */
+.pt[data-grade="duotone"] img { filter: grayscale(1) contrast(1.12) brightness(1.04); }
+.pt[data-grade="duotone"] .tone { opacity: 1; }
+.pt[data-grade="mono"] img { filter: grayscale(1) contrast(1.16) brightness(1.02); }
+.pt[data-grade="warm"] img { filter: saturate(1.25) sepia(.22) contrast(1.06); }
+
+.pt-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.1rem; max-width: 380px; margin-left: auto; }
+.pt-bar button { font-family: var(--display); font-weight: 700; font-size: .78rem; letter-spacing: .02em; color: rgba(255,255,255,.72); background: transparent; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: .52rem .95rem; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+.pt-bar button:hover { color: var(--white); border-color: rgba(122,176,217,.6); }
+.pt-bar button[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.pt-bar button:focus-visible { outline: 2px solid var(--sky); outline-offset: 2px; }
+.pt-note { margin-top: .85rem; font-size: .82rem; line-height: 1.6; color: rgba(255,255,255,.55); max-width: 380px; margin-left: auto; }
+.pt-note b { color: var(--sky); font-weight: 700; }
+
+/* short laptop screens: keep the hero inside the first view */
+@media (min-width: 981px) and (max-height: 900px) {
+.ad-hero { padding-top: clamp(5rem, 7vw, 5.75rem); padding-bottom: 2rem; }
+.pt-wrap { max-width: 316px; }
+.pt-bar, .pt-note { max-width: 316px; }
+.pt-bar button { font-size: .74rem; padding: .45rem .8rem; }
+.ad-stats div { padding: .55rem .85rem; }
+.ad-stats b { font-size: 1.25rem; }
+.ad-stats span { font-size: .62rem; }
+}
+@media (min-width: 981px) and (max-height: 830px) {
+.ad-hero { padding-top: 4.75rem; padding-bottom: 1.5rem; }
+.ad-hero .h1 { font-size: clamp(1.9rem, 3.2vw, 2.75rem); margin: 1rem 0; }
+.ad-hero .lead { font-size: .94rem; }
+.pt-wrap, .pt-bar, .pt-note { max-width: 284px; }
+.pt-note { font-size: .76rem; }
+.ad-stats { margin-top: 1.5rem; }
+.ad-hero .hero-ctas { margin-top: 1.5rem !important; }
+.ad-hero .lead { max-width: 54ch; }
+}
+@media (max-width: 980px) {
+.ad-grid { grid-template-columns: 1fr; }
+.pt-wrap, .pt-bar, .pt-note { max-width: 420px; margin-left: 0; }
+.pt-wrap { margin-top: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+.pt { transition: none; }
+.pt img, .pt .tone { transition: none; }
+}
+
+
+.ad-hero { background: var(--ink); color: var(--white); overflow: hidden; padding-top: clamp(6rem, 10vw, 7.5rem); padding-bottom: clamp(2.5rem, 5vw, 4rem); }
 .ad-hero::after { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(52% 64% at 76% 38%, rgba(79,144,205,.28), transparent 66%); }
 .ad-hero .h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 1.02; letter-spacing: -.045em; color: var(--white); margin: 1.4rem 0; max-width: 17ch; }
 .ad-hero .h1 .serif { color: var(--sky); font-weight: 400; }
@@ -111,20 +167,45 @@
 <main id="main">
 
 <section class="sec ad-hero grain on-dark">
-<div class="wrap">
+<div class="wrap ad-grid">
+<div class="ad-copy">
 <p class="kicker reveal">Art direction &middot; Dallas-Fort Worth</p>
 <h2 class="h1 reveal d-1">Someone has to decide <em class="serif">what it looks like.</em></h2>
 <p class="lead reveal d-2">For nine years that has been my job: setting the look and holding it across a campaign, a catalog, a photo shoot, a store window, a show floor. I have done it inside the brand standards of LVMH, L'Or&eacute;al, Dior Beauty, Signet Jewelers and IWC North America, and I do it now in-house at a Nasdaq-listed company where the work goes through legal before it goes anywhere else.</p>
 <div class="ad-stats reveal d-2">
 <div><b>9+</b><span>Years directing</span></div>
-<div><b>4</b><span>Product lines, one catalog</span></div>
-<div><b>65</b><span>Icons, one visual language</span></div>
-<div><b>7</b><span>Global brands served</span></div>
+<div><b>4</b><span>Product lines</span></div>
+<div><b>65</b><span>Custom icons</span></div>
+<div><b>7</b><span>Global brands</span></div>
 </div>
 <div class="hero-ctas reveal d-3" style="margin-top:2.2rem">
 <a href="#direction" class="btn btn-primary magnetic">See the direction work <span class="arr">&#8595;</span></a>
 <a href="resume.html" class="btn btn-ghost magnetic">Resume <span class="arr">&#8599;</span></a>
 </div>
+</div>
+
+<div class="reveal d-2">
+<div class="pt-wrap" id="ptWrap">
+<div class="pt" id="pt" data-grade="full">
+<img src="carolina-portrait-neon-900.webp"
+     srcset="carolina-portrait-neon-560.webp 560w, carolina-portrait-neon-900.webp 900w, carolina-portrait-neon-1200.webp 1200w"
+     sizes="(max-width: 980px) 86vw, 380px"
+     width="900" height="1350" alt="Carolina Cravens, art director, lit by cyan and magenta light on a studio set"
+     fetchpriority="high" decoding="async">
+<span class="tone" aria-hidden="true"></span>
+<span class="sheen" aria-hidden="true"></span>
+<span class="frame" aria-hidden="true"></span>
+</div>
+</div>
+<div class="pt-bar" role="group" aria-label="Colour treatment">
+<button type="button" data-grade="full" aria-pressed="true">Full colour</button>
+<button type="button" data-grade="duotone" aria-pressed="false">Duotone</button>
+<button type="button" data-grade="warm" aria-pressed="false">Warm</button>
+<button type="button" data-grade="mono" aria-pressed="false">Mono</button>
+</div>
+<p class="pt-note"><b>One frame, four decisions.</b> This is the smallest version of the job: the photograph does not change, the call does. Try them.</p>
+</div>
+
 </div>
 </section>
 
@@ -275,6 +356,41 @@
 </div>
 </footer>
 
+<script>
+(function () {
+  var pt = document.getElementById('pt'), wrap = document.getElementById('ptWrap');
+  if (!pt || !wrap) return;
+  var bar = document.querySelector('.pt-bar');
+
+  bar.addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-grade]');
+    if (!btn) return;
+    pt.setAttribute('data-grade', btn.getAttribute('data-grade'));
+    Array.prototype.forEach.call(bar.querySelectorAll('button'), function (b) {
+      b.setAttribute('aria-pressed', String(b === btn));
+    });
+  });
+
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!fine || still) return;
+
+  var raf = null, tx = 0, ty = 0;
+  wrap.addEventListener('mousemove', function (e) {
+    var r = wrap.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    tx = (x - 0.5) * 9; ty = (0.5 - y) * 7;
+    pt.style.setProperty('--px', (x * 100) + '%');
+    pt.style.setProperty('--py', (y * 100) + '%');
+    if (raf) return;
+    raf = requestAnimationFrame(function () {
+      pt.style.transform = 'rotateY(' + tx + 'deg) rotateX(' + ty + 'deg)';
+      raf = null;
+    });
+  });
+  wrap.addEventListener('mouseleave', function () { pt.style.transform = ''; });
+})();
+</script>
 <script src="site.js" defer></script>
 </body>
 </html>
