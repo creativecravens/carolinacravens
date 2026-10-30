@@ -72,11 +72,7 @@
 /* Intro film: click to play facade, opens full size */
 .intro-sec { background: var(--ink); color: var(--white); overflow: hidden; position: relative; }
 .intro-sec::after { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(55% 60% at 70% 45%, rgba(79,144,205,.3), transparent 66%); }
-.intro-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-.intro-copy .h2 { color: var(--white); }
-.intro-copy .h2 .serif { color: var(--sky); }
-.intro-copy .kicker { color: var(--sky); }
-.intro-copy p { font-size: 1rem; line-height: 1.78; color: rgba(255,255,255,.74); max-width: 42ch; margin-top: 1.2rem; }
+.intro-sec .wrap { max-width: 1000px; }
 
 .intro-play { position: relative; display: block; width: 100%; padding: 0; border: 0; border-radius: 22px; overflow: hidden; cursor: pointer; aspect-ratio: 16 / 9; background: linear-gradient(145deg, #16243a 0%, #0d1522 55%, #1b2c45 100%); }
 .intro-play img { width: 100%; height: 100%; object-fit: cover; display: block; color: transparent; font-size: 0; transition: transform .7s var(--ease), filter .4s ease; filter: saturate(.92) contrast(1.04); }
@@ -86,8 +82,6 @@
 .intro-ring { position: absolute; z-index: 2; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 92px; height: 92px; border-radius: 50%; background: rgba(255,255,255,.14); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.5); display: grid; place-items: center; transition: background .3s, transform .4s var(--ease); }
 .intro-play:hover .intro-ring { background: var(--blue); transform: translate(-50%,-50%) scale(1.08); }
 .intro-ring span { width: 0; height: 0; margin-left: 5px; border-style: solid; border-width: 13px 0 13px 21px; border-color: transparent transparent transparent #fff; }
-.intro-tag { position: absolute; z-index: 2; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: .5rem; font-family: var(--display); font-weight: 700; font-size: .78rem; color: #fff; background: rgba(10,10,10,.62); border: 1px solid rgba(255,255,255,.26); border-radius: 999px; padding: .5rem .9rem; }
-.intro-tag i { width: 7px; height: 7px; border-radius: 50%; background: #ff4d4d; font-style: normal; }
 @media (prefers-reduced-motion: reduce) { .intro-play img, .intro-ring { transition: none; } }
 
 .intro-modal { margin: auto; border: 0; padding: 0; background: transparent; overflow: visible; width: min(94vw, 1100px); }
@@ -99,7 +93,22 @@
 .intro-alt { display: block; margin-top: .9rem; text-align: center; font-size: .82rem; color: rgba(255,255,255,.6); }
 .intro-alt a { color: var(--sky); }
 
-@media (max-width: 900px) { .intro-grid { grid-template-columns: 1fr; } .intro-ring { width: 72px; height: 72px; } .intro-close { top: -14px; right: -6px; } }
+@media (max-width: 900px) { .intro-ring { width: 72px; height: 72px; } .intro-close { top: -14px; right: -6px; } }
+
+/* Archive band */
+.arch-sec { background: var(--navy); color: var(--white); overflow: hidden; position: relative; }
+.arch-sec::after { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(50% 70% at 18% 40%, rgba(122,176,217,.26), transparent 68%); }
+.arch-grid { display: grid; grid-template-columns: 1fr .9fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.arch-sec .h2, .arch-sec .kicker { color: var(--white); }
+.arch-sec .kicker { color: var(--sky); }
+.arch-sec .h2 .serif { color: var(--sky); }
+.arch-years { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.arch-years div { border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 1.1rem 1.25rem; min-width: 0; }
+.arch-years b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.1rem); letter-spacing: -.035em; line-height: 1; color: var(--white); font-variant-numeric: tabular-nums; }
+.arch-years span { display: block; margin-top: .4rem; font-family: var(--display); font-weight: 700; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); }
+.arch-cta { display: inline-flex; align-items: center; gap: .65rem; margin-top: 1.8rem; font-family: var(--display); font-weight: 800; font-size: .95rem; color: var(--navy); background: var(--white); border-radius: 999px; padding: .95rem 1.7rem; text-decoration: none; transition: background .25s, transform .3s var(--ease); }
+.arch-cta:hover { background: var(--sky); transform: translateY(-2px); }
+@media (max-width: 900px) { .arch-grid { grid-template-columns: 1fr; } }
 
 .print-sec { background: var(--paper); }
 .print-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: center; }
@@ -210,6 +219,7 @@
 <li><a href="#skills">Expertise</a></li>
 <li><a href="resume.html">Resume</a></li>
 <li><a href="es.html" hreflang="es-CR" lang="es">Español</a></li>
+<li><a href="https://carolinacravens.com/" target="_blank" rel="noopener" class="nav-archive">Archive <b>2016</b> <span aria-hidden="true">&#8599;</span></a></li>
 <li><a href="#contact" class="nav-pill">Contact</a></li>
 </ul>
 <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
@@ -266,17 +276,11 @@
 
 <!-- INTRO FILM -->
 <section class="sec intro-sec" id="intro">
-<div class="wrap intro-grid">
-<div class="intro-copy">
-<p class="kicker reveal">Meet me</p>
-<h2 class="h2 reveal d-1">Before you read <em class="serif">any of it.</em></h2>
-<p class="reveal d-2">A portfolio tells you what someone made. It does not tell you what they are like to work with. This does. Press play, and the rest of the page will still be here.</p>
-</div>
-<div class="reveal d-1">
+<div class="wrap">
+<div class="reveal">
 <button class="intro-play" id="introPlay" type="button" aria-label="Play the introduction video">
-<img src="https://i.ytimg.com/vi/JBHgKFb_g8w/maxresdefault.jpg" alt="Carolina Cravens, introduction video" width="1280" height="720" loading="lazy" decoding="async" onerror="if(this.dataset.try){this.style.display='none';}else{this.dataset.try=1;this.src='https://i.ytimg.com/vi/JBHgKFb_g8w/hqdefault.jpg';}">
+<img src="https://i.ytimg.com/vi/JBHgKFb_g8w/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" onerror="if(this.dataset.try){this.style.display='none';}else{this.dataset.try=1;this.src='https://i.ytimg.com/vi/JBHgKFb_g8w/hqdefault.jpg';}">
 <span class="intro-ring" aria-hidden="true"><span></span></span>
-<span class="intro-tag"><i></i>Introduction</span>
 </button>
 </div>
 </div>
@@ -554,6 +558,23 @@
 <a class="ex reveal d-1" href="creative-technologist.html"><span class="go" aria-hidden="true">↗</span><span class="k">Creative technologist &amp; AI</span><div><h3>Designed with taste, <em class="serif">built with Claude.</em></h3><p>Live sites, stores, chatbots, real-time 3D and AI production.</p></div></a>
 <a class="ex reveal d-2" href="es.html" hreflang="es-CR"><span class="go" aria-hidden="true">↗</span><span class="k">Costa Rica · Español</span><div><h3 lang="es">Diseño con <em class="serif">criterio.</em></h3><p>For employers and clients in Costa Rica.</p></div></a>
 <a class="ex atelier reveal d-3" href="art.html"><span class="go" aria-hidden="true">↗</span><span class="k">Fine art atelier</span><div><h3>Where the <em class="serif">taste</em> comes from.</h3><p>13 original works and international art awards.</p></div></a>
+</div>
+</div>
+</section>
+
+<!-- ARCHIVE -->
+<section class="sec arch-sec" id="archive">
+<div class="wrap arch-grid">
+<div>
+<p class="kicker reveal">The archive</p>
+<h2 class="h2 reveal d-1">Ten years, <em class="serif">all of it.</em></h2>
+<a class="arch-cta reveal d-2" href="https://carolinacravens.com/" target="_blank" rel="noopener">Open the archive <span aria-hidden="true">&#8599;</span></a>
+</div>
+<div class="arch-years reveal d-1">
+<div><b>2016</b><span>First piece</span></div>
+<div><b>2026</b><span>Latest piece</span></div>
+<div><b>19</b><span>Projects</span></div>
+<div><b>4</b><span>Collections</span></div>
 </div>
 </div>
 </section>

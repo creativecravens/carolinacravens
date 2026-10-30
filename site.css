@@ -362,3 +362,10 @@ body{top:0!important;}
 .goog-te-banner-frame,iframe.skiptranslate,.skiptranslate iframe{display:none!important;visibility:hidden!important;height:0!important;}
 #goog-gt-tt,.goog-te-balloon-frame{display:none!important;}
 .goog-text-highlight{background:none!important;box-shadow:none!important;}
+
+.nav-archive { position: relative; display: inline-flex !important; align-items: center; gap: .4rem; padding: .5rem .9rem !important; border-radius: 999px; border: 1px solid rgba(122,176,217,.45); color: var(--white) !important; overflow: hidden; }
+.nav-archive b { font-weight: 800; font-size: .72rem; letter-spacing: .04em; color: var(--sky); font-variant-numeric: tabular-nums; }
+.nav-archive::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 20%, rgba(122,176,217,.32) 50%, transparent 80%); transform: translateX(-120%); }
+.nav-archive:hover { border-color: var(--sky); }
+@media (prefers-reduced-motion: no-preference) { .nav-archive::before { animation: archiveSheen 5.5s ease-in-out infinite; } @keyframes archiveSheen { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } } }
+@media (max-width: 900px) { .nav-archive { display: block !important; width: fit-content; margin: .6rem 0; } .nav-archive::before { display: none; } }
