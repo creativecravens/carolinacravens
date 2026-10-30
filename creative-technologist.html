@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.className += ' js';</script>
-<title>Creative Technologist in Dallas-Fort Worth | Carolina Cravens</title>
-<meta name="description" content="Creative technologist in Dallas-Fort Worth: a senior designer who builds. Websites, online stores, chatbot experiences and real-time 3D, designed and coded with Claude. 9+ years in brand and web design.">
+<title>Creative Technologist &amp; AI Design in Dallas-Fort Worth | Carolina Cravens</title>
+<meta name="description" content="Creative technologist and AI designer in Dallas-Fort Worth. Websites, online stores, chatbots and real-time 3D, designed and built with Claude, Firefly, Midjourney and Higgsfield. AI speeds the work. Every decision stays human.">
 <meta name="author" content="Carolina Cravens">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0a0a0a">
@@ -55,7 +55,7 @@
 "alumniOf": { "@type": "CollegeOrUniversity", "name": "The Art Institute of Dallas" },
 "worksFor": { "@type": "Organization", "name": "Legacy Housing Corporation", "sameAs": "https://legacyhousing.com/" },
 "address": { "@type": "PostalAddress", "addressLocality": "Dallas-Fort Worth", "addressRegion": "TX", "addressCountry": "US" },
-"knowsAbout": ["Creative Technology", "Web Design", "Figma", "AI-Built Websites", "WhatsApp Online Stores", "Chatbot Websites", "WebGL", "AI Video", "Brand Identity", "Design Systems", "Claude", "Squarespace", "Wix", "HTML", "CSS", "JavaScript", "Bilingual Design"],
+"knowsAbout": ["Creative Technology", "AI-Powered Design", "Prompt Engineering", "AI Video", "Web Design", "Figma", "AI-Built Websites", "WhatsApp Online Stores", "Chatbot Websites", "WebGL", "AI Video", "Brand Identity", "Design Systems", "Claude", "Squarespace", "Wix", "HTML", "CSS", "JavaScript", "Bilingual Design"],
 "sameAs": ["https://linkedin.com/in/carolinacravens", "https://www.instagram.com/creativecravens"]
 }
 },
@@ -175,6 +175,42 @@
 .ct-work, .link-pages, .svc-grid.five { grid-template-columns: 1fr; }
 .svc-grid.five .svc:nth-child(5) { grid-column: auto; }
 }
+
+/* Carried over from the AI page: 3D crystal layer, video frame, AI grid */
+.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; opacity: 0; transition: opacity 1.4s ease; pointer-events: none; }
+.hero-canvas.is-ready { opacity: .9; }
+.hero .hero-name .line > span { text-shadow: 0 6px 50px rgba(0,0,0,.55); }
+.hero .hero-lede { text-shadow: 0 2px 24px rgba(0,0,0,.6); }
+
+.ai-sec { background: var(--ink); color: var(--white); overflow: hidden; }
+.ai-sec .h2, .ai-sec .kicker { color: var(--white); }
+.ai-sec .kicker { color: var(--sky); }
+.ai-sec .h2 .serif { color: var(--sky); }
+.ai-split { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(2.5rem, 5vw, 4.5rem); align-items: center; margin-top: 2.4rem; }
+.ai-vid-wrap { width: min(100%, 330px); justify-self: center; }
+.ai-vid { position: relative; }
+.ai-vid .phone { width: 100%; }
+.ai-vid .phone::before { content: ""; position: absolute; inset: -3px; border-radius: 43px; z-index: -1; background: conic-gradient(from var(--spin, 0deg), #4F90CD, #7AB0D9, #1F3864, #4F90CD, #A9CDEB, #4F90CD); }
+.ai-vid .phone::after { content: ""; position: absolute; inset: -40px; border-radius: 80px; z-index: -2; background: radial-gradient(closest-side, rgba(79,144,205,.55), transparent); filter: blur(8px); }
+@property --spin { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+@media (prefers-reduced-motion: no-preference) { .ai-vid .phone::before { animation: spinRing 6s linear infinite; } @keyframes spinRing { to { --spin: 360deg; } } }
+.ai-vid .chip-1 { top: 16%; left: -20%; }
+.ai-vid .chip-2 { top: 46%; right: -16%; }
+.ai-vid .chip-3 { bottom: 14%; left: -18%; }
+.vid-sound { position: absolute; z-index: 3; left: 14px; bottom: 14px; font-family: var(--display); font-weight: 700; font-size: .74rem; padding: .5rem .85rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.35); background: rgba(10,10,10,.6); color: #fff; cursor: pointer; display: none; }
+.playing .vid-sound { display: block; }
+.vid-sound[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); }
+.vid-credit { margin-top: 1.3rem; text-align: center; font-size: .74rem; color: rgba(255,255,255,.45); }
+.ai-copy p { font-size: 1rem; line-height: 1.78; color: rgba(255,255,255,.76); margin-bottom: 1rem; max-width: 60ch; }
+.ai-copy p strong { color: var(--white); font-weight: 700; }
+.ai-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 1.8rem; }
+.ai-cards div { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 1.15rem 1.3rem; min-width: 0; }
+.ai-cards b { display: block; font-family: var(--display); font-weight: 800; font-size: .96rem; color: var(--white); letter-spacing: -.02em; }
+.ai-cards p { margin-top: .4rem; font-size: .88rem; line-height: 1.6; color: rgba(255,255,255,.68); }
+.exp .tag.ai { border-color: var(--blue); color: var(--blue); }
+.exp li:hover .tag.ai { background: var(--blue); color: #fff; }
+@media (max-width: 900px) { .ai-split { grid-template-columns: 1fr; } .ai-cards { grid-template-columns: 1fr; }
+.ai-vid-wrap { width: min(100%, 290px); } .ai-vid .chip-1 { left: -12%; } .ai-vid .chip-2 { right: -10%; } .ai-vid .chip-3 { left: -10%; } }
 </style>
 </head>
 <body>
@@ -191,7 +227,7 @@
 <li><a href="web-design-services.html">Services &amp; pricing</a></li>
 <li><a href="#process">Process</a></li>
 <li><a href="#about">About</a></li>
-<li><a href="ai.html">AI Design</a></li>
+<li><a href="#ai">AI</a></li>
 <li><a href="es.html" hreflang="es-CR" lang="es">Español</a></li>
 <li><a href="#contact" class="nav-pill">Contact</a></li>
 </ul>
@@ -201,6 +237,7 @@
 <main id="main">
 <!-- HERO -->
 <section class="hero grain" aria-labelledby="hero-name">
+<canvas class="hero-canvas" id="gemCanvas" aria-hidden="true"></canvas>
 <div class="hero-grid">
 <div>
 <p class="status fade-in"><i></i>Creative Technologist · Dallas-Fort Worth · Remote</p>
@@ -255,7 +292,7 @@
 <div class="toolkit reveal d-2">
 <h3>What I build with</h3>
 <div class="chips">
-<span class="ai">Claude</span><span class="ai">Adobe Firefly</span><span class="ai">Midjourney</span><span class="ai">Higgsfield AI</span>
+<span class="ai">Claude</span><span class="ai">Adobe Firefly</span><span class="ai">Midjourney</span><span class="ai">Higgsfield AI</span><span class="ai">DALL&middot;E</span><span class="ai">ChatGPT</span><span class="ai">Prompt systems</span>
 <span>Figma</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>WebGL</span><span>Squarespace</span><span>Wix</span><span>Photoshop</span><span>Illustrator</span>
 </div>
 </div>
@@ -297,6 +334,48 @@
 </div>
 </section>
 
+<!-- AI IN PRODUCTION -->
+<section class="sec ai-sec" id="ai">
+<div class="wrap">
+<div class="sec-head">
+<div><p class="kicker reveal">AI in production</p><h2 class="h2 reveal d-1">AI writes the drafts. <em class="serif">Taste picks the winner.</em></h2></div>
+<p class="lead reveal d-2" style="color:rgba(255,255,255,.68)">AI sits in the middle of my process, never at the start or the end. The brief and the final call stay human.</p>
+</div>
+
+<div class="ai-split">
+<div class="ai-vid-wrap reveal">
+<div class="ai-vid" id="aiStage">
+<div class="phone" id="phone">
+<div class="phone-screen">
+<img src="ai-vid-poster.webp" alt="Carolina Cravens working with holographic AI dashboards" width="600" height="1080" loading="lazy" decoding="async">
+<video id="showVideo" muted loop playsinline preload="none" data-src="ai-vid.mp4" data-tap-sound aria-label="Video of Carolina Cravens designing with AI interfaces, 9 seconds"></video>
+<span class="vid-label"><i></i>Designing with AI &middot; 0:09</span>
+<button class="vid-btn" id="vidPlay" type="button" aria-label="Play the video with sound"></button>
+<button class="vid-toggle" id="vidToggle" type="button" aria-label="Pause the video">&#10074;&#10074;</button>
+<button class="vid-sound" id="vidSound" type="button" aria-pressed="false">Sound on</button>
+</div>
+</div>
+<span class="chip chip-1">Claude <small>Strategy &middot; copy</small></span>
+<span class="chip chip-2">Firefly &middot; Midjourney</span>
+<span class="chip chip-3">Higgsfield AI <small>Video</small></span>
+</div>
+<p class="vid-credit">Created by Carolina Cravens with AI tools.</p>
+</div>
+
+<div class="ai-copy reveal d-1">
+<p>When first drafts become cheap, the value moves to judgment. <strong>Designers are not being replaced. The ones who will not adapt are.</strong></p>
+<p>I am not a prompt engineer. I am a designer with AI fluency built in, using these tools daily inside a Nasdaq-listed company's brand and legal review, and across client work. AI cannot read a room, challenge a bad brief, or own the outcome when brand, product and legal all want something different. That is the job, and it does not automate.</p>
+<div class="ai-cards">
+<div class="reveal"><b>AI-assisted prototyping</b><p>Pages, forms and user flows prototyped for desktop and mobile in a fraction of the time, then refined by hand with clear developer notes.</p></div>
+<div class="reveal d-1"><b>Rapid concept development</b><p>Dozens of on-brand directions in the time it took to rough out three, so stakeholders see real options instead of mood boards.</p></div>
+<div class="reveal d-2"><b>Campaign and video variation</b><p>Consistent variations across formats, markets and channels, including AI video, without a reshoot for every size.</p></div>
+<div class="reveal"><b>Prompt-system design</b><p>Reusable prompt frameworks built around a brand's visual language, so output stays on brand instead of generic.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
 <!-- SELECTED WORK -->
 <section class="sec" id="work" aria-labelledby="work-title">
 <div class="wrap">
@@ -322,12 +401,12 @@
 </div>
 </article>
 <article class="wk reveal">
-<div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>creativecravens.com/ai.html</span><em class="live">Live</em></div>
+<div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>creativecravens.com/creative-technologist.html</span><em class="live">Live</em></div>
 <div class="body">
 <span class="k">Real-time 3D · WebGL</span>
-<h3>AI design page</h3>
-<p>A real-time WebGL crystal with a custom shader and an interactive intro video, with a lightweight fallback so it stays fast on phones.</p>
-<a class="go-link" href="ai.html">Explore the 3D page ↗</a>
+<h3>The crystal above your head</h3>
+<p>A WebGL crystal with a custom shader runs behind this page's header on desktop. It skips itself on phones, slow connections and reduced motion, so nothing is wasted.</p>
+<a class="go-link" href="#ai">See the AI work ↓</a>
 </div>
 </article>
 <article class="wk reveal d-1">
@@ -483,12 +562,87 @@
 <div class="foot">
 <svg class="logo-svg foot-logo" width="13" height="26" aria-hidden="true" focusable="false"><use href="#cc-logo"/></svg>
 <span>© 2026 Carolina Cravens · Creative Technologist · Dallas-Fort Worth, TX</span>
-<nav aria-label="Site pages"><a href="index.html">Home</a><a href="ai.html">AI Design</a><a href="art.html">Atelier</a><a href="es.html" hreflang="es-CR">Español</a></nav>
+<nav aria-label="Site pages"><a href="index.html">Home</a><a href="art.html">Atelier</a><a href="es.html" hreflang="es-CR">Español</a></nav>
 <div class="cc-lang"><span>Language</span><div id="google_translate_element"><button type="button" id="ccLangBtn" class="cc-lang-btn">Select</button></div></div>
 <p class="foot-note">Client and employer work is shown for portfolio purposes only. All trademarks, logos, and brand names belong to their respective owners, and no endorsement is implied. Results are from specific past projects and are not a guarantee of future results.</p>
 </div>
 </footer>
 
+<script>
+/* 3D crystal: computers only. Skipped on phones, tablets, reduced motion, data saver,
+   and low-memory devices; otherwise it loads after the page is ready and idle. */
+(function () {
+var canvas = document.getElementById('gemCanvas');
+if (!canvas) return;
+var conn = navigator.connection || {};
+var inFrame = false; try { inFrame = window.self !== window.top; } catch (e) { inFrame = true; }
+var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+var small = Math.min(window.innerWidth, window.innerHeight) < 600 || window.innerWidth < 900;
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var thin = conn.saveData === true || /(^|-)2g$|^3g$/.test(conn.effectiveType || '');
+var lowMem = navigator.deviceMemory && navigator.deviceMemory < 4;
+if (inFrame || !fine || small || reduce || thin || lowMem) { canvas.style.display = 'none'; return; }
+function fetchThree() {
+var s = document.createElement('script');
+s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+s.async = true;
+s.onload = function () { if (window.__ccGem) window.__ccGem(); };
+s.onerror = function () { canvas.style.display = 'none'; };
+document.body.appendChild(s);
+}
+function whenIdle() { if ('requestIdleCallback' in window) requestIdleCallback(fetchThree, { timeout: 2500 }); else setTimeout(fetchThree, 600); }
+if (document.readyState === 'complete') whenIdle(); else window.addEventListener('load', whenIdle, { once: true });
+})();
+window.__ccGem = function () {
+if (!window.THREE) return;
+var canvas = document.getElementById('gemCanvas'), section = canvas.closest('.hero');
+var renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: 'high-performance' }); }
+catch (e) { canvas.style.display = 'none'; return; }
+renderer.setClearColor(0x000000, 0);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+var scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+var parallax = new THREE.Group(), spinner = new THREE.Group(); parallax.add(spinner); scene.add(parallax);
+var vs = ['varying vec3 vNormal;', 'varying vec3 vView;', 'void main() {', ' vec4 mv = modelViewMatrix * vec4(position, 1.0);', ' vView = -mv.xyz;', ' vNormal = normalize(normalMatrix * normal);', ' gl_Position = projectionMatrix * mv;', '}'].join('\n');
+var gemGeo = new THREE.IcosahedronGeometry(1, 1).toNonIndexed(); gemGeo.computeVertexNormals();
+var gemMat = new THREE.ShaderMaterial({
+uniforms: { uTime: { value: 0 }, uBase: { value: new THREE.Color(0x0d1626) } },
+vertexShader: vs,
+fragmentShader: ['precision highp float;', 'varying vec3 vNormal;', 'varying vec3 vView;', 'uniform float uTime;', 'uniform vec3 uBase;',
+'vec3 pal(float t) { return vec3(0.35,0.42,0.5) + vec3(0.25,0.3,0.35) * cos(6.28318 * (t + vec3(0.55,0.62,0.78))); }',
+'void main() {', ' vec3 N = normalize(vNormal); vec3 V = normalize(vView);', ' float f = pow(1.0 - clamp(dot(N, V), 0.0, 1.0), 2.3);',
+' vec3 col = mix(uBase, pal(f * 0.6 + 0.12 * (N.x + N.y) + uTime * 0.02), clamp(f * 1.15, 0.0, 1.0));',
+' col += pow(clamp(dot(N, V), 0.0, 1.0), 2.0) * 0.10 * vec3(0.55,0.68,0.85);', ' col += f * f * vec3(0.31,0.56,0.8) * 0.6;', ' gl_FragColor = vec4(col, 1.0);', '}'].join('\n')
+});
+var gem = new THREE.Mesh(gemGeo, gemMat); spinner.add(gem);
+spinner.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1.2, 3), new THREE.ShaderMaterial({
+transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.BackSide,
+uniforms: { uColor: { value: new THREE.Color(0x4f90cd) } }, vertexShader: vs,
+fragmentShader: ['precision highp float;', 'varying vec3 vNormal;', 'varying vec3 vView;', 'uniform vec3 uColor;', 'void main() {', ' float f = pow(1.0 - clamp(dot(normalize(vNormal), normalize(vView)), 0.0, 1.0), 2.6);', ' gl_FragColor = vec4(uColor * f * 1.4, f);', '}'].join('\n')
+})));
+var pCount = 900, pPos = new Float32Array(pCount * 3);
+for (var i = 0; i < pCount; i++) { var r = 2.6 + Math.random() * 4.2, th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
+pPos[i * 3] = r * Math.sin(ph) * Math.cos(th); pPos[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th) * 0.8; pPos[i * 3 + 2] = r * Math.cos(ph); }
+var pGeo = new THREE.BufferGeometry(); pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+var particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ color: 0x9cc3e6, size: 0.02, transparent: true, opacity: 0.55, blending: THREE.AdditiveBlending, depthWrite: false }));
+scene.add(particles);
+var pointer = { x: 0, y: 0 }, target = { x: 0, y: 0 };
+window.addEventListener('mousemove', function (e) { pointer.x = (e.clientX / window.innerWidth) * 2 - 1; pointer.y = (e.clientY / window.innerHeight) * 2 - 1; }, { passive: true });
+/* The crystal sits behind the video, on the right */
+function resize() { var w = section.clientWidth, h = section.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.position.set(-1.15, 0, 3.8); camera.updateProjectionMatrix(); }
+var rt = null; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(resize, 150); }); resize();
+var inView = true, rafId = null, clock = new THREE.Clock();
+function run() { return inView && !document.hidden; }
+function tick() { rafId = null; if (!run()) return; var t = clock.getElapsedTime(); gemMat.uniforms.uTime.value = t;
+spinner.rotation.y += 0.0022; spinner.rotation.x += 0.0006; gem.scale.setScalar(1 + Math.sin(t * 0.8) * 0.015); particles.rotation.y = t * 0.02;
+target.x += (pointer.y * 0.1 - target.x) * 0.05; target.y += (pointer.x * 0.14 - target.y) * 0.05; parallax.rotation.x = target.x; parallax.rotation.y = target.y;
+renderer.render(scene, camera); rafId = requestAnimationFrame(tick); }
+function start() { if (rafId === null && run()) rafId = requestAnimationFrame(tick); }
+document.addEventListener('visibilitychange', start);
+if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { inView = en[0].isIntersecting; start(); }, { threshold: 0.01 }).observe(section);
+start(); requestAnimationFrame(function () { canvas.classList.add('is-ready'); });
+};
+</script>
 <script src="site.js" defer></script>
 </body>
 </html>
