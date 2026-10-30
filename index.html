@@ -69,6 +69,38 @@
 .plat-chips span { font-family: var(--display); font-weight: 600; font-size: .84rem; line-height: 1; color: var(--navy); background: var(--paper); border: 1px solid var(--rule); border-radius: 999px; padding: .52rem .88rem; white-space: nowrap; }
 .info-note { margin-top: 2rem; font-size: .84rem; line-height: 1.65; color: var(--slate); max-width: 64ch; }
 .info-note b { font-family: var(--display); font-weight: 700; color: var(--navy); }
+/* Intro film: click to play facade, opens full size */
+.intro-sec { background: var(--ink); color: var(--white); overflow: hidden; position: relative; }
+.intro-sec::after { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(55% 60% at 70% 45%, rgba(79,144,205,.3), transparent 66%); }
+.intro-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.intro-copy .h2 { color: var(--white); }
+.intro-copy .h2 .serif { color: var(--sky); }
+.intro-copy .kicker { color: var(--sky); }
+.intro-copy p { font-size: 1rem; line-height: 1.78; color: rgba(255,255,255,.74); max-width: 42ch; margin-top: 1.2rem; }
+
+.intro-play { position: relative; display: block; width: 100%; padding: 0; border: 0; border-radius: 22px; overflow: hidden; cursor: pointer; aspect-ratio: 16 / 9; background: linear-gradient(145deg, #16243a 0%, #0d1522 55%, #1b2c45 100%); }
+.intro-play img { width: 100%; height: 100%; object-fit: cover; display: block; color: transparent; font-size: 0; transition: transform .7s var(--ease), filter .4s ease; filter: saturate(.92) contrast(1.04); }
+.intro-play:hover img { transform: scale(1.04); filter: saturate(1) contrast(1.06); }
+.intro-play::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,.1), rgba(10,10,10,.62)); pointer-events: none; }
+.intro-play:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+.intro-ring { position: absolute; z-index: 2; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 92px; height: 92px; border-radius: 50%; background: rgba(255,255,255,.14); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.5); display: grid; place-items: center; transition: background .3s, transform .4s var(--ease); }
+.intro-play:hover .intro-ring { background: var(--blue); transform: translate(-50%,-50%) scale(1.08); }
+.intro-ring span { width: 0; height: 0; margin-left: 5px; border-style: solid; border-width: 13px 0 13px 21px; border-color: transparent transparent transparent #fff; }
+.intro-tag { position: absolute; z-index: 2; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: .5rem; font-family: var(--display); font-weight: 700; font-size: .78rem; color: #fff; background: rgba(10,10,10,.62); border: 1px solid rgba(255,255,255,.26); border-radius: 999px; padding: .5rem .9rem; }
+.intro-tag i { width: 7px; height: 7px; border-radius: 50%; background: #ff4d4d; font-style: normal; }
+@media (prefers-reduced-motion: reduce) { .intro-play img, .intro-ring { transition: none; } }
+
+.intro-modal { margin: auto; border: 0; padding: 0; background: transparent; overflow: visible; width: min(94vw, 1100px); }
+.intro-modal::backdrop { background: rgba(6,8,12,.92); }
+.intro-frame { position: relative; aspect-ratio: 16 / 9; width: 100%; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 40px 90px rgba(0,0,0,.65); }
+.intro-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.intro-close { position: absolute; z-index: 5; top: -18px; right: -14px; width: 46px; height: 46px; border-radius: 50%; border: 0; background: var(--white); color: var(--ink); font-size: 1.15rem; font-weight: 700; cursor: pointer; box-shadow: 0 10px 28px rgba(0,0,0,.5); }
+.intro-close:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.intro-alt { display: block; margin-top: .9rem; text-align: center; font-size: .82rem; color: rgba(255,255,255,.6); }
+.intro-alt a { color: var(--sky); }
+
+@media (max-width: 900px) { .intro-grid { grid-template-columns: 1fr; } .intro-ring { width: 72px; height: 72px; } .intro-close { top: -14px; right: -6px; } }
+
 .print-sec { background: var(--paper); }
 .print-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: center; }
 .print-credit { margin-top: 1.4rem; font-size: .84rem; font-style: italic; color: var(--slate); }
@@ -171,6 +203,7 @@
 <header class="nav" id="nav">
 <a href="index.html" class="nav-logo" aria-label="Carolina Cravens, home"><svg class="logo-svg" width="19" height="38" aria-hidden="true" focusable="false"><use href="#cc-logo"/></svg><span>Carolina Cravens</span></a>
 <ul class="nav-links" id="navLinks">
+<li><a href="#intro">Intro</a></li>
 <li><a href="#work">Work</a></li>
 <li><a href="pacific-northern.html">Luxury retail</a></li>
 <li><a href="art-director.html">Art direction</a></li>
@@ -230,6 +263,30 @@
 <div class="marquee-group"><span>LVMH</span><i></i><span class="o">L'Oréal</span><i></i><span>Dior Beauty</span><i></i><span class="o">Signet Jewelers</span><i></i><span>IWC North America</span><i></i><span class="o">Legacy Housing</span><i></i></div>
 </div>
 </div>
+
+<!-- INTRO FILM -->
+<section class="sec intro-sec" id="intro">
+<div class="wrap intro-grid">
+<div class="intro-copy">
+<p class="kicker reveal">Meet me</p>
+<h2 class="h2 reveal d-1">Before you read <em class="serif">any of it.</em></h2>
+<p class="reveal d-2">A portfolio tells you what someone made. It does not tell you what they are like to work with. This does. Press play, and the rest of the page will still be here.</p>
+</div>
+<div class="reveal d-1">
+<button class="intro-play" id="introPlay" type="button" aria-label="Play the introduction video">
+<img src="https://i.ytimg.com/vi/JBHgKFb_g8w/maxresdefault.jpg" alt="Carolina Cravens, introduction video" width="1280" height="720" loading="lazy" decoding="async" onerror="if(this.dataset.try){this.style.display='none';}else{this.dataset.try=1;this.src='https://i.ytimg.com/vi/JBHgKFb_g8w/hqdefault.jpg';}">
+<span class="intro-ring" aria-hidden="true"><span></span></span>
+<span class="intro-tag"><i></i>Introduction</span>
+</button>
+</div>
+</div>
+</section>
+
+<dialog class="intro-modal" id="introModal" aria-label="Introduction video">
+<button class="intro-close" id="introClose" type="button" aria-label="Close the video">&#10005;</button>
+<div class="intro-frame" id="introFrame"></div>
+<span class="intro-alt">Trouble playing it here? <a href="https://youtu.be/JBHgKFb_g8w" target="_blank" rel="noopener">Open it on YouTube</a></span>
+</dialog>
 
 <!-- RESULTS -->
 <section class="sec results" id="results">
@@ -547,6 +604,33 @@ var r = s.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = 
 s.style.transform = 'rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 8) + 'deg)';
 });
 s.addEventListener('mouseleave', function () { s.style.transform = ''; });
+})();
+</script>
+<script>
+(function () {
+  var btn = document.getElementById('introPlay'),
+      dlg = document.getElementById('introModal'),
+      box = document.getElementById('introFrame'),
+      shut = document.getElementById('introClose');
+  if (!btn || !dlg || !box) return;
+
+  var SRC = 'https://www.youtube-nocookie.com/embed/JBHgKFb_g8w?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+
+  function open() {
+    box.innerHTML = '<iframe src="' + SRC + '" title="Carolina Cravens introduction" allow="accelerometer; autoplay; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+    if (shut) shut.focus();
+  }
+  function close() {
+    box.innerHTML = '';
+    if (dlg.close) dlg.close(); else dlg.removeAttribute('open');
+    btn.focus();
+  }
+
+  btn.addEventListener('click', open);
+  if (shut) shut.addEventListener('click', close);
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) close(); });
+  dlg.addEventListener('close', function () { box.innerHTML = ''; });
 })();
 </script>
 <script src="site.js" defer></script>
