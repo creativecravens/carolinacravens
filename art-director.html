@@ -142,6 +142,46 @@
 .disc p { margin-top: .45rem; font-size: .9rem; line-height: 1.6; color: rgba(255,255,255,.66); }
 
 @media (max-width: 900px) { .dir-list > li { grid-template-columns: 1fr; gap: .9rem; } .disc { grid-template-columns: 1fr; } }
+
+/* Featured build: Heritage Housing post kit */
+.hk-sec { background: var(--navy); color: var(--white); }
+.hk-sec .h2, .hk-sec .kicker { color: var(--white); }
+.hk-sec .kicker { color: var(--sky); }
+.hk-sec .h2 .serif { color: var(--sky); }
+.hk-lead { font-size: 1rem; line-height: 1.78; color: rgba(255,255,255,.78); max-width: 66ch; }
+.hk-lead strong { color: var(--white); font-weight: 700; }
+.hk-split { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(2rem, 4.5vw, 3.5rem); align-items: start; margin-top: 2.4rem; }
+.hk-right { min-width: 0; }
+.hk-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.hk-stats div { border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 1rem 1.15rem; min-width: 0; }
+.hk-stats b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -.035em; line-height: 1; color: var(--white); font-variant-numeric: tabular-nums; }
+.hk-stats span { display: block; margin-top: .35rem; font-family: var(--display); font-weight: 700; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); }
+.hk-points { margin-top: 12px; display: grid; gap: 10px; }
+.hk-points div { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 1.15rem 1.3rem; min-width: 0; }
+.hk-points b { display: block; font-family: var(--display); font-weight: 800; font-size: .98rem; color: var(--white); letter-spacing: -.02em; }
+.hk-points p { margin-top: .45rem; font-size: .91rem; line-height: 1.62; color: rgba(255,255,255,.7); }
+.hk-live { display: inline-flex; align-items: center; gap: .6rem; margin-top: 1.4rem; font-family: var(--display); font-weight: 700; font-size: .9rem; color: var(--navy); background: var(--white); border-radius: 999px; padding: .8rem 1.4rem; text-decoration: none; transition: background .25s, color .25s; }
+.hk-live:hover { background: var(--sky); color: var(--navy); }
+.hk-live i { width: 8px; height: 8px; border-radius: 50%; background: #2fbf6c; box-shadow: 0 0 0 4px rgba(47,191,108,.22); font-style: normal; }
+.hk-credit { margin-top: 1.8rem; font-size: .8rem; line-height: 1.7; color: rgba(255,255,255,.52); max-width: 70ch; }
+
+/* Portrait inside the build section: animated iridescent edge, no parallax */
+.bl-wrap { position: relative; min-width: 0; }
+.bl-aura { position: absolute; inset: -12% -8%; z-index: 0; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(45% 45% at 50% 42%, rgba(122,176,217,.45), transparent 70%),
+              radial-gradient(40% 40% at 70% 70%, rgba(141,118,214,.4), transparent 72%);
+  filter: blur(40px); }
+.bl-card { position: relative; z-index: 1; border-radius: 24px; padding: 2px;
+  background: conic-gradient(from var(--spin, 0deg), #4F90CD, #7AB0D9, #a98fe0, #6ce3d0, #4F90CD); }
+.bl-inner { position: relative; border-radius: 22px; overflow: hidden; background: #0b1016; display: block; }
+.bl-inner img { width: 100%; height: auto; display: block; transition: transform .7s var(--ease); }
+.bl-wrap:hover .bl-inner img { transform: scale(1.035); }
+.bl-cap { position: relative; z-index: 1; margin-top: .95rem; font-size: .78rem; line-height: 1.6; color: rgba(255,255,255,.55); }
+.bl-cap b { color: var(--sky); font-weight: 700; }
+@media (prefers-reduced-motion: no-preference) { .bl-card { animation: blSpin 14s linear infinite; } @keyframes blSpin { to { --spin: 360deg; } } }
+@property --spin { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+@media (max-width: 900px) { .hk-split { grid-template-columns: 1fr; } .bl-wrap { max-width: 380px; } }
 </style>
 </head>
 <body>
@@ -155,7 +195,7 @@
 <ul class="nav-links" id="navLinks">
 <li><a href="index.html">Home</a></li>
 <li><a href="pacific-northern.html">Luxury retail</a></li>
-<li><a href="legacy-housing.html">Legacy Housing</a></li>
+<li><a href="#post-kit">Featured build</a></li>
 <li><a href="ai.html">AI Design</a></li>
 <li><a href="resume.html">Resume</a></li>
 <li><a href="es.html" hreflang="es-CR" lang="es">Espa&ntilde;ol</a></li>
@@ -296,6 +336,50 @@
 </div>
 </section>
 
+<!-- FEATURED BUILD -->
+<section class="sec hk-sec" id="post-kit">
+<div class="wrap">
+<div class="sec-head">
+<div><p class="kicker reveal">Featured build &middot; live and public</p><h2 class="h2 reveal d-1">A content system the team <em class="serif">runs without me.</em></h2></div>
+<p class="hk-lead reveal d-2">Direction only counts if it survives the handover. Heritage Housing sales consultants needed to post, but most of them did not want to be on camera. I built them a faceless post kit: <strong>34 ready to use post ideas</strong> across carousels, short videos and text memes, each with its own visual format, a step by step, a written caption and a hashtag set. It is live inside their consultant hub and the team maintains it themselves.</p>
+</div>
+
+<div class="hk-split">
+<div class="reveal">
+<div class="bl-wrap">
+<span class="bl-aura" aria-hidden="true"></span>
+<div class="bl-card">
+<span class="bl-inner">
+<img src="carolina-portrait-bloom-820.webp"
+     srcset="carolina-portrait-bloom-520.webp 520w, carolina-portrait-bloom-820.webp 820w, carolina-portrait-bloom-1100.webp 1100w"
+     sizes="(max-width: 900px) 86vw, 340px"
+     width="820" height="1469" alt="Carolina Cravens, art director" loading="lazy" decoding="async">
+</span>
+</div>
+<p class="bl-cap"><b>Carolina Cravens.</b> Concept, formats, visual direction, captions and documentation.</p>
+</div>
+</div>
+
+<div class="hk-right">
+<div class="hk-stats">
+<div class="reveal"><b>34</b><span>Post ideas</span></div>
+<div class="reveal d-1"><b>15</b><span>Visual formats</span></div>
+<div class="reveal d-2"><b>22</b><span>Hashtag sets</span></div>
+<div class="reveal"><b>3</b><span>Content types</span></div>
+</div>
+<div class="hk-points">
+<div class="reveal"><b>The real problem was not ideas</b><p>Consultants had plenty to say. They were uncomfortable being the subject. Every format in the kit works without a face on screen, which is what unblocked the posting.</p></div>
+<div class="reveal d-1"><b>Direction you can see before you shoot</b><p>Each idea plays as a small phone animation, so a consultant sees the finished post before deciding to make it. Fifteen formats cover listings, before and after, market facts, myths, reviews, drive ups and more.</p></div>
+<div class="reveal d-2"><b>Written so they can change it</b><p>The file is documented in plain language across seven labelled sections: add an idea, remove one, reorder them, swap the logo, change the hashtags. No developer needed, which is why it is still theirs.</p></div>
+</div>
+<a class="hk-live reveal" href="https://heritage-360.netlify.app/#posts" target="_blank" rel="noopener"><i></i>See it live in the Heritage 360 hub &#8599;</a>
+</div>
+</div>
+
+<p class="hk-credit reveal">Created by Carolina Cravens for Heritage Housing. The kit links out to real example videos from Heritage Housing of Marble Falls' own TikTok account; those videos are their work, not mine. All rights belong to Heritage Housing. Shown for portfolio purposes only; no endorsement implied.</p>
+</div>
+</section>
+
 <section class="sec services grain on-dark">
 <div class="wrap">
 <div class="sec-head">
@@ -320,7 +404,7 @@
 </div>
 <div class="ex-grid">
 <a class="ex reveal" href="pacific-northern.html"><span class="go" aria-hidden="true">&#8599;</span><span class="k">Luxury retail</span><div><h3>LVMH, L'Or&eacute;al, <em class="serif">Signet &amp; IWC.</em></h3><p>Seven engagements: exhibits, visual merchandising guides, production files and factory photography.</p></div></a>
-<a class="ex reveal d-1" href="legacy-housing.html"><span class="go" aria-hidden="true">&#8599;</span><span class="k">Public company</span><div><h3>Legacy Housing, <em class="serif">Nasdaq: LEGH.</em></h3><p>A private lending launch, a catalog redesign and a 65-icon system.</p></div></a>
+<a class="ex reveal d-1" href="https://heritage-360.netlify.app/#posts" target="_blank" rel="noopener"><span class="go" aria-hidden="true">&#8599;</span><span class="k">Live build</span><div><h3>Heritage 360 <em class="serif">post kit.</em></h3><p>34 post ideas, 15 visual formats, running inside their consultant hub.</p></div></a>
 <a class="ex reveal d-2" href="art.html"><span class="go" aria-hidden="true">&#8599;</span><span class="k">Fine art</span><div><h3>Where the <em class="serif">eye</em> came from.</h3><p>International medals, national placements and a solo exhibition.</p></div></a>
 </div>
 </div>
@@ -351,7 +435,7 @@
 <div class="foot">
 <svg class="logo-svg foot-logo" width="13" height="26" aria-hidden="true" focusable="false"><use href="#cc-logo"/></svg>
 <span>&copy; 2026 Carolina Cravens &middot; Art Director &middot; Dallas-Fort Worth, TX</span>
-<nav aria-label="Site pages"><a href="index.html">Home</a><a href="resume.html">Resume</a><a href="pacific-northern.html">Luxury retail</a><a href="legacy-housing.html">Legacy Housing</a><a href="art.html">Atelier</a><a href="es.html" hreflang="es-CR">Espa&ntilde;ol</a></nav>
+<nav aria-label="Site pages"><a href="index.html">Home</a><a href="resume.html">Resume</a><a href="pacific-northern.html">Luxury retail</a><a href="art.html">Atelier</a><a href="es.html" hreflang="es-CR">Espa&ntilde;ol</a></nav>
 <p class="foot-note">Client and employer work is shown for portfolio purposes only. All trademarks, logos, and brand names belong to their respective owners, and no endorsement is implied.</p>
 </div>
 </footer>
