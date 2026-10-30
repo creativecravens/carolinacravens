@@ -163,6 +163,53 @@
 .ct-work, .link-pages, .svc-grid.five { grid-template-columns: 1fr; }
 .svc-grid.five .svc:nth-child(5) { grid-column: auto; }
 }
+
+/* Rate card: tabbed explorer, consultation band, who you work with */
+.rate-sec { background: var(--paper); }
+.rate-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 2rem 0 1.6rem; }
+.rate-tabs button { font-family: var(--display); font-weight: 700; font-size: .86rem; color: var(--navy); background: var(--white); border: 1px solid var(--rule); border-radius: 999px; padding: .62rem 1.15rem; cursor: pointer; transition: background .22s, color .22s, border-color .22s; }
+.rate-tabs button:hover { border-color: var(--blue); }
+.rate-tabs button[aria-selected="true"] { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.rate-tabs button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.rate-panel[hidden] { display: none !important; }
+.rate-list { border-top: 2px solid var(--navy); }
+.rate-row { display: grid; grid-template-columns: 1fr auto; gap: .6rem 1.5rem; align-items: baseline; padding: 1.05rem .2rem; border-bottom: 1px solid var(--rule); }
+.rate-row b { font-family: var(--display); font-weight: 800; font-size: 1rem; letter-spacing: -.02em; color: var(--navy); }
+.rate-row p { grid-column: 1 / 2; font-size: .9rem; line-height: 1.55; color: var(--slate); margin-top: .18rem; }
+.rate-row .fig { font-family: var(--display); font-weight: 800; font-size: 1rem; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.rate-row .fig small { display: block; font-weight: 600; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-top: .18rem; text-align: right; }
+.rate-row.inc .fig { color: #1f8f50; }
+.rate-note { margin-top: 1.4rem; font-size: .84rem; line-height: 1.7; color: var(--slate); max-width: 68ch; }
+
+.consult { background: var(--ink); color: var(--white); overflow: hidden; }
+.consult-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.consult-fig { position: relative; justify-self: center; width: min(100%, 300px); }
+.consult-fig img { width: 100%; height: auto; display: block; }
+.consult h2 { color: var(--white); }
+.consult-steps { display: grid; gap: 10px; margin-top: 1.8rem; }
+.consult-steps div { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 1.1rem 1.3rem; min-width: 0; }
+.consult-steps i { font-style: normal; font-family: var(--display); font-weight: 800; font-size: .74rem; letter-spacing: .1em; color: var(--navy); background: var(--sky); border-radius: 6px; padding: .3rem .55rem; }
+.consult-steps b { font-family: var(--display); font-weight: 700; font-size: .98rem; color: var(--white); }
+.consult-steps span { font-family: var(--display); font-weight: 800; font-size: .95rem; color: var(--sky); white-space: nowrap; }
+.consult-steps span.free { color: #6FCF97; }
+.consult-note { margin-top: 1.3rem; font-size: .86rem; line-height: 1.7; color: rgba(255,255,255,.62); max-width: 60ch; }
+
+.who-grid { display: grid; grid-template-columns: .62fr 1.38fr; gap: clamp(2rem, 5vw, 3.5rem); align-items: center; }
+.who-fig { justify-self: center; width: min(100%, 300px); border-radius: 22px; overflow: hidden; background: var(--white); border: 1px solid var(--rule); }
+.who-fig img { width: 100%; height: auto; display: block; }
+.who-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 1.6rem; }
+.who-cols div { background: var(--white); border: 1px solid var(--rule); border-radius: 16px; padding: 1.15rem 1.3rem; min-width: 0; }
+.who-cols b { display: block; font-family: var(--display); font-weight: 800; font-size: .95rem; color: var(--navy); }
+.who-cols ul { list-style: none; margin-top: .55rem; }
+.who-cols li { position: relative; padding-left: .95rem; margin-bottom: .32rem; font-size: .87rem; line-height: 1.5; color: var(--slate); }
+.who-cols li::before { content: ""; position: absolute; left: 0; top: .54rem; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
+
+@media (max-width: 900px) {
+.consult-grid, .who-grid { grid-template-columns: 1fr; }
+.who-cols { grid-template-columns: 1fr; }
+.rate-row { grid-template-columns: 1fr; }
+.rate-row .fig { text-align: left; } .rate-row .fig small { text-align: left; }
+}
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="cc-logo" viewBox="0 0 1196 2434"><path transform="translate(0 2434) scale(.1 -.1)" d="M4010 24329 c-405 -23 -823 -85 -1137 -170 -1507 -405 -2407 -1506 -2748 -3364 -44 -239 -79 -540 -107 -910 -16 -214 -24 -14785 -9 -15178 45 -1115 277 -2099 662 -2809 349 -641 839 -1122 1461 -1434 610 -306 1355 -458 2233 -457 498 0 917 49 1385 160 181 42 247 42 450 -6 468 -108 878 -154 1380 -154 658 1 1226 85 1745 258 871 289 1514 822 1944 1611 294 538 556 1452 620 2164 12 134 27 432 42 820 15 411 24 2798 10 2833 l-11 27 -700 0 -700 0 2 -1202 c3 -1221 1 -1339 -38 -1948 -77 -1224 -285 -1965 -716 -2546 -93 -125 -276 -316 -393 -411 -277 -224 -641 -397 -1008 -478 -237 -52 -383 -68 -642 -69 -132 -1 -253 3 -268 7 l-28 8 59 67 c64 72 301 404 445 622 97 146 264 476 342 675 226 573 345 1157 406 2005 13 176 25 2989 14 3158 l-7 102 -707 0 -707 0 0 -1272 c0 -872 -4 -1355 -12 -1533 -37 -770 -104 -1328 -209 -1740 -152 -597 -465 -1136 -873 -1502 -182 -164 -258 -171 -420 -38 -86 70 -249 239 -329 340 -416 524 -675 1267 -765 2195 -39 401 -39 343 -38 7770 0 7310 1 7561 37 7960 32 358 105 866 175 1210 74 368 212 705 412 1005 115 173 199 276 343 420 237 239 335 296 424 250 27 -13 367 -377 483 -515 384 -459 623 -1084 703 -1840 40 -384 55 -971 64 -2425 l6 -1160 734 -3 734 -2 -7 172 c-3 95 -15 515 -26 933 -44 1683 -87 2521 -155 2970 -126 845 -434 1538 -959 2163 -47 56 -86 110 -86 120 0 9 -3 28 -7 41 l-6 24 180 -7 c707 -26 1234 -197 1678 -544 110 -86 312 -296 407 -422 326 -437 548 -983 652 -1605 75 -446 91 -882 102 -2718 l7 -1127 706 2 706 3 8 75 c12 110 1 2794 -12 2975 -72 1003 -269 1797 -615 2470 -183 357 -381 631 -651 900 -351 352 -726 591 -1219 777 -548 207 -1297 321 -2001 305 -453 -11 -808 -55 -1265 -159 -186 -42 -291 -42 -455 0 -503 129 -1135 184 -1725 151z m410 -1097 c22 -18 22 -18 4 -54 -11 -20 -55 -80 -99 -133 -606 -732 -918 -1638 -1029 -2980 -42 -507 -41 -310 -41 -8035 0 -7840 -2 -7512 46 -7980 75 -748 258 -1417 544 -1991 110 -222 167 -315 488 -786 75 -110 137 -204 137 -207 0 -13 -458 -6 -590 10 -827 95 -1509 515 -1896 1166 -234 395 -367 820 -483 1548 -87 542 -92 636 -101 1905 -12 1642 -12 13766 0 14070 21 522 76 923 181 1308 124 459 326 888 571 1215 91 121 285 322 398 412 453 360 1018 537 1756 549 75 1 96 -2 114 -17z"/></symbol></svg>
@@ -175,7 +222,8 @@
 <ul class="nav-links" id="navLinks">
 <li><a href="index.html">Home</a></li>
 <li><a href="creative-technologist.html">The work</a></li>
-<li><a href="#pricing">Pricing</a></li>
+<li><a href="#pricing">Packages</a></li>
+<li><a href="#rates">Rate card</a></li>
 <li><a href="es.html" hreflang="es-CR" lang="es">Espa&ntilde;ol</a></li>
 <li><a href="#contact" class="nav-pill">Get a quote</a></li>
 </ul>
@@ -224,6 +272,107 @@
 </section>
 
 
+<!-- RATE CARD -->
+<section class="sec rate-sec" id="rates">
+<div class="wrap">
+<div class="sec-head">
+<div><p class="kicker reveal">Full rate card</p><h2 class="h2 reveal d-1">Everything else, <em class="serif">priced openly.</em></h2></div>
+<p class="lead reveal d-2">The packages above cover most websites. If you need something outside them, here is what it costs. No quote required to find out.</p>
+</div>
+
+<div class="rate-tabs reveal" role="tablist" aria-label="Service categories">
+<button type="button" id="tab-marketing" role="tab" aria-controls="panel-marketing" aria-selected="true">Marketing</button>
+<button type="button" id="tab-web" role="tab" aria-controls="panel-web" aria-selected="false">Web</button>
+<button type="button" id="tab-graphic" role="tab" aria-controls="panel-graphic" aria-selected="false">Graphic design</button>
+<button type="button" id="tab-addons" role="tab" aria-controls="panel-addons" aria-selected="false">Add-ons</button>
+</div>
+<div class="rate-panel" id="panel-marketing" role="tabpanel" aria-labelledby="tab-marketing">
+<div class="rate-list">
+<div class="rate-row"><b>Social media management</b><span class="fig">$500 to $1,200<small>per month</small></span><p>Content creation, posting and engagement across Instagram, Facebook, LinkedIn and TikTok.</p></div>
+<div class="rate-row"><b>Branding strategy</b><span class="fig">$1,000 to $3,500<small>per project</small></span><p>Brand voice, messaging and audience targeting. Available hourly at $150 to $300 if you prefer.</p></div>
+<div class="rate-row"><b>SEO optimization</b><span class="fig">$700 to $2,500<small>per project</small></span><p>On-page, off-page and keyword research.</p></div>
+<div class="rate-row"><b>Paid ads management</b><span class="fig">15% of spend<small>or $450 to $1,200 monthly</small></span><p>Google and Meta. Setup, monitoring and optimization.</p></div>
+<div class="rate-row"><b>Email marketing campaigns</b><span class="fig">$300 to $800<small>per campaign</small></span><p>Design, copywriting and sending to a targeted list.</p></div>
+<div class="rate-row"><b>Content strategy and calendar</b><span class="fig">$400 to $1,000<small>per project</small></span><p>A plan and a calendar your team can actually follow.</p></div>
+<div class="rate-row"><b>Content marketing</b><span class="fig">$200 to $600<small>per article</small></span><p>Blog writing, lead magnets and strategy.</p></div>
+</div>
+</div>
+<div class="rate-panel" id="panel-web" role="tabpanel" aria-labelledby="tab-web" hidden>
+<div class="rate-list">
+<div class="rate-row"><b>Landing page</b><span class="fig">$800 to $1,500<small>per page</small></span><p>One page, built to convert.</p></div>
+<div class="rate-row"><b>Website redesign</b><span class="fig">$3,000 to $8,000<small>per project</small></span><p>Full visual and structural refresh of a site you already have.</p></div>
+<div class="rate-row"><b>E-commerce build</b><span class="fig">$4,000 to $12,000<small>per project</small></span><p>Shopify or WooCommerce, with payment and product setup.</p></div>
+<div class="rate-row"><b>UI/UX review</b><span class="fig">$500 to $1,500<small>per review</small></span><p>A written audit of your current site with prioritised fixes.</p></div>
+<div class="rate-row"><b>Website maintenance</b><span class="fig">$100 to $400<small>per month</small></span><p>Updates, backups and monitoring.</p></div>
+<div class="rate-row inc"><b>Basic SEO setup</b><span class="fig">Included<small>with every build</small></span><p>Titles, descriptions, structured data and Google setup.</p></div>
+</div>
+</div>
+<div class="rate-panel" id="panel-graphic" role="tabpanel" aria-labelledby="tab-graphic" hidden>
+<div class="rate-list">
+<div class="rate-row"><b>Brand identity package</b><span class="fig">$1,500 to $5,000<small>per project</small></span><p>Logo, colour palette, typography and brand guidelines.</p></div>
+<div class="rate-row"><b>Logo design</b><span class="fig">$400 to $1,200<small>per project</small></span><p>Two to three initial concepts plus revisions.</p></div>
+<div class="rate-row"><b>Packaging design</b><span class="fig">$500 to $2,000<small>per project</small></span></div>
+<div class="rate-row"><b>Presentation design</b><span class="fig">$400 to $1,500<small>per deck</small></span><p>PowerPoint or Keynote. Visual storytelling and slide design.</p></div>
+<div class="rate-row"><b>Flyers, brochures, posters</b><span class="fig">$250 to $700<small>per piece</small></span><p>Bi-fold, tri-fold or custom.</p></div>
+<div class="rate-row"><b>Infographic design</b><span class="fig">$250 to $800<small>each</small></span><p>Data visualisation graphics.</p></div>
+<div class="rate-row"><b>Social media graphics</b><span class="fig">$250 to $750<small>per batch of 10</small></span><p>Custom posts, banners and ads.</p></div>
+<div class="rate-row"><b>Business cards</b><span class="fig">$100 to $300<small>per design</small></span><p>Custom design and print-ready files.</p></div>
+</div>
+</div>
+<div class="rate-panel" id="panel-addons" role="tabpanel" aria-labelledby="tab-addons" hidden>
+<div class="rate-list">
+<div class="rate-row"><b>Photography and videography</b><span class="fig">$500 to $2,500<small>per project</small></span><p>For branding. Priced by location and scope.</p></div>
+<div class="rate-row"><b>Copywriting</b><span class="fig">$100 to $400<small>per page</small></span><p>For a website or marketing materials.</p></div>
+<div class="rate-row"><b>Hosting and domain setup</b><span class="fig">$150 to $400<small>one time</small></span><p>One-time setup. Hosting billed separately.</p></div>
+<div class="rate-row"><b>Rush turnaround</b><span class="fig">Add 30% to 50%<small>of base price</small></span><p>Delivery in 48 to 72 hours.</p></div>
+<div class="rate-row"><b>Stock photography</b><span class="fig">$15 to $50<small>per photo</small></span><p>Bought on your behalf and licensed to you.</p></div>
+</div>
+</div>
+
+<p class="rate-note reveal">Ranges reflect scope, not negotiation. The low end is a straightforward project with content ready; the high end is complex, multi-stakeholder or built from scratch. You get a fixed number before any work starts.</p>
+</div>
+</section>
+
+<!-- CONSULTATION -->
+<section class="sec consult grain on-dark" id="consultation">
+<div class="wrap consult-grid">
+<div class="consult-fig reveal">
+<img src="cc-bubble-520.webp" srcset="cc-bubble-520.webp 520w, cc-bubble-760.webp 760w" sizes="(max-width: 900px) 70vw, 300px" width="520" height="596" alt="Carolina Cravens monogram in an iridescent glass form" loading="lazy" decoding="async">
+</div>
+<div>
+<p class="kicker reveal">How we start</p>
+<h2 class="h2 reveal d-1">The first conversation <em class="serif">is free.</em></h2>
+<div class="consult-steps reveal d-2">
+<div><i>01</i><b>First consultation</b><span class="free">Free</span></div>
+<div><i>02</i><b>Follow-up consultations, no contract yet</b><span>$50 each</span></div>
+<div><i>03</i><b>Once your contract is signed</b><span class="free">All included</span></div>
+</div>
+<p class="consult-note reveal">The first call is where we work out what you actually need and what it will cost. Nothing is charged for it. After a contract is signed, every conversation for the rest of the project is part of the project.</p>
+<p class="consult-note reveal">Prefer to work hourly? Design and production run $40 to $80 per hour, or $320 to $640 for a full eight hour day. Brand strategy is $150 to $300 per hour.</p>
+</div>
+</div>
+</section>
+
+<!-- WHO YOU WORK WITH -->
+<section class="sec" id="who">
+<div class="wrap who-grid">
+<div class="who-fig reveal">
+<img src="carolina-bw-560.webp" srcset="carolina-bw-560.webp 560w, carolina-bw-900.webp 900w" sizes="(max-width: 900px) 70vw, 300px" width="560" height="579" alt="Carolina Cravens" loading="lazy" decoding="async">
+</div>
+<div>
+<p class="kicker reveal">Who you work with</p>
+<h2 class="h2 reveal d-1">One person, <em class="serif">start to finish.</em></h2>
+<p class="lead reveal d-2">No account manager, no handoff to a junior. The person you talk to is the person who does the work. Nine years, from global luxury houses to the shop down the road.</p>
+<div class="who-cols">
+<div class="reveal"><b>Social and content</b><ul><li>Posts created, scheduled and engaged across every major platform</li><li>Branded templates so your look holds</li><li>Captions and hashtags written for reach</li></ul></div>
+<div class="reveal d-1"><b>Photography and assets</b><ul><li>Professional profile photos for your team</li><li>Product and service imagery</li><li>Behind the scenes and lifestyle shots</li></ul></div>
+<div class="reveal d-2"><b>Presentation materials</b><ul><li>Client presentations that explain who you are</li><li>Pitch decks for prospects and partners</li><li>Digital brochures with portfolio and testimonials</li></ul></div>
+<div class="reveal"><b>Positioning and growth</b><ul><li>Brand audit of strengths and gaps</li><li>Campaign ideas aimed at your audience</li><li>Visuals refreshed as the business grows</li></ul></div>
+</div>
+</div>
+</div>
+</section>
+
 <section class="sec contact grain on-dark" id="contact">
 <div class="wrap">
 <p class="kicker reveal">Get a quote</p>
@@ -254,6 +403,34 @@
 </div>
 </footer>
 
+<script>
+(function () {
+  var bar = document.querySelector('.rate-tabs');
+  if (!bar) return;
+  var tabs = Array.prototype.slice.call(bar.querySelectorAll('button'));
+  function show(btn) {
+    tabs.forEach(function (t) {
+      var on = t === btn;
+      t.setAttribute('aria-selected', String(on));
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+  }
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('button[aria-controls]');
+    if (b) show(b);
+  });
+  bar.addEventListener('keydown', function (e) {
+    var i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+    var n = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : -1;
+    if (n < 0) return;
+    e.preventDefault();
+    var next = tabs[(n + tabs.length) % tabs.length];
+    next.focus(); show(next);
+  });
+})();
+</script>
 <script src="site.js" defer></script>
 </body>
 </html>
