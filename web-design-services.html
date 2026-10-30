@@ -179,6 +179,12 @@
 .rate-row .fig { font-family: var(--display); font-weight: 800; font-size: 1rem; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .rate-row .fig small { display: block; font-weight: 600; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-top: .18rem; text-align: right; }
 .rate-row.inc .fig { color: #1f8f50; }
+.rate-proofs { grid-column: 1 / 2; display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .75rem; }
+.rate-proof { position: relative; display: inline-flex; align-items: center; gap: .45rem; font-family: var(--display); font-weight: 700; font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); background: rgba(79,144,205,.09); border: 1px solid rgba(79,144,205,.3); border-radius: 999px; padding: .42rem .82rem; text-decoration: none; transition: background .22s ease, border-color .22s ease, color .22s ease, transform .3s var(--ease); }
+.rate-proof:hover { background: var(--navy); border-color: var(--navy); color: #fff; transform: translateY(-1px); }
+.rate-proof:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.rate-proof span { font-size: .9em; line-height: 1; }
+@media (prefers-reduced-motion: reduce) { .rate-proof { transition: none; } .rate-proof:hover { transform: none; } }
 .rate-note { margin-top: 1.4rem; font-size: .84rem; line-height: 1.7; color: var(--slate); max-width: 68ch; }
 
 .consult { background: var(--ink); color: var(--white); overflow: hidden; }
@@ -289,10 +295,10 @@
 </div>
 <div class="rate-panel" id="panel-marketing" role="tabpanel" aria-labelledby="tab-marketing">
 <div class="rate-list">
-<div class="rate-row"><b>Social media management</b><span class="fig">$500 to $1,200<small>per month</small></span><p>Content creation, posting and engagement across Instagram, Facebook, LinkedIn and TikTok.</p></div>
-<div class="rate-row"><b>Branding strategy</b><span class="fig">$1,000 to $3,500<small>per project</small></span><p>Brand voice, messaging and audience targeting. Available hourly at $150 to $300 if you prefer.</p></div>
+<div class="rate-row"><b>Social media management</b><span class="fig">$500 to $1,200<small>per month</small></span><p>Content creation, posting and engagement across Instagram, Facebook, LinkedIn and TikTok.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/social-media" target="_blank" rel="noopener">Social campaigns <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="rate-row"><b>Branding strategy</b><span class="fig">$1,000 to $3,500<small>per project</small></span><p>Brand voice, messaging and audience targeting. Available hourly at $150 to $300 if you prefer.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/lash-logo-id" target="_blank" rel="noopener">A brand build <span aria-hidden="true">&#8599;</span></a></div></div>
 <div class="rate-row"><b>SEO optimization</b><span class="fig">$700 to $2,500<small>per project</small></span><p>On-page, off-page and keyword research.</p></div>
-<div class="rate-row"><b>Paid ads management</b><span class="fig">15% of spend<small>or $450 to $1,200 monthly</small></span><p>Google and Meta. Setup, monitoring and optimization.</p></div>
+<div class="rate-row"><b>Paid ads management</b><span class="fig">15% of spend<small>or $450 to $1,200 monthly</small></span><p>Google and Meta. Setup, monitoring and optimization.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/advertising-ads" target="_blank" rel="noopener">Luxury ad work <span aria-hidden="true">&#8599;</span></a></div></div>
 <div class="rate-row"><b>Email marketing campaigns</b><span class="fig">$300 to $800<small>per campaign</small></span><p>Design, copywriting and sending to a targeted list.</p></div>
 <div class="rate-row"><b>Content strategy and calendar</b><span class="fig">$400 to $1,000<small>per project</small></span><p>A plan and a calendar your team can actually follow.</p></div>
 <div class="rate-row"><b>Content marketing</b><span class="fig">$200 to $600<small>per article</small></span><p>Blog writing, lead magnets and strategy.</p></div>
@@ -300,7 +306,7 @@
 </div>
 <div class="rate-panel" id="panel-web" role="tabpanel" aria-labelledby="tab-web" hidden>
 <div class="rate-list">
-<div class="rate-row"><b>Landing page</b><span class="fig">$800 to $1,500<small>per page</small></span><p>One page, built to convert.</p></div>
+<div class="rate-row"><b>Landing page</b><span class="fig">$800 to $1,500<small>per page</small></span><p>One page, built to convert.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/duoweb" target="_blank" rel="noopener">A site I built <span aria-hidden="true">&#8599;</span></a></div></div>
 <div class="rate-row"><b>Website redesign</b><span class="fig">$3,000 to $8,000<small>per project</small></span><p>Full visual and structural refresh of a site you already have.</p></div>
 <div class="rate-row"><b>E-commerce build</b><span class="fig">$4,000 to $12,000<small>per project</small></span><p>Shopify or WooCommerce, with payment and product setup.</p></div>
 <div class="rate-row"><b>UI/UX review</b><span class="fig">$500 to $1,500<small>per review</small></span><p>A written audit of your current site with prioritised fixes.</p></div>
@@ -310,19 +316,19 @@
 </div>
 <div class="rate-panel" id="panel-graphic" role="tabpanel" aria-labelledby="tab-graphic" hidden>
 <div class="rate-list">
-<div class="rate-row"><b>Brand identity package</b><span class="fig">$1,500 to $5,000<small>per project</small></span><p>Logo, colour palette, typography and brand guidelines.</p></div>
-<div class="rate-row"><b>Logo design</b><span class="fig">$400 to $1,200<small>per project</small></span><p>Two to three initial concepts plus revisions.</p></div>
+<div class="rate-row"><b>Brand identity package</b><span class="fig">$1,500 to $5,000<small>per project</small></span><p>Logo, colour palette, typography and brand guidelines.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/lash-logo-id" target="_blank" rel="noopener">An identity system <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="rate-row"><b>Logo design</b><span class="fig">$400 to $1,200<small>per project</small></span><p>Two to three initial concepts plus revisions.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/lash-logo-id" target="_blank" rel="noopener">Logo work <span aria-hidden="true">&#8599;</span></a></div></div>
 <div class="rate-row"><b>Packaging design</b><span class="fig">$500 to $2,000<small>per project</small></span></div>
 <div class="rate-row"><b>Presentation design</b><span class="fig">$400 to $1,500<small>per deck</small></span><p>PowerPoint or Keynote. Visual storytelling and slide design.</p></div>
-<div class="rate-row"><b>Flyers, brochures, posters</b><span class="fig">$250 to $700<small>per piece</small></span><p>Bi-fold, tri-fold or custom.</p></div>
-<div class="rate-row"><b>Infographic design</b><span class="fig">$250 to $800<small>each</small></span><p>Data visualisation graphics.</p></div>
-<div class="rate-row"><b>Social media graphics</b><span class="fig">$250 to $750<small>per batch of 10</small></span><p>Custom posts, banners and ads.</p></div>
-<div class="rate-row"><b>Business cards</b><span class="fig">$100 to $300<small>per design</small></span><p>Custom design and print-ready files.</p></div>
+<div class="rate-row"><b>Flyers, brochures, posters</b><span class="fig">$250 to $700<small>per piece</small></span><p>Bi-fold, tri-fold or custom.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/photoshop-poster" target="_blank" rel="noopener">Poster work <span aria-hidden="true">&#8599;</span></a><a class="rate-proof" href="https://carolinacravens.com/magazine" target="_blank" rel="noopener">Editorial layout <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="rate-row"><b>Infographic design</b><span class="fig">$250 to $800<small>each</small></span><p>Data visualisation graphics.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/flamingo" target="_blank" rel="noopener">An infographic <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="rate-row"><b>Social media graphics</b><span class="fig">$250 to $750<small>per batch of 10</small></span><p>Custom posts, banners and ads.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/social-media" target="_blank" rel="noopener">Social graphics <span aria-hidden="true">&#8599;</span></a></div></div>
+<div class="rate-row"><b>Business cards</b><span class="fig">$100 to $300<small>per design</small></span><p>Custom design and print-ready files.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/you-need-an-event-invitation-i-can-do-it-for-you" target="_blank" rel="noopener">Card and invite work <span aria-hidden="true">&#8599;</span></a></div></div>
 </div>
 </div>
 <div class="rate-panel" id="panel-addons" role="tabpanel" aria-labelledby="tab-addons" hidden>
 <div class="rate-list">
-<div class="rate-row"><b>Photography and videography</b><span class="fig">$500 to $2,500<small>per project</small></span><p>For branding. Priced by location and scope.</p></div>
+<div class="rate-row"><b>Photography and videography</b><span class="fig">$500 to $2,500<small>per project</small></span><p>For branding. Priced by location and scope.</p><div class="rate-proofs"><a class="rate-proof" href="https://carolinacravens.com/photography-passion" target="_blank" rel="noopener">Photography <span aria-hidden="true">&#8599;</span></a></div></div>
 <div class="rate-row"><b>Copywriting</b><span class="fig">$100 to $400<small>per page</small></span><p>For a website or marketing materials.</p></div>
 <div class="rate-row"><b>Hosting and domain setup</b><span class="fig">$150 to $400<small>one time</small></span><p>One-time setup. Hosting billed separately.</p></div>
 <div class="rate-row"><b>Rush turnaround</b><span class="fig">Add 30% to 50%<small>of base price</small></span><p>Delivery in 48 to 72 hours.</p></div>
