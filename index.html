@@ -110,6 +110,34 @@
 .arch-cta:hover { background: var(--sky); transform: translateY(-2px); }
 @media (max-width: 900px) { .arch-grid { grid-template-columns: 1fr; } }
 
+/* Origins: where the eye came from */
+.orig-sec { scroll-margin-top: 88px; background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
+.orig-sec::after { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(52% 62% at 76% 44%, rgba(184,150,90,.17), transparent 68%); }
+.orig-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.orig-sec .kicker { color: #D4B07A; }
+.orig-sec .h2 { color: var(--white); }
+.orig-sec .h2 .serif { color: #D4B07A; }
+.orig-lede { font-size: 1rem; line-height: 1.82; color: rgba(255,255,255,.76); max-width: 52ch; margin-top: 1.3rem; }
+.orig-lede b { color: var(--white); font-weight: 600; }
+.orig-cta { display: inline-flex; align-items: center; gap: .6rem; margin-top: 1.9rem; font-family: var(--display); font-weight: 800; font-size: .9rem; color: var(--ink); background: #D4B07A; border-radius: 999px; padding: .9rem 1.6rem; text-decoration: none; transition: background .25s ease, transform .3s var(--ease); }
+.orig-cta:hover { background: #e8c994; transform: translateY(-2px); }
+
+.orig-medals { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.5rem, 2vw, 1.4rem); align-items: end; }
+.orig-medal { position: relative; text-align: center; }
+.orig-medal span.g { position: absolute; left: 50%; top: 44%; width: 120%; aspect-ratio: 1; transform: translate(-50%,-50%); border-radius: 50%; filter: blur(30px); opacity: .3; transition: opacity .45s ease; pointer-events: none; }
+.orig-medal:nth-child(1) span.g { background: radial-gradient(circle, rgba(226,186,96,.8), transparent 66%); }
+.orig-medal:nth-child(2) span.g { background: radial-gradient(circle, rgba(196,206,220,.75), transparent 66%); }
+.orig-medal:nth-child(3) span.g { background: radial-gradient(circle, rgba(198,130,76,.78), transparent 66%); }
+.orig-medal img { position: relative; z-index: 1; width: 100%; height: auto; display: block; filter: drop-shadow(0 20px 26px rgba(0,0,0,.7)); transition: transform .5s var(--ease), filter .4s ease; }
+.orig-medal b { display: block; margin-top: .9rem; font-family: var(--display); font-weight: 800; font-size: .62rem; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.62); }
+@media (hover: hover) and (pointer: fine) {
+  .orig-medal:hover img { transform: translateY(-8px) scale(1.04); filter: drop-shadow(0 28px 34px rgba(0,0,0,.78)) brightness(1.07); }
+  .orig-medal:hover span.g { opacity: .6; }
+}
+.orig-cap { margin-top: 1.5rem; text-align: center; font-size: .72rem; letter-spacing: .06em; color: rgba(255,255,255,.46); }
+@media (prefers-reduced-motion: reduce) { .orig-medal img { transition: none; } }
+@media (max-width: 900px) { .orig-grid { grid-template-columns: 1fr; } .orig-medals { max-width: 380px; } }
+
 .print-sec { background: var(--paper); }
 .print-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: center; }
 .print-credit { margin-top: 1.4rem; font-size: .84rem; font-style: italic; color: var(--slate); }
@@ -390,6 +418,28 @@
 <div><b>28 → 1.2 MB</b><span>Optimized for the web, 96% lighter</span></div>
 </div>
 <p class="show-credit reveal">Created by Carolina Cravens, starring Carolina Cravens. Made with Higgsfield AI.</p>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<!-- ORIGINS -->
+<section class="sec orig-sec" id="origins">
+<div class="wrap orig-grid">
+<div>
+<p class="kicker reveal">Where it starts</p>
+<h2 class="h2 reveal d-1">Before the software, <em class="serif">there was paint.</em></h2>
+<p class="orig-lede reveal d-2">I did not arrive at design through a job. I arrived through painting. As a child in Costa Rica I won <b>gold, silver and bronze at the International Children&#39;s Art Exhibition in Japan</b>, placed three times in the national painting competition, and showed a solo exhibition at Club Uni&oacute;n in San Jos&eacute;. The fine arts degree came later. Nine years of professional work came after that.</p>
+<p class="orig-lede reveal d-2">The eye came first. Everything since has been training it.</p>
+<a class="orig-cta reveal d-2" href="art.html">See the atelier <span aria-hidden="true">&#8599;</span></a>
+</div>
+<div class="reveal d-1">
+<div class="orig-medals">
+<div class="orig-medal"><span class="g" aria-hidden="true"></span><img src="medal-gold-320.webp" srcset="medal-gold-320.webp 320w, medal-gold-520.webp 520w" sizes="(max-width: 900px) 110px, 150px" width="735" height="1163" alt="Gold medal, International Children&#39;s Art Exhibition, Japan" loading="lazy" decoding="async"><b>Gold</b></div>
+<div class="orig-medal"><span class="g" aria-hidden="true"></span><img src="medal-silver-320.webp" srcset="medal-silver-320.webp 320w, medal-silver-520.webp 520w" sizes="(max-width: 900px) 110px, 150px" width="735" height="1163" alt="Silver medal, International Children&#39;s Art Exhibition, Japan" loading="lazy" decoding="async"><b>Silver</b></div>
+<div class="orig-medal"><span class="g" aria-hidden="true"></span><img src="medal-bronze-320.webp" srcset="medal-bronze-320.webp 320w, medal-bronze-520.webp 520w" sizes="(max-width: 900px) 110px, 150px" width="735" height="1163" alt="Bronze medal, International Children&#39;s Art Exhibition, Japan" loading="lazy" decoding="async"><b>Bronze</b></div>
+</div>
+<p class="orig-cap">International Children&#39;s Art Exhibition, Japan</p>
 </div>
 </div>
 </section>

@@ -68,6 +68,51 @@ html { scroll-behavior: smooth; }
 body { background: var(--ink); color: var(--bone); font-family: 'Inter', Arial, sans-serif; overflow-x: hidden; }
 a:focus-visible, button:focus-visible, .art-item:focus-visible { outline: 2px solid var(--gold-lt); outline-offset: 3px; }
 
+
+/* THE MEDALS: real photographs of the award, three finishes */
+.medals { scroll-margin-top: 92px; position: relative; padding: clamp(5rem, 10vw, 9rem) 0 clamp(4rem, 8vw, 7rem); overflow: hidden; }
+.medals::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 50% at 50% 38%, rgba(184,150,90,.14), transparent 70%); pointer-events: none; }
+.medals-inner { position: relative; max-width: 1180px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+.medals-h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; font-size: clamp(2.1rem, 5.5vw, 4rem); line-height: 1.04; letter-spacing: -.015em; }
+.medals-h2 em { font-style: italic; color: var(--gold); }
+.medals-lead { margin-top: 1.1rem; max-width: 58ch; font-size: .95rem; line-height: 1.8; color: var(--ash); }
+.medal-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.6rem, 3vw, 2.5rem); margin-top: clamp(2.5rem, 6vw, 4.5rem); align-items: start; }
+
+.medal { position: relative; margin: 0; perspective: 900px; }
+.medal-hang { position: relative; transform-origin: 50% 2%; animation: medalSway 7s ease-in-out infinite; animation-delay: calc(var(--i) * -2.3s); }
+.medal-tilt { position: relative; transform: rotateX(var(--mx, 0deg)) rotateY(var(--my, 0deg)); transition: transform .5s cubic-bezier(.22,.8,.3,1); will-change: transform; }
+.medal-glow { position: absolute; left: 50%; top: 46%; width: 118%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; filter: blur(34px); opacity: .34; transition: opacity .45s ease, transform .6s var(--ease, ease); pointer-events: none; }
+.medal[data-metal="gold"]   .medal-glow { background: radial-gradient(circle, rgba(226,186,96,.75), transparent 68%); }
+.medal[data-metal="silver"] .medal-glow { background: radial-gradient(circle, rgba(196,206,220,.7), transparent 68%); }
+.medal[data-metal="bronze"] .medal-glow { background: radial-gradient(circle, rgba(198,130,76,.72), transparent 68%); }
+.medal img { position: relative; z-index: 1; display: block; width: 100%; height: auto; filter: drop-shadow(0 26px 34px rgba(0,0,0,.72)) saturate(1.02); transition: filter .45s ease, transform .5s cubic-bezier(.22,.8,.3,1); }
+
+.medal figcaption { margin-top: clamp(1rem, 2.5vw, 1.8rem); text-align: center; }
+.medal figcaption b { display: block; font-size: clamp(.72rem, 1.6vw, .9rem); letter-spacing: .34em; text-transform: uppercase; color: var(--bone); }
+.medal figcaption span { display: block; margin-top: .5rem; font-size: .66rem; letter-spacing: .1em; color: var(--ash); opacity: .72; }
+.medal[data-metal="gold"]   figcaption b { color: #e2ba60; }
+.medal[data-metal="silver"] figcaption b { color: #c4ced8; }
+.medal[data-metal="bronze"] figcaption b { color: #c6824c; }
+
+@media (hover: hover) and (pointer: fine) {
+  .medal:hover .medal-glow, .medal:focus-within .medal-glow { opacity: .62; transform: translate(-50%, -50%) scale(1.07); }
+  .medal:hover img, .medal:focus-within img { transform: translateY(-10px) scale(1.035); filter: drop-shadow(0 34px 44px rgba(0,0,0,.8)) saturate(1.1) brightness(1.06); }
+}
+.medal.lit .medal-glow { opacity: .62; }
+.medal.lit img { filter: drop-shadow(0 34px 44px rgba(0,0,0,.8)) saturate(1.1) brightness(1.06); }
+
+@keyframes medalSway { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .medal-hang { animation: none; }
+  .medal-tilt { transform: none !important; transition: none; }
+  .medal img { transition: none; }
+}
+@media (max-width: 640px) {
+  .medal-row { gap: .5rem; }
+  .medal figcaption b { letter-spacing: .18em; }
+  .medal figcaption span { display: none; }
+}
+
 /* CURSOR: real mouse only */
 .cur-dot, .cur-ring { display: none; }
 html.has-cursor, html.has-cursor * { cursor: none !important; }
@@ -330,6 +375,43 @@ body{top:0!important;}
 </header>
 
 <main>
+<section class="medals" id="medals">
+<div class="medals-inner">
+<div class="sec-label">The medals</div>
+<h2 class="medals-h2">Three from <em>Japan.</em></h2>
+<p class="medals-lead">Gold, silver and bronze from the International Children&#39;s Art Exhibition in Japan, won as a child in Costa Rica. The engraving runs around the rim of each one. These are photographs of the medals themselves.</p>
+<div class="medal-row">
+<figure class="medal" data-metal="gold" style="--i:0" tabindex="0">
+<div class="medal-hang">
+<div class="medal-tilt">
+<span class="medal-glow" aria-hidden="true"></span>
+<img src="medal-gold-520.webp" srcset="medal-gold-320.webp 320w, medal-gold-520.webp 520w, medal-gold-735.webp 735w" sizes="(max-width: 640px) 30vw, (max-width: 1100px) 26vw, 300px" width="735" height="1163" alt="Gold medal, International Children&#39;s Art Exhibition, Japan, awarded to Carolina Cravens" loading="lazy" decoding="async">
+</div>
+</div>
+<figcaption><b>Gold</b><span>International Children&#39;s Art Exhibition</span></figcaption>
+</figure>
+<figure class="medal" data-metal="silver" style="--i:1" tabindex="0">
+<div class="medal-hang">
+<div class="medal-tilt">
+<span class="medal-glow" aria-hidden="true"></span>
+<img src="medal-silver-520.webp" srcset="medal-silver-320.webp 320w, medal-silver-520.webp 520w, medal-silver-735.webp 735w" sizes="(max-width: 640px) 30vw, (max-width: 1100px) 26vw, 300px" width="735" height="1163" alt="Silver medal, International Children&#39;s Art Exhibition, Japan, awarded to Carolina Cravens" loading="lazy" decoding="async">
+</div>
+</div>
+<figcaption><b>Silver</b><span>International Children&#39;s Art Exhibition</span></figcaption>
+</figure>
+<figure class="medal" data-metal="bronze" style="--i:2" tabindex="0">
+<div class="medal-hang">
+<div class="medal-tilt">
+<span class="medal-glow" aria-hidden="true"></span>
+<img src="medal-bronze-520.webp" srcset="medal-bronze-320.webp 320w, medal-bronze-520.webp 520w, medal-bronze-735.webp 735w" sizes="(max-width: 640px) 30vw, (max-width: 1100px) 26vw, 300px" width="735" height="1163" alt="Bronze medal, International Children&#39;s Art Exhibition, Japan, awarded to Carolina Cravens" loading="lazy" decoding="async">
+</div>
+</div>
+<figcaption><b>Bronze</b><span>International Children&#39;s Art Exhibition</span></figcaption>
+</figure>
+</div>
+</div>
+</section>
+
 <section class="recognition">
 <div class="recog-inner">
 <div class="sec-label">Recognition</div>
@@ -675,6 +757,37 @@ document.body.appendChild(s);
 }
 if (btn){ btn.addEventListener('click', start); btn.addEventListener('focus', start); btn.addEventListener('pointerenter', start); }
 if (document.cookie.indexOf('googtrans=') > -1) start();
+})();
+</script>
+<script>
+(function () {
+  var medals = document.querySelectorAll('.medal');
+  if (!medals.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  medals.forEach(function (m) {
+    var t = m.querySelector('.medal-tilt');
+    if (!t) return;
+    function move(e) {
+      var r = m.getBoundingClientRect(),
+          p = e.touches ? e.touches[0] : e,
+          nx = Math.max(0, Math.min(1, (p.clientX - r.left) / r.width)),
+          ny = Math.max(0, Math.min(1, (p.clientY - r.top) / r.height));
+      t.style.setProperty('--my', ((nx - 0.5) * 22).toFixed(2) + 'deg');
+      t.style.setProperty('--mx', ((0.5 - ny) * 14).toFixed(2) + 'deg');
+      m.classList.add('lit');
+    }
+    function rest() {
+      t.style.setProperty('--my', '0deg');
+      t.style.setProperty('--mx', '0deg');
+      m.classList.remove('lit');
+    }
+    m.addEventListener('pointermove', move);
+    m.addEventListener('pointerleave', rest);
+    m.addEventListener('touchmove', move, { passive: true });
+    m.addEventListener('touchend', rest);
+    m.addEventListener('focus', function () { m.classList.add('lit'); });
+    m.addEventListener('blur', rest);
+  });
 })();
 </script>
 </body>
