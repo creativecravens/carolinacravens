@@ -190,6 +190,43 @@
 .rate-proof:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
 .rate-proof span { font-size: .9em; line-height: 1; }
 @media (prefers-reduced-motion: reduce) { .rate-proof { transition: none; } .rate-proof:hover { transform: none; } }
+
+/* Holiday portraits: seasonal offer with an example carousel */
+.pet-sec { scroll-margin-top: 88px; background: var(--navy-deep); color: var(--white); position: relative; overflow: hidden; }
+.pet-sec::after { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(48% 58% at 82% 26%, rgba(198,58,58,.3), transparent 66%), radial-gradient(44% 54% at 12% 78%, rgba(37,122,86,.3), transparent 68%); }
+.pet-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.pet-head { min-width: 0; }
+.pet-sec .kicker { color: #F2C14E; }
+.pet-sec .h2 { color: var(--white); }
+.pet-sec .h2 .serif { color: #F2C14E; }
+.pet-lead { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,.78); margin-top: 1.1rem; }
+.pet-price { display: flex; align-items: baseline; gap: .6rem; margin-top: 1.6rem; }
+.pet-price b { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.1rem); letter-spacing: -.04em; line-height: 1; color: var(--white); }
+.pet-price span { font-family: var(--display); font-weight: 700; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #F2C14E; }
+.pet-cta { display: inline-flex; align-items: center; gap: .6rem; margin-top: 1.5rem; font-family: var(--display); font-weight: 800; font-size: .95rem; color: var(--ink); background: #F2C14E; border-radius: 999px; padding: .95rem 1.7rem; text-decoration: none; transition: background .25s ease, transform .3s var(--ease); }
+.pet-cta:hover { background: #ffd978; transform: translateY(-2px); }
+.pet-note { margin-top: 1rem; font-size: .8rem; color: rgba(255,255,255,.5); }
+
+.pet-carousel { position: relative; min-width: 0; }
+.pet-track { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 4px; scrollbar-width: none; -ms-overflow-style: none; }
+.pet-track::-webkit-scrollbar { display: none; }
+.pet-slide { flex: 0 0 auto; width: clamp(220px, 78vw, 300px); margin: 0; scroll-snap-align: start; }
+.pet-slide img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 18px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); }
+.pet-slide figcaption { margin-top: .75rem; font-family: var(--display); font-weight: 700; font-size: .68rem; letter-spacing: .13em; text-transform: uppercase; color: rgba(255,255,255,.56); }
+@media (min-width: 760px) { .pet-slide { width: 272px; } }
+@media (max-width: 900px) { .pet-grid { grid-template-columns: 1fr; } .pet-carousel { margin-top: 2.2rem; } }
+
+.pet-bar { display: flex; align-items: center; gap: 1rem; margin-top: 1.4rem; }
+.pet-nav { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.28); background: transparent; color: var(--white); font-size: 1rem; line-height: 1; cursor: pointer; transition: background .25s ease, border-color .25s ease, opacity .25s ease; }
+.pet-nav:hover:not(:disabled) { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.5); }
+.pet-nav:disabled { opacity: .3; cursor: default; }
+.pet-nav:focus-visible { outline: 3px solid #F2C14E; outline-offset: 2px; }
+.pet-dots { display: flex; gap: 8px; margin-left: auto; }
+.pet-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.26); cursor: pointer; transition: background .25s ease, transform .25s ease; }
+.pet-dots button[aria-current="true"] { background: #F2C14E; transform: scale(1.35); }
+.pet-dots button:focus-visible { outline: 2px solid #F2C14E; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .pet-track { scroll-behavior: auto; } .pet-cta { transition: none; } }
+
 .rate-note { margin-top: 1.4rem; font-size: .84rem; line-height: 1.7; color: var(--slate); max-width: 68ch; }
 
 .consult { background: var(--ink); color: var(--white); overflow: hidden; }
@@ -235,6 +272,7 @@
 <li><a href="creative-technologist.html">The work</a></li>
 <li><a href="#pricing">Packages</a></li>
 <li><a href="#rates">Rate card</a></li>
+<li><a href="#holiday">Holiday</a></li>
 <li><a href="es.html" hreflang="es-CR" lang="es">Espa&ntilde;ol</a></li>
 <li><a href="https://carolinacravens.com/" target="_blank" rel="noopener" class="nav-archive">Archive <b>2016</b> <span aria-hidden="true">&#8599;</span></a></li>
 <li><a href="#contact" class="nav-pill">Get a quote</a></li>
@@ -346,6 +384,33 @@
 </section>
 
 <!-- CONSULTATION -->
+<!-- HOLIDAY PORTRAITS -->
+<section class="sec pet-sec" id="holiday" aria-labelledby="holiday-title">
+<div class="wrap pet-grid">
+<div class="pet-head">
+<p class="kicker reveal">New, this season</p>
+<h2 class="h2 reveal d-1" id="holiday-title">Holiday portraits <em class="serif">for your dog.</em></h2>
+<p class="pet-lead reveal d-2">Send me one photo of your dog. I send back a custom holiday portrait, full resolution, ready to print or post.</p>
+<p class="pet-price reveal d-2"><b>$15</b><span>per photo</span></p>
+<a class="pet-cta reveal d-2" href="mailto:creativecravens@gmail.com?subject=Holiday%20portrait%20for%20my%20dog&body=Hi%20Carolina%2C%20here%20is%20a%20photo%20of%20my%20dog.">Send me your dog <span aria-hidden="true">&#8599;</span></a>
+</div>
+
+<div class="pet-carousel reveal d-1">
+<div class="pet-track" id="petTrack" tabindex="0" role="group" aria-label="Example holiday portraits, scrollable">
+<figure class="pet-slide"><img src="pet-antlers-520.webp" srcset="pet-antlers-520.webp 520w, pet-antlers-800.webp 800w" sizes="(max-width: 760px) 78vw, 300px" width="800" height="800" loading="lazy" decoding="async" alt="Holiday portrait of a chihuahua: reindeer, studio"><figcaption>Reindeer, studio</figcaption></figure>
+<figure class="pet-slide"><img src="pet-lights-520.webp" srcset="pet-lights-520.webp 520w, pet-lights-800.webp 800w" sizes="(max-width: 760px) 78vw, 300px" width="800" height="800" loading="lazy" decoding="async" alt="Holiday portrait of a chihuahua: tree lights"><figcaption>Tree lights</figcaption></figure>
+<figure class="pet-slide"><img src="pet-redbow-520.webp" srcset="pet-redbow-520.webp 520w, pet-redbow-800.webp 800w" sizes="(max-width: 760px) 78vw, 300px" width="800" height="800" loading="lazy" decoding="async" alt="Holiday portrait of a chihuahua: red bow"><figcaption>Red bow</figcaption></figure>
+<figure class="pet-slide"><img src="pet-goldbow-520.webp" srcset="pet-goldbow-520.webp 520w, pet-goldbow-800.webp 800w" sizes="(max-width: 760px) 78vw, 300px" width="800" height="800" loading="lazy" decoding="async" alt="Holiday portrait of a chihuahua: gold ribbon"><figcaption>Gold ribbon</figcaption></figure>
+</div>
+<div class="pet-bar">
+<button class="pet-nav" id="petPrev" type="button" aria-label="Previous examples">&#8592;</button>
+<button class="pet-nav" id="petNext" type="button" aria-label="Next examples">&#8594;</button>
+<div class="pet-dots" id="petDots" role="tablist" aria-label="Choose an example"></div>
+</div>
+</div>
+</div>
+</section>
+
 <section class="sec consult grain on-dark" id="consultation">
 <div class="wrap consult-grid">
 <div class="consult-fig reveal">
@@ -444,5 +509,51 @@
 })();
 </script>
 <script src="site.js" defer></script>
+<script>
+(function () {
+  var track = document.getElementById('petTrack'),
+      prev = document.getElementById('petPrev'),
+      next = document.getElementById('petNext'),
+      dots = document.getElementById('petDots');
+  if (!track || !prev || !next || !dots) return;
+  var slides = Array.prototype.slice.call(track.querySelectorAll('.pet-slide'));
+  if (!slides.length) return;
+
+  slides.forEach(function (s, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Example ' + (i + 1));
+    b.addEventListener('click', function () {
+      track.scrollTo({ left: s.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    });
+    dots.appendChild(b);
+  });
+  var buttons = Array.prototype.slice.call(dots.children);
+
+  function step() {
+    var w = slides[0].getBoundingClientRect().width + 14;
+    return Math.max(1, Math.floor(track.clientWidth / w)) * w;
+  }
+  prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+
+  function sync() {
+    var x = track.scrollLeft, best = 0, d = Infinity;
+    slides.forEach(function (s, i) {
+      var o = Math.abs((s.offsetLeft - track.offsetLeft) - x);
+      if (o < d) { d = o; best = i; }
+    });
+    buttons.forEach(function (b, i) { b.setAttribute('aria-current', i === best ? 'true' : 'false'); });
+    prev.disabled = x <= 2;
+    next.disabled = x >= track.scrollWidth - track.clientWidth - 2;
+  }
+  track.addEventListener('scroll', function () {
+    window.clearTimeout(track._t);
+    track._t = window.setTimeout(sync, 60);
+  });
+  window.addEventListener('resize', sync);
+  sync();
+})();
+</script>
 </body>
 </html>
