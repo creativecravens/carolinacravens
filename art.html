@@ -81,10 +81,10 @@ a:focus-visible, button:focus-visible, .art-item:focus-visible { outline: 2px so
 .medal { position: relative; margin: 0; perspective: 900px; }
 .medal-hang { position: relative; transform-origin: 50% 2%; animation: medalSway 7s ease-in-out infinite; animation-delay: calc(var(--i) * -2.3s); }
 .medal-tilt { position: relative; transform: rotateX(var(--mx, 0deg)) rotateY(var(--my, 0deg)); transition: transform .5s cubic-bezier(.22,.8,.3,1); will-change: transform; }
-.medal-glow { position: absolute; left: 50%; top: 46%; width: 118%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; filter: blur(34px); opacity: .34; transition: opacity .45s ease, transform .6s var(--ease, ease); pointer-events: none; }
-.medal[data-metal="gold"]   .medal-glow { background: radial-gradient(circle, rgba(226,186,96,.75), transparent 68%); }
-.medal[data-metal="silver"] .medal-glow { background: radial-gradient(circle, rgba(196,206,220,.7), transparent 68%); }
-.medal[data-metal="bronze"] .medal-glow { background: radial-gradient(circle, rgba(198,130,76,.72), transparent 68%); }
+.medal-glow { position: absolute; left: 50%; top: 50%; width: 106%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; filter: blur(34px); opacity: .34; transition: opacity .45s ease, transform .6s var(--ease, ease); pointer-events: none; }
+.medal[data-metal="gold"]   .medal-glow { background: radial-gradient(circle, transparent 34%, rgba(226,186,96,.8) 52%, transparent 76%); }
+.medal[data-metal="silver"] .medal-glow { background: radial-gradient(circle, transparent 34%, rgba(196,206,220,.78) 52%, transparent 76%); }
+.medal[data-metal="bronze"] .medal-glow { background: radial-gradient(circle, transparent 34%, rgba(198,130,76,.8) 52%, transparent 76%); }
 .medal img { position: relative; z-index: 1; display: block; width: 100%; height: auto; filter: drop-shadow(0 26px 34px rgba(0,0,0,.72)) saturate(1.02); transition: filter .45s ease, transform .5s cubic-bezier(.22,.8,.3,1); }
 
 .medal figcaption { margin-top: clamp(1rem, 2.5vw, 1.8rem); text-align: center; }
@@ -385,7 +385,7 @@ body{top:0!important;}
 <div class="medal-hang">
 <div class="medal-tilt">
 <span class="medal-glow" aria-hidden="true"></span>
-<img src="medal-gold-520.webp" srcset="medal-gold-320.webp 320w, medal-gold-520.webp 520w, medal-gold-735.webp 735w" sizes="(max-width: 640px) 30vw, (max-width: 1100px) 26vw, 300px" width="735" height="1163" alt="Gold medal, International Children&#39;s Art Exhibition, Japan, awarded to Carolina Cravens" loading="lazy" decoding="async">
+<img src="medal-gold-560.webp" srcset="medal-gold-360.webp 360w, medal-gold-560.webp 560w, medal-gold-800.webp 800w" sizes="(max-width: 640px) 30vw, (max-width: 1100px) 27vw, 340px" width="1685" height="1819" alt="Gold medal, International Children&#39;s Art Exhibition, Japan, awarded to Carolina Cravens" loading="lazy" decoding="async">
 </div>
 </div>
 <figcaption><b>Gold</b><span>International Children&#39;s Art Exhibition</span></figcaption>
@@ -394,7 +394,7 @@ body{top:0!important;}
 <div class="medal-hang">
 <div class="medal-tilt">
 <span class="medal-glow" aria-hidden="true"></span>
-<img src="medal-silver-520.webp" srcset="medal-silver-320.webp 320w, medal-silver-520.webp 520w, medal-silver-735.webp 735w" sizes="(max-width: 640px) 30vw, (max-width: 1100px) 26vw, 300px" width="735" height="1163" alt="Silver medal, International Children&#39;s Art Exhibition, Japan, awarded to Carolina Cravens" loading="lazy" decoding="async">
+<img src="medal-silver-560.webp" srcset="medal-silver-360.webp 360w, medal-silver-560.webp 560w, medal-silver-800.webp 800w" sizes="(max-width: 640px) 30vw, (max-width: 1100px) 27vw, 340px" width="1685" height="1819" alt="Silver medal, International Children&#39;s Art Exhibition, Japan, awarded to Carolina Cravens" loading="lazy" decoding="async">
 </div>
 </div>
 <figcaption><b>Silver</b><span>International Children&#39;s Art Exhibition</span></figcaption>
@@ -403,7 +403,7 @@ body{top:0!important;}
 <div class="medal-hang">
 <div class="medal-tilt">
 <span class="medal-glow" aria-hidden="true"></span>
-<img src="medal-bronze-520.webp" srcset="medal-bronze-320.webp 320w, medal-bronze-520.webp 520w, medal-bronze-735.webp 735w" sizes="(max-width: 640px) 30vw, (max-width: 1100px) 26vw, 300px" width="735" height="1163" alt="Bronze medal, International Children&#39;s Art Exhibition, Japan, awarded to Carolina Cravens" loading="lazy" decoding="async">
+<img src="medal-bronze-560.webp" srcset="medal-bronze-360.webp 360w, medal-bronze-560.webp 560w, medal-bronze-800.webp 800w" sizes="(max-width: 640px) 30vw, (max-width: 1100px) 27vw, 340px" width="1685" height="1819" alt="Bronze medal, International Children&#39;s Art Exhibition, Japan, awarded to Carolina Cravens" loading="lazy" decoding="async">
 </div>
 </div>
 <figcaption><b>Bronze</b><span>International Children&#39;s Art Exhibition</span></figcaption>
