@@ -124,10 +124,10 @@
 
 .orig-medals { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.5rem, 2vw, 1.4rem); align-items: end; }
 .orig-medal { position: relative; text-align: center; }
-.orig-medal span.g { position: absolute; left: 50%; top: 44%; width: 120%; aspect-ratio: 1; transform: translate(-50%,-50%); border-radius: 50%; filter: blur(30px); opacity: .3; transition: opacity .45s ease; pointer-events: none; }
-.orig-medal:nth-child(1) span.g { background: radial-gradient(circle, rgba(226,186,96,.8), transparent 66%); }
-.orig-medal:nth-child(2) span.g { background: radial-gradient(circle, rgba(196,206,220,.75), transparent 66%); }
-.orig-medal:nth-child(3) span.g { background: radial-gradient(circle, rgba(198,130,76,.78), transparent 66%); }
+.orig-medal span.g { position: absolute; left: 50%; top: 50%; width: 108%; aspect-ratio: 1; transform: translate(-50%,-50%); border-radius: 50%; filter: blur(30px); opacity: .3; transition: opacity .45s ease; pointer-events: none; }
+.orig-medal:nth-child(1) span.g { background: radial-gradient(circle, transparent 34%, rgba(226,186,96,.85) 52%, transparent 76%); }
+.orig-medal:nth-child(2) span.g { background: radial-gradient(circle, transparent 34%, rgba(196,206,220,.82) 52%, transparent 76%); }
+.orig-medal:nth-child(3) span.g { background: radial-gradient(circle, transparent 34%, rgba(198,130,76,.85) 52%, transparent 76%); }
 .orig-medal img { position: relative; z-index: 1; width: 100%; height: auto; display: block; filter: drop-shadow(0 20px 26px rgba(0,0,0,.7)); transition: transform .5s var(--ease), filter .4s ease; }
 .orig-medal b { display: block; margin-top: .9rem; font-family: var(--display); font-weight: 800; font-size: .62rem; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.62); }
 @media (hover: hover) and (pointer: fine) {
@@ -435,9 +435,9 @@
 </div>
 <div class="reveal d-1">
 <div class="orig-medals">
-<div class="orig-medal"><span class="g" aria-hidden="true"></span><img src="medal-gold-320.webp" srcset="medal-gold-320.webp 320w, medal-gold-520.webp 520w" sizes="(max-width: 900px) 110px, 150px" width="735" height="1163" alt="Gold medal, International Children&#39;s Art Exhibition, Japan" loading="lazy" decoding="async"><b>Gold</b></div>
-<div class="orig-medal"><span class="g" aria-hidden="true"></span><img src="medal-silver-320.webp" srcset="medal-silver-320.webp 320w, medal-silver-520.webp 520w" sizes="(max-width: 900px) 110px, 150px" width="735" height="1163" alt="Silver medal, International Children&#39;s Art Exhibition, Japan" loading="lazy" decoding="async"><b>Silver</b></div>
-<div class="orig-medal"><span class="g" aria-hidden="true"></span><img src="medal-bronze-320.webp" srcset="medal-bronze-320.webp 320w, medal-bronze-520.webp 520w" sizes="(max-width: 900px) 110px, 150px" width="735" height="1163" alt="Bronze medal, International Children&#39;s Art Exhibition, Japan" loading="lazy" decoding="async"><b>Bronze</b></div>
+<div class="orig-medal"><span class="g" aria-hidden="true"></span><img src="medal-gold-360.webp" srcset="medal-gold-360.webp 360w, medal-gold-560.webp 560w" sizes="(max-width: 900px) 112px, 170px" width="1685" height="1819" alt="Gold medal, International Children&#39;s Art Exhibition, Japan" loading="lazy" decoding="async"><b>Gold</b></div>
+<div class="orig-medal"><span class="g" aria-hidden="true"></span><img src="medal-silver-360.webp" srcset="medal-silver-360.webp 360w, medal-silver-560.webp 560w" sizes="(max-width: 900px) 112px, 170px" width="1685" height="1819" alt="Silver medal, International Children&#39;s Art Exhibition, Japan" loading="lazy" decoding="async"><b>Silver</b></div>
+<div class="orig-medal"><span class="g" aria-hidden="true"></span><img src="medal-bronze-360.webp" srcset="medal-bronze-360.webp 360w, medal-bronze-560.webp 560w" sizes="(max-width: 900px) 112px, 170px" width="1685" height="1819" alt="Bronze medal, International Children&#39;s Art Exhibition, Japan" loading="lazy" decoding="async"><b>Bronze</b></div>
 </div>
 <p class="orig-cap">International Children&#39;s Art Exhibition, Japan</p>
 </div>
