@@ -417,3 +417,25 @@ a.ct-card:hover { border-color: var(--blue); transform: translateY(-2px); box-sh
 @media (max-width: 560px) { .ct-row { grid-template-columns: 1fr; } }
 
 .page-dark { background: var(--navy-deep); }
+
+/* ===== SELECTED WORK RAIL ===== */
+.work-rail-sec { padding-bottom: clamp(4rem, 8vw, 7rem); }
+.rail-wrap { position: relative; margin: 0 calc(-1 * clamp(1.2rem, 4vw, 3.5rem)); }
+.rail { display: flex; gap: clamp(1rem, 1.8vw, 1.6rem); overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: .4rem clamp(1.2rem, 4vw, 3.5rem) 1.2rem; scrollbar-width: none; -ms-overflow-style: none; }
+.rail::-webkit-scrollbar { display: none; }
+.rail:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+.rail-card { flex: 0 0 clamp(250px, 29vw, 360px); scroll-snap-align: start; text-decoration: none; color: inherit; display: block; }
+.rail-media { display: block; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 6px; background: var(--rule); }
+.rail-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease); }
+.rail-card:hover .rail-media img, .rail-card:focus-visible .rail-media img { transform: scale(1.045); }
+.rail-card:focus-visible { outline: 2px solid var(--blue); outline-offset: 6px; border-radius: 6px; }
+.rail-k { display: block; font-family: var(--display); font-weight: 700; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); margin: 1.1rem 0 .5rem; }
+.rail-card h3 { font-family: var(--display); font-weight: 800; font-size: 1.22rem; line-height: 1.2; letter-spacing: -.01em; color: var(--navy); margin: 0 0 .4rem; }
+.rail-card p { font-size: .95rem; line-height: 1.5; color: var(--slate); margin: 0; }
+.rail-foot { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.6rem; }
+.rail-nav { display: flex; gap: .6rem; }
+.rail-btn { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--navy); background: transparent; color: var(--navy); font-size: 1.05rem; line-height: 1; cursor: pointer; transition: background .18s var(--ease), color .18s var(--ease), opacity .18s; }
+.rail-btn:hover, .rail-btn:focus-visible { background: var(--navy); color: var(--white); }
+.rail-btn[disabled] { opacity: .3; cursor: default; background: transparent; color: var(--navy); }
+@media (max-width: 640px) { .rail-foot { justify-content: flex-start; } }
+@media (prefers-reduced-motion: reduce) { .rail { scroll-behavior: auto; } .rail-media img { transition: none; } }

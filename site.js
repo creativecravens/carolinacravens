@@ -187,3 +187,33 @@ langBtn.addEventListener('pointerenter', startTranslate);
 }
 if (document.cookie.indexOf('googtrans=') > -1) startTranslate();
 })();
+
+/* Selected work rail */
+(function () {
+var rail = document.getElementById('workRail');
+if (!rail) return;
+var prev = document.getElementById('railPrev');
+var next = document.getElementById('railNext');
+if (!prev || !next) return;
+function step() {
+var card = rail.querySelector('.rail-card');
+if (!card) return 320;
+var gap = parseFloat(getComputedStyle(rail).columnGap || getComputedStyle(rail).gap) || 20;
+return card.getBoundingClientRect().width + gap;
+}
+function sync() {
+/* scroll-snap rests the rail at its left padding, not at 0 */
+var padL = parseFloat(getComputedStyle(rail).paddingLeft) || 0;
+prev.disabled = rail.scrollLeft <= padL + 8;
+next.disabled = rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 8;
+}
+prev.addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: 'smooth' }); });
+next.addEventListener('click', function () { rail.scrollBy({ left: step(), behavior: 'smooth' }); });
+rail.addEventListener('scroll', sync, { passive: true });
+window.addEventListener('resize', sync);
+window.addEventListener('load', sync);
+Array.prototype.forEach.call(rail.querySelectorAll('img'), function (img) {
+if (!img.complete) img.addEventListener('load', sync, { once: true });
+});
+sync();
+})();
