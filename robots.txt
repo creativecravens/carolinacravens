@@ -1,4 +1,34 @@
 User-agent: *
 Allow: /
 
+# Assistants and AI search crawlers are welcome here. Named explicitly so there
+# is no ambiguity, since many sites block these by default.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Plain-text summary for assistants: https://creativecravens.com/llms.txt
 Sitemap: https://creativecravens.com/sitemap.xml
