@@ -430,3 +430,9 @@ a.ct-card:hover { border-color: var(--blue); transform: translateY(-2px); box-sh
 .scope-note b { color: var(--navy); font-weight: 700; }
 @media (max-width: 1080px) { .scope-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .scope-grid { grid-template-columns: 1fr; } }
+
+/* Contact: email and text actions */
+.ct-steps { display: grid; gap: .8rem; margin: 0 0 1.8rem; padding-left: 1.2rem; color: var(--slate); font-size: .95rem; line-height: 1.6; }
+.ct-steps b { color: var(--navy); }
+.ct-actions { display: grid; gap: .8rem; }
+.ct-actions .ct-send { margin-top: 0; text-align: center; word-break: break-word; }

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.className += ' js';</script>
 <title>Contact Carolina Cravens | Creative Technologist and Web Design, Dallas-Fort Worth</title>
-<meta name="description" content="Start a website, online store, brand identity or campaign project. Call or text (208) 402-8409, email, or send the form. Dallas-Fort Worth, English and Spanish, prices published openly.">
+<meta name="description" content="Start a website, online store, brand identity or campaign project. Email or text (208) 402-8409. Dallas-Fort Worth, English and Spanish, prices published openly.">
 <meta name="author" content="Carolina Cravens">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#13233F">
@@ -13,7 +13,7 @@
 <meta name="geo.placename" content="Dallas-Fort Worth, Texas">
 <link rel="canonical" href="https://creativecravens.com/contact.html">
 <meta property="og:title" content="Contact Carolina Cravens | Creative Technologist and Web Design, Dallas-Fort Worth">
-<meta property="og:description" content="Start a website, online store, brand identity or campaign project. Call or text (208) 402-8409, email, or send the form. Dallas-Fort Worth, English and Spanish, prices published openly.">
+<meta property="og:description" content="Start a website, online store, brand identity or campaign project. Email or text (208) 402-8409. Dallas-Fort Worth, English and Spanish, prices published openly.">
 <meta property="og:url" content="https://creativecravens.com/contact.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
@@ -88,10 +88,10 @@
 <div class="wrap ct-grid">
 
 <div class="ct-direct">
-<a class="ct-card" href="tel:+12084028409">
-<span>Call or text</span>
+<a class="ct-card" href="sms:+12084028409">
+<span>Text</span>
 <b>(208) 402-8409</b>
-<p>Fastest way to reach me. Texting is fine.</p>
+<p>Fastest way to reach me. Texts only, please.</p>
 </a>
 <a class="ct-card" href="mailto:creativecravens@gmail.com">
 <span>Email</span>
@@ -117,64 +117,23 @@
 
 <div class="ct-form">
 <h2>Start a project</h2>
-<p class="ct-sub">A few details are enough. I will come back with what it would cost, how long it would take, and the closest example from my own work.</p>
-
-<form id="ctForm" action="https://api.web3forms.com/submit" method="POST">
-<input type="hidden" name="access_key" value="PASTE-YOUR-WEB3FORMS-KEY-HERE">
-<input type="hidden" name="subject" value="New project inquiry from creativecravens.com">
-<input type="hidden" name="from_name" value="creativecravens.com">
-<input type="hidden" name="redirect" value="https://creativecravens.com/thank-you.html">
-<input type="checkbox" name="botcheck" class="ct-hp" tabindex="-1" autocomplete="off">
-
-<div class="ct-row">
-<label class="field"><span>Your name</span><input type="text" name="name" autocomplete="name" required></label>
-<label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+<p class="ct-sub">Email or text me three things and I will come back with the cost, the timeline and the closest example from my own work.</p>
+<ol class="ct-steps">
+<li><b>What the business is</b> and who it serves.</li>
+<li><b>What you have now:</b> a link, a logo, photos, or nothing yet.</li>
+<li><b>What you need and when:</b> pick from the published prices if it helps.</li>
+</ol>
+<div class="ct-actions">
+<a class="btn btn-primary ct-send" href="mailto:creativecravens@gmail.com?subject=New%20project&amp;body=Business%3A%0D%0AWhat%20I%20have%20now%3A%0D%0AWhat%20I%20need%3A%0D%0AWhen%20I%20need%20it%3A%0D%0A">Email creativecravens@gmail.com <span class="arr">&#8599;</span></a>
+<a class="btn btn-line ct-send" href="sms:+12084028409">Text (208) 402-8409 <span class="arr">&#8599;</span></a>
 </div>
-
-<div class="ct-row">
-<label class="field"><span>Phone <i>(optional)</i></span><input type="tel" name="phone" autocomplete="tel"></label>
-<label class="field"><span>What do you need?</span>
-<select name="project_type" required>
-<option value="">Choose one</option>
-<option>A new website</option>
-<option>An online store</option>
-<option>A redesign of my current site</option>
-<option>Logo or brand identity</option>
-<option>Campaign, catalog or print design</option>
-<option>Social media graphics</option>
-<option>Photo or video production</option>
-<option>A pet portrait</option>
-<option>Something else</option>
-</select>
-</label>
-</div>
-
-<label class="field"><span>Tell me about it</span><textarea name="message" placeholder="What the business is, what you have now, and when you need it." required></textarea></label>
-
-<button type="submit" class="btn btn-primary ct-send">Send it <span class="arr">&#8599;</span></button>
-<p class="ct-alert" id="ctAlert" hidden>The form is not connected yet. Please call or text (208) 402-8409, or email creativecravens@gmail.com, and I will get right back to you.</p>
-<p class="ct-fine">Your details come straight to me and are never sold, shared or added to a mailing list.</p>
-</form>
+<p class="ct-fine">Texts and emails get a reply within one business day. Your details are never sold, shared or added to a mailing list.</p>
 </div>
 
 </div>
 </section>
 </main>
 
-<script>
-(function () {
-  var f = document.getElementById('ctForm');
-  if (!f) return;
-  var k = f.querySelector('input[name="access_key"]');
-  if (k && k.value.indexOf('PASTE-') === 0) {
-    f.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var a = document.getElementById('ctAlert');
-      if (a) { a.hidden = false; a.scrollIntoView({ block: 'nearest' }); }
-    });
-  }
-})();
-</script>
 
 <footer>
 <div class="foot">
