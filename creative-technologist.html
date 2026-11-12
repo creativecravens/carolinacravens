@@ -211,6 +211,133 @@
 .exp li:hover .tag.ai { background: var(--blue); color: #fff; }
 @media (max-width: 900px) { .ai-split { grid-template-columns: 1fr; } .ai-cards { grid-template-columns: 1fr; }
 .ai-vid-wrap { width: min(100%, 290px); } .ai-vid .chip-1 { left: -12%; } .ai-vid .chip-2 { right: -10%; } .ai-vid .chip-3 { left: -10%; } }
+/* ---- Direction, merged from art-director.html ---- */
+/* Page-only: direction ledger, portrait grading demo and the discipline grid */
+.ad-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.ad-copy { min-width: 0; }
+
+.pt-wrap { perspective: 1400px; min-width: 0; max-width: 380px; margin-left: auto; }
+.pt { position: relative; border-radius: 26px; overflow: hidden; transform-style: preserve-3d; transition: transform .5s var(--ease); background: #0b0f16; box-shadow: 0 40px 70px -30px rgba(0,0,0,.75); }
+.pt img { width: 100%; height: auto; display: block; filter: none; transition: filter .55s var(--ease); }
+.pt .tone { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .55s var(--ease); mix-blend-mode: color; background: linear-gradient(150deg, #1F3864 0%, #4F90CD 52%, #7AB0D9 100%); }
+.pt .sheen { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(60% 45% at var(--px, 50%) var(--py, 35%), rgba(255,255,255,.16), transparent 70%); opacity: 0; transition: opacity .4s ease; }
+.pt-wrap:hover .sheen { opacity: 1; }
+.pt .frame { position: absolute; inset: 0; pointer-events: none; border-radius: 26px; border: 1px solid rgba(122,176,217,.35); }
+
+/* treatments, driven by one data attribute */
+.pt[data-grade="duotone"] img { filter: grayscale(1) contrast(1.12) brightness(1.04); }
+.pt[data-grade="duotone"] .tone { opacity: 1; }
+.pt[data-grade="mono"] img { filter: grayscale(1) contrast(1.16) brightness(1.02); }
+.pt[data-grade="warm"] img { filter: saturate(1.25) sepia(.22) contrast(1.06); }
+
+.pt-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.1rem; max-width: 380px; margin-left: auto; }
+.pt-bar button { font-family: var(--display); font-weight: 700; font-size: .78rem; letter-spacing: .02em; color: rgba(255,255,255,.72); background: transparent; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: .52rem .95rem; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+.pt-bar button:hover { color: var(--white); border-color: rgba(122,176,217,.6); }
+.pt-bar button[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.pt-bar button:focus-visible { outline: 2px solid var(--sky); outline-offset: 2px; }
+.pt-note { margin-top: .85rem; font-size: .82rem; line-height: 1.6; color: rgba(255,255,255,.55); max-width: 380px; margin-left: auto; }
+.pt-note b { color: var(--sky); font-weight: 700; }
+
+/* short laptop screens: keep the hero inside the first view */
+@media (min-width: 981px) and (max-height: 900px) {
+.ad-hero { padding-top: clamp(5rem, 7vw, 5.75rem); padding-bottom: 2rem; }
+.pt-wrap { max-width: 316px; }
+.pt-bar, .pt-note { max-width: 316px; }
+.pt-bar button { font-size: .74rem; padding: .45rem .8rem; }
+.ad-stats div { padding: .55rem .85rem; }
+.ad-stats b { font-size: 1.25rem; }
+.ad-stats span { font-size: .62rem; }
+}
+@media (min-width: 981px) and (max-height: 830px) {
+.ad-hero { padding-top: 4.75rem; padding-bottom: 1.5rem; }
+.ad-hero .h1 { font-size: clamp(1.9rem, 3.2vw, 2.75rem); margin: 1rem 0; }
+.ad-hero .lead { font-size: .94rem; }
+.pt-wrap, .pt-bar, .pt-note { max-width: 284px; }
+.pt-note { font-size: .76rem; }
+.ad-stats { margin-top: 1.5rem; }
+.ad-hero .hero-ctas { margin-top: 1.5rem !important; }
+.ad-hero .lead { max-width: 54ch; }
+}
+@media (max-width: 980px) {
+.ad-grid { grid-template-columns: 1fr; }
+.pt-wrap, .pt-bar, .pt-note { max-width: 420px; margin-left: 0; }
+.pt-wrap { margin-top: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+.pt { transition: none; }
+.pt img, .pt .tone { transition: none; }
+}
+
+
+.ad-hero { background: var(--ink); color: var(--white); overflow: hidden; padding-top: clamp(6rem, 10vw, 7.5rem); padding-bottom: clamp(2.5rem, 5vw, 4rem); }
+.ad-hero::after { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(52% 64% at 76% 38%, rgba(79,144,205,.28), transparent 66%); }
+.ad-hero .h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 1.02; letter-spacing: -.045em; color: var(--white); margin: 1.4rem 0; max-width: 17ch; }
+.ad-hero .h1 .serif { color: var(--sky); font-weight: 400; }
+.ad-hero .lead { max-width: 62ch; color: rgba(255,255,255,.72); }
+.ad-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2.2rem; }
+.ad-stats div { border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: .75rem 1.1rem; min-width: 0; }
+.ad-stats b { display: block; font-family: var(--display); font-weight: 800; font-size: 1.5rem; letter-spacing: -.03em; color: var(--white); line-height: 1; font-variant-numeric: tabular-nums; }
+.ad-stats span { display: block; margin-top: .3rem; font-family: var(--display); font-weight: 700; font-size: .68rem; letter-spacing: .13em; text-transform: uppercase; color: var(--sky); }
+
+.dir-list { list-style: none; border-top: 2px solid var(--navy); }
+.dir-list > li { border-bottom: 1px solid var(--rule); padding: clamp(1.7rem, 3.4vw, 2.6rem) 0; display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(1rem, 3vw, 3rem); align-items: start; }
+.dir-what { min-width: 0; }
+.dir-what h3 { font-family: var(--display); font-weight: 800; font-size: clamp(1.3rem, 2.5vw, 1.85rem); line-height: 1.07; letter-spacing: -.035em; color: var(--navy); max-width: 18ch; }
+.dir-what h3 .serif { color: var(--blue); font-weight: 400; }
+.dir-what .tagline { font-family: var(--display); font-weight: 700; font-size: .73rem; letter-spacing: .14em; text-transform: uppercase; color: var(--slate); margin-bottom: .55rem; }
+.dir-detail { min-width: 0; }
+.dir-detail p { font-size: .98rem; line-height: 1.72; color: var(--slate); max-width: 58ch; }
+.dir-detail .proof { margin-top: .9rem; padding-left: .9rem; border-left: 3px solid var(--blue); font-size: .9rem; line-height: 1.65; color: var(--navy); }
+.dir-detail .proof b { font-weight: 800; }
+
+.disc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 2rem; }
+.disc div { border: 1px solid rgba(255,255,255,.16); border-radius: 18px; padding: 1.3rem 1.4rem; min-width: 0; }
+.disc b { display: block; font-family: var(--display); font-weight: 800; font-size: 1rem; color: var(--white); letter-spacing: -.02em; }
+.disc p { margin-top: .45rem; font-size: .9rem; line-height: 1.6; color: rgba(255,255,255,.66); }
+
+@media (max-width: 900px) { .dir-list > li { grid-template-columns: 1fr; gap: .9rem; } .disc { grid-template-columns: 1fr; } }
+
+/* Featured build: Heritage Housing post kit */
+.hk-sec { background: var(--navy); color: var(--white); overflow: hidden; }
+.hk-sec .h2, .hk-sec .kicker { color: var(--white); }
+.hk-sec .kicker { color: var(--sky); }
+.hk-sec .h2 .serif { color: var(--sky); }
+.hk-lead { font-size: 1rem; line-height: 1.78; color: rgba(255,255,255,.78); max-width: 66ch; }
+.hk-lead strong { color: var(--white); font-weight: 700; }
+.hk-split { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(2rem, 4.5vw, 3.5rem); align-items: start; margin-top: 2.4rem; }
+.hk-right { min-width: 0; }
+.hk-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.hk-stats div { border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 1rem 1.15rem; min-width: 0; }
+.hk-stats b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -.035em; line-height: 1; color: var(--white); font-variant-numeric: tabular-nums; }
+.hk-stats span { display: block; margin-top: .35rem; font-family: var(--display); font-weight: 700; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--sky); }
+.hk-points { margin-top: 12px; display: grid; gap: 10px; }
+.hk-points div { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 1.15rem 1.3rem; min-width: 0; }
+.hk-points b { display: block; font-family: var(--display); font-weight: 800; font-size: .98rem; color: var(--white); letter-spacing: -.02em; }
+.hk-points p { margin-top: .45rem; font-size: .91rem; line-height: 1.62; color: rgba(255,255,255,.7); }
+.hk-live { display: inline-flex; align-items: center; gap: .6rem; margin-top: 1.4rem; font-family: var(--display); font-weight: 700; font-size: .9rem; color: var(--navy); background: var(--white); border-radius: 999px; padding: .8rem 1.4rem; text-decoration: none; transition: background .25s, color .25s; }
+.hk-live:hover { background: var(--sky); color: var(--navy); }
+.hk-live i { width: 8px; height: 8px; border-radius: 50%; background: #2fbf6c; box-shadow: 0 0 0 4px rgba(47,191,108,.22); font-style: normal; }
+.hk-credit { margin-top: 1.8rem; font-size: .8rem; line-height: 1.7; color: rgba(255,255,255,.52); max-width: 70ch; }
+
+/* Portrait inside the build section: animated iridescent edge, no parallax */
+.bl-wrap { position: relative; min-width: 0; }
+.bl-aura { position: absolute; inset: -12% -8%; z-index: 0; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(45% 45% at 50% 42%, rgba(122,176,217,.45), transparent 70%),
+              radial-gradient(40% 40% at 70% 70%, rgba(141,118,214,.4), transparent 72%);
+  filter: blur(40px); }
+.bl-card { position: relative; z-index: 1; border-radius: 24px; padding: 2px;
+  background: conic-gradient(from var(--spin, 0deg), #4F90CD, #7AB0D9, #a98fe0, #6ce3d0, #4F90CD); }
+.bl-inner { position: relative; border-radius: 22px; overflow: hidden; background: #0b1016; display: block; }
+.bl-inner img { width: 100%; height: auto; display: block; transition: transform .7s var(--ease); }
+.bl-wrap:hover .bl-inner img { transform: scale(1.035); }
+.bl-cap { position: relative; z-index: 1; margin-top: .95rem; font-size: .78rem; line-height: 1.6; color: rgba(255,255,255,.55); }
+.bl-cap b { color: var(--sky); font-weight: 700; }
+@media (prefers-reduced-motion: no-preference) { .bl-card { animation: blSpin 14s linear infinite; } @keyframes blSpin { to { --spin: 360deg; } } }
+@property --spin { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+@media (max-width: 900px) { .hk-split { grid-template-columns: 1fr; } .bl-wrap { max-width: 380px; } }
+
+#direction-intro.ad-hero { padding-top: clamp(4.5rem, 8vw, 6.5rem); }
 </style>
 </head>
 <body>
@@ -458,9 +585,9 @@
 <article class="wk reveal d-2">
 <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>creativecravens.github.io/For-Jacob</span><em class="live">Live</em></div>
 <div class="body">
-<span class="k">Author site &middot; Book launch</span>
+<span class="k">Creative technology &middot; Author marketing</span>
 <h3>Blood in Blackwood</h3>
-<p>A one page launch site for Jacob Hill&#39;s slasher horror novel, built to move readers straight to Amazon. The whole page is dressed as a camera viewfinder, with REC timecode, ISO and focus marks running through it, to match the film set the book is set on. Kindle and paperback buy paths, an FAQ, and a review prompt.</p>
+<p>Creative technology and digital marketing for author Jacob Hill: a personalized launch site for his slasher horror novel, built with AI around exactly what he needed and designed to move readers straight to Amazon. The whole page is dressed as a camera viewfinder, with REC timecode, ISO and focus marks running through it, to match the film set the book is set on. Kindle and paperback buy paths, an FAQ, and a review prompt.</p>
 <a class="go-link" href="https://creativecravens.github.io/For-Jacob/" target="_blank" rel="noopener">Visit the launch site &#8599;</a>
 </div>
 </article>
@@ -504,6 +631,189 @@
 </div>
 </section>
 
+<!-- DIRECTION (merged from the former art direction page) -->
+<section class="sec ad-hero grain on-dark" id="direction-intro" aria-labelledby="direction-title">
+<div class="wrap ad-grid">
+<div class="ad-copy">
+<p class="kicker reveal">Direction</p>
+<h2 class="h1 reveal d-1" id="direction-title">Someone has to decide <em class="serif">what it looks like.</em></h2>
+<p class="lead reveal d-2">For nine years that has been my job: setting the look and holding it across a campaign, a catalog, a photo shoot, a store window, a show floor. I have done it inside the brand standards of LVMH, L'Or&eacute;al, Dior Beauty, Signet Jewelers and IWC North America, and I do it now in-house at a Nasdaq-listed company where the work goes through legal before it goes anywhere else.</p>
+<div class="ad-stats reveal d-2">
+<div><b>9+</b><span>Years directing</span></div>
+<div><b>4</b><span>Product lines</span></div>
+<div><b>65</b><span>Custom icons</span></div>
+<div><b>7</b><span>Global brands</span></div>
+</div>
+<div class="hero-ctas reveal d-3" style="margin-top:2.2rem">
+<a href="#direction" class="btn btn-primary magnetic">See the direction work <span class="arr">&#8595;</span></a>
+</div>
+</div>
+
+<div class="reveal d-2">
+<div class="pt-wrap" id="ptWrap">
+<div class="pt" id="pt" data-grade="full">
+<img src="carolina-portrait-neon-900.webp"
+     srcset="carolina-portrait-neon-560.webp 560w, carolina-portrait-neon-900.webp 900w, carolina-portrait-neon-1200.webp 1200w"
+     sizes="(max-width: 980px) 86vw, 380px"
+     width="900" height="1350" alt="Carolina Cravens, creative technologist, lit by cyan and magenta light on a studio set"
+     loading="lazy" decoding="async">
+<span class="tone" aria-hidden="true"></span>
+<span class="sheen" aria-hidden="true"></span>
+<span class="frame" aria-hidden="true"></span>
+</div>
+</div>
+<div class="pt-bar" role="group" aria-label="Colour treatment">
+<button type="button" data-grade="full" aria-pressed="true">Full colour</button>
+<button type="button" data-grade="duotone" aria-pressed="false">Duotone</button>
+<button type="button" data-grade="warm" aria-pressed="false">Warm</button>
+<button type="button" data-grade="mono" aria-pressed="false">Mono</button>
+</div>
+<p class="pt-note"><b>One frame, four decisions.</b> This is the smallest version of the job: the photograph does not change, the call does. Try them.</p>
+</div>
+
+</div>
+</section>
+
+<section class="sec" id="direction">
+<div class="wrap">
+<div class="sec-head">
+<div><p class="kicker reveal">The work</p><h2 class="h2 reveal d-1">Six kinds of <em class="serif">direction.</em></h2></div>
+<p class="lead reveal d-2">Direction is usually described in abstractions. Here is what it meant concretely, on named accounts, in work that went to production.</p>
+</div>
+
+<ol class="dir-list">
+
+<li class="reveal">
+<div class="dir-what">
+<p class="tagline">Photo direction</p>
+<h3>Deciding what the camera <em class="serif">sees.</em></h3>
+</div>
+<div class="dir-detail">
+<p>I direct and shoot rather than brief and wait. At Legacy Housing I built the in-house photography for the product catalog: original plant photography, on location, lit and framed for the page it was going on. At Pacific Northern I photographed the Jared factory production process and handled photo editing across the business, from a Dallas building to a manufacturing facility in Mexico.</p>
+<p class="proof"><b>Why it matters:</b> a creative technologist who directs and shoots removes a vendor, a schedule and a round of misinterpretation from every project.</p>
+</div>
+</li>
+
+<li class="reveal">
+<div class="dir-what">
+<p class="tagline">Catalog art direction</p>
+<h3>One look across <em class="serif">four product lines.</em></h3>
+</div>
+<div class="dir-detail">
+<p>I led the end-to-end redesign of the Legacy Housing product catalog and delivered it finished. Four home lines, one visual language, every floor plan complete and correctly placed. I owned it start to finish and reported progress to leadership in writing every day. I also built the approval system around it: a 39-question sign-off document that brings sales and engineering to decisions in a single pass.</p>
+<p class="proof"><b>Why it matters:</b> pitching a direction, winning the room and then owning delivery is the whole job description.</p>
+</div>
+</li>
+
+<li class="reveal">
+<div class="dir-what">
+<p class="tagline">Campaign look</p>
+<h3>Holding a brand standard <em class="serif">set elsewhere.</em></h3>
+</div>
+<div class="dir-detail">
+<p>Campaign, merchandising and presentation design for LVMH, L'Or&eacute;al, Dior Beauty, Signet and IWC, where the standard is written by the house and your job is to work brilliantly inside it. Visual merchandising guides for three L'Or&eacute;al business units plus the consolidated master document, and client-facing presentations for Dior Beauty covering cosmetics, windows, fixtures and millwork.</p>
+<p class="proof"><b>Why it matters:</b> most corporate art direction is not inventing a look. It is defending one, at volume, without drift.</p>
+</div>
+</li>
+
+<li class="reveal">
+<div class="dir-what">
+<p class="tagline">Environmental &amp; exhibit</p>
+<h3>Direction at <em class="serif">full scale.</em></h3>
+</div>
+<div class="dir-detail">
+<p>A complete LVMH trade show exhibit for the November 2024 event at Virgin Hotels New York: backdrop, display banners, branded table covers and supporting graphics, which I designed and then assembled on site. For IWC North America I took a window animation from specification to build-ready illustrated files, coordinating the stakeholders who signed off.</p>
+<p class="proof"><b>Why it matters:</b> at full size there is no undo. Either the proportions were right on screen or they are wrong in the room.</p>
+</div>
+</li>
+
+<li class="reveal">
+<div class="dir-what">
+<p class="tagline">Systems</p>
+<h3>Making the look <em class="serif">repeatable.</em></h3>
+</div>
+<div class="dir-detail">
+<p>A 65-icon library giving Legacy Housing's print and digital catalog one consistent visual language. For KAY, a visual merchandising guide built around renderings with a glossary on every page and every item tabulated against its drawing, plus the assembly and unpacking instructions.</p>
+<p class="proof"><b>Why it matters:</b> direction that only works when you are in the room is not direction. It is taste. Systems are how taste survives you.</p>
+</div>
+</li>
+
+<li class="reveal">
+<div class="dir-what">
+<p class="tagline">AI-assisted production</p>
+<h3>Directing a tool that <em class="serif">has no taste.</em></h3>
+</div>
+<div class="dir-detail">
+<p>I use Firefly, Midjourney and Higgsfield in production, and the craft is entirely in the direction: holding one character, one wardrobe and one palette across every shot, then reviewing and finishing every output by hand. I also direct AI into on-brand product imagery rather than generic output.</p>
+<p class="proof"><b>Why it matters:</b> AI makes options cheap. Deciding which one ships is the job, and it is the part that does not automate.</p>
+</div>
+</li>
+
+</ol>
+</div>
+</section>
+
+<!-- FEATURED BUILD -->
+<section class="sec hk-sec" id="post-kit">
+<div class="wrap">
+<div class="sec-head">
+<div><p class="kicker reveal">Featured build &middot; live and public</p><h2 class="h2 reveal d-1">A content system the team <em class="serif">runs without me.</em></h2></div>
+<p class="hk-lead reveal d-2">Direction only counts if it survives the handover. Heritage Housing sales consultants needed a steady, easy way to post. I built them a faceless post kit: <strong>34 ready to use post ideas</strong> across carousels, short videos and text memes, each with its own visual format, a step by step, a written caption and a hashtag set. It is live inside their consultant hub and the team maintains it themselves.</p>
+</div>
+
+<div class="hk-split">
+<div class="reveal">
+<div class="bl-wrap">
+<span class="bl-aura" aria-hidden="true"></span>
+<div class="bl-card">
+<span class="bl-inner">
+<img src="carolina-portrait-bloom-820.webp"
+     srcset="carolina-portrait-bloom-520.webp 520w, carolina-portrait-bloom-820.webp 820w, carolina-portrait-bloom-1100.webp 1100w"
+     sizes="(max-width: 900px) 86vw, 340px"
+     width="820" height="1469" alt="Carolina Cravens, creative technologist" loading="lazy" decoding="async">
+</span>
+</div>
+<p class="bl-cap"><b>Carolina Cravens.</b> Concept, formats, visual direction, captions and documentation.</p>
+</div>
+</div>
+
+<div class="hk-right">
+<div class="hk-stats">
+<div class="reveal"><b>34</b><span>Post ideas</span></div>
+<div class="reveal d-1"><b>15</b><span>Visual formats</span></div>
+<div class="reveal d-2"><b>22</b><span>Hashtag sets</span></div>
+<div class="reveal"><b>3</b><span>Content types</span></div>
+</div>
+<div class="hk-points">
+<div class="reveal"><b>Designed so anyone can post</b><p>Every format in the kit works without a face on screen, so a consultant can keep posting consistently without being on camera. That is what made it easy to start.</p></div>
+<div class="reveal d-1"><b>Direction you can see before you shoot</b><p>Each idea plays as a small phone animation, so a consultant sees the finished post before deciding to make it. Fifteen formats cover listings, before and after, market facts, myths, reviews, drive ups and more.</p></div>
+<div class="reveal d-2"><b>Written so they can change it</b><p>The file is documented in plain language across seven labelled sections: add an idea, remove one, reorder them, swap the logo, change the hashtags. No developer needed, which is why it is still theirs.</p></div>
+</div>
+<a class="hk-live reveal" href="https://heritage-360.netlify.app/#posts" target="_blank" rel="noopener"><i></i>See it live in the Heritage 360 hub &#8599;</a>
+</div>
+</div>
+
+<p class="hk-credit reveal">Created by Carolina Cravens for Heritage Housing. The kit links out to real example videos from Heritage Housing of Marble Falls' own TikTok account; those videos are their work, not mine. All rights belong to Heritage Housing. Shown for portfolio purposes only; no endorsement implied.</p>
+</div>
+</section>
+
+<section class="sec services grain on-dark">
+<div class="wrap">
+<div class="sec-head">
+<div><p class="kicker reveal">The rest of it</p><h2 class="h2 reveal d-1">What comes <em class="serif">with the eye.</em></h2></div>
+<p class="lead reveal d-2" style="color:rgba(255,255,255,.66)">Direction is the visible part. These are the things that make a creative technologist useful on a Tuesday afternoon.</p>
+</div>
+<div class="disc">
+<div class="reveal"><b>Legal and compliance</b><p>Work for a public company goes through legal review. I design with that in mind from the first draft.</p></div>
+<div class="reveal"><b>Cross-functional fluency</b><p>Engineers, product designers, production teams, sales and leadership. I have been the point of contact for all of them.</p></div>
+<div class="reveal"><b>Production literacy</b><p>Press-ready files, bleeds, colour, tolerances, assembly instructions. I know what the fabricator needs.</p></div>
+<div class="reveal"><b>Digital and print</b><p>Responsive web and user flows on one side, catalogs and published advertising on the other.</p></div>
+<div class="reveal"><b>Bilingual</b><p>English and Spanish, design and copy, for US and Latin American audiences.</p></div>
+<div class="reveal"><b>Trained as a painter</b><p>International medals from Japan and a solo exhibition before any of this. The eye came first.</p></div>
+</div>
+</div>
+</section>
+
 <!-- PROCESS -->
 <section class="sec results" id="process" aria-labelledby="process-title">
 <div class="wrap">
@@ -512,7 +822,7 @@
 <p class="lead reveal d-2">Claude is my main collaborator. I make the decisions, and Claude helps me ship them faster and with fewer mistakes. You see drafts early, and most projects take 1 to 3 weeks.</p>
 </div>
 <ol class="exp">
-<li class="reveal"><span class="when">Step 01</span><div><h3>Discovery call</h3><div class="co">You + me</div><p>We talk through your business, your customers, and what the site needs to do.</p></div><span class="tag">Human</span></li>
+<li class="reveal"><span class="when">Step 01</span><div><h3>Discovery</h3><div class="co">You + me</div><p>We talk through your business, your customers, and what the site needs to do.</p></div><span class="tag">Human</span></li>
 <li class="reveal"><span class="when">Step 02</span><div><h3>Strategy and design</h3><div class="co">100% human</div><p>I define the audience, the message, and the look. Claude does not decide your brand.</p></div><span class="tag">Human</span></li>
 <li class="reveal"><span class="when">Step 03</span><div><h3>Build and test</h3><div class="co">Claude-assisted</div><p>Claude helps me write and test HTML, CSS, and JavaScript, check pages on phone and desktop, and fix performance problems.</p></div><span class="tag ai">Claude + Human</span></li>
 <li class="reveal"><span class="when">Step 04</span><div><h3>Speed, words, and search</h3><div class="co">Claude-assisted</div><p>Compressed images and video, bilingual copy, page titles, meta descriptions, structured data, and accessibility checks.</p></div><span class="tag ai">Claude + Human</span></li>
@@ -577,7 +887,7 @@
 </div>
 <div class="facts reveal">
 <div><span>Location</span><b>Dallas-Fort Worth · San José · Remote</b></div>
-<div><span>Call or text (US)</span><b><a href="tel:+12084028409">(208) 402-8409</a></b></div>
+<div><span>Text (US)</span><b><a href="sms:+12084028409">(208) 402-8409</a></b></div>
 <div><span>WhatsApp (CR)</span><b><a href="https://wa.me/50688012920" target="_blank" rel="noopener">+506 8801-2920</a></b></div>
 <div><span>Languages</span><b>English · Spanish</b></div>
 </div>
@@ -669,6 +979,41 @@ document.addEventListener('visibilitychange', start);
 if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { inView = en[0].isIntersecting; start(); }, { threshold: 0.01 }).observe(section);
 start(); requestAnimationFrame(function () { canvas.classList.add('is-ready'); });
 };
+</script>
+<script>
+(function () {
+  var pt = document.getElementById('pt'), wrap = document.getElementById('ptWrap');
+  if (!pt || !wrap) return;
+  var bar = document.querySelector('.pt-bar');
+
+  bar.addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-grade]');
+    if (!btn) return;
+    pt.setAttribute('data-grade', btn.getAttribute('data-grade'));
+    Array.prototype.forEach.call(bar.querySelectorAll('button'), function (b) {
+      b.setAttribute('aria-pressed', String(b === btn));
+    });
+  });
+
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!fine || still) return;
+
+  var raf = null, tx = 0, ty = 0;
+  wrap.addEventListener('mousemove', function (e) {
+    var r = wrap.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    tx = (x - 0.5) * 9; ty = (0.5 - y) * 7;
+    pt.style.setProperty('--px', (x * 100) + '%');
+    pt.style.setProperty('--py', (y * 100) + '%');
+    if (raf) return;
+    raf = requestAnimationFrame(function () {
+      pt.style.transform = 'rotateY(' + tx + 'deg) rotateX(' + ty + 'deg)';
+      raf = null;
+    });
+  });
+  wrap.addEventListener('mouseleave', function () { pt.style.transform = ''; });
+})();
 </script>
 <script src="site.js" defer></script>
 </body>
