@@ -55,7 +55,7 @@
 "alumniOf": { "@type": "CollegeOrUniversity", "name": "The Art Institute of Dallas" },
 "worksFor": { "@type": "Organization", "name": "Legacy Housing Corporation", "sameAs": "https://legacyhousing.com/" },
 "address": { "@type": "PostalAddress", "addressLocality": "Dallas-Fort Worth", "addressRegion": "TX", "addressCountry": "US" },
-"knowsAbout": ["Creative Technology", "AI-Powered Design", "Prompt Engineering", "AI Video", "Web Design", "Figma", "AI-Built Websites", "WhatsApp Online Stores", "Chatbot Websites", "WebGL", "AI Video", "Brand Identity", "Design Systems", "Claude", "Squarespace", "Wix", "HTML", "CSS", "JavaScript", "Bilingual Design"],
+"knowsAbout": ["Creative Technology", "Vibe Coding", "Custom Digital Invitations", "AI-Powered Design", "Prompt Engineering", "AI Video", "Web Design", "Figma", "AI-Built Websites", "WhatsApp Online Stores", "Chatbot Websites", "WebGL", "AI Video", "Brand Identity", "Design Systems", "Claude", "Squarespace", "Wix", "HTML", "CSS", "JavaScript", "Bilingual Design"],
 "sameAs": ["https://linkedin.com/in/carolinacravens", "https://www.instagram.com/creativecravens"]
 }
 },
@@ -107,6 +107,9 @@
 .wk .bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--rule); flex-shrink: 0; }
 .wk .bar i:nth-child(1) { background: #ff5f57; } .wk .bar i:nth-child(2) { background: #febc2e; } .wk .bar i:nth-child(3) { background: #28c840; }
 .wk .bar span { margin-left: .6rem; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--display); font-weight: 600; font-size: .74rem; color: var(--slate); background: var(--white); border: 1px solid var(--rule); border-radius: 999px; padding: .3rem .8rem; }
+.wk-shot { display: block; aspect-ratio: 8 / 7; overflow: hidden; background: var(--paper); border-bottom: 1px solid var(--rule); }
+.wk-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .6s var(--ease); }
+.wk:hover .wk-shot img { transform: scale(1.03); }
 .wk .body { display: flex; flex-direction: column; flex: 1; padding: clamp(1.6rem, 3vw, 2.2rem); }
 .wk .k { font-family: var(--display); font-weight: 700; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
 .wk h3 { font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.05; letter-spacing: -.035em; color: var(--navy); margin: 1.1rem 0 .8rem; }
@@ -509,7 +512,7 @@
 <div class="wrap">
 <div class="sec-head">
 <div><p class="kicker reveal">Selected work</p><h2 class="h2 reveal d-1" id="work-title">Live sites, <em class="serif">not mockups.</em></h2></div>
-<p class="lead reveal d-2">Portfolios, online stores, fundraising, brand, and bilingual sites, from Squarespace to hand-coded 3D. Each one is live, so click through and see it working.</p>
+<p class="lead reveal d-2">Portfolios, online stores, fundraising, brand, bilingual sites and custom invitations, from Squarespace to hand-coded 3D. Much of it is vibe-coded: I describe and direct, AI writes the code, and I design and check every detail. Each one is live, so click through and see it working.</p>
 </div>
 <div class="ct-work">
 <article class="wk wk-feature reveal">
@@ -603,7 +606,7 @@
 <article class="wk reveal d-1">
 <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Legacy Housing · Nasdaq: LEGH</span></div>
 <div class="body">
-<span class="k">Digital design · in-house</span>
+<span class="k">Creative technology · in-house</span>
 <h3>Legacy Housing</h3>
 <p>In-house digital design for a Nasdaq-listed manufactured housing company, working across print and web with sales, engineering and leadership.</p>
 <ul>
@@ -612,6 +615,26 @@
 <li>A published two-page ad in the Manufactured Housing Association of Oklahoma's 2026-2027 Membership Directory.</li>
 </ul>
 <p class="credit">Created by Carolina Cravens as Marketing Digital Designer at Legacy Housing Corporation. All rights belong to Legacy Housing Corporation. Shown for portfolio purposes only; no endorsement implied.</p>
+</div>
+</article>
+<article class="wk reveal">
+<div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>creativecravens.github.io/Abi-Caro</span><em class="live">Live</em></div>
+<a class="wk-shot" href="https://creativecravens.github.io/Abi-Caro/" target="_blank" rel="noopener"><img src="invite-abi-caro.webp" width="516" height="451" alt="Abi and Caro turn 30 invitation: green party bunting spelling their names above glowing candle numbers" loading="lazy" decoding="async"></a>
+<div class="body">
+<span class="k">Vibe coding &middot; Custom invitation</span>
+<h3>Abi &amp; Caro turn 30</h3>
+<p>A one-page birthday invitation for twin sisters, vibe-coded with AI and designed by hand: party bunting that spells their names, glowing candle numbers, a live countdown, one-tap map links and a clear what-to-bring list. Built to be opened from a text message on any phone.</p>
+<a class="go-link" href="https://creativecravens.github.io/Abi-Caro/" target="_blank" rel="noopener">Open the invitation &#8599;</a>
+</div>
+</article>
+<article class="wk reveal d-1">
+<div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>creativecravens.github.io/White-Elephant</span><em class="live">Live</em></div>
+<a class="wk-shot" href="https://creativecravens.github.io/White-Elephant/" target="_blank" rel="noopener"><img src="invite-white-elephant.webp" width="496" height="506" alt="White Elephant Gift Swap invitation designed as a gift tag on striped wrapping paper" loading="lazy" decoding="async"></a>
+<div class="body">
+<span class="k">Vibe coding &middot; Custom invitation</span>
+<h3>White Elephant Gift Swap</h3>
+<p>A holiday invitation dressed as a gift tag on striped wrapping paper, with a countdown, an add-to-calendar button, gift ideas under the price limit, the game rules step by step, directions and text-to-RSVP. Every section answers a question before a guest has to ask it.</p>
+<a class="go-link" href="https://creativecravens.github.io/White-Elephant/" target="_blank" rel="noopener">Open the invitation &#8599;</a>
 </div>
 </article>
 </div>
