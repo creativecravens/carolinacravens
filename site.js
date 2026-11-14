@@ -6,7 +6,7 @@ var $$ = function (s, c) { return Array.prototype.slice.call((c || document).que
 var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var conn = navigator.connection || {};
-var light = conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType || '');
+var light = conn.saveData === true || /(^|-)(2g|3g)$/.test(conn.effectiveType || '');
 var es = (document.documentElement.lang || 'en').slice(0, 2) === 'es';
 var hasIO = 'IntersectionObserver' in window;
 
@@ -128,6 +128,23 @@ else window.addEventListener('load', function () { setTimeout(startHero, 800); }
 if (show) watch(show, function () { if (!phone.classList.contains('user-paused')) playShow(); });
 }
 if (playBtn) playBtn.addEventListener('click', function () { phone.classList.remove('user-paused'); playShow(); });
+
+/* MEDALS: tap or click one and it catches the light. Works on touch and mouse,
+   costs no library, and sits out entirely when reduced motion is requested. */
+if (!reduce) {
+$$('.orig-medal').forEach(function (m) {
+m.setAttribute('tabindex', '0');
+m.setAttribute('role', 'button');
+m.setAttribute('aria-label', es ? 'Ver la medalla' : 'Light up the medal');
+var fire = function () {
+if (m.classList.contains('pop')) return;
+m.classList.add('pop');
+setTimeout(function () { m.classList.remove('pop'); }, 760);
+};
+m.addEventListener('click', fire);
+m.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fire(); } });
+});
+}
 if (pauseBtn) pauseBtn.addEventListener('click', function () {
 if (show.paused) { phone.classList.remove('user-paused'); playShow(); }
 else {
