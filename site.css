@@ -437,3 +437,5 @@ a.ct-card:hover { border-color: var(--blue); transform: translateY(-2px); box-sh
 .ct-steps b { color: var(--navy); }
 .ct-actions { display: grid; gap: .8rem; }
 .ct-actions .ct-send { margin-top: 0; text-align: center; word-break: break-word; }
+
+.ct-embed { margin-top: .4rem; border-radius: 14px; overflow: hidden; }
