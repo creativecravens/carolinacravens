@@ -124,16 +124,90 @@
 
 <div class="ct-form">
 <h2>Start a project</h2>
-<p class="ct-sub">Email or text me three things and I will come back with the cost, the timeline and the closest example from my own work.</p>
-<ol class="ct-steps">
-<li><b>What the business is</b> and who it serves.</li>
-<li><b>What you have now:</b> a link, a logo, photos, or nothing yet.</li>
-<li><b>What you need and when:</b> pick from the published prices if it helps.</li>
-</ol>
+<p class="ct-sub">Fill this in and I will come back with the cost, the timeline and the closest example from my own work. One business day, every time.</p>
+<form id="projectForm" novalidate>
+<label class="ct-hp" aria-hidden="true"><span>Leave this empty</span><input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
+
+<div class="ct-row">
+<label class="field"><span>Your name</span><input type="text" name="name" required autocomplete="name" placeholder="Carolina Cravens"></label>
+<label class="field"><span>Business</span><input type="text" name="business" required autocomplete="organization" placeholder="Name of your business"></label>
+</div>
+
+<div class="ct-row">
+<label class="field"><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@yourbusiness.com"></label>
+<label class="field"><span>Phone <i>(optional)</i></span><input type="tel" name="phone" autocomplete="tel" placeholder="For a text reply"></label>
+</div>
+
+<label class="field"><span>What you need</span>
+<select name="service" required>
+<option value="">Choose one</option>
+<optgroup label="Websites">
+<option data-key="wix">Wix or Squarespace build, $1,000 to $2,000</option>
+<option data-key="custom">Custom-coded site, $3,000 to $5,000</option>
+<option data-key="advanced">Custom site with advanced features, $6,000 to $9,000</option>
+<option>Website redesign, $3,000 to $8,000</option>
+<option>Landing page, $800 to $1,500</option>
+<option data-key="store">Online store, $4,000 to $12,000</option>
+<option>Website maintenance, $100 to $400 a month</option>
+</optgroup>
+<optgroup label="Brand and design">
+<option data-key="brand">Brand identity package, $1,500 to $5,000</option>
+<option>Logo design, $400 to $1,200</option>
+<option>Branding strategy, $1,000 to $3,500</option>
+<option>Packaging design, $500 to $2,000</option>
+<option>Presentation design, $400 to $1,500</option>
+<option>Print: flyers, brochures, posters, $250 to $700</option>
+<option>Custom digital invitation, $150</option>
+<option data-key="pet">Pet portrait</option>
+</optgroup>
+<optgroup label="Marketing and content">
+<option>Social media management, $500 to $1,200 a month</option>
+<option>Social media graphics, $250 to $750</option>
+<option>SEO optimization, $700 to $2,500</option>
+<option>Paid ads management, 15% of spend</option>
+<option>Email marketing campaign, $300 to $800</option>
+<option data-key="video">Photography or video, $500 to $2,500</option>
+</optgroup>
+<option data-key="other">Something else, or more than one thing</option>
+</select>
+</label>
+
+<div class="ct-row">
+<label class="field"><span>Budget</span>
+<select name="budget" required>
+<option value="">Choose a range</option>
+<option>Under $500</option>
+<option>$500 to $1,500</option>
+<option>$1,500 to $3,000</option>
+<option>$3,000 to $5,000</option>
+<option>$5,000 to $9,000</option>
+<option>$9,000 and up</option>
+<option>Not sure yet</option>
+</select>
+</label>
+<label class="field"><span>When you need it</span>
+<select name="timeline" required>
+<option value="">Choose a timeline</option>
+<option>Rush, under two weeks (adds 30% to 50%)</option>
+<option>Within a month</option>
+<option>One to three months</option>
+<option>Just planning for now</option>
+</select>
+</label>
+</div>
+
+<label class="field"><span>What you have now, and what you want</span><textarea name="message" required placeholder="A link to your current site, a logo, photos, or nothing yet. Tell me what the business does and who it serves."></textarea></label>
+
+<button type="submit" class="btn btn-primary ct-send" id="projectSend">Send this to Carolina <span class="arr">&#8599;</span></button>
+<div class="ct-alert" id="projectAlert" role="status" hidden></div>
+</form>
+
+<noscript>
 <div class="ct-actions">
-<a class="btn btn-primary ct-send" href="mailto:creativecravens@gmail.com?subject=New%20project&amp;body=Business%3A%0D%0AWhat%20I%20have%20now%3A%0D%0AWhat%20I%20need%3A%0D%0AWhen%20I%20need%20it%3A%0D%0A">Email creativecravens@gmail.com <span class="arr">&#8599;</span></a>
+<a class="btn btn-primary ct-send" href="mailto:creativecravens@gmail.com?subject=New%20project">Email creativecravens@gmail.com <span class="arr">&#8599;</span></a>
 <a class="btn btn-line ct-send" href="sms:+12084028409">Text (208) 402-8409 <span class="arr">&#8599;</span></a>
 </div>
+</noscript>
 <p class="ct-fine">Texts and emails get a reply within one business day. Your details are never sold, shared or added to a mailing list.</p>
 </div>
 
@@ -150,6 +224,82 @@
 <p class="foot-note">Client and employer work is shown for portfolio purposes only. All trademarks, logos, and brand names belong to their respective owners, and no endorsement is implied.</p>
 </div>
 </footer>
+<script>
+(function(){
+  /* Paste a Formspree (or similar) POST endpoint here and the form posts silently.
+     Leave it empty and the form opens a pre-filled email instead. */
+  var FORM_ENDPOINT = "";
+
+  var form = document.getElementById('projectForm');
+  if(!form) return;
+
+  /* Pre-select the service when arriving from a "Get a quote" link */
+  try {
+    var want = new URLSearchParams(window.location.search).get('s');
+    if(want){
+      var opt = form.querySelector('option[data-key="' + want.replace(/[^a-z]/g,'') + '"]');
+      if(opt){ opt.selected = true; }
+    }
+  } catch(err){}
+  var btn = document.getElementById('projectSend');
+  var alertBox = document.getElementById('projectAlert');
+
+  function say(html){ alertBox.innerHTML = html; alertBox.hidden = false; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(form.company_url && form.company_url.value) return;      /* honeypot */
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+
+    var d = new FormData(form);
+    var get = function(k){ return (d.get(k) || '').toString().trim(); };
+    var data = {
+      name: get('name'), business: get('business'), email: get('email'),
+      phone: get('phone'), service: get('service'), budget: get('budget'),
+      timeline: get('timeline'), message: get('message')
+    };
+
+    btn.disabled = true;
+
+    if(FORM_ENDPOINT){
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify(data)
+      }).then(function(r){
+        if(r.ok){ window.location.href = 'thank-you.html'; }
+        else { throw new Error('bad response'); }
+      }).catch(function(){
+        btn.disabled = false;
+        say('That did not go through. Please text <a href="sms:+12084028409">(208) 402-8409</a> or email <a href="mailto:creativecravens@gmail.com">creativecravens@gmail.com</a> and I will pick it up from there.');
+      });
+      return;
+    }
+
+    var body = [
+      'Name: ' + data.name,
+      'Business: ' + data.business,
+      'Email: ' + data.email,
+      'Phone: ' + (data.phone || 'not given'),
+      '',
+      'What I need: ' + data.service,
+      'Budget: ' + data.budget,
+      'Timeline: ' + data.timeline,
+      '',
+      'What I have now, and what I want:',
+      data.message
+    ].join('\r\n');
+
+    var href = 'mailto:creativecravens@gmail.com'
+      + '?subject=' + encodeURIComponent('New project: ' + data.business)
+      + '&body=' + encodeURIComponent(body);
+
+    window.location.href = href;
+    btn.disabled = false;
+    say('Your email app is opening with everything filled in. Press send and it reaches me directly. If nothing opened, <a href="' + href + '">tap here</a> or text <a href="sms:+12084028409">(208) 402-8409</a>.');
+  });
+})();
+</script>
 <script src="site.js" defer></script>
 </body>
 </html>
