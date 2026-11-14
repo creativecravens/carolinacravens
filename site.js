@@ -178,6 +178,16 @@ if (started) return; started = true;
 if (langBtn) { langBtn.textContent = es ? 'Cargando…' : 'Loading…'; langBtn.disabled = true; }
 var s = document.createElement('script');
 s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+/* If Google never answers, hand the visitor back a working control instead of a stuck "Loading" */
+var recover = function () {
+if (!langBtn || !document.body.contains(langBtn)) return;
+langBtn.disabled = false;
+langBtn.textContent = es ? 'English' : 'Espa\u00f1ol';
+langBtn.onclick = function () { window.location.href = es ? 'index.html' : 'es.html'; };
+started = false;
+};
+s.onerror = recover;
+setTimeout(function () { if (langBtn && langBtn.disabled) recover(); }, 6000);
 document.body.appendChild(s);
 }
 if (langBtn) {
