@@ -166,6 +166,35 @@
 }
 .spread::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 70px; transform: translateX(-50%); pointer-events: none; background: linear-gradient(90deg, transparent, rgba(0,0,0,.14) 42%, rgba(0,0,0,.3) 50%, rgba(0,0,0,.14) 58%, transparent); }
 .spread-zoom { position: absolute; left: 14px; bottom: 14px; font-family: var(--display); font-weight: 700; font-size: .74rem; padding: .5rem .85rem; border-radius: 999px; background: rgba(10,10,10,.75); color: #fff; }
+
+.device-sec { background: var(--paper); }
+.device-grid { display: grid; grid-template-columns: 1fr .85fr; gap: clamp(2.5rem, 5vw, 5rem); align-items: center; }
+.device-switch { display: inline-flex; gap: 4px; margin-top: 2rem; padding: 4px; border-radius: 999px; background: rgba(31,56,100,.08); }
+.dv-btn { appearance: none; border: 0; cursor: pointer; font-family: var(--display); font-weight: 700; font-size: .82rem; letter-spacing: -.01em; padding: .55rem 1.15rem; border-radius: 999px; background: transparent; color: var(--slate); transition: background .3s var(--ease), color .3s var(--ease); }
+.dv-btn.is-on { background: var(--navy); color: var(--white); }
+.device-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.4rem; }
+.dv-tab { appearance: none; cursor: pointer; font-family: var(--display); font-weight: 700; font-size: .8rem; padding: .6rem 1rem; border-radius: 999px; border: 1px solid var(--rule); background: var(--white); color: var(--ink); transition: border-color .3s var(--ease), transform .3s var(--ease); }
+.dv-tab:hover { transform: translateY(-2px); }
+.dv-tab[aria-selected="true"] { border-color: var(--navy); box-shadow: inset 0 0 0 1px var(--navy); }
+.dv-note { margin-top: 1.4rem; font-size: .8rem; line-height: 1.6; color: var(--slate); max-width: 46ch; }
+.device-stage { display: flex; justify-content: center; }
+.device { position: relative; width: 320px; height: 660px; border-radius: 42px; padding: 11px; background: #0e1116; box-shadow: 0 40px 80px -30px rgba(10,10,10,.6), inset 0 0 0 1px rgba(255,255,255,.08); transition: width .6s var(--ease), height .6s var(--ease), border-radius .6s var(--ease); }
+.device::after { content: ""; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 86px; height: 20px; border-radius: 999px; background: #0e1116; z-index: 2; transition: opacity .3s var(--ease); }
+.device-screen { position: relative; width: 100%; height: 100%; border-radius: 32px; overflow: hidden; background: var(--white); }
+.device-screen iframe { position: absolute; top: 0; left: 0; width: 390px; height: 844px; border: 0; transform-origin: top left; transform: scale(.763); }
+.device.is-desktop { width: 560px; height: 360px; border-radius: 14px; padding: 10px 10px 26px; }
+.device.is-desktop::after { opacity: 0; }
+.device.is-desktop .device-screen { border-radius: 6px; }
+.device.is-desktop .device-screen iframe { width: 1280px; height: 800px; transform: scale(.422); }
+.dv-loading { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: .78rem; color: var(--slate); background: var(--white); }
+@media (max-width: 900px) {
+.device-grid { grid-template-columns: 1fr; }
+.device-stage { margin-top: 2.5rem; }
+.device { width: min(300px, 82vw); height: min(620px, 168vw); }
+.device.is-desktop { width: min(340px, 92vw); height: min(220px, 60vw); }
+.device.is-desktop .device-screen iframe { transform: scale(.258); }
+.device-screen iframe { transform: scale(.715); }
+}
 .ad-modal { margin: auto; border: 0; padding: 0; background: transparent; overflow: visible; max-width: 96vw; max-height: 94vh; }
 .ad-modal::backdrop { background: rgba(10,10,10,.88); }
 .ad-pages { display: flex; max-height: 92vh; overflow: auto; border-radius: 8px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
@@ -337,6 +366,34 @@
 <span class="door-fig">$150 to $12,000</span>
 <span class="door-go">See the prices <i aria-hidden="true">&#8594;</i></span>
 </a>
+</div>
+</div>
+</section>
+
+
+<!-- ON A PHONE -->
+<section class="sec device-sec" id="on-phone">
+<div class="wrap device-grid">
+<div>
+<p class="kicker reveal">Mobile first</p>
+<h2 class="h2 reveal d-1">It has to work <em class="serif">in one hand.</em></h2>
+<p class="lead reveal d-2" style="margin-top:1.4rem;">Most people meet a business on a phone, outdoors, with one thumb. That is where I design first and where I test hardest. These are not screenshots. They are live sites I built, loading right now inside a real phone viewport.</p>
+<p class="lead reveal d-2" style="margin-top:1.2rem;">Switch to desktop and watch the same page reflow. One build, both screens, no separate mobile site.</p>
+<div class="device-switch reveal d-2" role="group" aria-label="Choose a screen size">
+<button type="button" class="dv-btn is-on" data-view="phone" aria-pressed="true">Phone</button>
+<button type="button" class="dv-btn" data-view="desktop" aria-pressed="false">Desktop</button>
+</div>
+<div class="device-tabs reveal d-2" role="tablist" aria-label="Choose a live site">
+<button type="button" class="dv-tab" role="tab" aria-selected="true" data-src="https://centrocolonapts.com">Apts. Centro Colon</button>
+<button type="button" class="dv-tab" role="tab" aria-selected="false" data-src="https://creativecravens.com/tienda.html">WhatsApp store</button>
+<button type="button" class="dv-tab" role="tab" aria-selected="false" data-src="https://creativecravens.com/es.html">This site, in Spanish</button>
+</div>
+<p class="dv-note reveal">Live pages, so they behave exactly as a visitor would find them. Scroll and tap inside the frame.</p>
+</div>
+<div class="device-stage reveal d-1">
+<div class="device" id="device">
+<div class="device-screen"><div class="dv-loading" id="dvLoading">Loading the live site</div><iframe id="dvFrame" title="Live preview of a website built by Carolina Cravens" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></div>
+</div>
 </div>
 </div>
 </section>
@@ -570,6 +627,47 @@
 </div>
 </footer>
 
+
+<script>
+(function () {
+  var frame = document.getElementById('dvFrame'), device = document.getElementById('device'),
+      loading = document.getElementById('dvLoading'), stage = document.getElementById('on-phone');
+  if (!frame || !device || !stage) return;
+  var tabs = stage.querySelectorAll('.dv-tab'), views = stage.querySelectorAll('.dv-btn'), started = false;
+  function load(src) {
+    if (loading) loading.style.display = 'grid';
+    frame.src = src;
+  }
+  frame.addEventListener('load', function () { if (loading) loading.style.display = 'none'; });
+  function start() {
+    if (started) return;
+    started = true;
+    load(tabs[0].getAttribute('data-src'));
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { start(); io.disconnect(); } });
+    }, { rootMargin: '200px' });
+    io.observe(stage);
+  } else { start(); }
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (o) { o.setAttribute('aria-selected', 'false'); });
+      t.setAttribute('aria-selected', 'true');
+      started = true;
+      load(t.getAttribute('data-src'));
+    });
+  });
+  views.forEach(function (v) {
+    v.addEventListener('click', function () {
+      views.forEach(function (o) { o.classList.remove('is-on'); o.setAttribute('aria-pressed', 'false'); });
+      v.classList.add('is-on');
+      v.setAttribute('aria-pressed', 'true');
+      device.classList.toggle('is-desktop', v.getAttribute('data-view') === 'desktop');
+    });
+  });
+})();
+</script>
 <script>
 (function () {
 var s = document.getElementById('spread'), d = document.getElementById('adModal');
