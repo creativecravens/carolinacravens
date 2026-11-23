@@ -235,6 +235,10 @@
 .rate-note { margin-top: 1.4rem; font-size: .84rem; line-height: 1.7; color: var(--slate); max-width: 68ch; }
 
 .consult { background: var(--ink); color: var(--white); overflow: hidden; }
+.svc-hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.svc-hero-grid > div { min-width: 0; }
+.svc-hero-photo { margin: 0; }
+.svc-hero-photo img { display: block; width: 100%; height: auto; border-radius: 24px; box-shadow: 0 24px 60px rgba(0,0,0,.45); }
 .consult-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
 .consult-fig { position: relative; justify-self: center; width: min(100%, 300px); }
 .consult-fig img { width: 100%; height: auto; display: block; }
@@ -259,6 +263,8 @@
 
 @media (max-width: 900px) {
 .consult-grid, .who-grid { grid-template-columns: 1fr; }
+.svc-hero-grid { grid-template-columns: 1fr; }
+.svc-hero-photo { max-width: 420px; }
 .who-cols { grid-template-columns: 1fr; }
 .rate-row { grid-template-columns: 1fr; }
 .rate-row .fig { text-align: left; } .rate-row .fig small { text-align: left; }
@@ -288,7 +294,8 @@
 <main id="main">
 
 <section class="sec cs-hero grain on-dark" style="padding-top:clamp(7rem,14vw,10rem);padding-bottom:clamp(2.5rem,5vw,4rem);background:var(--ink);color:var(--white);overflow:hidden">
-<div class="wrap">
+<div class="wrap svc-hero-grid">
+<div>
 <p class="kicker reveal">Web design services &middot; Dallas-Fort Worth &amp; Costa Rica</p>
 <h1 class="h2 reveal d-1" style="color:var(--white);max-width:18ch">Web design, <em class="serif">priced openly.</em></h1>
 <p class="lead reveal d-2" style="color:rgba(255,255,255,.72);max-width:60ch">A template gives you the same site as thousands of other businesses. I design and build yours myself. Nine years of brand and web work, for clients from global luxury houses to the shop down the road. Tell me what you need and I'll send a fixed quote within 48 hours. The price we agree is the price you pay.</p>
@@ -296,6 +303,8 @@
 <a href="#pricing" class="btn btn-primary magnetic">See pricing <span class="arr">&#8595;</span></a>
 <a href="creative-technologist.html" class="btn btn-ghost magnetic">See the work <span class="arr">&#8599;</span></a>
 </div>
+</div>
+<figure class="svc-hero-photo reveal d-2"><img src="carolina-studio-1000.webp" srcset="carolina-studio-600.webp 600w, carolina-studio-1000.webp 1000w" sizes="(max-width: 900px) 86vw, 400px" width="1000" height="1250" alt="Carolina Cravens at her desk, smiling, with website wireframes on the screens behind her" fetchpriority="high" decoding="async"></figure>
 </div>
 </section>
 
