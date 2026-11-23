@@ -323,7 +323,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.45); border-top: 1px s
 .nav.menu-open { background: #0A0A0A; }
 .hero { padding-top: 6.5rem; }
 .hero-grid { grid-template-columns: 1fr; }
-.stage-wrap { justify-self: center; max-width: 380px; margin-top: 3.5rem; }
+.stage-wrap { justify-self: center; max-width: 380px; margin-top: 8rem; }
 .chip-1 { left: -4%; } .chip-2 { right: -4%; } .chip-3 { left: -3%; }
 .badge { right: -10px; bottom: -18px; width: 98px; height: 98px; }
 .sec-head, .case-grid, .show-grid, .about-grid { grid-template-columns: 1fr; }
