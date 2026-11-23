@@ -239,6 +239,8 @@ table.record-tbl td small { display: block; margin-top: .25rem; font-size: .76re
 
 /* STATEMENT */
 .statement-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: start; }
+.statement-portrait { margin: 0 0 2.5rem; padding: .6rem; border: 1px solid rgba(184,150,90,.35); }
+.statement-portrait img { display: block; width: 100%; height: auto; aspect-ratio: 1056 / 1490; object-fit: cover; }
 .statement-marker { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--gold), transparent); margin-bottom: 2rem; }
 .statement-quote { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 300; font-style: italic; line-height: 1.5; margin-bottom: 2rem; }
 .statement-quote::before { content: '\201C'; display: block; font-size: 4rem; line-height: .8; color: rgba(184,150,90,.35); font-style: normal; margin-bottom: .5rem; }
@@ -308,6 +310,7 @@ nav { padding: 1.2rem 1.5rem; position: relative; flex-wrap: wrap; }
 .recog-grid, .exh-grid { grid-template-columns: 1fr; }
 .art-grid { grid-template-columns: repeat(2, 1fr); }
 .statement-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+.statement-portrait { max-width: 360px; }
 .gallery-header { flex-direction: column; align-items: flex-start; }
 .exh-card { padding: 2rem 1.5rem; }
 footer { flex-direction: column; padding: 1.5rem; text-align: center; }
@@ -561,6 +564,7 @@ body{top:0!important;}
 <section class="statement-section">
 <div class="statement-inner">
 <div class="reveal">
+<figure class="statement-portrait"><img src="carolina-artist-900.webp" srcset="carolina-artist-560.webp 560w, carolina-artist-900.webp 900w" sizes="(max-width: 900px) 86vw, 320px" width="1056" height="1490" alt="Carolina Cravens, artist, smiling at a table in a sunlit studio with paintbrushes and an abstract painting behind her" loading="lazy" decoding="async"></figure>
 <div class="statement-marker"></div>
 <p class="statement-quote">Art has always been my first language. Design came after, but painting never left.</p>
 <div class="statement-sig">Carolina Cravens</div>
